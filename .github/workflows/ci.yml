@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# NOTE: Committed ready-to-run but never executed — no remote exists yet
+# (MVP-001 input E-2). Replace ORG below and verify on first push.
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: awqaf-holdings-website
+
+    services:
+      postgres:
+        image: postgres:18-alpine
+        env:
+          POSTGRES_USER: sail
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: testing
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U sail"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      DB_CONNECTION: pgsql
+      DB_HOST: 127.0.0.1
+      DB_PORT: 5432
+      DB_DATABASE: testing
+      DB_USERNAME: sail
+      DB_PASSWORD: password
+
+    steps:
+      # Checked out as siblings so the Vite alias (../awqaf-design-system
+      # relative to the app root) resolves as on developer machines.
+      - uses: actions/checkout@v4
+        with:
+          path: awqaf-holdings-website
+
+      - uses: actions/checkout@v4
+        with:
+          repository: ORG/awqaf-design-system   # TODO: set org (input E-2)
+          path: awqaf-design-system
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.5'
+          extensions: mbstring, pdo_pgsql, intl, zip, gd
+          coverage: none
+
+      - name: Install composer dependencies
+        run: composer install --prefer-dist --no-progress --no-interaction
+
+      - name: Prepare environment
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      - name: Run test suite
+        run: php artisan test
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Build frontend
+        run: |
+          npm ci
+          npm run build
