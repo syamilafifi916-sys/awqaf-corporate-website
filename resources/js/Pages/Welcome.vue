@@ -130,7 +130,7 @@ const timeline = [
 </script>
 
 <template>
-    <Head title="AWQAF Holdings Berhad" />
+    <Head title="Waqaf Korporat untuk Kelestarian Ummah" />
 
     <PublicLayout>
         <section class="relative overflow-hidden bg-slate-950">
