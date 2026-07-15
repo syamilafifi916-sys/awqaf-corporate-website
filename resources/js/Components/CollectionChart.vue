@@ -32,7 +32,7 @@ const formatRm = (value) => 'RM ' + Number(value).toLocaleString('en-MY');
             <div class="text-[10px] font-normal opacity-70">{{ data[active].year }}</div>
         </div>
 
-        <div class="flex items-end gap-2 overflow-x-auto pb-2 sm:gap-4" role="img" :aria-label="`Carta kutipan wakaf tahunan dari ${data[0].year} hingga ${data[data.length - 1].year}`">
+        <div class="flex items-end gap-2 overflow-x-auto pb-2 sm:gap-4" role="group" :aria-label="`Carta kutipan wakaf tahunan dari ${data[0].year} hingga ${data[data.length - 1].year}`">
             <button
                 v-for="(c, i) in data"
                 :key="c.year"
@@ -52,7 +52,7 @@ const formatRm = (value) => 'RM ' + Number(value).toLocaleString('en-MY');
                     ]"
                     :style="{ height: barHeight(c.amount) + 'px' }"
                 ></div>
-                <span class="text-[10px] font-medium" :class="dark ? 'text-slate-400' : 'text-slate-500'">
+                <span class="text-[10px] font-medium" :class="dark ? 'text-slate-300' : 'text-slate-500'">
                     '{{ String(c.year).slice(2) }}
                 </span>
             </button>

@@ -221,7 +221,7 @@ onBeforeUnmount(() => {
 
                     <nav class="flex-1 px-3 py-4" aria-label="Navigasi utama mudah alih">
                         <template v-for="menu in menus" :key="menu.label">
-                            <p class="px-3 pb-1 pt-3 text-xs font-semibold uppercase tracking-wider text-slate-400">
+                            <p class="px-3 pb-1 pt-3 text-xs font-semibold uppercase tracking-wider text-slate-500">
                                 {{ menu.label }}
                             </p>
                             <Link
@@ -298,7 +298,7 @@ onBeforeUnmount(() => {
                 </div>
             </div>
 
-            <div class="border-t border-slate-200 px-6 py-6 text-center text-xs text-slate-400 lg:px-8">
+            <div class="border-t border-slate-200 px-6 py-6 text-center text-xs text-slate-500 lg:px-8">
                 © {{ new Date().getFullYear() }} AWQAF Holdings Berhad. Hak cipta terpelihara.
             </div>
         </footer>

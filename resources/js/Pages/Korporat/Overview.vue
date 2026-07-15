@@ -84,7 +84,7 @@ import { Head, Link } from '@inertiajs/vue3';
                             "500 Muslim Paling Berpengaruh di Dunia" selama dua tahun berturut-turut pada 2016 dan
                             2017.
                         </p>
-                        <p class="text-slate-400">
+                        <p class="text-slate-300">
                             Beliau kembali ke Rahmatullah pada 31 Oktober 2017. Al-Fatihah.
                         </p>
                     </div>

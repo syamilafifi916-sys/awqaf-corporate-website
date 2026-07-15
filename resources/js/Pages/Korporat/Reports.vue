@@ -45,7 +45,7 @@ const formatRm = (value) => 'RM ' + Number(value).toLocaleString('en-MY');
 
                 <div class="mt-8 flex items-end gap-3 overflow-x-auto pb-2">
                     <div v-for="c in collections" :key="c.year" class="flex flex-1 flex-col items-center gap-2">
-                        <span class="text-[10px] text-slate-400">{{ formatRm(c.amount) }}</span>
+                        <span class="text-[10px] text-slate-500">{{ formatRm(c.amount) }}</span>
                         <div
                             class="w-full min-w-[28px] rounded-t-md bg-emerald-600"
                             :style="{ height: barHeight(c.amount) + 'px' }"

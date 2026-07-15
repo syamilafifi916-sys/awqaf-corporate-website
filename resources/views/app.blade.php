@@ -10,10 +10,18 @@
         <meta name="description" content="{{ $seo['description'] }}">
         <link rel="canonical" href="{{ $seo['canonical'] }}">
 
+        <link rel="icon" href="/favicon.ico" sizes="32x32">
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <meta name="theme-color" content="#047857">
+
         <meta property="og:type" content="{{ $seo['type'] }}">
+        <meta property="og:locale" content="ms_MY">
         <meta property="og:title" content="{{ $seo['title'] }}">
         <meta property="og:description" content="{{ $seo['description'] }}">
         <meta property="og:image" content="{{ $seo['image'] }}">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
         <meta property="og:url" content="{{ $seo['canonical'] }}">
         <meta property="og:site_name" content="{{ config('app.name') }}">
 

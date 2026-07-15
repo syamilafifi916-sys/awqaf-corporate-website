@@ -118,3 +118,36 @@ Route::get('/sitemap.xml', function () {
 
     return $sitemap->toResponse(request());
 });
+
+// Dynamic robots.txt — sitemap URL always matches the deployed domain
+// (a static public/robots.txt would hard-code the wrong host per environment).
+Route::get('/robots.txt', function () {
+    $body = implode("\n", [
+        'User-agent: *',
+        'Allow: /',
+        'Disallow: /admin',          // Filament staff panel — never index
+        'Disallow: /admin/*',
+        '',
+        'Sitemap: '.url('/sitemap.xml'),
+        '',
+    ]);
+
+    return response($body, 200, ['Content-Type' => 'text/plain']);
+});
+
+// ── Legacy awqaf.com.my → awqaf.my path redirects (301) ──────────────
+// The primary domain redirect (awqaf.com.my → awqaf.my) is configured at
+// the DNS/CDN layer per RELEASE-003. These in-app rules catch legacy PATHS
+// forwarded to the new host so old bookmarks/search results land correctly.
+// Only paths confirmed against the legacy site are mapped; complete the rest
+// from the legacy sitemap/Search Console export before cutover (RELEASE-003
+// DNS Cutover Checklist), then add them here.
+$legacyRedirects = [
+    'info-awqaf/waqaf-korporat' => 'waqaf.corporate',
+    'info-awqaf/ciri-ciri-waqaf-korporat' => 'waqaf.corporate',
+    'info-awqaf/kaedah-berwakaf' => 'waqaf.howto',
+    'info-awqaf/kategori-pewakaf' => 'waqaf.categories',
+];
+foreach ($legacyRedirects as $old => $routeName) {
+    Route::get('/'.$old, fn () => redirect()->route($routeName, [], 301));
+}

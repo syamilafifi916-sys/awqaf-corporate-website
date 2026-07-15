@@ -87,7 +87,7 @@ const characteristics = [
                         eksklusif. Hasil keuntungan yang dijana kekal sebagai aset wakaf kekal, sebahagiannya
                         disalurkan kepada program kebajikan untuk manfaat masyarakat.
                     </p>
-                    <p class="text-sm text-slate-400">
+                    <p class="text-sm text-slate-300">
                         "Waqaf Korporat®" merupakan konsep yang didaftarkan sebagai harta intelek dan dilesenkan
                         khusus kepada AWQAF Holdings Berhad.
                     </p>
@@ -111,7 +111,7 @@ const characteristics = [
                     :key="item.title"
                     class="relative rounded-2xl border border-slate-100 p-6 transition hover:border-emerald-200 hover:shadow-md"
                 >
-                    <span class="text-xs font-bold text-slate-200">0{{ i + 1 }}</span>
+                    <span class="text-xs font-bold text-slate-500">0{{ i + 1 }}</span>
                     <div class="mt-2 flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700">
                         <component :is="item.icon" class="h-6 w-6" />
                     </div>

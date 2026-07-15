@@ -89,7 +89,7 @@ const tiers = [
                 </div>
             </div>
 
-            <p class="mt-10 text-center text-sm text-slate-400">
+            <p class="mt-10 text-center text-sm text-slate-500">
                 Taburan ahli mengikut Laporan Tahunan 2024. Jumlah wakaf terkumpul dan tahap keahlian anda
                 boleh disemak bila-bila masa menerusi Portal Pewakaf.
             </p>

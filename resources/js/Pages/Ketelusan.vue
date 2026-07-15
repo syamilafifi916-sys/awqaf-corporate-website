@@ -155,18 +155,18 @@ const committees = [
 
             <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div class="rounded-2xl border border-dashed border-slate-200 p-8">
-                    <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-50 text-slate-400">
+                    <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-50 text-slate-500">
                         <ShieldCheckIcon class="h-6 w-6" />
                     </div>
                     <h3 class="mt-4 font-semibold text-slate-900">Penasihat Syariah</h3>
-                    <p class="mt-2 text-sm text-slate-400">Akan disahkan oleh pihak pengurusan AWQAF.</p>
+                    <p class="mt-2 text-sm text-slate-500">Akan disahkan oleh pihak pengurusan AWQAF.</p>
                 </div>
                 <div class="rounded-2xl border border-dashed border-slate-200 p-8">
-                    <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-50 text-slate-400">
+                    <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-50 text-slate-500">
                         <DocumentCheckIcon class="h-6 w-6" />
                     </div>
                     <h3 class="mt-4 font-semibold text-slate-900">Juruaudit Luar</h3>
-                    <p class="mt-2 text-sm text-slate-400">Akan disahkan oleh pihak pengurusan AWQAF.</p>
+                    <p class="mt-2 text-sm text-slate-500">Akan disahkan oleh pihak pengurusan AWQAF.</p>
                 </div>
             </div>
 

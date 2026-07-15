@@ -204,9 +204,9 @@ const timeline = [
                         <div class="mt-2 text-xs text-slate-500">{{ stat.label }}</div>
                     </div>
                 </div>
-                <p class="mt-8 text-center text-xs text-slate-400">
+                <p class="mt-8 text-center text-xs text-slate-500">
                     Berdasarkan Laporan Tahunan 2024 yang diaudit — lihat
-                    <Link :href="route('korporat.reports')" class="text-emerald-700 hover:underline">Laporan Tahunan &amp; Penyata Kewangan</Link>
+                    <Link :href="route('korporat.reports')" class="text-emerald-700 underline decoration-emerald-700/40 underline-offset-2 hover:decoration-emerald-700">Laporan Tahunan &amp; Penyata Kewangan</Link>
                     penuh.
                 </p>
             </div>
@@ -222,7 +222,7 @@ const timeline = [
 
             <div class="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-8 px-6 lg:grid-cols-3 lg:px-8">
                 <div class="rounded-2xl border border-slate-100 p-8">
-                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Idea</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Idea</span>
                     <h3 class="mt-3 text-lg font-semibold text-slate-900">Wakaf sebagai instrumen ekonomi</h3>
                     <p class="mt-3 text-sm leading-relaxed text-slate-600">
                         Allahyarham Tan Sri Muhammad Ali Hashim percaya wakaf bukan sekadar amal — ia boleh menjadi
@@ -233,7 +233,7 @@ const timeline = [
                 </div>
 
                 <div class="rounded-2xl border border-emerald-100 bg-emerald-50/50 p-8">
-                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Institusi</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">Institusi</span>
                     <h3 class="mt-3 text-lg font-semibold text-slate-900">WANCorp, 1998 → hampir RM800 juta</h3>
                     <p class="mt-3 text-sm leading-relaxed text-slate-600">
                         Idea itu dibuktikan menerusi Waqaf An-Nur Corporation Berhad — institusi wakaf korporat
@@ -243,7 +243,7 @@ const timeline = [
                 </div>
 
                 <div class="rounded-2xl border border-slate-100 p-8">
-                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Gerakan</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Gerakan</span>
                     <h3 class="mt-3 text-lg font-semibold text-slate-900">AWQAF meneruskan warisan</h3>
                     <p class="mt-3 text-sm leading-relaxed text-slate-600">
                         Wakaf Korporat® kini konsep berdaftar yang dilesenkan kepada AWQAF Holdings Berhad —
@@ -313,7 +313,7 @@ const timeline = [
                     <div>
                         <p class="text-sm font-semibold uppercase tracking-wider text-emerald-400">Ketelusan Kewangan</p>
                         <h2 class="mt-3 text-3xl font-bold text-white">11 tahun kutipan wakaf, direkod dan didedahkan.</h2>
-                        <p class="mt-4 text-sm text-slate-400">
+                        <p class="mt-4 text-sm text-slate-300">
                             Kami paparkan data sebenar — termasuk tahun mencabar — kerana ketelusan adalah asas
                             kepercayaan pewakaf. Setiap angka disahkan menerusi Penyata Kewangan Diaudit tahunan.
                         </p>
@@ -434,7 +434,7 @@ const timeline = [
                             </div>
                             <div class="text-right">
                                 <div class="text-lg font-bold text-slate-900">{{ program.stat }}</div>
-                                <div class="text-[10px] uppercase tracking-wide text-slate-400">{{ program.statLabel }}</div>
+                                <div class="text-[10px] uppercase tracking-wide text-slate-500">{{ program.statLabel }}</div>
                             </div>
                         </div>
                         <div class="mt-4 text-xl font-semibold text-emerald-700">{{ program.name }}</div>
@@ -460,11 +460,11 @@ const timeline = [
                     :key="category.title"
                     class="rounded-2xl border border-dashed border-slate-200 bg-slate-50/50 p-6"
                 >
-                    <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-slate-400 shadow-sm">
+                    <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-slate-500 shadow-sm">
                         <component :is="category.icon" class="h-6 w-6" />
                     </div>
                     <h3 class="mt-4 font-semibold text-slate-700">{{ category.title }}</h3>
-                    <p class="mt-2 text-xs text-slate-400">Akan dikemaskini oleh pihak AWQAF.</p>
+                    <p class="mt-2 text-xs text-slate-500">Akan dikemaskini oleh pihak AWQAF.</p>
                 </div>
             </div>
         </section>
@@ -484,8 +484,8 @@ const timeline = [
                     <span class="h-2.5 w-2.5 rounded-full bg-slate-300"></span>
                     <span class="h-2.5 w-2.5 rounded-full bg-slate-300"></span>
                     <span class="h-2.5 w-2.5 rounded-full bg-slate-300"></span>
-                    <span class="ml-3 text-xs text-slate-400">portal.awqaf.com.my</span>
-                    <span class="ml-auto rounded-full bg-slate-200 px-2 py-0.5 text-[10px] font-medium text-slate-500">Paparan Contoh</span>
+                    <span class="ml-3 text-xs text-slate-500">member.awqaf.my</span>
+                    <span class="ml-auto rounded-full bg-slate-200 px-2 py-0.5 text-[10px] font-medium text-slate-600">Paparan Contoh</span>
                 </div>
                 <div class="bg-slate-900 p-6 sm:p-8">
                     <div class="grid grid-cols-1 gap-6 sm:grid-cols-5 sm:items-center">
@@ -496,19 +496,19 @@ const timeline = [
                         </div>
                         <div class="grid grid-cols-2 gap-4 sm:col-span-3">
                             <div class="rounded-xl bg-white/5 p-4">
-                                <div class="text-[10px] uppercase tracking-wide text-slate-400">Resit</div>
+                                <div class="text-[10px] uppercase tracking-wide text-slate-300">Resit</div>
                                 <div class="mt-2 text-sm font-semibold text-white">Muat Turun Segera</div>
                             </div>
                             <div class="rounded-xl bg-white/5 p-4">
-                                <div class="text-[10px] uppercase tracking-wide text-slate-400">Penyata Tahunan</div>
+                                <div class="text-[10px] uppercase tracking-wide text-slate-300">Penyata Tahunan</div>
                                 <div class="mt-2 text-sm font-semibold text-white">Ringkasan Peribadi</div>
                             </div>
                             <div class="rounded-xl bg-white/5 p-4">
-                                <div class="text-[10px] uppercase tracking-wide text-slate-400">Sijil Keahlian</div>
+                                <div class="text-[10px] uppercase tracking-wide text-slate-300">Sijil Keahlian</div>
                                 <div class="mt-2 text-sm font-semibold text-white">Digital &amp; Rasmi</div>
                             </div>
                             <div class="rounded-xl bg-white/5 p-4">
-                                <div class="text-[10px] uppercase tracking-wide text-slate-400">Ringkasan Impak</div>
+                                <div class="text-[10px] uppercase tracking-wide text-slate-300">Ringkasan Impak</div>
                                 <div class="mt-2 text-sm font-semibold text-white">Peribadi &amp; Telus</div>
                             </div>
                         </div>
@@ -533,7 +533,7 @@ const timeline = [
                 <div class="mx-auto max-w-2xl text-center">
                     <p class="text-sm font-semibold uppercase tracking-wider text-emerald-400">Hala Tuju Strategik</p>
                     <h2 class="mt-3 text-3xl font-bold text-white">AWQAF 2035</h2>
-                    <p class="mt-4 text-slate-400">
+                    <p class="mt-4 text-slate-500">
                         Membina di atas momentum sedia ada — bergerak ke arah wakaf korporat yang lebih inklusif,
                         digital dan mampan untuk generasi akan datang.
                     </p>
@@ -555,7 +555,7 @@ const timeline = [
                             <component :is="theme.icon" class="h-6 w-6" />
                         </div>
                         <h3 class="mt-4 font-semibold text-white">{{ theme.title }}</h3>
-                        <p class="mt-2 text-sm text-slate-400">{{ theme.body }}</p>
+                        <p class="mt-2 text-sm text-slate-300">{{ theme.body }}</p>
                     </div>
                 </div>
             </div>
