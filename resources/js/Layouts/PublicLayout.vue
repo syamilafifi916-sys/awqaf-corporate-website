@@ -1,18 +1,78 @@
 <script setup>
 import { Link, router, usePage } from '@inertiajs/vue3';
-import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue';
+import { ChevronDownIcon } from '@heroicons/vue/20/solid';
+import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue';
 
 const page = usePage();
 
-// Locked corporate navigation (Finalisation Mode).
-const navLinks = [
-    { label: 'Mengenai AWQAF', href: () => route('korporat.overview') },
-    { label: 'Wakaf Korporat', href: () => route('waqaf.corporate') },
-    { label: 'Program & Inisiatif', href: () => route('program.index') },
-    { label: 'Laporan & Tadbir Urus', href: () => route('ketelusan') },
-    { label: 'Berita', href: () => route('berita') },
-    { label: 'Hubungi Kami', href: () => route('hubungi') },
-];
+// ── Primary navigation (Refinement Pass) ─────────────────────────────
+// Five focused top-level items + the Portal Pewakaf action. Grouped items
+// expose an accessible dropdown on desktop and an indented section in the
+// mobile drawer. Pages that leave the top level (Lembaga Pengarah, Tadbir
+// Urus, Berita, Hubungi, Laporan) still exist — they live inside a group.
+const overview = computed(() => route('korporat.overview'));
+
+const navGroups = computed(() => [
+    {
+        label: 'Mengenai AWQAF',
+        href: overview.value,
+        children: [
+            { label: 'Profil AWQAF', href: overview.value },
+            { label: 'Pengasas', href: route('korporat.founder') },
+            { label: 'Informasi Korporat', href: `${overview.value}#informasi` },
+            { label: 'Visi & Misi', href: `${overview.value}#visi` },
+            { label: 'Lembaga Pengarah', href: route('korporat.leadership.index') },
+            { label: 'Tadbir Urus', href: `${overview.value}#tadbir` },
+            { label: 'Berita', href: route('berita') },
+            { label: 'Hubungi Kami', href: route('hubungi') },
+        ],
+    },
+    { label: 'Wakaf Korporat', href: route('waqaf.corporate') },
+    {
+        label: 'Portfolio Pelaburan',
+        href: route('portfolio.index'),
+        children: [
+            { label: 'Pendidikan', href: route('portfolio.show', 'pendidikan') },
+            { label: 'Kesihatan & Kesejahteraan', href: route('portfolio.show', 'kesihatan-kesejahteraan') },
+            { label: 'Hartanah', href: route('portfolio.show', 'hartanah') },
+            { label: 'Fintech', href: route('portfolio.show', 'fintech') },
+        ],
+    },
+    {
+        label: 'Program & Inisiatif',
+        href: route('program.index'),
+        children: [
+            { label: 'Yayasan ZuriatCARE', href: route('program.show', 'yayasan-zuriatcare') },
+            { label: 'EduWAQF', href: route('program.show', 'eduwaqf') },
+            { label: 'AWQAF4Health', href: route('program.show', 'awqaf4health') },
+        ],
+    },
+    {
+        label: 'Muat Turun',
+        href: route('korporat.reports'),
+        children: [
+            { label: 'Laporan Tahunan', href: route('korporat.reports') },
+            { label: 'Penyata Kewangan', href: route('korporat.reports') },
+            { label: 'Dokumen Korporat', href: route('ketelusan') },
+        ],
+    },
+]);
+
+// ── Desktop dropdowns (one open at a time; hover + keyboard) ──────────
+const openLabel = ref(null);
+const slug = (label) => label.toLowerCase().replace(/[^a-z]+/g, '-');
+
+const openMenu = (label) => (openLabel.value = label);
+const closeMenu = (label) => {
+    if (openLabel.value === label) openLabel.value = null;
+};
+const onGroupFocusout = (label, event) => {
+    // Close only when focus leaves the group entirely.
+    if (!event.currentTarget.contains(event.relatedTarget)) closeMenu(label);
+};
+const onGroupKeydown = (label, event) => {
+    if (event.key === 'Escape') closeMenu(label);
+};
 
 // ── Accessible mobile menu (VISUAL-001 CON-1) ────────────────────────
 const mobileOpen = ref(false);
@@ -33,7 +93,6 @@ const onKeydown = (event) => {
     }
     if (event.key !== 'Tab') return;
 
-    // Focus trap: keep Tab focus inside the open panel.
     const items = focusables();
     if (items.length === 0) return;
     const first = items[0];
@@ -68,9 +127,9 @@ const toggleMobile = () => (mobileOpen.value ? closeMobile() : openMobile());
 
 let stopNavigate;
 onMounted(() => {
-    // Close the menu whenever an in-app navigation starts.
     stopNavigate = router.on('start', () => {
         if (mobileOpen.value) closeMobile();
+        openLabel.value = null;
     });
 });
 onBeforeUnmount(() => {
@@ -88,15 +147,54 @@ onBeforeUnmount(() => {
                     <img src="/images/brand/awqaf-symbol.png" alt="AWQAF Holdings Berhad" class="h-9 w-auto sm:h-11" />
                 </Link>
 
-                <nav class="hidden items-center gap-1 lg:flex">
-                    <Link
-                        v-for="link in navLinks"
-                        :key="link.label"
-                        :href="link.href()"
-                        class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                <nav class="hidden items-center gap-0.5 lg:flex" aria-label="Navigasi utama">
+                    <div
+                        v-for="group in navGroups"
+                        :key="group.label"
+                        class="relative"
+                        @mouseenter="group.children && openMenu(group.label)"
+                        @mouseleave="group.children && closeMenu(group.label)"
+                        @focusout="group.children && onGroupFocusout(group.label, $event)"
+                        @keydown="group.children && onGroupKeydown(group.label, $event)"
                     >
-                        {{ link.label }}
-                    </Link>
+                        <Link
+                            :href="group.href"
+                            class="inline-flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                            :aria-haspopup="group.children ? 'true' : undefined"
+                            :aria-expanded="group.children ? (openLabel === group.label ? 'true' : 'false') : undefined"
+                            :aria-controls="group.children ? `menu-${slug(group.label)}` : undefined"
+                        >
+                            {{ group.label }}
+                            <ChevronDownIcon v-if="group.children" class="h-4 w-4 text-slate-400" aria-hidden="true" />
+                        </Link>
+
+                        <Transition
+                            enter-active-class="transition duration-150 ease-out"
+                            enter-from-class="opacity-0 translate-y-1"
+                            enter-to-class="opacity-100 translate-y-0"
+                            leave-active-class="transition duration-100 ease-in"
+                            leave-from-class="opacity-100"
+                            leave-to-class="opacity-0"
+                        >
+                            <div
+                                v-if="group.children"
+                                v-show="openLabel === group.label"
+                                :id="`menu-${slug(group.label)}`"
+                                class="absolute left-0 top-full z-50 min-w-[15rem] pt-2"
+                            >
+                                <div class="overflow-hidden rounded-xl border border-slate-100 bg-white py-2 shadow-lg shadow-slate-900/5 ring-1 ring-slate-900/5">
+                                    <Link
+                                        v-for="child in group.children"
+                                        :key="child.label"
+                                        :href="child.href"
+                                        class="block px-4 py-2 text-sm text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 focus-visible:bg-emerald-50 focus-visible:text-emerald-700 focus-visible:outline-none"
+                                    >
+                                        {{ child.label }}
+                                    </Link>
+                                </div>
+                            </div>
+                        </Transition>
+                    </div>
                 </nav>
 
                 <div class="flex items-center gap-3">
@@ -164,14 +262,24 @@ onBeforeUnmount(() => {
                     </div>
 
                     <nav class="flex-1 px-3 py-4" aria-label="Navigasi utama mudah alih">
-                        <Link
-                            v-for="link in navLinks"
-                            :key="link.label"
-                            :href="link.href()"
-                            class="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-emerald-50 hover:text-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
-                        >
-                            {{ link.label }}
-                        </Link>
+                        <div v-for="group in navGroups" :key="group.label" class="mb-2">
+                            <Link
+                                :href="group.href"
+                                class="block rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-900 transition hover:bg-emerald-50 hover:text-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                            >
+                                {{ group.label }}
+                            </Link>
+                            <div v-if="group.children" class="mt-0.5 space-y-0.5 border-l border-slate-100 pl-3">
+                                <Link
+                                    v-for="child in group.children"
+                                    :key="child.label"
+                                    :href="child.href"
+                                    class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                                >
+                                    {{ child.label }}
+                                </Link>
+                            </div>
+                        </div>
                     </nav>
 
                     <div class="border-t border-slate-100 p-4">
@@ -211,17 +319,18 @@ onBeforeUnmount(() => {
                 <div>
                     <h4 class="text-sm font-semibold text-slate-900">Korporat</h4>
                     <ul class="mt-4 space-y-2 text-sm text-slate-500">
-                        <li><Link :href="route('korporat.overview')" class="hover:text-emerald-700">Maklumat Korporat</Link></li>
-                        <li><Link :href="route('korporat.reports')" class="hover:text-emerald-700">Laporan Tahunan</Link></li>
+                        <li><Link :href="route('korporat.overview')" class="hover:text-emerald-700">Mengenai AWQAF</Link></li>
+                        <li><Link :href="route('korporat.leadership.index')" class="hover:text-emerald-700">Lembaga Pengarah</Link></li>
+                        <li><Link :href="route('hubungi')" class="hover:text-emerald-700">Hubungi Kami</Link></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="text-sm font-semibold text-slate-900">Laporan &amp; Program</h4>
+                    <h4 class="text-sm font-semibold text-slate-900">Laporan &amp; Berita</h4>
                     <ul class="mt-4 space-y-2 text-sm text-slate-500">
+                        <li><Link :href="route('korporat.reports')" class="hover:text-emerald-700">Muat Turun Laporan</Link></li>
                         <li><Link :href="route('ketelusan')" class="hover:text-emerald-700">Laporan &amp; Tadbir Urus</Link></li>
-                        <li><Link :href="route('korporat.reports')" class="hover:text-emerald-700">Laporan Tahunan</Link></li>
-                        <li><Link :href="route('program.index')" class="hover:text-emerald-700">Program &amp; Inisiatif</Link></li>
+                        <li><Link :href="route('berita')" class="hover:text-emerald-700">Berita &amp; Aktiviti</Link></li>
                     </ul>
                 </div>
             </div>

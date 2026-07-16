@@ -38,9 +38,9 @@ const sections = [
 
                 <!-- Content -->
                 <div class="lg:col-span-2 lg:pt-6">
-                    <h1 class="text-3xl font-bold text-slate-900 sm:text-4xl">{{ director.full_name }}</h1>
-                    <p class="mt-2 text-lg font-medium text-emerald-700">{{ director.designation }}</p>
-                    <p v-if="director.committee_roles.length" class="text-slate-500">{{ director.committee_roles.join(' · ') }}</p>
+                    <p v-if="director.committee_roles.length" class="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-700">{{ director.committee_roles.join(' · ') }}</p>
+                    <h1 class="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">{{ director.full_name }}</h1>
+                    <p class="mt-2 text-lg font-medium text-slate-500">{{ director.designation }}</p>
 
                     <div class="mt-8 space-y-4 text-lg leading-relaxed text-slate-700">
                         <p v-for="(para, i) in director.biography" :key="i">{{ para }}</p>

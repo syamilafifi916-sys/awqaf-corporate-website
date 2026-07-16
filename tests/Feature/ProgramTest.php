@@ -1,18 +1,8 @@
 <?php
 
-it('shows the programme hub with all five programmes', function () {
-    $this->get('/program')
-        ->assertOk()
-        ->assertInertia(fn ($p) => $p->component('Program/Index')->has('programs', 5));
-});
-
-it('shows each programme detail page', function () {
-    foreach (['zuriatcare', 'eduwaqf', 'awqaf4health', 'curves', 'infaq'] as $slug) {
-        $this->get("/program/{$slug}")
-            ->assertOk()
-            ->assertInertia(fn ($p) => $p->component('Program/Show')->where('program.slug', $slug));
-    }
-});
+// Hub counts and detail pages are covered by PortfolioProgrammeTest, which
+// asserts the post-separation reality (3 welfare programmes, 4 investment
+// portfolios). CURVES and Infaq now live under Portfolio, not Program.
 
 it('404s an unknown programme', function () {
     $this->get('/program/tiada')->assertNotFound();

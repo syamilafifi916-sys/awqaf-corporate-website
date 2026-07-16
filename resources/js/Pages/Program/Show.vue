@@ -4,13 +4,13 @@ import { Head, Link } from '@inertiajs/vue3';
 import { ArrowLeftIcon, ArrowTopRightOnSquareIcon, DocumentTextIcon, PhotoIcon } from '@heroicons/vue/24/outline';
 
 defineProps({
-    program: Object,
+    programme: Object,
     others: Array,
 });
 </script>
 
 <template>
-    <Head :title="`${program.name} — Program & Inisiatif`" />
+    <Head :title="`${programme.name} — Program & Inisiatif`" />
 
     <PublicLayout>
         <!-- Header -->
@@ -19,12 +19,11 @@ defineProps({
                 <Link :href="route('program.index')" class="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 hover:text-white">
                     <ArrowLeftIcon class="h-4 w-4" /> Program &amp; Inisiatif
                 </Link>
-                <div class="mt-6 flex flex-wrap items-center gap-3">
-                    <span class="rounded-full bg-emerald-600/15 px-3 py-1 text-xs font-semibold text-emerald-400">{{ program.category }}</span>
-                    <span class="rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-slate-300">{{ program.status }}</span>
+                <div class="mt-6">
+                    <span class="rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-slate-300">{{ programme.status }}</span>
                 </div>
-                <h1 class="mt-5 text-4xl font-bold text-white sm:text-5xl">{{ program.name }}</h1>
-                <p class="mt-3 text-slate-400">{{ program.entity }} · {{ program.period }}</p>
+                <h1 class="mt-5 text-4xl font-bold text-white sm:text-5xl">{{ programme.name }}</h1>
+                <p class="mt-3 text-slate-400">{{ programme.organisation }}</p>
             </div>
         </section>
 
@@ -41,14 +40,29 @@ defineProps({
                         </div>
                     </div>
 
-                    <p class="mt-10 text-lg leading-relaxed text-slate-700">{{ program.overview }}</p>
-                    <p v-if="program.established" class="mt-4 text-slate-600">{{ program.established }}</p>
+                    <div class="mt-10 space-y-4">
+                        <p v-for="(para, i) in programme.description" :key="i" class="text-lg leading-relaxed text-slate-700">{{ para }}</p>
+                    </div>
 
-                    <!-- Sub-programmes -->
-                    <div v-if="program.subprograms.length" class="mt-10">
-                        <h2 class="text-xl font-bold text-slate-900">Program di bawah {{ program.name }}</h2>
+                    <!-- Distinct dates (launch vs legal establishment — presented separately) -->
+                    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+                        <div v-if="programme.launch_date" class="rounded-xl border border-slate-100 bg-slate-50 p-5">
+                            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Pelancaran / Permulaan operasi</p>
+                            <p class="mt-1 text-lg font-bold text-slate-900">{{ programme.launch_date }}</p>
+                            <p v-if="programme.launch_note" class="mt-1 text-sm text-slate-600">{{ programme.launch_note }}</p>
+                        </div>
+                        <div v-if="programme.legal_establishment_date" class="rounded-xl border border-slate-100 bg-slate-50 p-5">
+                            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Penubuhan rasmi</p>
+                            <p class="mt-1 text-lg font-bold text-slate-900">{{ programme.legal_establishment_date }}</p>
+                            <p v-if="programme.legal_note" class="mt-1 text-sm text-slate-600">{{ programme.legal_note }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Focus areas / sub-programmes -->
+                    <div v-if="programme.focus_areas && programme.focus_areas.length" class="mt-10">
+                        <h2 class="text-xl font-bold text-slate-900">Fokus program</h2>
                         <div class="mt-6 space-y-5">
-                            <div v-for="s in program.subprograms" :key="s.name" class="border-l-2 border-emerald-200 pl-5">
+                            <div v-for="s in programme.focus_areas" :key="s.name" class="border-l-2 border-emerald-200 pl-5">
                                 <h3 class="font-semibold text-slate-900">{{ s.name }}</h3>
                                 <p class="mt-1 text-sm text-slate-600">{{ s.desc }}</p>
                             </div>
@@ -60,24 +74,22 @@ defineProps({
                         <h2 class="text-xl font-bold text-slate-900">Fakta &amp; Angka</h2>
                         <p class="mt-1 text-sm text-slate-500">Setiap angka disahkan terhadap halaman Laporan Tahunan sumber.</p>
 
-                        <div v-if="program.figures.length" class="mt-6 overflow-hidden rounded-2xl border border-slate-100">
+                        <div v-if="programme.facts && programme.facts.length" class="mt-6 overflow-x-auto rounded-2xl border border-slate-100">
                             <table class="min-w-full divide-y divide-slate-100 text-sm">
                                 <thead>
                                     <tr class="bg-slate-50 text-left text-xs uppercase tracking-wide text-slate-500">
                                         <th class="px-5 py-3">Tahun</th>
                                         <th class="px-5 py-3">Butiran</th>
-                                        <th class="px-5 py-3">Jenis</th>
                                         <th class="px-5 py-3 text-right">Nilai</th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-slate-100">
-                                    <tr v-for="(f, i) in program.figures" :key="i">
+                                    <tr v-for="(f, i) in programme.facts" :key="i">
                                         <td class="px-5 py-4 font-medium text-slate-900">{{ f.year }}</td>
                                         <td class="px-5 py-4 text-slate-600">
-                                            {{ f.label }}
-                                            <span class="mt-0.5 block text-xs text-slate-400">Sumber: {{ f.source }}</span>
+                                            {{ f.metric }}
+                                            <span class="mt-0.5 block text-xs text-slate-400">Sumber: {{ f.report }}, ms {{ f.page }}</span>
                                         </td>
-                                        <td class="px-5 py-4"><span class="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-600">{{ f.type }}</span></td>
                                         <td class="px-5 py-4 text-right text-lg font-bold text-emerald-700">{{ f.value }}</td>
                                     </tr>
                                 </tbody>
@@ -87,8 +99,8 @@ defineProps({
                             Belum ada angka kewangan yang disahkan untuk dipaparkan.
                         </p>
 
-                        <p v-if="program.note" class="mt-4 rounded-xl border border-amber-100 bg-amber-50 p-4 text-sm text-amber-800">
-                            {{ program.note }}
+                        <p v-if="programme.note" class="mt-4 rounded-xl border border-amber-100 bg-amber-50 p-4 text-sm text-amber-800">
+                            {{ programme.note }}
                         </p>
                     </div>
                 </div>
@@ -106,17 +118,16 @@ defineProps({
                     <div class="rounded-2xl border border-slate-100 p-6">
                         <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400">Maklumat</h3>
                         <dl class="mt-4 space-y-3 text-sm">
-                            <div><dt class="text-slate-400">Entiti</dt><dd class="text-slate-900">{{ program.entity }}</dd></div>
-                            <div><dt class="text-slate-400">Kategori</dt><dd class="text-slate-900">{{ program.category }}</dd></div>
-                            <div><dt class="text-slate-400">Status</dt><dd class="text-slate-900">{{ program.status }}</dd></div>
+                            <div><dt class="text-slate-400">Organisasi</dt><dd class="text-slate-900">{{ programme.organisation }}</dd></div>
+                            <div><dt class="text-slate-400">Status</dt><dd class="text-slate-900">{{ programme.status }}</dd></div>
                         </dl>
                     </div>
 
                     <!-- Related reports -->
-                    <div v-if="program.reports.length" class="rounded-2xl border border-slate-100 p-6">
+                    <div v-if="programme.reports && programme.reports.length" class="rounded-2xl border border-slate-100 p-6">
                         <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400">Laporan Berkaitan</h3>
                         <ul class="mt-4 space-y-2">
-                            <li v-for="y in program.reports" :key="y">
+                            <li v-for="y in programme.reports" :key="y">
                                 <Link :href="route('korporat.reports')" class="inline-flex items-center gap-2 text-sm font-medium text-emerald-700 hover:underline">
                                     <DocumentTextIcon class="h-4 w-4" /> Laporan Tahunan {{ y }}
                                 </Link>
@@ -125,9 +136,9 @@ defineProps({
                     </div>
 
                     <!-- External official link -->
-                    <a v-if="program.external" :href="program.external.url" target="_blank" rel="noopener noreferrer"
+                    <a v-if="programme.external" :href="programme.external.url" target="_blank" rel="noopener noreferrer"
                         class="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 p-5 transition hover:border-emerald-200 hover:bg-emerald-50/40">
-                        <span class="text-sm font-semibold text-slate-900">{{ program.external.label }}</span>
+                        <span class="text-sm font-semibold text-slate-900">{{ programme.external.label }}</span>
                         <ArrowTopRightOnSquareIcon class="h-5 w-5 flex-none text-emerald-700" />
                     </a>
                 </aside>

@@ -61,6 +61,33 @@ Route::get('/korporat/maklumat-korporat', function () {
     return Inertia::render('Korporat/Overview');
 })->name('korporat.overview');
 
+// Pengasas — controlled corporate-history page (single source: founder.php).
+Route::get('/korporat/pengasas', function () {
+    $founder = require resource_path('data/founder.php');
+
+    Seo::set([
+        'title' => 'Pengasas AWQAF — Allahyarham Tan Sri Muhammad Ali Hashim',
+        'description' => 'Peranan Allahyarham Tan Sri Muhammad Ali Hashim dalam membentuk Waqaf Korporat — kepimpinan di Johor Corporation, pembangunan Waqaf An-Nur, dan penubuhan AWQAF Holdings Berhad.',
+        'image' => asset('images/'.$founder['portrait']),
+        'type' => 'profile',
+        'schema' => [
+            '@context' => 'https://schema.org',
+            '@type' => 'Person',
+            'name' => $founder['full_name'],
+            'jobTitle' => $founder['designation'],
+            'image' => asset('images/'.$founder['portrait']),
+            'worksFor' => [
+                '@type' => 'Organization',
+                'name' => 'AWQAF Holdings Berhad',
+            ],
+        ],
+    ]);
+
+    return Inertia::render('Korporat/Founder', [
+        'founder' => $founder,
+    ]);
+})->name('korporat.founder');
+
 Route::get('/ketelusan', function () {
     Seo::set([
         'title' => 'Pusat Ketelusan — AWQAF Holdings Berhad',
@@ -99,8 +126,20 @@ Route::get('/hubungi', function () {
     return Inertia::render('Hubungi');
 })->name('hubungi');
 
-// Program & Inisiatif hub (replaces the thin Program Kebajikan page).
+// Portfolio Pelaburan hub (investment/business portfolios — 4 items).
+Route::get('/portfolio', [\App\Http\Controllers\PortfolioController::class, 'index'])->name('portfolio.index');
+Route::get('/portfolio/{slug}', [\App\Http\Controllers\PortfolioController::class, 'show'])->name('portfolio.show');
+
+// Program & Inisiatif hub (welfare programmes — 3 items).
 Route::get('/program', [\App\Http\Controllers\ProgramController::class, 'index'])->name('program.index');
+
+// Legacy programme slugs → new locations. Registered BEFORE the {slug}
+// wildcard so they win. CURVES and Infaq moved OUT of Programmes into their
+// respective investment portfolios.
+Route::get('/program/zuriatcare', fn () => redirect()->route('program.show', 'yayasan-zuriatcare', 301));
+Route::get('/program/curves', fn () => redirect()->route('portfolio.show', 'kesihatan-kesejahteraan', 301));
+Route::get('/program/infaq', fn () => redirect()->route('portfolio.show', 'fintech', 301));
+
 Route::get('/program/{slug}', [\App\Http\Controllers\ProgramController::class, 'show'])->name('program.show');
 
 // Legacy path → new hub.
@@ -140,14 +179,18 @@ Route::get('/sitemap.xml', function () {
         ->add(Url::create(route('waqaf.monthly'))->setPriority(0.6))
         ->add(Url::create(route('waqaf.categories'))->setPriority(0.8))
         ->add(Url::create(route('korporat.overview'))->setPriority(0.6))
+        ->add(Url::create(route('korporat.founder'))->setPriority(0.6))
         ->add(Url::create(route('ketelusan'))->setPriority(0.7))
         ->add(Url::create(route('korporat.leadership.index'))->setPriority(0.7))
+        ->add(Url::create(route('portfolio.index'))->setPriority(0.7))
+        ->add(Url::create(route('portfolio.show', 'pendidikan'))->setPriority(0.5))
+        ->add(Url::create(route('portfolio.show', 'kesihatan-kesejahteraan'))->setPriority(0.5))
+        ->add(Url::create(route('portfolio.show', 'hartanah'))->setPriority(0.5))
+        ->add(Url::create(route('portfolio.show', 'fintech'))->setPriority(0.5))
         ->add(Url::create(route('program.index'))->setPriority(0.7))
-        ->add(Url::create(route('program.show', 'zuriatcare'))->setPriority(0.5))
+        ->add(Url::create(route('program.show', 'yayasan-zuriatcare'))->setPriority(0.5))
         ->add(Url::create(route('program.show', 'eduwaqf'))->setPriority(0.5))
         ->add(Url::create(route('program.show', 'awqaf4health'))->setPriority(0.5))
-        ->add(Url::create(route('program.show', 'curves'))->setPriority(0.5))
-        ->add(Url::create(route('program.show', 'infaq'))->setPriority(0.5))
         ->add(Url::create(route('berita'))->setPriority(0.5))
         ->add(Url::create(route('hubungi'))->setPriority(0.5))
         ->add(Url::create(route('korporat.reports'))->setPriority(0.5));
