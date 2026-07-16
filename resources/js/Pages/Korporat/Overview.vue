@@ -136,7 +136,7 @@ const sectionNav = [
         <section id="tadbir" class="bg-white py-20">
             <div class="mx-auto max-w-5xl px-6 lg:px-8">
                 <p class="text-sm font-semibold uppercase tracking-wider text-emerald-700">Tadbir Urus</p>
-                <h2 class="mt-3 text-3xl font-bold text-slate-900">Pengawasan berstruktur, bukan kepercayaan semata-mata.</h2>
+                <h2 class="mt-3 text-3xl font-bold text-slate-900">Struktur tadbir urus korporat</h2>
                 <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div class="flex gap-4 rounded-2xl border border-slate-100 p-6">
                         <BuildingLibraryIcon class="h-6 w-6 flex-none text-emerald-700" />
