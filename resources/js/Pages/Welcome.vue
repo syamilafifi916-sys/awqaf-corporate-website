@@ -134,6 +134,9 @@ const timeline = [
 
     <PublicLayout>
         <section class="relative overflow-hidden bg-slate-950">
+            <!-- Editorial architectural imagery — designed art, not a photograph of AWQAF -->
+            <img src="/images/editorial/arch-light.jpg" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover opacity-70" />
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-950/30"></div>
             <svg class="absolute inset-0 h-full w-full opacity-[0.07]" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <pattern id="hero-grid" width="56" height="56" patternUnits="userSpaceOnUse">
@@ -264,6 +267,18 @@ const timeline = [
                     <Link :href="route('korporat.overview')" class="font-semibold text-emerald-700 underline decoration-emerald-700/40 underline-offset-2 hover:decoration-emerald-700">Ketahui lebih lanjut tentang AWQAF →</Link>
                 </p>
             </div>
+        </section>
+
+        <!-- Editorial pull-quote band — designed architectural imagery, not a photo of AWQAF -->
+        <section class="relative overflow-hidden bg-slate-950 py-28">
+            <img src="/images/editorial/arch-light.jpg" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover opacity-50" />
+            <div class="absolute inset-0 bg-slate-950/60"></div>
+            <figure class="relative mx-auto max-w-4xl px-6 text-center lg:px-8">
+                <blockquote class="text-2xl font-semibold leading-snug text-white sm:text-[2rem] sm:leading-tight">
+                    "Wakaf ialah amanah yang kekal — nilainya dijaga supaya tidak berkurang, dan manfaatnya diteruskan supaya tidak berakhir."
+                </blockquote>
+                <figcaption class="mt-6 text-sm uppercase tracking-wider text-emerald-300">Prinsip AWQAF Holdings Berhad</figcaption>
+            </figure>
         </section>
 
         <section class="bg-slate-50 py-24">
