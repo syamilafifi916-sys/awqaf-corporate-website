@@ -46,6 +46,12 @@ defineProps({
                         <p v-for="(para, i) in portfolio.description" :key="i" class="leading-relaxed text-slate-700">{{ para }}</p>
                     </div>
 
+                    <!-- Contribution to AWQAF's objectives -->
+                    <div v-if="portfolio.contribution" class="mt-6 rounded-xl border-l-2 border-emerald-300 bg-emerald-50/40 py-4 pl-5 pr-4">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-emerald-700">Sumbangan kepada objektif AWQAF</p>
+                        <p class="mt-1.5 text-sm leading-relaxed text-slate-600">{{ portfolio.contribution }}</p>
+                    </div>
+
                     <!-- Status note / integrity flag -->
                     <p v-if="portfolio.status_note" class="mt-6 rounded-xl border border-amber-100 bg-amber-50 p-4 text-sm text-amber-800">
                         {{ portfolio.status_note }}
@@ -112,6 +118,23 @@ defineProps({
                                 <span>{{ c }}</span>
                             </li>
                         </ul>
+                    </div>
+
+                    <!-- Projects & status (property portfolio) -->
+                    <div v-if="portfolio.projects && portfolio.projects.length" class="mt-12">
+                        <h2 class="text-xl font-bold text-slate-900">Projek &amp; status</h2>
+                        <div class="mt-6 space-y-4">
+                            <div v-for="p in portfolio.projects" :key="p.name" class="rounded-xl border border-slate-100 p-5">
+                                <div class="flex flex-wrap items-center justify-between gap-2">
+                                    <h3 class="font-semibold text-slate-900">{{ p.name }}</h3>
+                                    <span class="rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700">{{ p.status }}</span>
+                                </div>
+                                <p v-if="p.note" class="mt-2 text-sm leading-relaxed text-slate-600">{{ p.note }}</p>
+                            </div>
+                        </div>
+                        <p v-if="portfolio.status_legend" class="mt-4 text-xs text-slate-400">
+                            Label status: {{ portfolio.status_legend.join(' · ') }}.
+                        </p>
                     </div>
 
                     <!-- Verified figures -->

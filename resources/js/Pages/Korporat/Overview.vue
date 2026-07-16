@@ -1,5 +1,6 @@
 <script setup>
 import PublicLayout from '@/Layouts/PublicLayout.vue';
+import WaqafModel from '@/Components/WaqafModel.vue';
 import { Head, Link } from '@inertiajs/vue3';
 import {
     BuildingLibraryIcon,
@@ -44,11 +45,10 @@ const sectionNav = [
     { href: '#tentang', label: 'Mengenai AWQAF' },
     { href: '#informasi', label: 'Informasi Korporat' },
     { href: '#visi', label: 'Visi & Misi' },
+    { href: '#model', label: 'Model Waqaf Korporat' },
     { href: '#struktur', label: 'Struktur' },
     { href: '#tadbir', label: 'Tadbir Urus' },
-    { href: '#jawatankuasa', label: 'Jawatankuasa' },
     { href: '#lembaga', label: 'Lembaga Pengarah' },
-    { href: '#laporan', label: 'Laporan & Dokumen' },
 ];
 </script>
 
@@ -128,6 +128,20 @@ const sectionNav = [
                             <li>• Membangunkan usaha keusahawanan yang memberi manfaat meluas menerusi model kewangan wakaf yang lestari.</li>
                         </ul>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Model Waqaf Korporat (30% / 70%) -->
+        <section id="model" class="bg-white py-20">
+            <div class="mx-auto max-w-5xl px-6 lg:px-8">
+                <p class="text-sm font-semibold uppercase tracking-wider text-emerald-700">Model</p>
+                <h2 class="mt-3 text-3xl font-bold text-slate-900">Model Waqaf Korporat</h2>
+                <p class="mt-3 max-w-2xl text-slate-500">
+                    Model pelaksanaan AWQAF bagi menyalurkan hasil aktiviti pelaburan dan perniagaan.
+                </p>
+                <div class="mt-12">
+                    <WaqafModel />
                 </div>
             </div>
         </section>
@@ -219,68 +233,20 @@ const sectionNav = [
             </div>
         </section>
 
-        <!-- Reports -->
-        <section id="laporan" class="bg-white py-20">
+        <!-- Rujukan lanjut (contextual links — reports & founder live on dedicated pages) -->
+        <section id="rujukan" class="bg-white py-20">
             <div class="mx-auto max-w-5xl px-6 lg:px-8">
-                <div class="rounded-2xl border border-slate-100 bg-slate-50 p-8 sm:p-12">
-                    <p class="text-sm font-semibold uppercase tracking-wider text-emerald-700">Laporan</p>
-                    <h2 class="mt-3 text-3xl font-bold text-slate-900">Laporan Tahunan &amp; Penyata Kewangan</h2>
-                    <p class="mt-4 max-w-2xl text-slate-600">
-                        Laporan Tahunan dan Penyata Kewangan Diaudit AWQAF Holdings Berhad — didedahkan sepenuhnya,
-                        termasuk sebelas tahun rekod kutipan wakaf.
-                    </p>
-                    <div class="mt-8 flex flex-wrap gap-4">
-                        <Link :href="route('korporat.reports')" class="rounded-lg bg-emerald-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-800">
-                            Muat Turun Laporan Tahunan
-                        </Link>
-                        <Link :href="route('ketelusan')" class="rounded-lg border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-white">
-                            Laporan &amp; Tadbir Urus
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Founder — supporting historical context -->
-        <section id="warisan" class="overflow-hidden bg-slate-950 py-20">
-            <div class="mx-auto grid max-w-6xl grid-cols-1 items-start gap-12 px-6 lg:grid-cols-5 lg:px-8">
-                <div class="lg:sticky lg:top-28 lg:col-span-2">
-                    <div class="overflow-hidden rounded-2xl bg-gradient-to-b from-slate-100 to-white shadow-2xl">
-                        <img
-                            src="/images/pengasas-tan-sri-muhammad-ali-hashim.png"
-                            alt="Allahyarham Tan Sri Muhammad Ali Hashim, Pengasas AWQAF Holdings Berhad"
-                            class="h-auto w-full object-contain p-6"
-                        />
-                    </div>
-                </div>
-                <div class="lg:col-span-3">
-                    <p class="text-sm font-semibold uppercase tracking-wider text-emerald-400">Warisan · Pengasas</p>
-                    <h2 class="mt-3 text-3xl font-bold text-white">Allahyarham Tan Sri Muhammad Ali Hashim</h2>
-                    <p class="mt-4 text-sm text-slate-400">Konteks sejarah — asal usul model wakaf korporat yang diteruskan oleh AWQAF hari ini.</p>
-
-                    <div class="mt-6 space-y-4 text-sm leading-relaxed text-slate-300">
-                        <p>
-                            Beliau merupakan Presiden Dewan Perdagangan Islam Malaysia (DPIM) (2012–2017) dan
-                            Pengerusi AWQAF Holdings Berhad (2012–2017).
-                        </p>
-                        <p>
-                            Tan Sri Muhammad Ali diiktiraf sebagai usahawan korporat yang cemerlang selepas
-                            kerjayanya selama 28 tahun sebagai Ketua Pegawai Eksekutif Johor Corporation (JCorp,
-                            1982–2010) — pada akhir 2010 dengan lebih 280 syarikat, 65,000 pekerja dan permodalan
-                            pasaran PLC berjumlah RM18.1 bilion.
-                        </p>
-                        <p>
-                            Kajian Oxford University (2010) menyatakan bahawa "Jihad Bisnes, Waqaf Korporat dan
-                            Intrapreneurship adalah sangat berkesan dan jauh terkehadapan daripada apa yang mungkin
-                            dicapai oleh kaedah pembangunan ekonomi konvensional".
-                        </p>
-                        <p>
-                            Beliau juga Pengasas Waqaf An-Nur Corporation (WANCorp, 1998) — institusi wakaf korporat
-                            pertama di Malaysia — dan disenaraikan antara "500 Muslim Paling Berpengaruh di Dunia"
-                            pada 2016 dan 2017.
-                        </p>
-                        <p class="text-slate-400">Beliau kembali ke Rahmatullah pada 31 Oktober 2017. Al-Fatihah.</p>
-                    </div>
+                <p class="text-sm font-semibold uppercase tracking-wider text-emerald-700">Rujukan Lanjut</p>
+                <h2 class="mt-3 text-3xl font-bold text-slate-900">Maklumat berkaitan</h2>
+                <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <Link :href="route('korporat.reports')" class="flex items-center justify-between gap-4 rounded-2xl border border-slate-100 p-6 transition hover:border-emerald-200 hover:bg-emerald-50/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
+                        <span class="text-sm font-semibold text-slate-900">Lihat Laporan Tahunan dan Penyata Kewangan</span>
+                        <span class="text-emerald-700">→</span>
+                    </Link>
+                    <Link :href="route('korporat.founder')" class="flex items-center justify-between gap-4 rounded-2xl border border-slate-100 p-6 transition hover:border-emerald-200 hover:bg-emerald-50/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
+                        <span class="text-sm font-semibold text-slate-900">Ketahui sejarah pengasas AWQAF</span>
+                        <span class="text-emerald-700">→</span>
+                    </Link>
                 </div>
             </div>
         </section>

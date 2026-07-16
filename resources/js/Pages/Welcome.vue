@@ -1,6 +1,7 @@
 <script setup>
 import CollectionChart from '@/Components/CollectionChart.vue';
 import PublicLayout from '@/Layouts/PublicLayout.vue';
+import WaqafModel from '@/Components/WaqafModel.vue';
 import {
     AcademicCapIcon,
     ArrowRightIcon,
@@ -10,7 +11,6 @@ import {
     CpuChipIcon,
     DocumentCheckIcon,
     HeartIcon,
-    Square3Stack3DIcon,
     UsersIcon,
 } from '@heroicons/vue/24/outline';
 import { Head, Link, usePage } from '@inertiajs/vue3';
@@ -56,12 +56,6 @@ const programs = [
     { name: 'EduWAQF', category: 'Pendidikan', icon: AcademicCapIcon, slug: 'eduwaqf' },
     { name: 'AWQAF4Health', category: 'Kesihatan', icon: BuildingLibraryIcon, slug: 'awqaf4health' },
 ];
-
-const news = [
-    { date: '6 November 2024', title: 'Kunjungan ke Jabatan Perdana Menteri' },
-    { date: '17 Julai 2024', title: 'Meja Bulat bersama Menteri Ekonomi' },
-    { date: '22 Februari 2024', title: 'MoU dengan Wakaf Pulau Pinang' },
-];
 </script>
 
 <template>
@@ -105,11 +99,11 @@ const news = [
                         melalui pendekatan korporat dan tadbir urus yang teratur.
                     </p>
                     <div class="mt-12 flex flex-wrap gap-4">
-                        <Link :href="route('korporat.overview')" class="rounded-lg bg-emerald-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-emerald-950/50 transition hover:bg-emerald-500">
-                            Kenali AWQAF
+                        <Link :href="route('waqaf.howto')" class="rounded-lg bg-emerald-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-emerald-950/50 transition hover:bg-emerald-500">
+                            Wakaf Sekarang
                         </Link>
-                        <Link :href="route('korporat.reports')" class="rounded-lg border border-white/15 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10">
-                            Laporan Korporat
+                        <Link :href="route('korporat.overview')" class="rounded-lg border border-white/15 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10">
+                            Kenali AWQAF
                         </Link>
                     </div>
                 </div>
@@ -171,8 +165,29 @@ const news = [
             </div>
         </section>
 
-        <!-- 5. Portfolio Pelaburan preview -->
-        <section class="bg-white py-28">
+        <!-- 5. Model Waqaf Korporat (30% / 70%) preview -->
+        <section class="bg-white py-24">
+            <div class="mx-auto max-w-4xl px-6 lg:px-8">
+                <div class="text-center">
+                    <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">Model Waqaf Korporat</p>
+                    <h2 class="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">Bagaimana hasil disalurkan</h2>
+                    <p class="mx-auto mt-4 max-w-2xl text-slate-500">
+                        Sebahagian daripada hasil aktiviti pelaburan dan perniagaan AWQAF disalurkan kepada program
+                        kebajikan, manakala sebahagian besar dilaburkan semula bagi mengembangkan aset dan sumber
+                        pendapatan jangka panjang.
+                    </p>
+                </div>
+                <div class="mt-12">
+                    <WaqafModel preview />
+                </div>
+                <div class="mt-8 text-center">
+                    <Link :href="route('waqaf.corporate')" class="text-sm font-semibold text-emerald-700 hover:underline">Fahami model Waqaf Korporat →</Link>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Portfolio Pelaburan preview -->
+        <section class="bg-slate-50 py-28">
             <div class="mx-auto max-w-6xl px-6 lg:px-8">
                 <div class="max-w-2xl">
                     <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">Portfolio Pelaburan</p>
@@ -191,8 +206,8 @@ const news = [
             </div>
         </section>
 
-        <!-- 6. Program & Inisiatif preview -->
-        <section class="bg-slate-50 py-28">
+        <!-- 7. Program & Inisiatif preview -->
+        <section class="bg-white py-28">
             <div class="mx-auto max-w-6xl px-6 lg:px-8">
                 <div class="max-w-2xl">
                     <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">Program &amp; Inisiatif</p>
@@ -211,7 +226,7 @@ const news = [
             </div>
         </section>
 
-        <!-- 7. Laporan Tahunan & Penyata Kewangan preview -->
+        <!-- 8. Laporan Tahunan & Penyata Kewangan preview -->
         <section class="bg-slate-950 py-28">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="grid grid-cols-1 gap-14 lg:grid-cols-3">
@@ -226,47 +241,31 @@ const news = [
             </div>
         </section>
 
-        <!-- 8. Berita / Aktiviti terkini preview -->
-        <section class="bg-white py-24">
-            <div class="mx-auto max-w-4xl px-6 lg:px-8">
-                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">Berita &amp; Aktiviti</p>
-                <h2 class="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">Aktiviti korporat terkini</h2>
-                <div class="mt-12 divide-y divide-slate-100 border-t border-slate-100">
-                    <article v-for="item in news" :key="item.title" class="flex flex-col gap-1 py-6 sm:flex-row sm:items-center sm:gap-8">
-                        <div class="w-40 flex-none text-sm font-medium text-slate-400">{{ item.date }}</div>
-                        <h3 class="font-semibold text-slate-900">{{ item.title }}</h3>
-                    </article>
-                </div>
-                <div class="mt-10">
-                    <Link :href="route('berita')" class="text-sm font-semibold text-emerald-700 hover:underline">Lihat semua berita &amp; aktiviti →</Link>
-                </div>
-            </div>
-        </section>
-
-        <!-- 9. Portal Pewakaf -->
-        <section class="bg-slate-50 py-28">
+        <!-- 9. Contribution CTA + Portal Pewakaf -->
+        <section class="bg-white py-28">
             <div class="mx-auto max-w-5xl px-6 lg:px-8">
-                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">Portal Pewakaf</p>
-                <h2 class="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">Penyertaan dan perhubungan</h2>
-                <div class="mt-14 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-3">
-                    <div>
-                        <Square3Stack3DIcon class="h-6 w-6 text-emerald-700" />
-                        <h3 class="mt-4 font-semibold text-slate-900">Portal Pewakaf</h3>
-                        <p class="mt-2 text-sm text-slate-500">Akses rekod wakaf, resit dan keahlian.</p>
-                        <a :href="page.props.portalUrl" class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-emerald-700 hover:underline">Masuk ke Portal <ArrowRightIcon class="h-4 w-4" /></a>
+                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                    <div class="rounded-3xl bg-emerald-700 p-8 sm:p-10">
+                        <h2 class="text-2xl font-bold text-white">Wakaf Sekarang</h2>
+                        <p class="mt-3 text-sm leading-relaxed text-emerald-50">
+                            Untuk pewakaf baharu atau sedia ada yang ingin memilih kaedah berwakaf kepada AWQAF Holdings Berhad.
+                        </p>
+                        <Link :href="route('waqaf.howto')" class="mt-6 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-50">
+                            Lihat Kaedah Berwakaf <ArrowRightIcon class="h-4 w-4" />
+                        </Link>
                     </div>
-                    <div>
-                        <BanknotesIcon class="h-6 w-6 text-emerald-700" />
-                        <h3 class="mt-4 font-semibold text-slate-900">Cara Berwakaf</h3>
-                        <p class="mt-2 text-sm text-slate-500">Kaedah menyalurkan wakaf kepada AWQAF.</p>
-                        <Link :href="route('waqaf.howto')" class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-emerald-700 hover:underline">Kaedah Berwakaf <ArrowRightIcon class="h-4 w-4" /></Link>
+                    <div class="rounded-3xl border border-slate-200 p-8 sm:p-10">
+                        <h2 class="text-2xl font-bold text-slate-900">Portal Pewakaf</h2>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-500">
+                            Untuk ahli sedia ada mengakses akaun, rekod wakaf, resit dan dokumen keahlian.
+                        </p>
+                        <a :href="page.props.portalUrl" class="mt-6 inline-flex items-center gap-2 rounded-lg border border-emerald-600 px-6 py-3 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50">
+                            Masuk ke Portal <ArrowRightIcon class="h-4 w-4" />
+                        </a>
                     </div>
-                    <div>
-                        <BuildingLibraryIcon class="h-6 w-6 text-emerald-700" />
-                        <h3 class="mt-4 font-semibold text-slate-900">Hubungi AWQAF</h3>
-                        <p class="mt-2 text-sm text-slate-500">Pertanyaan korporat dan media.</p>
-                        <Link :href="route('hubungi')" class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-emerald-700 hover:underline">Hubungi Kami <ArrowRightIcon class="h-4 w-4" /></Link>
-                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <Link :href="route('hubungi')" class="text-sm font-semibold text-emerald-700 hover:underline">Hubungi AWQAF untuk pertanyaan korporat →</Link>
                 </div>
             </div>
         </section>

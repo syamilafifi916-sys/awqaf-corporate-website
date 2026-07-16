@@ -23,7 +23,6 @@ const navGroups = computed(() => [
             { label: 'Visi & Misi', href: `${overview.value}#visi` },
             { label: 'Lembaga Pengarah', href: route('korporat.leadership.index') },
             { label: 'Tadbir Urus', href: `${overview.value}#tadbir` },
-            { label: 'Berita', href: route('berita') },
             { label: 'Hubungi Kami', href: route('hubungi') },
         ],
     },
@@ -53,7 +52,6 @@ const navGroups = computed(() => [
         children: [
             { label: 'Laporan Tahunan', href: route('korporat.reports') },
             { label: 'Penyata Kewangan', href: route('korporat.reports') },
-            { label: 'Dokumen Korporat', href: route('ketelusan') },
         ],
     },
 ]);
@@ -159,7 +157,7 @@ onBeforeUnmount(() => {
                     >
                         <Link
                             :href="group.href"
-                            class="inline-flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                            class="inline-flex items-center gap-1 whitespace-nowrap rounded-lg px-2.5 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
                             :aria-haspopup="group.children ? 'true' : undefined"
                             :aria-expanded="group.children ? (openLabel === group.label ? 'true' : 'false') : undefined"
                             :aria-controls="group.children ? `menu-${slug(group.label)}` : undefined"
@@ -197,10 +195,16 @@ onBeforeUnmount(() => {
                     </div>
                 </nav>
 
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2">
+                    <Link
+                        :href="route('waqaf.howto')"
+                        class="hidden whitespace-nowrap rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 sm:inline-flex"
+                    >
+                        Wakaf Sekarang
+                    </Link>
                     <a
                         :href="page.props.portalUrl"
-                        class="hidden rounded-lg bg-emerald-700 px-4 py-2 text-sm font-medium text-white transition hover:bg-emerald-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 sm:inline-block"
+                        class="hidden whitespace-nowrap rounded-lg border border-emerald-600 px-4 py-2 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 xl:inline-flex"
                     >
                         Portal Pewakaf
                     </a>
@@ -282,10 +286,16 @@ onBeforeUnmount(() => {
                         </div>
                     </nav>
 
-                    <div class="border-t border-slate-100 p-4">
+                    <div class="space-y-3 border-t border-slate-100 p-4">
+                        <Link
+                            :href="route('waqaf.howto')"
+                            class="block rounded-lg bg-emerald-600 px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
+                        >
+                            Wakaf Sekarang
+                        </Link>
                         <a
                             :href="page.props.portalUrl"
-                            class="block rounded-lg bg-emerald-700 px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-emerald-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
+                            class="block rounded-lg border border-emerald-600 px-4 py-3 text-center text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
                         >
                             Portal Pewakaf
                         </a>
@@ -311,7 +321,7 @@ onBeforeUnmount(() => {
                     <h4 class="text-sm font-semibold text-slate-900">Wakaf</h4>
                     <ul class="mt-4 space-y-2 text-sm text-slate-500">
                         <li><Link :href="route('waqaf.corporate')" class="hover:text-emerald-700">Waqaf Korporat</Link></li>
-                        <li><Link :href="route('waqaf.howto')" class="hover:text-emerald-700">Kaedah Berwakaf</Link></li>
+                        <li><Link :href="route('waqaf.howto')" class="font-medium text-emerald-700 hover:text-emerald-800">Wakaf Sekarang</Link></li>
                         <li><Link :href="route('waqaf.categories')" class="hover:text-emerald-700">Kategori Pewakaf</Link></li>
                     </ul>
                 </div>
@@ -326,11 +336,11 @@ onBeforeUnmount(() => {
                 </div>
 
                 <div>
-                    <h4 class="text-sm font-semibold text-slate-900">Laporan &amp; Berita</h4>
+                    <h4 class="text-sm font-semibold text-slate-900">Laporan</h4>
                     <ul class="mt-4 space-y-2 text-sm text-slate-500">
-                        <li><Link :href="route('korporat.reports')" class="hover:text-emerald-700">Muat Turun Laporan</Link></li>
+                        <li><Link :href="route('korporat.reports')" class="hover:text-emerald-700">Laporan Tahunan</Link></li>
+                        <li><Link :href="route('korporat.reports')" class="hover:text-emerald-700">Penyata Kewangan</Link></li>
                         <li><Link :href="route('ketelusan')" class="hover:text-emerald-700">Laporan &amp; Tadbir Urus</Link></li>
-                        <li><Link :href="route('berita')" class="hover:text-emerald-700">Berita &amp; Aktiviti</Link></li>
                     </ul>
                 </div>
             </div>
