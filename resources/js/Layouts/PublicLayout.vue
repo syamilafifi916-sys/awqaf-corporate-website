@@ -26,8 +26,8 @@ const menus = [
 ];
 
 const flatLinks = [
-    { label: 'Ketelusan', href: () => route('ketelusan') },
-    { label: 'Impak', href: () => route('kebajikan.overview') },
+    { label: 'Laporan & Tadbir Urus', href: () => route('ketelusan') },
+    { label: 'Program & Inisiatif', href: () => route('program.index') },
     { label: 'Muat Turun', href: () => route('korporat.reports') },
 ];
 
@@ -289,11 +289,11 @@ onBeforeUnmount(() => {
                 </div>
 
                 <div>
-                    <h4 class="text-sm font-semibold text-slate-900">Ketelusan &amp; Impak</h4>
+                    <h4 class="text-sm font-semibold text-slate-900">Laporan &amp; Program</h4>
                     <ul class="mt-4 space-y-2 text-sm text-slate-500">
-                        <li><Link :href="route('ketelusan')" class="hover:text-emerald-700">Pusat Ketelusan</Link></li>
-                        <li><Link :href="route('ketelusan')" class="hover:text-emerald-700">Tadbir Urus</Link></li>
-                        <li><Link :href="route('kebajikan.overview')" class="hover:text-emerald-700">Program Impak</Link></li>
+                        <li><Link :href="route('ketelusan')" class="hover:text-emerald-700">Laporan &amp; Tadbir Urus</Link></li>
+                        <li><Link :href="route('korporat.reports')" class="hover:text-emerald-700">Laporan Tahunan</Link></li>
+                        <li><Link :href="route('program.index')" class="hover:text-emerald-700">Program &amp; Inisiatif</Link></li>
                     </ul>
                 </div>
             </div>

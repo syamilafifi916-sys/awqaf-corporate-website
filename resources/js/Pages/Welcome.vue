@@ -18,12 +18,11 @@ import { Head, Link, usePage } from '@inertiajs/vue3';
 
 const page = usePage();
 
-// Verified facts only (Laporan Tahunan 2024 diaudit; laporan tersedia 2015–2024).
+// Verified facts only (Laporan Tahunan 2024 diaudit).
 const facts = [
-    { icon: BuildingLibraryIcon, value: 'Sejak 1998', label: 'Perintis wakaf korporat di Malaysia' },
-    { icon: UsersIcon, value: '3,431', label: 'Ahli & pewakaf (2024)' },
-    { icon: BanknotesIcon, value: 'RM13.27 juta', label: 'Dana wakaf Kumpulan & ahli (Ogos 2024)' },
-    { icon: DocumentCheckIcon, value: '2015–2024', label: 'Laporan Tahunan diaudit tersedia' },
+    { icon: UsersIcon, value: '3,431', label: 'Ahli & Pewakaf (2024)' },
+    { icon: BanknotesIcon, value: 'RM13.27 juta', label: 'Dana Wakaf Kumpulan & Ahli (Ogos 2024)' },
+    { icon: DocumentCheckIcon, value: 'Tersedia', label: 'Laporan Tahunan & Penyata Kewangan' },
 ];
 
 const collections = [
@@ -59,9 +58,9 @@ const governance = [
 ];
 
 const programs = [
-    { name: 'ZuriatCARE', stat: 'RM75,770', statLabel: 'disalurkan (2023)', icon: HeartIcon },
-    { name: 'EduWAQF', stat: 'RM20,000', statLabel: 'biasiswa disalurkan', icon: AcademicCapIcon },
-    { name: 'AWQAF4Health', stat: 'Akan datang', statLabel: 'butiran dikemas kini', icon: BuildingLibraryIcon },
+    { name: 'Yayasan ZuriatCARE', category: 'Kebajikan & Kesihatan Mental', icon: HeartIcon },
+    { name: 'EduWAQF', category: 'Pendidikan', icon: AcademicCapIcon },
+    { name: 'AWQAF4Health', category: 'Kesihatan', icon: BuildingLibraryIcon },
 ];
 
 const news = [
@@ -112,7 +111,7 @@ const news = [
         <!-- Verified facts strip -->
         <section class="border-b border-slate-100 bg-white py-20">
             <div class="mx-auto max-w-6xl px-6 lg:px-8">
-                <div class="grid grid-cols-2 gap-y-12 gap-x-8 sm:grid-cols-4">
+                <div class="grid grid-cols-1 gap-y-12 gap-x-8 sm:grid-cols-3">
                     <div v-for="fact in facts" :key="fact.label" class="text-center">
                         <component :is="fact.icon" class="mx-auto h-6 w-6 text-emerald-600" />
                         <div class="mt-4 text-2xl font-bold text-emerald-700 sm:text-3xl">{{ fact.value }}</div>
@@ -183,7 +182,7 @@ const news = [
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="grid grid-cols-1 gap-14 lg:grid-cols-3">
                     <div>
-                        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-400">Laporan &amp; Pendedahan</p>
+                        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-400">Laporan Kewangan</p>
                         <h2 class="mt-4 text-3xl font-bold text-white sm:text-4xl">Kutipan wakaf tahunan, 2014–2024</h2>
                         <p class="mt-6 text-sm text-slate-400">Seperti dilaporkan dalam Penyata Kewangan Diaudit AWQAF Holdings Berhad.</p>
                         <Link :href="route('korporat.reports')" class="mt-8 inline-block text-sm font-semibold text-emerald-400 hover:underline">Muat turun Laporan Tahunan →</Link>
@@ -209,7 +208,7 @@ const news = [
                 </div>
                 <div class="mt-12 flex flex-wrap gap-4">
                     <Link :href="route('korporat.overview')" class="rounded-lg bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-700">Lembaga &amp; Struktur Korporat</Link>
-                    <Link :href="route('ketelusan')" class="rounded-lg border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">Pusat Ketelusan</Link>
+                    <Link :href="route('ketelusan')" class="rounded-lg border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">Laporan &amp; Tadbir Urus</Link>
                 </div>
             </div>
         </section>
@@ -223,15 +222,13 @@ const news = [
                 </div>
                 <div class="mt-14 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-3">
                     <div v-for="program in programs" :key="program.name">
-                        <div class="flex items-center justify-between">
-                            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-amber-600 shadow-sm"><component :is="program.icon" class="h-6 w-6" /></div>
-                            <div class="text-right">
-                                <div class="text-lg font-bold text-slate-900">{{ program.stat }}</div>
-                                <div class="text-[10px] uppercase tracking-wide text-slate-500">{{ program.statLabel }}</div>
-                            </div>
-                        </div>
+                        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-amber-600 shadow-sm"><component :is="program.icon" class="h-6 w-6" /></div>
                         <div class="mt-5 text-lg font-semibold text-emerald-700">{{ program.name }}</div>
+                        <p class="mt-1 text-sm text-slate-500">{{ program.category }}</p>
                     </div>
+                </div>
+                <div class="mt-12">
+                    <Link :href="route('program.index')" class="text-sm font-semibold text-emerald-700 hover:underline">Lihat semua program &amp; inisiatif →</Link>
                 </div>
             </div>
         </section>

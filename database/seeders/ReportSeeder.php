@@ -13,7 +13,8 @@ class ReportSeeder extends Seeder
     public function run(): void
     {
         $annualReportYears = range(2015, 2024);
-        $financialStatementYears = array_diff(range(2015, 2024), [2021]);
+        // 2021 Audited Financial Statement is now available in reports/.
+        $financialStatementYears = range(2015, 2024);
 
         foreach ($annualReportYears as $year) {
             Report::updateOrCreate(

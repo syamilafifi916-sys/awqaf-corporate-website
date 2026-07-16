@@ -57,14 +57,14 @@ const committees = [
 </script>
 
 <template>
-    <Head title="Pusat Ketelusan" />
+    <Head title="Laporan & Tadbir Urus" />
 
     <PublicLayout>
         <section class="relative overflow-hidden bg-slate-950 py-24">
             <div class="absolute -left-24 top-0 h-72 w-72 rounded-full bg-emerald-600/20 blur-3xl"></div>
             <div class="relative mx-auto max-w-3xl px-6 text-center lg:px-8">
                 <p class="text-sm font-semibold uppercase tracking-wider text-emerald-400">Ketelusan</p>
-                <h1 class="mt-3 text-4xl font-bold text-white">Pusat Ketelusan AWQAF</h1>
+                <h1 class="mt-3 text-4xl font-bold text-white">Laporan &amp; Tadbir Urus</h1>
                 <p class="mt-4 text-slate-300">
                     Satu ruang untuk menyemak semua maklumat tadbir urus, kewangan dan pematuhan AWQAF Holdings
                     Berhad — laporan diaudit, struktur Lembaga Pengarah, jawatankuasa, dan status pematuhan.

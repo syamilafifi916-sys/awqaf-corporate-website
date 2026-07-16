@@ -156,7 +156,7 @@ const sectionNav = [
                         <DocumentCheckIcon class="h-6 w-6 flex-none text-emerald-700" />
                         <div>
                             <h3 class="font-semibold text-slate-900">Penyata kewangan diaudit</h3>
-                            <p class="mt-2 text-sm text-slate-600">Diaudit oleh juruaudit luar dan didedahkan setiap tahun di Pusat Ketelusan.</p>
+                            <p class="mt-2 text-sm text-slate-600">Diaudit oleh juruaudit luar dan didedahkan setiap tahun.</p>
                         </div>
                     </div>
                     <div class="flex gap-4 rounded-2xl border border-dashed border-slate-200 p-6">
@@ -199,7 +199,7 @@ const sectionNav = [
         <section id="laporan" class="bg-white py-20">
             <div class="mx-auto max-w-5xl px-6 lg:px-8">
                 <div class="rounded-2xl border border-slate-100 bg-slate-50 p-8 sm:p-12">
-                    <p class="text-sm font-semibold uppercase tracking-wider text-emerald-700">Pendedahan</p>
+                    <p class="text-sm font-semibold uppercase tracking-wider text-emerald-700">Laporan</p>
                     <h2 class="mt-3 text-3xl font-bold text-slate-900">Laporan Tahunan &amp; Penyata Kewangan</h2>
                     <p class="mt-4 max-w-2xl text-slate-600">
                         Laporan Tahunan dan Penyata Kewangan Diaudit AWQAF Holdings Berhad — didedahkan sepenuhnya,
@@ -210,7 +210,7 @@ const sectionNav = [
                             Muat Turun Laporan Tahunan
                         </Link>
                         <Link :href="route('ketelusan')" class="rounded-lg border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-white">
-                            Pusat Ketelusan
+                            Laporan &amp; Tadbir Urus
                         </Link>
                     </div>
                 </div>

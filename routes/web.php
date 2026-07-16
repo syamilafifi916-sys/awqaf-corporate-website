@@ -73,14 +73,12 @@ Route::get('/ketelusan', function () {
     ]);
 })->name('ketelusan');
 
-Route::get('/kebajikan', function () {
-    Seo::set([
-        'title' => 'Program Kebajikan — AWQAF Holdings Berhad',
-        'description' => 'ZuriatCARE, EduWAQF dan AWQAF4Health — program kebajikan yang disalurkan menerusi dana waqaf korporat.',
-    ]);
+// Program & Inisiatif hub (replaces the thin Program Kebajikan page).
+Route::get('/program', [\App\Http\Controllers\ProgramController::class, 'index'])->name('program.index');
+Route::get('/program/{slug}', [\App\Http\Controllers\ProgramController::class, 'show'])->name('program.show');
 
-    return Inertia::render('Kebajikan/Overview');
-})->name('kebajikan.overview');
+// Legacy path → new hub.
+Route::get('/kebajikan', fn () => redirect()->route('program.index', [], 301))->name('kebajikan.overview');
 
 Route::get('/korporat/laporan-tahunan', function () {
     Seo::set([
@@ -113,7 +111,12 @@ Route::get('/sitemap.xml', function () {
         ->add(Url::create(route('waqaf.categories'))->setPriority(0.8))
         ->add(Url::create(route('korporat.overview'))->setPriority(0.6))
         ->add(Url::create(route('ketelusan'))->setPriority(0.7))
-        ->add(Url::create(route('kebajikan.overview'))->setPriority(0.6))
+        ->add(Url::create(route('program.index'))->setPriority(0.7))
+        ->add(Url::create(route('program.show', 'zuriatcare'))->setPriority(0.5))
+        ->add(Url::create(route('program.show', 'eduwaqf'))->setPriority(0.5))
+        ->add(Url::create(route('program.show', 'awqaf4health'))->setPriority(0.5))
+        ->add(Url::create(route('program.show', 'curves'))->setPriority(0.5))
+        ->add(Url::create(route('program.show', 'infaq'))->setPriority(0.5))
         ->add(Url::create(route('korporat.reports'))->setPriority(0.5));
 
     return $sitemap->toResponse(request());
