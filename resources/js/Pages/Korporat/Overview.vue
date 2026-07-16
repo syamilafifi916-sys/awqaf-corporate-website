@@ -55,11 +55,8 @@ const sectionNav = [
 
     <PublicLayout>
         <!-- Intro -->
-        <section id="tentang" class="relative overflow-hidden bg-slate-950">
-            <!-- Editorial architectural imagery — designed art, not a photograph of AWQAF -->
-            <img src="/images/editorial/arch-light.jpg" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover opacity-60" />
-            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/40"></div>
-            <div class="relative mx-auto max-w-5xl px-6 py-20 lg:px-8 lg:py-28">
+        <section id="tentang" class="bg-slate-950">
+            <div class="mx-auto max-w-5xl px-6 py-20 lg:px-8 lg:py-28">
                 <p class="text-sm font-semibold uppercase tracking-wider text-emerald-400">Korporat</p>
                 <h1 class="mt-3 max-w-3xl text-4xl font-bold leading-tight text-white sm:text-5xl">
                     AWQAF Holdings Berhad
@@ -117,10 +114,8 @@ const sectionNav = [
         </section>
 
         <!-- Corporate Structure / Model -->
-        <section id="struktur" class="relative overflow-hidden bg-slate-50 py-20">
-            <!-- Editorial geometric texture — designed art, not a photograph -->
-            <img src="/images/editorial/geometry.jpg" alt="" aria-hidden="true" class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-40" />
-            <div class="relative mx-auto max-w-5xl px-6 lg:px-8">
+        <section id="struktur" class="bg-slate-50 py-20">
+            <div class="mx-auto max-w-5xl px-6 lg:px-8">
                 <p class="text-sm font-semibold uppercase tracking-wider text-emerald-700">Struktur Korporat</p>
                 <h2 class="mt-3 text-3xl font-bold text-slate-900">Model Waqaf Korporat®</h2>
                 <p class="mt-4 max-w-2xl text-slate-500">
@@ -203,25 +198,21 @@ const sectionNav = [
         <!-- Reports -->
         <section id="laporan" class="bg-white py-20">
             <div class="mx-auto max-w-5xl px-6 lg:px-8">
-                <div class="grid gap-10 rounded-2xl border border-slate-100 bg-slate-50 p-8 sm:p-12 lg:grid-cols-2 lg:items-center">
-                    <div>
-                        <p class="text-sm font-semibold uppercase tracking-wider text-emerald-700">Pendedahan</p>
-                        <h2 class="mt-3 text-3xl font-bold text-slate-900">Laporan Tahunan &amp; Penyata Kewangan</h2>
-                        <p class="mt-4 text-slate-600">
-                            Laporan Tahunan dan Penyata Kewangan Diaudit AWQAF Holdings Berhad — didedahkan sepenuhnya,
-                            termasuk sebelas tahun rekod kutipan wakaf.
-                        </p>
-                        <div class="mt-8 flex flex-wrap gap-4">
-                            <Link :href="route('korporat.reports')" class="rounded-lg bg-emerald-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-800">
-                                Muat Turun Laporan Tahunan
-                            </Link>
-                            <Link :href="route('ketelusan')" class="rounded-lg border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-white">
-                                Pusat Ketelusan
-                            </Link>
-                        </div>
+                <div class="rounded-2xl border border-slate-100 bg-slate-50 p-8 sm:p-12">
+                    <p class="text-sm font-semibold uppercase tracking-wider text-emerald-700">Pendedahan</p>
+                    <h2 class="mt-3 text-3xl font-bold text-slate-900">Laporan Tahunan &amp; Penyata Kewangan</h2>
+                    <p class="mt-4 max-w-2xl text-slate-600">
+                        Laporan Tahunan dan Penyata Kewangan Diaudit AWQAF Holdings Berhad — didedahkan sepenuhnya,
+                        termasuk sebelas tahun rekod kutipan wakaf.
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <Link :href="route('korporat.reports')" class="rounded-lg bg-emerald-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-800">
+                            Muat Turun Laporan Tahunan
+                        </Link>
+                        <Link :href="route('ketelusan')" class="rounded-lg border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-white">
+                            Pusat Ketelusan
+                        </Link>
                     </div>
-                    <!-- Editorial document motif — designed art, not a photograph -->
-                    <img src="/images/editorial/ledger.jpg" alt="" aria-hidden="true" class="hidden rounded-xl border border-slate-100 lg:block" />
                 </div>
             </div>
         </section>
