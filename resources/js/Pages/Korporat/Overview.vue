@@ -41,12 +41,14 @@ const board = [
 ];
 
 const sectionNav = [
-    { href: '#tentang', label: 'Tentang' },
+    { href: '#tentang', label: 'Mengenai AWQAF' },
+    { href: '#informasi', label: 'Informasi Korporat' },
     { href: '#visi', label: 'Visi & Misi' },
     { href: '#struktur', label: 'Struktur' },
     { href: '#tadbir', label: 'Tadbir Urus' },
-    { href: '#lembaga', label: 'Lembaga' },
-    { href: '#laporan', label: 'Laporan' },
+    { href: '#jawatankuasa', label: 'Jawatankuasa' },
+    { href: '#lembaga', label: 'Lembaga Pengarah' },
+    { href: '#laporan', label: 'Laporan & Dokumen' },
 ];
 </script>
 
@@ -87,6 +89,23 @@ const sectionNav = [
                 >{{ s.label }}</a>
             </div>
         </nav>
+
+        <!-- Informasi Korporat -->
+        <section id="informasi" class="bg-white py-20">
+            <div class="mx-auto max-w-5xl px-6 lg:px-8">
+                <p class="text-sm font-semibold uppercase tracking-wider text-emerald-700">Informasi Korporat</p>
+                <h2 class="mt-3 text-3xl font-bold text-slate-900">Maklumat syarikat</h2>
+                <dl class="mt-10 grid grid-cols-1 gap-x-10 gap-y-6 sm:grid-cols-2">
+                    <div class="border-t border-slate-100 pt-4"><dt class="text-xs uppercase tracking-wide text-slate-400">Tarikh penubuhan</dt><dd class="mt-1 font-medium text-slate-900">3 September 2012</dd></div>
+                    <div class="border-t border-slate-100 pt-4"><dt class="text-xs uppercase tracking-wide text-slate-400">Nombor pendaftaran</dt><dd class="mt-1 font-medium text-slate-900">1015578-X</dd></div>
+                    <div class="border-t border-slate-100 pt-4"><dt class="text-xs uppercase tracking-wide text-slate-400">Jenis syarikat</dt><dd class="mt-1 font-medium text-slate-900">Syarikat Berhad Menurut Jaminan</dd></div>
+                    <div class="border-t border-slate-100 pt-4"><dt class="text-xs uppercase tracking-wide text-slate-400">Aktiviti</dt><dd class="mt-1 font-medium text-slate-900">Mengurus harta wakaf dan aktiviti kebajikan lain</dd></div>
+                    <div class="border-t border-slate-100 pt-4 sm:col-span-2"><dt class="text-xs uppercase tracking-wide text-slate-400">Alamat</dt><dd class="mt-1 font-medium text-slate-900">No. 18, Tingkat 1, D'Bayu Bukit Jelutong, Jalan Serambi U8/24, Bukit Jelutong, 40150 Shah Alam, Selangor</dd></div>
+                    <div class="border-t border-slate-100 pt-4"><dt class="text-xs uppercase tracking-wide text-slate-400">E-mel</dt><dd class="mt-1 font-medium text-slate-900">admin@awqaf.my</dd></div>
+                    <div class="border-t border-slate-100 pt-4"><dt class="text-xs uppercase tracking-wide text-slate-400">Telefon</dt><dd class="mt-1 font-medium text-slate-900">03-7832 6644</dd></div>
+                </dl>
+            </div>
+        </section>
 
         <!-- Vision & Mission -->
         <section id="visi" class="bg-white py-20">
@@ -155,8 +174,8 @@ const sectionNav = [
                     <div class="flex gap-4 rounded-2xl border border-slate-100 p-6">
                         <DocumentCheckIcon class="h-6 w-6 flex-none text-emerald-700" />
                         <div>
-                            <h3 class="font-semibold text-slate-900">Penyata kewangan diaudit</h3>
-                            <p class="mt-2 text-sm text-slate-600">Diaudit oleh juruaudit luar dan didedahkan setiap tahun.</p>
+                            <h3 class="font-semibold text-slate-900">Juruaudit Luar</h3>
+                            <p class="mt-2 text-sm text-slate-600">Wan Nadzir &amp; Co. (2021 hingga kini); sebelumnya Afrizan Tarmili Khairul Azhar PLT (AFTAAS), 2015–2020. Penyata kewangan diaudit dan didedahkan setiap tahun.</p>
                         </div>
                     </div>
                     <div class="flex gap-4 rounded-2xl border border-dashed border-slate-200 p-6">
@@ -191,6 +210,11 @@ const sectionNav = [
                         <div class="font-semibold text-slate-900">{{ m.name }}</div>
                         <div class="mt-0.5 text-sm text-slate-500">{{ m.title }}</div>
                     </div>
+                </div>
+                <div class="mt-8">
+                    <Link :href="route('korporat.leadership.index')" class="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-700">
+                        Lihat profil penuh Lembaga Pengarah →
+                    </Link>
                 </div>
             </div>
         </section>

@@ -106,6 +106,10 @@ Route::get('/program/{slug}', [\App\Http\Controllers\ProgramController::class, '
 // Legacy path → new hub.
 Route::get('/kebajikan', fn () => redirect()->route('program.index', [], 301))->name('kebajikan.overview');
 
+// Lembaga Pengarah (data-driven; single source: resources/data/leadership.php).
+Route::get('/korporat/lembaga-pengarah', [\App\Http\Controllers\LeadershipController::class, 'index'])->name('korporat.leadership.index');
+Route::get('/korporat/lembaga-pengarah/{slug}', [\App\Http\Controllers\LeadershipController::class, 'show'])->name('korporat.leadership.show');
+
 Route::get('/korporat/laporan-tahunan', function () {
     Seo::set([
         'title' => 'Laporan Tahunan & Penyata Kewangan — AWQAF Holdings Berhad',
@@ -137,6 +141,7 @@ Route::get('/sitemap.xml', function () {
         ->add(Url::create(route('waqaf.categories'))->setPriority(0.8))
         ->add(Url::create(route('korporat.overview'))->setPriority(0.6))
         ->add(Url::create(route('ketelusan'))->setPriority(0.7))
+        ->add(Url::create(route('korporat.leadership.index'))->setPriority(0.7))
         ->add(Url::create(route('program.index'))->setPriority(0.7))
         ->add(Url::create(route('program.show', 'zuriatcare'))->setPriority(0.5))
         ->add(Url::create(route('program.show', 'eduwaqf'))->setPriority(0.5))

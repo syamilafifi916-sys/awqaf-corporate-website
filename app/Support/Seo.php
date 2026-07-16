@@ -24,6 +24,7 @@ class Seo
             'image' => asset('images/og-default.jpg'),
             'canonical' => url()->current(),
             'type' => 'website',
+            'schema' => null,
         ];
     }
 }

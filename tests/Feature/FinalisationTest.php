@@ -9,7 +9,7 @@ it('serves the Hubungi Kami page', function () {
 });
 
 it('ships the official logo asset and favicon', function () {
-    expect(file_exists(public_path('images/brand/awqaf-logo.png')))->toBeTrue();
+    expect(file_exists(public_path('images/brand/awqaf-symbol.png')))->toBeTrue();
     expect(file_exists(public_path('favicon.ico')))->toBeTrue();
 });
 

@@ -40,6 +40,11 @@
                 'url' => url('/'),
             ], JSON_UNESCAPED_SLASHES) !!}
         </script>
+        @if(!empty($seo['schema']))
+        <script type="application/ld+json">
+            {!! json_encode($seo['schema'], JSON_UNESCAPED_SLASHES) !!}
+        </script>
+        @endif
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

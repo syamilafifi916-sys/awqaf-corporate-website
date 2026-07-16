@@ -24,10 +24,10 @@ const page = usePage();
                     <div class="rounded-2xl border border-dashed border-slate-200 p-6">
                         <BuildingLibraryIcon class="h-6 w-6 text-slate-400" />
                         <h2 class="mt-4 font-semibold text-slate-900">Pejabat AWQAF Holdings Berhad</h2>
-                        <dl class="mt-4 space-y-3 text-sm text-slate-500">
-                            <div><dt class="text-slate-400">Alamat</dt><dd>Akan dikemas kini oleh pihak AWQAF.</dd></div>
-                            <div><dt class="text-slate-400">E-mel</dt><dd>Akan dikemas kini oleh pihak AWQAF.</dd></div>
-                            <div><dt class="text-slate-400">Telefon</dt><dd>Akan dikemas kini oleh pihak AWQAF.</dd></div>
+                        <dl class="mt-4 space-y-3 text-sm text-slate-600">
+                            <div><dt class="text-slate-400">Alamat</dt><dd>No. 18, Tingkat 1, D'Bayu Bukit Jelutong, Jalan Serambi U8/24, Bukit Jelutong, 40150 Shah Alam, Selangor</dd></div>
+                            <div><dt class="text-slate-400">E-mel</dt><dd><a href="mailto:admin@awqaf.my" class="text-emerald-700 hover:underline">admin@awqaf.my</a></dd></div>
+                            <div><dt class="text-slate-400">Telefon</dt><dd><a href="tel:+60378326644" class="text-emerald-700 hover:underline">03-7832 6644</a></dd></div>
                         </dl>
                     </div>
                 </div>

@@ -85,7 +85,7 @@ onBeforeUnmount(() => {
         <header class="sticky top-0 z-40 border-b border-slate-100 bg-white/90 backdrop-blur">
             <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
                 <Link href="/" class="flex items-center" aria-label="AWQAF Holdings Berhad — Laman Utama">
-                    <img src="/images/brand/awqaf-logo.png" alt="AWQAF Holdings Berhad" class="h-9 w-auto sm:h-11" />
+                    <img src="/images/brand/awqaf-symbol.png" alt="AWQAF Holdings Berhad" class="h-9 w-auto sm:h-11" />
                 </Link>
 
                 <nav class="hidden items-center gap-1 lg:flex">
@@ -149,7 +149,7 @@ onBeforeUnmount(() => {
                 >
                     <div class="flex items-center justify-between border-b border-slate-100 px-5 py-4">
                         <div class="flex items-center gap-2">
-                            <img src="/images/brand/awqaf-logo.png" alt="AWQAF Holdings Berhad" class="h-9 w-auto" />
+                            <img src="/images/brand/awqaf-symbol.png" alt="AWQAF Holdings Berhad" class="h-9 w-auto" />
                         </div>
                         <button
                             type="button"
@@ -193,7 +193,7 @@ onBeforeUnmount(() => {
         <footer class="border-t border-slate-100 bg-slate-50">
             <div class="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 py-12 sm:grid-cols-4 lg:px-8">
                 <div class="col-span-2 sm:col-span-1">
-                    <img src="/images/brand/awqaf-logo.png" alt="AWQAF Holdings Berhad" class="h-11 w-auto" />
+                    <img src="/images/brand/awqaf-symbol.png" alt="AWQAF Holdings Berhad" class="h-11 w-auto" />
                     <p class="mt-4 text-sm text-slate-500">
                         AWQAF Holdings Berhad — memacu pengurusan waqaf korporat untuk kelestarian ummah.
                     </p>
