@@ -73,6 +73,32 @@ Route::get('/ketelusan', function () {
     ]);
 })->name('ketelusan');
 
+// Berita (aktiviti korporat).
+Route::get('/berita', function () {
+    Seo::set([
+        'title' => 'Berita & Acara — AWQAF Holdings Berhad',
+        'description' => 'Aktiviti dan acara korporat AWQAF Holdings Berhad.',
+    ]);
+
+    return Inertia::render('Berita', [
+        'items' => [
+            ['date' => '6 November 2024', 'title' => 'Kunjungan ke Jabatan Perdana Menteri', 'body' => 'Membentangkan model Waqaf Korporat® kepada YAB Perdana Menteri.'],
+            ['date' => '17 Julai 2024', 'title' => 'Meja Bulat bersama Menteri Ekonomi', 'body' => 'Membentangkan Formula Waqaf Korporat® sebagai instrumen pembangunan ekonomi ummah.'],
+            ['date' => '22 Februari 2024', 'title' => 'MoU dengan Wakaf Pulau Pinang', 'body' => 'Kerjasama inisiatif teknologi pendidikan bersama MAINPP dan YIPP di bawah platform EduWAQF.'],
+        ],
+    ]);
+})->name('berita');
+
+// Hubungi Kami.
+Route::get('/hubungi', function () {
+    Seo::set([
+        'title' => 'Hubungi Kami — AWQAF Holdings Berhad',
+        'description' => 'Maklumat perhubungan AWQAF Holdings Berhad.',
+    ]);
+
+    return Inertia::render('Hubungi');
+})->name('hubungi');
+
 // Program & Inisiatif hub (replaces the thin Program Kebajikan page).
 Route::get('/program', [\App\Http\Controllers\ProgramController::class, 'index'])->name('program.index');
 Route::get('/program/{slug}', [\App\Http\Controllers\ProgramController::class, 'show'])->name('program.show');
@@ -117,6 +143,8 @@ Route::get('/sitemap.xml', function () {
         ->add(Url::create(route('program.show', 'awqaf4health'))->setPriority(0.5))
         ->add(Url::create(route('program.show', 'curves'))->setPriority(0.5))
         ->add(Url::create(route('program.show', 'infaq'))->setPriority(0.5))
+        ->add(Url::create(route('berita'))->setPriority(0.5))
+        ->add(Url::create(route('hubungi'))->setPriority(0.5))
         ->add(Url::create(route('korporat.reports'))->setPriority(0.5));
 
     return $sitemap->toResponse(request());

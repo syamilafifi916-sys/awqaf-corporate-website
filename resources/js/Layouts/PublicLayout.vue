@@ -1,34 +1,17 @@
 <script setup>
-import BrandMark from '@/Components/BrandMark.vue';
 import { Link, router, usePage } from '@inertiajs/vue3';
 import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue';
 
 const page = usePage();
-const openMenu = ref(null);
 
-const menus = [
-    {
-        label: 'Waqaf',
-        items: [
-            { label: 'Waqaf Korporat', href: () => route('waqaf.corporate') },
-            { label: 'Kaedah Berwakaf', href: () => route('waqaf.howto') },
-            { label: 'Wakaf Bulanan', href: () => route('waqaf.monthly') },
-            { label: 'Kategori Pewakaf', href: () => route('waqaf.categories') },
-        ],
-    },
-    {
-        label: 'Korporat',
-        items: [
-            { label: 'Maklumat Korporat', href: () => route('korporat.overview') },
-            { label: 'Laporan Tahunan', href: () => route('korporat.reports') },
-        ],
-    },
-];
-
-const flatLinks = [
-    { label: 'Laporan & Tadbir Urus', href: () => route('ketelusan') },
+// Locked corporate navigation (Finalisation Mode).
+const navLinks = [
+    { label: 'Mengenai AWQAF', href: () => route('korporat.overview') },
+    { label: 'Wakaf Korporat', href: () => route('waqaf.corporate') },
     { label: 'Program & Inisiatif', href: () => route('program.index') },
-    { label: 'Muat Turun', href: () => route('korporat.reports') },
+    { label: 'Laporan & Tadbir Urus', href: () => route('ketelusan') },
+    { label: 'Berita', href: () => route('berita') },
+    { label: 'Hubungi Kami', href: () => route('hubungi') },
 ];
 
 // ── Accessible mobile menu (VISUAL-001 CON-1) ────────────────────────
@@ -101,51 +84,13 @@ onBeforeUnmount(() => {
     <div class="min-h-screen bg-white text-slate-800">
         <header class="sticky top-0 z-40 border-b border-slate-100 bg-white/90 backdrop-blur">
             <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-                <Link href="/" class="flex items-center gap-3">
-                    <BrandMark class="h-10 w-10" />
-                    <div class="leading-tight">
-                        <div class="text-sm font-semibold tracking-wide text-slate-900">AWQAF HOLDINGS</div>
-                        <div class="text-xs text-slate-500">Berhad</div>
-                    </div>
+                <Link href="/" class="flex items-center" aria-label="AWQAF Holdings Berhad — Laman Utama">
+                    <img src="/images/brand/awqaf-logo.png" alt="AWQAF Holdings Berhad" class="h-9 w-auto sm:h-11" />
                 </Link>
 
                 <nav class="hidden items-center gap-1 lg:flex">
-                    <div
-                        v-for="menu in menus"
-                        :key="menu.label"
-                        class="relative"
-                        @mouseenter="openMenu = menu.label"
-                        @mouseleave="openMenu = null"
-                        @focusin="openMenu = menu.label"
-                        @focusout="openMenu = null"
-                    >
-                        <button
-                            type="button"
-                            class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
-                            :aria-expanded="openMenu === menu.label"
-                            @click="toggle(menu.label)"
-                        >
-                            {{ menu.label }}
-                        </button>
-
-                        <div
-                            v-show="openMenu === menu.label"
-                            class="absolute left-0 top-full w-56 rounded-xl border border-slate-100 bg-white p-2 shadow-lg"
-                        >
-                            <component
-                                :is="typeof item.href === 'function' ? Link : 'a'"
-                                v-for="item in menu.items"
-                                :key="item.label"
-                                :href="typeof item.href === 'function' ? item.href() : item.href"
-                                class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700"
-                            >
-                                {{ item.label }}
-                            </component>
-                        </div>
-                    </div>
-
                     <Link
-                        v-for="link in flatLinks"
+                        v-for="link in navLinks"
                         :key="link.label"
                         :href="link.href()"
                         class="rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
@@ -204,8 +149,7 @@ onBeforeUnmount(() => {
                 >
                     <div class="flex items-center justify-between border-b border-slate-100 px-5 py-4">
                         <div class="flex items-center gap-2">
-                            <BrandMark class="h-8 w-8" />
-                            <span class="text-sm font-semibold text-slate-900">AWQAF HOLDINGS</span>
+                            <img src="/images/brand/awqaf-logo.png" alt="AWQAF Holdings Berhad" class="h-9 w-auto" />
                         </div>
                         <button
                             type="button"
@@ -220,24 +164,8 @@ onBeforeUnmount(() => {
                     </div>
 
                     <nav class="flex-1 px-3 py-4" aria-label="Navigasi utama mudah alih">
-                        <template v-for="menu in menus" :key="menu.label">
-                            <p class="px-3 pb-1 pt-3 text-xs font-semibold uppercase tracking-wider text-slate-500">
-                                {{ menu.label }}
-                            </p>
-                            <Link
-                                v-for="item in menu.items"
-                                :key="item.label"
-                                :href="item.href()"
-                                class="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-emerald-50 hover:text-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
-                            >
-                                {{ item.label }}
-                            </Link>
-                        </template>
-
-                        <div class="my-3 border-t border-slate-100"></div>
-
                         <Link
-                            v-for="link in flatLinks"
+                            v-for="link in navLinks"
                             :key="link.label"
                             :href="link.href()"
                             class="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-emerald-50 hover:text-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
@@ -265,7 +193,7 @@ onBeforeUnmount(() => {
         <footer class="border-t border-slate-100 bg-slate-50">
             <div class="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 py-12 sm:grid-cols-4 lg:px-8">
                 <div class="col-span-2 sm:col-span-1">
-                    <BrandMark class="h-10 w-10" />
+                    <img src="/images/brand/awqaf-logo.png" alt="AWQAF Holdings Berhad" class="h-11 w-auto" />
                     <p class="mt-4 text-sm text-slate-500">
                         AWQAF Holdings Berhad — memacu pengurusan waqaf korporat untuk kelestarian ummah.
                     </p>
