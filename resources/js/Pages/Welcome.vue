@@ -144,19 +144,23 @@ const timeline = [
             </svg>
             <div class="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-emerald-600/30 blur-3xl"></div>
             <div class="absolute -bottom-40 right-0 h-96 w-96 rounded-full bg-amber-500/10 blur-3xl"></div>
+            <!-- Image-ready layer: drop real institutional photography or a cinematic loop here
+                 (see the photography shot-list). A dark overlay keeps hero copy legible.
+                 No stock stand-ins are used in place of real AWQAF imagery. -->
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
 
-            <div class="relative mx-auto max-w-7xl px-6 py-28 lg:px-8 lg:py-36">
+            <div class="relative mx-auto flex min-h-[82vh] max-w-7xl items-center px-6 py-28 lg:px-8 lg:py-40">
                 <div class="max-w-2xl">
                     <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-emerald-300">
                         <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                        Waqaf Korporat® · Sejak 1998
+                        Institusi Waqaf Korporat Pertama di Malaysia
                     </div>
                     <h1 class="mt-6 text-5xl font-bold leading-[1.1] tracking-tight text-white sm:text-6xl">
-                        Membina kelestarian ummah menerusi waqaf korporat.
+                        AWQAF Holdings Berhad menjaga wakaf anda — untuk kekal memberi manfaat.
                     </h1>
                     <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate-300">
-                        Setiap sumbangan wakaf disalurkan secara bertadbir urus baik, memberi manfaat berterusan
-                        kepada pendidikan, kesihatan dan kebajikan komuniti.
+                        Institusi waqaf korporat yang diperbadankan di bawah Akta Syarikat 2016 dan diaudit setiap
+                        tahun — menyalurkan manfaat berterusan kepada pendidikan, kesihatan dan kebajikan komuniti.
                     </p>
                     <div class="mt-10 flex flex-wrap gap-4">
                         <Link
@@ -214,54 +218,51 @@ const timeline = [
 
         <section class="relative overflow-hidden bg-white py-24">
             <div class="mx-auto max-w-4xl px-6 text-center lg:px-8">
-                <p class="text-sm font-semibold uppercase tracking-wider text-emerald-700">Visi Pengasas</p>
+                <p class="text-sm font-semibold uppercase tracking-wider text-emerald-700">Tentang AWQAF</p>
                 <h2 class="mt-3 text-4xl font-bold leading-tight text-slate-900">
-                    Satu idea. Satu institusi. Satu gerakan yang berterusan.
+                    Institusi wakaf korporat yang berdiri atas tadbir urus, bukan janji.
                 </h2>
+                <p class="mx-auto mt-4 max-w-2xl text-slate-500">
+                    AWQAF Holdings Berhad memegang wakaf sebagai amanah kekal — direkod, dilindungi dan
+                    diperkembang di bawah pengawasan lembaga dan jawatankuasa yang berstruktur.
+                </p>
             </div>
 
             <div class="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-8 px-6 lg:grid-cols-3 lg:px-8">
                 <div class="rounded-2xl border border-slate-100 p-8">
-                    <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Idea</span>
-                    <h3 class="mt-3 text-lg font-semibold text-slate-900">Wakaf sebagai instrumen ekonomi</h3>
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Mandat</span>
+                    <h3 class="mt-3 text-lg font-semibold text-slate-900">Amanah wakaf yang kekal</h3>
                     <p class="mt-3 text-sm leading-relaxed text-slate-600">
-                        Allahyarham Tan Sri Muhammad Ali Hashim percaya wakaf bukan sekadar amal — ia boleh menjadi
-                        enjin ekonomi. Falsafah "Jihad Bisnes" baginda menyatukan semangat keusahawanan dengan
-                        tanggungjawab wakaf, mencabar andaian bahawa institusi Islam mesti bergantung sepenuhnya
-                        kepada derma.
+                        Setiap sumbangan diuruskan sebagai aset wakaf kekal — bukan derma sekali lewat. Modal asal
+                        dikekalkan; hanya hasilnya disalurkan kepada manfaat masyarakat, merentas generasi.
                     </p>
                 </div>
 
                 <div class="rounded-2xl border border-emerald-100 bg-emerald-50/50 p-8">
-                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">Institusi</span>
-                    <h3 class="mt-3 text-lg font-semibold text-slate-900">WANCorp, 1998 → hampir RM800 juta</h3>
+                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">Model</span>
+                    <h3 class="mt-3 text-lg font-semibold text-slate-900">Waqaf Korporat®</h3>
                     <p class="mt-3 text-sm leading-relaxed text-slate-600">
-                        Idea itu dibuktikan menerusi Waqaf An-Nur Corporation Berhad — institusi wakaf korporat
-                        pertama di Malaysia. Aset wakaf berkembang daripada RM250 juta kepada hampir RM800 juta
-                        dalam tempoh tiga tahun, membuktikan model ini bukan teori.
+                        Konsep berdaftar yang dilesenkan kepada AWQAF Holdings Berhad — menukar wakaf menjadi
+                        perniagaan mapan milik ummah, satu pendekatan yang turut dikaji Universiti Oxford (2010).
                     </p>
                 </div>
 
                 <div class="rounded-2xl border border-slate-100 p-8">
-                    <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Gerakan</span>
-                    <h3 class="mt-3 text-lg font-semibold text-slate-900">AWQAF meneruskan warisan</h3>
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Tadbir Urus</span>
+                    <h3 class="mt-3 text-lg font-semibold text-slate-900">Berstruktur &amp; diaudit</h3>
                     <p class="mt-3 text-sm leading-relaxed text-slate-600">
-                        Wakaf Korporat® kini konsep berdaftar yang dilesenkan kepada AWQAF Holdings Berhad —
-                        bukan lagi satu syarikat sahaja, tetapi asas kepada gerakan wakaf korporat yang lebih luas
-                        di Malaysia.
+                        Diperbadankan di bawah Akta Syarikat 2016, diselia Lembaga Pengarah serta Jawatankuasa
+                        Pelaburan dan Audit, dengan penyata kewangan yang diaudit dan didedahkan setiap tahun.
                     </p>
                 </div>
             </div>
 
-            <div class="mx-auto mt-10 max-w-4xl px-6 text-center lg:px-8">
-                <Link :href="route('korporat.overview')" class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:underline">
-                    <img
-                        src="/images/pengasas-tan-sri-muhammad-ali-hashim.png"
-                        alt="Allahyarham Tan Sri Muhammad Ali Hashim"
-                        class="h-8 w-8 rounded-full bg-slate-100 object-cover object-top ring-2 ring-emerald-100"
-                    />
-                    Kenali Allahyarham Tan Sri Muhammad Ali Hashim →
-                </Link>
+            <div class="mx-auto mt-12 max-w-4xl px-6 text-center lg:px-8">
+                <p class="text-sm leading-relaxed text-slate-500">
+                    Model wakaf korporat ini berakar daripada Waqaf An-Nur Corporation (1998) — institusi wakaf
+                    korporat pertama di Malaysia — dan kini diperkembang oleh AWQAF Holdings Berhad.
+                    <Link :href="route('korporat.overview')" class="font-semibold text-emerald-700 underline decoration-emerald-700/40 underline-offset-2 hover:decoration-emerald-700">Ketahui lebih lanjut tentang AWQAF →</Link>
+                </p>
             </div>
         </section>
 
