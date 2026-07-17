@@ -111,13 +111,13 @@ const programs = [
         </section>
 
         <!-- 2. Verified facts strip -->
-        <section class="border-b border-slate-100 bg-white py-20">
+        <section class="bg-slate-50 py-20">
             <div class="mx-auto max-w-6xl px-6 lg:px-8">
                 <div class="grid grid-cols-1 gap-y-12 gap-x-8 sm:grid-cols-3">
                     <div v-for="fact in facts" :key="fact.label" class="text-center">
                         <component :is="fact.icon" class="mx-auto h-6 w-6 text-emerald-600" />
-                        <div class="mt-4 text-2xl font-bold text-emerald-700 sm:text-3xl">{{ fact.value }}</div>
-                        <div class="mx-auto mt-2 max-w-[16ch] text-xs text-slate-500">{{ fact.label }}</div>
+                        <div class="mt-4 text-3xl font-bold text-emerald-700 sm:text-4xl">{{ fact.value }}</div>
+                        <div class="mx-auto mt-2 max-w-[18ch] text-xs uppercase tracking-wide text-slate-500">{{ fact.label }}</div>
                     </div>
                 </div>
             </div>
