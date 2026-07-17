@@ -104,17 +104,38 @@ const bookCta = props.founder.book.cta_verified_url || route('hubungi');
         <!-- 7. Legasi Kepimpinan — falsafah Waqaf Korporat diteruskan menerusi kepimpinan berturut -->
         <section class="bg-white py-16 lg:py-24">
             <div class="mx-auto max-w-5xl px-6 lg:px-8">
-                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">Kesinambungan</p>
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">Kesinambungan Amanah</p>
                 <h2 class="mt-3 text-2xl font-bold text-slate-900 sm:text-3xl">Legasi Kepimpinan</h2>
                 <p class="mt-6 max-w-3xl leading-relaxed text-slate-700">{{ founder.leadership_legacy.intro }}</p>
 
+                <!-- Perjalanan institusi (konsep) — idea → institusi → kesinambungan.
+                     Semata-mata konsep; hanya '2012' sebagai penanda permulaan, tiada tarikh lain. -->
+                <ol class="mt-12 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+                    <li class="sm:flex-1">
+                        <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">2012</p>
+                        <p class="mt-1.5 font-semibold text-slate-900">Pengasas memperkenalkan falsafah.</p>
+                    </li>
+                    <li aria-hidden="true" class="flex shrink-0 justify-start text-slate-300 sm:justify-center">
+                        <svg class="h-5 w-5 rotate-90 sm:rotate-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                    </li>
+                    <li class="sm:flex-1">
+                        <p class="font-semibold text-slate-900">Institusi diperkukuh.</p>
+                    </li>
+                    <li aria-hidden="true" class="flex shrink-0 justify-start text-slate-300 sm:justify-center">
+                        <svg class="h-5 w-5 rotate-90 sm:rotate-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                    </li>
+                    <li class="sm:flex-1">
+                        <p class="font-semibold text-slate-900">Institusi diteruskan hari ini.</p>
+                    </li>
+                </ol>
+
                 <!-- Garis masa kepimpinan: setiap pengerusi ialah pertanda institusi.
                      Potret monokrom (monogram sementara) — mudah diganti apabila potret rasmi disediakan. -->
-                <ol class="mt-14 lg:mt-16">
+                <ol class="mt-16 border-t border-slate-100 pt-16 lg:mt-20 lg:pt-20">
                     <li
                         v-for="(c, i) in founder.leadership_legacy.chairmen"
                         :key="c.name"
-                        class="relative flex gap-6 pb-12 last:pb-0 sm:gap-8"
+                        class="relative flex gap-6 pb-16 last:pb-0 sm:gap-8 sm:pb-24"
                     >
                         <!-- Garis penghubung halus (di belakang potret) -->
                         <span
@@ -159,6 +180,12 @@ const bookCta = props.founder.book.cta_verified_url || route('hubungi');
                         </div>
                     </li>
                 </ol>
+
+                <!-- Penutup bab Pengasas — pernyataan tenang, tiada CTA/butang. -->
+                <p class="mt-12 max-w-2xl text-lg leading-relaxed text-slate-500 sm:mt-16 sm:text-xl sm:leading-relaxed">
+                    Idea boleh lahir daripada seorang tokoh. Namun hanya institusi yang kukuh mampu
+                    memastikan idea itu terus hidup merentasi generasi.
+                </p>
             </div>
         </section>
 
