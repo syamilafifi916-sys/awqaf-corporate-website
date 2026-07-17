@@ -97,7 +97,12 @@ return [
                 'name' => 'Allahyarham Tan Sri Muhammad Ali Hashim',
                 'term' => 'September 2012 – Julai 2017',
                 'monogram' => 'MAH',
-                'portrait' => 'pengasas-tan-sri-muhammad-ali-hashim.png',
+                // Potret rasmi WUJUD (pengasas-tan-sri-muhammad-ali-hashim.png) dan
+                // potret Pengerusi semasa juga wujud, TETAPI potret Pengerusi Kedua
+                // (Tan Sri Siti Sa'diah) tiada dalam aset projek. Untuk mengelakkan
+                // sistem visual campuran, ketiga-tiga entri kekal monogram sehingga
+                // ketiga-tiga potret rasmi tersedia (atau sistem campuran diluluskan).
+                'portrait' => null,
                 'current' => false,
                 'description' => 'Pengasas AWQAF Holdings Berhad. Memperkenalkan dan memperjuangkan falsafah Waqaf Korporat dan Jihad Bisnes sebagai pembangunan ekonomi mampan untuk ummah.',
             ],
