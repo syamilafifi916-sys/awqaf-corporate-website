@@ -144,9 +144,8 @@ const pillars = [
         <section id="refleksi" class="bg-slate-950">
             <div class="mx-auto max-w-4xl px-6 py-28 lg:px-8 lg:py-40">
                 <p v-reveal class="text-2xl font-medium leading-relaxed text-slate-400 sm:text-3xl sm:leading-[1.5]">
-                    Setiap tamadun yang agung dibina di atas ekonomi yang kukuh. Apabila ekonomi berkembang
-                    dengan adil, masyarakat memperoleh peluang untuk belajar, bekerja dan membina kehidupan
-                    yang lebih sejahtera.
+                    Ekonomi yang berkembang dengan adil membuka peluang untuk masyarakat belajar, bekerja
+                    dan membina kehidupan yang lebih sejahtera.
                 </p>
                 <p v-reveal="'150ms'" class="mt-10 text-2xl font-semibold leading-relaxed text-white sm:text-3xl sm:leading-[1.5]">
                     Namun apabila kekayaan hanya tertumpu kepada segelintir, jurang semakin melebar — dan
@@ -158,15 +157,16 @@ const pillars = [
         <!-- ═══ M2 · NORTH STAR + CONVICTION ═══ Understanding -->
         <section class="bg-white">
             <div class="mx-auto max-w-5xl px-6 py-28 lg:px-8 lg:py-40">
-                <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Corporate Waqf</p>
+                <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Waqaf Korporat</p>
                 <h2 v-reveal="'80ms'" class="mt-8 text-3xl font-bold leading-[1.18] tracking-tight text-slate-900 sm:text-5xl">
                     Waqaf bukan sekadar warisan harta. Ia warisan peluang — sebuah ekonomi yang membolehkan
                     setiap generasi membina masa depannya sendiri.
                 </h2>
 
                 <p v-reveal class="mt-16 max-w-2xl text-lg leading-relaxed text-slate-600">
-                    Corporate Waqf lahir daripada satu keyakinan: pertumbuhan ekonomi dan amanah kepada
-                    masyarakat tidak seharusnya dipisahkan.
+                    Waqaf Korporat ialah pendekatan mengurus wakaf sebagai sebuah institusi korporat: aset wakaf
+                    dibangunkan menjadi perniagaan yang mampan, modal asalnya dikekalkan, dan hasilnya disalurkan
+                    untuk manfaat masyarakat.
                 </p>
 
                 <div class="mt-12 space-y-5 border-t border-slate-100 pt-12">
@@ -177,7 +177,7 @@ const pillars = [
                         Bukan sekadar membantu — <span class="font-semibold text-slate-900">ia memperkasa.</span>
                     </p>
                     <p v-reveal="'200ms'" class="max-w-3xl text-2xl leading-snug text-slate-400 sm:text-3xl">
-                        Bukan sekadar mengurus aset — <span class="font-semibold text-slate-900">ia membina sistem ekonomi yang menjadikan kemakmuran sebagai manfaat bersama.</span>
+                        Bukan sekadar mengurus aset — <span class="font-semibold text-slate-900">ia membina ekonomi yang memberi manfaat kepada semua.</span>
                     </p>
                 </div>
             </div>
@@ -192,8 +192,8 @@ const pillars = [
                         Bagaimana kemakmuran menjadi milik bersama
                     </h2>
                     <p v-reveal="'140ms'" class="mt-5 text-lg leading-relaxed text-slate-600">
-                        Nilai yang dijana tidak dibelanjakan sekali habis. Aset dikekalkan sebagai amanah kekal,
-                        manakala hasilnya membina pendidikan, kesihatan dan masa depan komuniti.
+                        Nilai yang dijana tidak dibelanjakan sekali habis. Hasilnya membina pendidikan,
+                        kesihatan dan masa depan komuniti.
                     </p>
                 </div>
                 <div v-reveal class="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-3">
@@ -219,9 +219,9 @@ const pillars = [
                     Institusi yang menterjemahkan falsafah ini menjadi tindakan.
                 </h2>
                 <p v-reveal="'140ms'" class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-                    AWQAF Holdings Berhad ialah sebuah institusi Waqaf Korporat yang membina dan menguruskan
-                    aset wakaf secara profesional — supaya nilai yang dijana kekal, berkembang, dan memberi
-                    manfaat berterusan kepada masyarakat.
+                    AWQAF Holdings Berhad ialah sebuah institusi Waqaf Korporat. Ia membina dan menguruskan
+                    aset wakaf secara profesional supaya nilai yang dijana kekal, berkembang dan terus memberi
+                    manfaat kepada masyarakat.
                 </p>
 
                 <dl class="mt-16 grid grid-cols-1 gap-x-12 gap-y-10 border-t border-white/10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
