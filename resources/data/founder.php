@@ -85,6 +85,42 @@ return [
         'Perbincangan dan penyelidikan berterusan mengenai pengurusan korporat Islam',
     ],
 
+    // Kesinambungan kepimpinan — hanya maklumat disahkan. Jangan tokok tambah
+    // pencapaian yang tidak dinyatakan. 'portrait' kekal null sehingga potret
+    // rasmi disediakan; UI menggunakan monogram sebagai ganti sementara.
+    'leadership_legacy' => [
+        'intro' => 'Waqaf Korporat bukan sekadar sebuah idea yang diasaskan oleh seorang tokoh. Ia merupakan amanah institusi yang diteruskan melalui kepimpinan yang memelihara falsafah, memperkukuh tadbir urus dan memastikan manfaatnya terus diwariskan kepada masyarakat.',
+        'chairmen' => [
+            [
+                'role' => 'Pengerusi Pengasas',
+                'name' => 'Allahyarham Tan Sri Muhammad Ali Hashim',
+                'term' => 'September 2012 – Julai 2017',
+                'monogram' => 'MAH',
+                'portrait' => null,
+                'current' => false,
+                'description' => 'Pengasas AWQAF Holdings Berhad. Memperkenalkan dan memperjuangkan falsafah Waqaf Korporat dan Jihad Bisnes sebagai pembangunan ekonomi mampan untuk ummah.',
+            ],
+            [
+                'role' => 'Pengerusi Kedua',
+                'name' => 'Tan Sri Siti Sa\'diah binti Sheikh Bakir',
+                'term' => 'Ogos 2017 – Disember 2024',
+                'monogram' => 'SSB',
+                'portrait' => null,
+                'current' => false,
+                'description' => 'Meneruskan pengukuhan institusi dan tadbir urus AWQAF.',
+            ],
+            [
+                'role' => 'Pengerusi Semasa',
+                'name' => 'Dato\' Mohammad Sahar bin Mat Din',
+                'term' => 'Januari 2025 – Kini',
+                'monogram' => 'MSD',
+                'portrait' => null,
+                'current' => true,
+                'description' => 'Pengerusi semasa AWQAF Holdings Berhad.',
+            ],
+        ],
+    ],
+
     'book' => [
         'title' => 'Muhammad Ali Hashim: Champion of Business Jihad and Corporate Waqaf',
         'author' => 'Rokiah Talib',

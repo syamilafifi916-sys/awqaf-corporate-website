@@ -101,8 +101,69 @@ const bookCta = props.founder.book.cta_verified_url || route('hubungi');
             </div>
         </section>
 
-        <!-- 7. AWQAF Holdings -->
-        <section class="bg-white py-16 lg:py-20">
+        <!-- 7. Legasi Kepimpinan — falsafah Waqaf Korporat diteruskan menerusi kepimpinan berturut -->
+        <section class="bg-white py-16 lg:py-24">
+            <div class="mx-auto max-w-5xl px-6 lg:px-8">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">Kesinambungan</p>
+                <h2 class="mt-3 text-2xl font-bold text-slate-900 sm:text-3xl">Legasi Kepimpinan</h2>
+                <p class="mt-6 max-w-3xl leading-relaxed text-slate-700">{{ founder.leadership_legacy.intro }}</p>
+
+                <!-- Garis masa kepimpinan: setiap pengerusi ialah pertanda institusi.
+                     Potret monokrom (monogram sementara) — mudah diganti apabila potret rasmi disediakan. -->
+                <ol class="mt-14 lg:mt-16">
+                    <li
+                        v-for="(c, i) in founder.leadership_legacy.chairmen"
+                        :key="c.name"
+                        class="relative flex gap-6 pb-12 last:pb-0 sm:gap-8"
+                    >
+                        <!-- Garis penghubung halus (di belakang potret) -->
+                        <span
+                            v-if="i < founder.leadership_legacy.chairmen.length - 1"
+                            class="absolute left-10 top-10 z-0 h-[calc(100%-2.5rem)] w-px -translate-x-1/2 bg-slate-200"
+                            aria-hidden="true"
+                        ></span>
+
+                        <!-- Potret monokrom -->
+                        <div class="relative z-10 flex-none">
+                            <img
+                                v-if="c.portrait"
+                                :src="`/images/${c.portrait}`"
+                                :alt="`Potret ${c.name}`"
+                                width="80"
+                                height="80"
+                                loading="lazy"
+                                decoding="async"
+                                class="h-20 w-20 rounded-full object-cover grayscale ring-1 ring-slate-900/5"
+                            />
+                            <div
+                                v-else
+                                class="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-b from-slate-100 to-slate-200 ring-1 ring-slate-900/5"
+                                role="img"
+                                :aria-label="`Potret rasmi ${c.name} belum tersedia`"
+                            >
+                                <span class="text-base font-semibold tracking-wide text-slate-400">{{ c.monogram }}</span>
+                            </div>
+                        </div>
+
+                        <!-- Pertanda kepimpinan -->
+                        <div class="pt-1">
+                            <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-700">{{ c.role }}</p>
+                                <span v-if="c.current" class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700">
+                                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span> Kini
+                                </span>
+                            </div>
+                            <h3 class="mt-2 text-lg font-bold text-slate-900 sm:text-xl">{{ c.name }}</h3>
+                            <p class="mt-1 text-sm font-medium text-slate-500">{{ c.term }}</p>
+                            <p class="mt-3 max-w-2xl leading-relaxed text-slate-700">{{ c.description }}</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 8. AWQAF Holdings -->
+        <section class="border-t border-slate-100 bg-white py-16 lg:py-20">
             <div class="mx-auto max-w-3xl px-6 lg:px-8">
                 <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">Institusi</p>
                 <h2 class="mt-3 text-2xl font-bold text-slate-900 sm:text-3xl">Penubuhan AWQAF Holdings Berhad</h2>
@@ -115,7 +176,7 @@ const bookCta = props.founder.book.cta_verified_url || route('hubungi');
             </div>
         </section>
 
-        <!-- 8. Selected achievements -->
+        <!-- 9. Selected achievements -->
         <section class="bg-slate-50 py-16 lg:py-20">
             <div class="mx-auto max-w-5xl px-6 lg:px-8">
                 <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">Pengiktirafan</p>
@@ -129,7 +190,7 @@ const bookCta = props.founder.book.cta_verified_url || route('hubungi');
             </div>
         </section>
 
-        <!-- 9. Legacy -->
+        <!-- 10. Legacy -->
         <section class="bg-white py-16 lg:py-20">
             <div class="mx-auto max-w-3xl px-6 lg:px-8">
                 <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">Warisan</p>
@@ -141,7 +202,7 @@ const bookCta = props.founder.book.cta_verified_url || route('hubungi');
             </div>
         </section>
 
-        <!-- 10. Book feature -->
+        <!-- 11. Book feature -->
         <section class="bg-slate-950 py-16 lg:py-20">
             <div class="mx-auto max-w-5xl px-6 lg:px-8">
                 <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
