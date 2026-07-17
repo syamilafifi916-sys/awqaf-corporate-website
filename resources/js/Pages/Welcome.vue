@@ -163,11 +163,17 @@ const pillars = [
                     setiap generasi membina masa depannya sendiri.
                 </h2>
 
-                <p v-reveal class="mt-16 max-w-2xl text-lg leading-relaxed text-slate-600">
-                    <span class="font-medium text-slate-900">Pertumbuhan ekonomi dan amanah kepada masyarakat tidak seharusnya dipisahkan.</span>
-                    Daripada prinsip inilah Waqaf Korporat terbentuk — pendekatan mengurus wakaf sebagai sebuah
-                    institusi korporat: aset wakaf dibangunkan menjadi perniagaan mampan, modalnya dikekalkan, dan
-                    hasilnya disalurkan untuk manfaat masyarakat.
+                <p v-reveal class="mt-16 max-w-3xl text-2xl font-semibold leading-snug tracking-tight text-slate-900 sm:text-3xl">
+                    Pertumbuhan ekonomi dan amanah kepada masyarakat tidak seharusnya dipisahkan.
+                </p>
+                <p v-reveal class="mt-8 max-w-2xl text-lg leading-relaxed text-slate-600">
+                    Apabila keduanya berjalan seiring, setiap kemajuan ekonomi turut mengangkat kehidupan
+                    masyarakat — dan kemakmuran menjadi warisan yang dikongsi, bukan sekadar keuntungan yang berlalu.
+                </p>
+                <p v-reveal="'80ms'" class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
+                    Daripada keyakinan inilah Waqaf Korporat lahir — usaha memupuk wakaf menjadi aset dan perniagaan
+                    yang produktif, modalnya dipelihara sebagai amanah kekal, dan hasilnya terus mengalir kepada
+                    pendidikan, kesihatan dan kesejahteraan generasi akan datang.
                 </p>
 
                 <div class="mt-12 space-y-5 border-t border-slate-100 pt-12">
