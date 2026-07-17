@@ -171,9 +171,9 @@ const pillars = [
                     masyarakat — dan kemakmuran menjadi warisan yang dikongsi, bukan sekadar keuntungan yang berlalu.
                 </p>
                 <p v-reveal="'80ms'" class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
-                    Daripada keyakinan inilah Waqaf Korporat lahir — usaha memupuk wakaf menjadi aset dan perniagaan
-                    yang produktif, modalnya dipelihara sebagai amanah kekal, dan hasilnya terus mengalir kepada
-                    pendidikan, kesihatan dan kesejahteraan generasi akan datang.
+                    Daripada keyakinan inilah Waqaf Korporat lahir — sebuah amanah untuk memastikan wakaf terus
+                    hidup dan berkembang, supaya kebaikannya tidak terhenti pada satu generasi, tetapi terus memberi
+                    manfaat kepada masyarakat dan generasi akan datang.
                 </p>
 
                 <div class="mt-12 space-y-5 border-t border-slate-100 pt-12">
