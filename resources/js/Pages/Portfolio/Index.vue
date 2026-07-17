@@ -1,7 +1,7 @@
 <script setup>
 import PublicLayout from '@/Layouts/PublicLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
-import { ArrowRightIcon, PhotoIcon } from '@heroicons/vue/24/outline';
+import { ArrowRightIcon } from '@heroicons/vue/24/outline';
 
 defineProps({
     portfolios: Array,
@@ -19,53 +19,53 @@ defineProps({
                     Portfolio pelaburan AWQAF Holdings Berhad
                 </h1>
                 <p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-                    Empat portfolio pelaburan Kumpulan AWQAF — Pendidikan, Kesihatan &amp; Kesejahteraan,
-                    Hartanah dan Fintech — yang menjana pulangan mampan bagi menyokong mandat waqaf korporat.
-                    Setiap fakta dan angka diambil daripada Laporan Tahunan rasmi, lengkap dengan tahun dan sumber.
+                    Empat portfolio pelaburan yang menjana pulangan mampan bagi menyokong mandat waqaf korporat.
                 </p>
                 <p class="mt-4 max-w-2xl text-sm text-slate-400">
-                    Program kebajikan Kumpulan AWQAF — Yayasan ZuriatCARE, EduWAQF dan AWQAF4Health —
-                    dipaparkan secara berasingan di bawah
+                    Program kebajikan Kumpulan AWQAF dipaparkan secara berasingan di bawah
                     <Link :href="route('program.index')" class="font-medium text-emerald-400 hover:underline">Program &amp; Inisiatif</Link>.
                 </p>
             </div>
         </section>
 
-        <section class="bg-white py-20">
-            <div class="mx-auto max-w-6xl space-y-10 px-6 lg:px-8">
-                <article
-                    v-for="p in portfolios"
-                    :key="p.slug"
-                    class="grid grid-cols-1 gap-8 rounded-2xl border border-slate-100 p-6 sm:p-8 lg:grid-cols-3 lg:gap-10"
-                >
-                    <!-- Media (photo-ready, clearly marked) -->
-                    <div class="lg:col-span-1">
-                        <div class="flex aspect-[4/3] items-center justify-center rounded-xl border-2 border-dashed border-slate-200 bg-slate-50">
-                            <div class="text-center">
-                                <PhotoIcon class="mx-auto h-8 w-8 text-slate-300" />
-                                <p class="mt-2 text-[11px] font-semibold uppercase tracking-wider text-slate-400">Imej Portfolio</p>
+        <section class="bg-white py-16 lg:py-20">
+            <div class="mx-auto max-w-5xl px-6 lg:px-8">
+                <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Empat portfolio</p>
+                <ol class="mt-8 border-t border-slate-100">
+                    <li v-for="(p, i) in portfolios" :key="p.slug" class="border-b border-slate-100">
+                        <Link :href="route('portfolio.show', p.slug)" class="group grid grid-cols-1 gap-6 py-10 transition lg:grid-cols-12 lg:gap-10">
+                            <div class="flex items-start gap-4 lg:col-span-7">
+                                <span class="mt-1 text-lg font-semibold tabular-nums text-slate-300">{{ String(i + 1).padStart(2, '0') }}</span>
+                                <div>
+                                    <h2 class="text-2xl font-bold text-slate-900 transition group-hover:text-emerald-700">{{ p.name }}</h2>
+                                    <p class="mt-1 text-sm text-slate-500">{{ p.entity }}</p>
+                                    <p class="mt-4 max-w-lg leading-relaxed text-slate-600">{{ p.summary }}</p>
+                                    <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 group-hover:gap-2.5">
+                                        Butiran portfolio <ArrowRightIcon class="h-4 w-4" />
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <!-- Content -->
-                    <div class="lg:col-span-2">
-                        <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">{{ p.status }}</span>
-                        <h2 class="mt-4 text-2xl font-bold text-slate-900">{{ p.name }}</h2>
-                        <p class="mt-1 text-sm text-slate-500">{{ p.entity }}</p>
-                        <p class="mt-4 text-slate-600">{{ p.summary }}</p>
-
-                        <div v-if="p.headline" class="mt-6 flex flex-wrap items-baseline gap-x-4 gap-y-1 border-t border-slate-100 pt-5">
-                            <span class="text-2xl font-bold text-emerald-700">{{ p.headline.value }}</span>
-                            <span class="text-sm text-slate-600">{{ p.headline.metric }} ({{ p.headline.year }})</span>
-                            <span class="w-full text-xs text-slate-400">Sumber: {{ p.headline.report }}, ms {{ p.headline.page }}</span>
-                        </div>
-
-                        <Link :href="route('portfolio.show', p.slug)" class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:underline">
-                            Butiran portfolio <ArrowRightIcon class="h-4 w-4" />
+                            <!-- Highlight panel replaces the old image placeholder -->
+                            <div class="lg:col-span-5">
+                                <div class="rounded-2xl bg-slate-50 p-6">
+                                    <template v-if="p.headline">
+                                        <div class="text-3xl font-bold text-emerald-700">{{ p.headline.value }}</div>
+                                        <p class="mt-2 text-sm text-slate-600">{{ p.headline.metric }} · {{ p.headline.year }}</p>
+                                        <p class="mt-3 text-xs text-slate-400">Sumber: {{ p.headline.report }}, ms {{ p.headline.page }}</p>
+                                    </template>
+                                    <template v-else>
+                                        <dl class="space-y-3 text-sm">
+                                            <div><dt class="text-xs uppercase tracking-wide text-slate-400">Status</dt><dd class="mt-0.5 font-semibold text-slate-900">{{ p.status }}</dd></div>
+                                            <div><dt class="text-xs uppercase tracking-wide text-slate-400">Entiti</dt><dd class="mt-0.5 font-medium text-slate-700">{{ p.entity }}</dd></div>
+                                        </dl>
+                                        <p class="mt-4 text-xs text-slate-400">Sumber: Profil Syarikat AWQAF Holdings Berhad.</p>
+                                    </template>
+                                </div>
+                            </div>
                         </Link>
-                    </div>
-                </article>
+                    </li>
+                </ol>
             </div>
         </section>
     </PublicLayout>

@@ -1,7 +1,7 @@
 <script setup>
 import PublicLayout from '@/Layouts/PublicLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
-import { ArrowLeftIcon, ArrowTopRightOnSquareIcon, DocumentTextIcon, PhotoIcon } from '@heroicons/vue/24/outline';
+import { ArrowLeftIcon, ArrowTopRightOnSquareIcon, DocumentTextIcon } from '@heroicons/vue/24/outline';
 
 defineProps({
     programme: Object,
@@ -31,16 +31,7 @@ defineProps({
             <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-3 lg:px-8">
                 <!-- Main -->
                 <div class="lg:col-span-2">
-                    <!-- Large image (photo-ready, clearly marked) -->
-                    <div class="flex aspect-[16/9] items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50">
-                        <div class="text-center">
-                            <PhotoIcon class="mx-auto h-10 w-10 text-slate-300" />
-                            <p class="mt-3 text-xs font-semibold uppercase tracking-wider text-slate-400">Imej Program</p>
-                            <p class="mt-1 text-sm text-slate-400">Foto rasmi program — untuk disediakan oleh pihak AWQAF.</p>
-                        </div>
-                    </div>
-
-                    <div class="mt-10 space-y-4">
+                    <div class="space-y-4">
                         <p v-for="(para, i) in programme.description" :key="i" class="text-lg leading-relaxed text-slate-700">{{ para }}</p>
                     </div>
 
@@ -69,6 +60,29 @@ defineProps({
                         </div>
                     </div>
 
+                    <!-- Institutional governance of the programme -->
+                    <div v-if="programme.beneficiaries || programme.funding" class="mt-12">
+                        <h2 class="text-xl font-bold text-slate-900">Tadbir urus program</h2>
+                        <dl class="mt-6 space-y-6 border-l border-slate-100 pl-6">
+                            <div v-if="programme.beneficiaries">
+                                <dt class="text-xs font-semibold uppercase tracking-wider text-emerald-700">Penerima manfaat</dt>
+                                <dd class="mt-1.5 leading-relaxed text-slate-600">{{ programme.beneficiaries }}</dd>
+                            </div>
+                            <div v-if="programme.funding">
+                                <dt class="text-xs font-semibold uppercase tracking-wider text-emerald-700">Sumber pembiayaan</dt>
+                                <dd class="mt-1.5 leading-relaxed text-slate-600">{{ programme.funding }}</dd>
+                            </div>
+                            <div v-if="programme.accountability">
+                                <dt class="text-xs font-semibold uppercase tracking-wider text-emerald-700">Akauntabiliti</dt>
+                                <dd class="mt-1.5 leading-relaxed text-slate-600">{{ programme.accountability }}</dd>
+                            </div>
+                            <div v-if="programme.waqf_link">
+                                <dt class="text-xs font-semibold uppercase tracking-wider text-emerald-700">Kaitan dengan model Waqaf Korporat</dt>
+                                <dd class="mt-1.5 leading-relaxed text-slate-600">{{ programme.waqf_link }}</dd>
+                            </div>
+                        </dl>
+                    </div>
+
                     <!-- Verified figures -->
                     <div class="mt-12">
                         <h2 class="text-xl font-bold text-slate-900">Fakta &amp; Angka</h2>
@@ -95,8 +109,8 @@ defineProps({
                                 </tbody>
                             </table>
                         </div>
-                        <p v-else class="mt-6 rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-6 text-sm text-slate-500">
-                            Belum ada angka kewangan yang disahkan untuk dipaparkan.
+                        <p v-else class="mt-6 rounded-2xl bg-slate-50 p-6 text-sm text-slate-500">
+                            Angka kewangan yang disahkan akan dipaparkan apabila tersedia dalam Laporan Tahunan.
                         </p>
 
                         <p v-if="programme.note" class="mt-4 rounded-xl border border-amber-100 bg-amber-50 p-4 text-sm text-amber-800">
@@ -107,20 +121,15 @@ defineProps({
 
                 <!-- Sidebar -->
                 <aside class="space-y-8 lg:col-span-1">
-                    <!-- Logo (logo-ready, clearly marked) -->
-                    <div>
-                        <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400">Logo Program</h3>
-                        <div class="mt-3 flex aspect-video items-center justify-center rounded-xl border-2 border-dashed border-slate-200 bg-slate-50">
-                            <span class="text-[11px] font-medium uppercase tracking-wider text-slate-400">Logo rasmi</span>
-                        </div>
-                    </div>
-
                     <div class="rounded-2xl border border-slate-100 p-6">
                         <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400">Maklumat</h3>
                         <dl class="mt-4 space-y-3 text-sm">
                             <div><dt class="text-slate-400">Organisasi</dt><dd class="text-slate-900">{{ programme.organisation }}</dd></div>
                             <div><dt class="text-slate-400">Status</dt><dd class="text-slate-900">{{ programme.status }}</dd></div>
                         </dl>
+                        <p class="mt-5 border-t border-slate-100 pt-4 text-xs leading-relaxed text-slate-400">
+                            Sumber: Profil Syarikat AWQAF Holdings Berhad dan Laporan Tahunan yang disahkan.
+                        </p>
                     </div>
 
                     <!-- Related reports -->

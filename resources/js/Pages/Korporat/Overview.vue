@@ -192,11 +192,11 @@ const sectionNav = [
                             <p class="mt-2 text-sm text-slate-600">Wan Nadzir &amp; Co. (2021 hingga kini); sebelumnya Afrizan Tarmili Khairul Azhar PLT (AFTAAS), 2015–2020. Penyata kewangan diaudit dan didedahkan setiap tahun.</p>
                         </div>
                     </div>
-                    <div class="flex gap-4 rounded-2xl border border-dashed border-slate-200 p-6">
+                    <div class="flex gap-4 rounded-2xl border border-slate-100 p-6">
                         <ScaleIcon class="h-6 w-6 flex-none text-slate-400" />
                         <div>
                             <h3 class="font-semibold text-slate-900">Penasihat Syariah</h3>
-                            <p class="mt-2 text-sm text-slate-400">Akan disahkan oleh pihak pengurusan AWQAF.</p>
+                            <p class="mt-2 text-sm text-slate-500">Menunggu pengesahan pihak pengurusan AWQAF.</p>
                         </div>
                     </div>
                 </div>

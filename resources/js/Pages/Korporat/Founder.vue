@@ -1,7 +1,7 @@
 <script setup>
 import PublicLayout from '@/Layouts/PublicLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
-import { ArrowLeftIcon, BookOpenIcon } from '@heroicons/vue/24/outline';
+import { ArrowLeftIcon } from '@heroicons/vue/24/outline';
 
 const props = defineProps({ founder: Object });
 
@@ -145,12 +145,16 @@ const bookCta = props.founder.book.cta_verified_url || route('hubungi');
         <section class="bg-slate-950 py-16 lg:py-20">
             <div class="mx-auto max-w-5xl px-6 lg:px-8">
                 <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
-                    <!-- Book cover (slot, clearly marked — no asset supplied) -->
+                    <!-- Typographic book cover (stands in for the official cover art) -->
                     <div class="lg:col-span-4">
-                        <div class="mx-auto flex aspect-[3/4] max-w-[16rem] items-center justify-center rounded-xl border-2 border-dashed border-white/15 bg-white/5">
-                            <div class="px-4 text-center">
-                                <BookOpenIcon class="mx-auto h-8 w-8 text-slate-500" aria-hidden="true" />
-                                <p class="mt-3 text-[11px] font-semibold uppercase tracking-wider text-slate-500">Muka Depan Buku</p>
+                        <div class="mx-auto flex aspect-[3/4] max-w-[16rem] flex-col justify-between overflow-hidden rounded-xl border-l-4 border-emerald-400 bg-emerald-800 p-6 shadow-xl">
+                            <div>
+                                <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-200">Biografi</p>
+                                <p class="mt-5 text-lg font-bold leading-snug text-white">{{ founder.book.title }}</p>
+                            </div>
+                            <div class="text-xs text-emerald-100">
+                                <p class="font-semibold">{{ founder.book.author }}</p>
+                                <p class="mt-0.5 text-emerald-200/80">{{ founder.book.year }}</p>
                             </div>
                         </div>
                     </div>

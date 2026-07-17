@@ -22,6 +22,8 @@ return [
         'summary' => 'Portfolio pendidikan Kumpulan AWQAF, diuruskan menerusi AWQAF Education Sdn. Bhd.',
         'role' => 'Portfolio pendidikan bertanggungjawab membangun dan menyelia inisiatif pendidikan Islam bersepadu Kumpulan AWQAF, sebagai sebahagian daripada pelaburan berasaskan wakaf yang menyalurkan manfaat berterusan kepada masyarakat.',
         'contribution' => 'Portfolio pendidikan menyumbang kepada objektif AWQAF menerusi akses pendidikan berstruktur, pembangunan pelajar, pembinaan keupayaan pendidikan yang mampan, serta kepakaran pengurusan pendidikan.',
+        'rationale' => 'Portfolio ini diwujudkan untuk menterjemahkan hasil wakaf kepada akses pendidikan Islam bersepadu — menjadikan pendidikan sebagai aset produktif yang berkekalan, selaras dengan prinsip Waqaf Korporat.',
+        'outlook' => 'Impak jangka panjang yang disasarkan ialah keupayaan pendidikan yang mampan dan pembangunan pelajar berterusan. Prestasi dinilai menerusi perkembangan institusi pendidikan yang dilaporkan dalam Laporan Tahunan.',
         'description' => [
             'Portfolio pendidikan Kumpulan AWQAF diuruskan menerusi AWQAF Education Sdn. Bhd., entiti yang menyelia pembangunan dan operasi inisiatif pendidikan Kumpulan.',
             'Al-Hamra Integrated School ialah sebuah sekolah antarabangsa Islam bersepadu yang menawarkan model pendidikan holistik menerusi Cambridge Assessment International Education, sukatan pelajaran Kementerian Pendidikan Malaysia, serta prinsip pendidikan berteraskan al-Quran dan Sunnah.',
@@ -56,6 +58,8 @@ return [
         'summary' => 'Portfolio kesihatan dan kesejahteraan, termasuk rangkaian pusat kecergasan wanita CURVES di bawah AHB Wellness Sdn. Bhd.',
         'role' => 'Portfolio kesihatan dan kesejahteraan menyelia perniagaan kecergasan dan kesejahteraan Kumpulan AWQAF, dengan tumpuan kepada kesihatan dan kecergasan wanita menerusi rangkaian francais CURVES.',
         'contribution' => 'Portfolio ini menyumbang kepada objektif AWQAF dengan menjana pendapatan mampan daripada perniagaan kesihatan dan kesejahteraan, sekali gus menyokong kelestarian dana wakaf.',
+        'rationale' => 'Portfolio ini diwujudkan bagi menjana pendapatan berterusan daripada perniagaan kesihatan dan kecergasan wanita, yang seterusnya menyokong kelestarian dana wakaf mengikut model Waqaf Korporat.',
+        'outlook' => 'Impak jangka panjang ialah aliran pendapatan yang mampan dan akses kesejahteraan komuniti. Prestasi diukur menerusi pendapatan dan keahlian yang dilaporkan dalam Laporan Tahunan.',
         'description' => [
             'Portfolio kesihatan dan kesejahteraan Kumpulan AWQAF diuruskan menerusi AHB Wellness Sdn. Bhd.',
             'CURVES ialah rangkaian francais pusat kecergasan dan kesejahteraan khusus wanita, yang menyediakan kemudahan senaman dalam persekitaran mesra dan tertutup untuk wanita.',
@@ -115,6 +119,8 @@ return [
         'summary' => 'Portfolio hartanah yang memberi tumpuan kepada pembangunan tanah wakaf dan institusi berskala kecil-sederhana.',
         'role' => 'Portfolio hartanah bertujuan membangunkan tanah wakaf dan tanah institusi secara produktif, menjana pulangan mampan untuk wakaf sambil memberi manfaat kepada komuniti dan usahawan setempat.',
         'contribution' => 'Portfolio hartanah menyumbang kepada objektif AWQAF dengan membangunkan tanah wakaf dan institusi secara produktif, menjana pulangan jangka panjang serta manfaat kepada komuniti dan usahawan.',
+        'rationale' => 'Portfolio hartanah diwujudkan untuk membangunkan tanah wakaf dan institusi secara produktif — menukar aset tak alih kepada sumber pendapatan berkekalan tanpa menghabiskan modal asal.',
+        'outlook' => 'Impak jangka panjang yang disasarkan ialah pulangan mampan dan peluang ekonomi kepada komuniti serta usahawan. Status setiap projek dinyatakan secara jelas dan tertakluk pengesahan pengurusan.',
         'status_legend' => ['Selesai', 'Aktif', 'Sejarah', 'Cadangan / tertakluk pengesahan'],
         'projects' => [
             ['name' => 'Kerjasama pembangunan tanah wakaf bersama MAINS', 'status' => 'Cadangan / tertakluk pengesahan', 'note' => 'Kerjasama dengan Majlis Agama Islam Negeri Sembilan dinyatakan dalam Company Profile. Butiran dan status semasa projek perlu disahkan oleh pihak pengurusan AWQAF.'],
@@ -145,6 +151,8 @@ return [
         'summary' => 'Portfolio teknologi kewangan yang menyediakan penyelesaian kewangan digital, diuruskan menerusi AHB Fintech Sdn. Bhd.',
         'role' => 'Portfolio teknologi kewangan menyelia penyelesaian kewangan digital dan pembiayaan Islam Kumpulan AWQAF, dengan tumpuan menyokong perusahaan kecil dan sederhana (PKS) serta usahawan tempatan.',
         'contribution' => 'Portfolio Fintech menyumbang kepada objektif AWQAF dengan menyediakan penyelesaian kewangan digital dan pembiayaan Islam yang menyokong PKS dan usahawan tempatan.',
+        'rationale' => 'Portfolio Fintech diwujudkan untuk memperluas akses kewangan digital dan pembiayaan Islam kepada PKS dan usahawan — memanfaatkan teknologi bagi menyokong pemerkasaan ekonomi ummah.',
+        'outlook' => 'Impak jangka panjang ialah sokongan berterusan kepada usahawan tempatan. Keupayaan dan produk teknologi dinyatakan hanya apabila disahkan oleh pihak pengurusan AWQAF.',
         'description' => [
             'Portfolio teknologi kewangan Kumpulan AWQAF diuruskan menerusi AHB Fintech Sdn. Bhd., yang memberi tumpuan kepada penyelesaian kewangan digital dan pembiayaan Islam bagi menyokong perusahaan kecil dan sederhana (PKS) serta usahawan tempatan.',
             'Infaq ialah sebuah platform digital di bawah portfolio Fintech yang memudahkan penajaan — seperti iftar Ramadan — dengan jejak niat yang jelas, resit segera dan pelaporan telus.',

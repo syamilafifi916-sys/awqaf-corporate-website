@@ -1,7 +1,7 @@
 <script setup>
 import PublicLayout from '@/Layouts/PublicLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
-import { ArrowLeftIcon, ArrowTopRightOnSquareIcon, DocumentTextIcon, PhotoIcon } from '@heroicons/vue/24/outline';
+import { ArrowLeftIcon, ArrowTopRightOnSquareIcon, DocumentTextIcon } from '@heroicons/vue/24/outline';
 
 defineProps({
     portfolio: Object,
@@ -32,16 +32,13 @@ defineProps({
             <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-3 lg:px-8">
                 <!-- Main -->
                 <div class="lg:col-span-2">
-                    <!-- Large image (photo-ready, clearly marked) -->
-                    <div class="flex aspect-[16/9] items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50">
-                        <div class="text-center">
-                            <PhotoIcon class="mx-auto h-10 w-10 text-slate-300" />
-                            <p class="mt-3 text-xs font-semibold uppercase tracking-wider text-slate-400">Imej Portfolio</p>
-                            <p class="mt-1 text-sm text-slate-400">Foto rasmi portfolio — untuk disediakan oleh pihak AWQAF.</p>
-                        </div>
+                    <!-- Rationale — editorial lead (an intent statement stands in for photography) -->
+                    <div v-if="portfolio.rationale" class="border-l-2 border-emerald-600 pl-6">
+                        <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-700">Mengapa portfolio ini wujud</p>
+                        <p class="mt-3 text-xl leading-relaxed text-slate-800">{{ portfolio.rationale }}</p>
                     </div>
 
-                    <h2 class="mt-10 text-xl font-bold text-slate-900">Pengenalan</h2>
+                    <h2 class="mt-12 text-xl font-bold text-slate-900">Pengenalan</h2>
                     <div class="mt-4 space-y-4">
                         <p v-for="(para, i) in portfolio.description" :key="i" class="leading-relaxed text-slate-700">{{ para }}</p>
                     </div>
@@ -50,6 +47,12 @@ defineProps({
                     <div v-if="portfolio.contribution" class="mt-6 rounded-xl border-l-2 border-emerald-300 bg-emerald-50/40 py-4 pl-5 pr-4">
                         <p class="text-xs font-semibold uppercase tracking-wider text-emerald-700">Sumbangan kepada objektif AWQAF</p>
                         <p class="mt-1.5 text-sm leading-relaxed text-slate-600">{{ portfolio.contribution }}</p>
+                    </div>
+
+                    <!-- Outlook / long-term impact + how success is measured -->
+                    <div v-if="portfolio.outlook" class="mt-10">
+                        <h2 class="text-xl font-bold text-slate-900">Hala tuju &amp; ukuran prestasi</h2>
+                        <p class="mt-3 leading-relaxed text-slate-600">{{ portfolio.outlook }}</p>
                     </div>
 
                     <!-- Status note / integrity flag -->
@@ -82,29 +85,25 @@ defineProps({
                     <!-- Branches (CURVES) -->
                     <div v-if="portfolio.branches && portfolio.branches.length" class="mt-12">
                         <h2 class="text-xl font-bold text-slate-900">Cawangan</h2>
-                        <div class="mt-6 space-y-4">
-                            <div v-for="b in portfolio.branches" :key="b.name" class="rounded-xl border border-slate-100 p-5 sm:flex sm:items-start sm:gap-5">
-                                <!-- Image/logo slot (clearly marked) -->
-                                <div class="flex aspect-video w-full flex-none items-center justify-center rounded-lg border-2 border-dashed border-slate-200 bg-slate-50 sm:w-40">
-                                    <PhotoIcon class="h-7 w-7 text-slate-300" />
-                                </div>
-                                <div class="mt-4 sm:mt-0">
+                        <div class="mt-6 divide-y divide-slate-100 border-y border-slate-100">
+                            <div v-for="b in portfolio.branches" :key="b.name" class="py-5">
+                                <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                                     <h3 class="font-semibold text-slate-900">{{ b.name }}</h3>
-                                    <p class="mt-0.5 text-sm text-slate-500">{{ b.location }}</p>
-                                    <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ b.description }}</p>
-                                    <p v-if="b.opened" class="mt-2 text-xs text-slate-400">{{ b.opened }}</p>
-                                    <a
-                                        v-if="b.url"
-                                        :href="b.url"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        class="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:underline"
-                                    >
-                                        {{ b.url_label || 'Pautan rasmi' }}
-                                        <ArrowTopRightOnSquareIcon class="h-4 w-4" />
-                                    </a>
-                                    <p v-else class="mt-3 text-xs italic text-slate-400">Tiada pautan rasmi disahkan.</p>
+                                    <p class="text-sm text-slate-500">{{ b.location }}</p>
                                 </div>
+                                <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ b.description }}</p>
+                                <p v-if="b.opened" class="mt-1 text-xs text-slate-400">{{ b.opened }}</p>
+                                <a
+                                    v-if="b.url"
+                                    :href="b.url"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:underline"
+                                >
+                                    {{ b.url_label || 'Pautan rasmi' }}
+                                    <ArrowTopRightOnSquareIcon class="h-4 w-4" />
+                                </a>
+                                <p v-else class="mt-3 text-xs text-slate-400">Pautan rasmi belum disahkan.</p>
                             </div>
                         </div>
                     </div>
@@ -163,8 +162,8 @@ defineProps({
                                 </tbody>
                             </table>
                         </div>
-                        <p v-else class="mt-6 rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-6 text-sm text-slate-500">
-                            Belum ada angka kewangan yang disahkan untuk dipaparkan bagi portfolio ini.
+                        <p v-else class="mt-6 rounded-2xl bg-slate-50 p-6 text-sm text-slate-500">
+                            Angka kewangan yang disahkan bagi portfolio ini akan dipaparkan apabila tersedia dalam Laporan Tahunan.
                         </p>
                     </div>
 
@@ -179,20 +178,15 @@ defineProps({
 
                 <!-- Sidebar -->
                 <aside class="space-y-8 lg:col-span-1">
-                    <!-- Logo (logo-ready, clearly marked) -->
-                    <div>
-                        <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400">Logo Portfolio</h3>
-                        <div class="mt-3 flex aspect-video items-center justify-center rounded-xl border-2 border-dashed border-slate-200 bg-slate-50">
-                            <span class="text-[11px] font-medium uppercase tracking-wider text-slate-400">Logo rasmi</span>
-                        </div>
-                    </div>
-
                     <div class="rounded-2xl border border-slate-100 p-6">
                         <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400">Maklumat</h3>
                         <dl class="mt-4 space-y-3 text-sm">
                             <div><dt class="text-slate-400">Entiti</dt><dd class="text-slate-900">{{ portfolio.entity }}</dd></div>
                             <div><dt class="text-slate-400">Status</dt><dd class="text-slate-900">{{ portfolio.status }}</dd></div>
                         </dl>
+                        <p class="mt-5 border-t border-slate-100 pt-4 text-xs leading-relaxed text-slate-400">
+                            Sumber: Profil Syarikat AWQAF Holdings Berhad dan Laporan Tahunan yang disahkan.
+                        </p>
                     </div>
 
                     <!-- Related reports -->
