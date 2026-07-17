@@ -137,32 +137,33 @@ const bookCta = props.founder.book.cta_verified_url || route('hubungi');
                         :key="c.name"
                         class="relative flex gap-6 pb-16 last:pb-0 sm:gap-8 sm:pb-24"
                     >
-                        <!-- Garis penghubung halus (di belakang potret) -->
+                        <!-- Garis penghubung halus (di belakang potret) — dipusatkan pada potret 96px -->
                         <span
                             v-if="i < founder.leadership_legacy.chairmen.length - 1"
-                            class="absolute left-10 top-10 z-0 h-[calc(100%-2.5rem)] w-px -translate-x-1/2 bg-slate-200"
+                            class="absolute left-12 top-12 z-0 h-[calc(100%-3rem)] w-px -translate-x-1/2 bg-slate-200"
                             aria-hidden="true"
                         ></span>
 
-                        <!-- Potret monokrom -->
+                        <!-- Potret monokrom (96px) — potret rasmi jika tersedia, jika tidak monogram.
+                             Rangka & saiz sama untuk kedua-dua supaya kandungan campuran kelihatan konsisten. -->
                         <div class="relative z-10 flex-none">
                             <img
                                 v-if="c.portrait"
                                 :src="`/images/${c.portrait}`"
                                 :alt="`Potret ${c.name}`"
-                                width="80"
-                                height="80"
+                                width="96"
+                                height="96"
                                 loading="lazy"
                                 decoding="async"
-                                class="h-20 w-20 rounded-full object-cover grayscale ring-1 ring-slate-900/5"
+                                class="h-24 w-24 rounded-full object-cover object-top grayscale ring-1 ring-slate-900/5"
                             />
                             <div
                                 v-else
-                                class="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-b from-slate-100 to-slate-200 ring-1 ring-slate-900/5"
+                                class="flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-b from-slate-100 to-slate-200 ring-1 ring-slate-900/5"
                                 role="img"
                                 :aria-label="`Potret rasmi ${c.name} belum tersedia`"
                             >
-                                <span class="text-base font-semibold tracking-wide text-slate-400">{{ c.monogram }}</span>
+                                <span class="text-lg font-semibold tracking-wide text-slate-400">{{ c.monogram }}</span>
                             </div>
                         </div>
 

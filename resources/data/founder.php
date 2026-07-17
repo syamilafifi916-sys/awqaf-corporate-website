@@ -86,8 +86,9 @@ return [
     ],
 
     // Kesinambungan kepimpinan — hanya maklumat disahkan. Jangan tokok tambah
-    // pencapaian yang tidak dinyatakan. 'portrait' kekal null sehingga potret
-    // rasmi disediakan; UI menggunakan monogram sebagai ganti sementara.
+    // pencapaian yang tidak dinyatakan. Potret rasmi digunakan jika tersedia;
+    // jika 'portrait' null, UI menggunakan monogram sebagai ganti sementara
+    // (menyokong kandungan campuran dengan kemas).
     'leadership_legacy' => [
         'intro' => 'Waqaf Korporat bukan sekadar sebuah idea yang diasaskan oleh seorang tokoh. Ia merupakan amanah institusi yang diteruskan melalui kepimpinan yang memelihara falsafah, memperkukuh tadbir urus dan memastikan manfaatnya terus diwariskan kepada masyarakat.',
         'chairmen' => [
@@ -96,7 +97,7 @@ return [
                 'name' => 'Allahyarham Tan Sri Muhammad Ali Hashim',
                 'term' => 'September 2012 – Julai 2017',
                 'monogram' => 'MAH',
-                'portrait' => null,
+                'portrait' => 'pengasas-tan-sri-muhammad-ali-hashim.png',
                 'current' => false,
                 'description' => 'Pengasas AWQAF Holdings Berhad. Memperkenalkan dan memperjuangkan falsafah Waqaf Korporat dan Jihad Bisnes sebagai pembangunan ekonomi mampan untuk ummah.',
             ],
