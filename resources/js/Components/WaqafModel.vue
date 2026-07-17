@@ -89,7 +89,11 @@ const reinvestment = [
             Sebahagian daripada hasil aktiviti pelaburan dan perniagaan AWQAF disalurkan kepada program kebajikan,
             manakala sebahagian besar dilaburkan semula bagi mengembangkan aset dan sumber pendapatan jangka panjang.
         </p>
-        <p class="mx-auto mt-3 max-w-2xl text-xs text-slate-400">Sumber model: Profil Syarikat AWQAF Holdings Berhad.</p>
+        <p class="mx-auto mt-4 max-w-2xl rounded-xl bg-slate-50 p-4 text-xs leading-relaxed text-slate-500">
+            Nisbah 30% / 70% menggambarkan <span class="font-medium text-slate-600">pendekatan agihan semasa</span> AWQAF
+            sebagaimana dinyatakan dalam Profil Syarikat AWQAF Holdings Berhad, dan tertakluk kepada semakan pengurusan.
+            Tarikh berkuat kuasa akan disahkan oleh pihak pengurusan AWQAF.
+        </p>
 
         <div v-if="$slots.cta" class="mx-auto mt-8 max-w-2xl">
             <slot name="cta" />

@@ -18,7 +18,7 @@ return [
         'beneficiaries' => 'Golongan yang memerlukan perlindungan sosial dan sokongan kesihatan mental, termasuk remaja berisiko. Penerima dikenal pasti menerusi program dan saluran rujukan Yayasan.',
         'funding' => 'Dibiayai daripada dana wakaf dan sumbangan yang disalurkan menerusi Kumpulan AWQAF.',
         'accountability' => 'Dana diterima dan agihan direkodkan serta dilaporkan dalam Laporan Tahunan AWQAF Holdings Berhad.',
-        'waqf_link' => 'Sebahagian daripada komponen agihan kebajikan (30%) di bawah model Waqaf Korporat AWQAF.',
+        'waqf_link' => 'Sebahagian daripada komponen agihan kebajikan di bawah model Waqaf Korporat AWQAF.',
         'summary' => 'Yayasan kebajikan yang menjalankan program perlindungan sosial dan kesedaran kesihatan mental.',
         // Dua tarikh berbeza — tidak digabungkan.
         'launch_date' => '21 Jun 2015',

@@ -1,7 +1,6 @@
 <script setup>
 import CollectionChart from '@/Components/CollectionChart.vue';
 import PublicLayout from '@/Layouts/PublicLayout.vue';
-import WaqafModel from '@/Components/WaqafModel.vue';
 import { ArrowRightIcon, ChevronDownIcon } from '@heroicons/vue/24/outline';
 import { Head, Link, usePage } from '@inertiajs/vue3';
 
@@ -33,7 +32,7 @@ const vReveal = {
     },
 };
 
-// M5 — what the model builds (the 70%) and what it shares (the 30%).
+// M5 — assets built (portfolios) and benefits shared (programmes).
 const portfolios = [
     { name: 'Pendidikan', line: 'Pendidikan Islam bersepadu menerusi AWQAF Education Sdn. Bhd.', slug: 'pendidikan' },
     { name: 'Kesihatan & Kesejahteraan', line: 'Kesihatan dan kecergasan wanita menerusi AHB Wellness Sdn. Bhd.', slug: 'kesihatan-kesejahteraan' },
@@ -68,6 +67,13 @@ const collections = [
     { year: 2024, amount: 206356 },
 ];
 
+// M3 — policy-neutral stewardship model (no allocation ratio on the homepage).
+const modelFlow = [
+    { n: '01', t: 'Pengurusan aset amanah', d: 'Aset wakaf dikekalkan sebagai amanah kekal dan diuruskan secara profesional.' },
+    { n: '02', t: 'Penciptaan nilai mampan', d: 'Aset dibangunkan menjadi perniagaan dan pelaburan yang menjana nilai secara mampan.' },
+    { n: '03', t: 'Manfaat sosial berkekalan', d: 'Hasil yang dijana membina pendidikan, kesihatan dan kesejahteraan masyarakat merentas generasi.' },
+];
+
 const pillars = [
     { t: 'Tadbir urus', d: 'Diperbadankan di bawah Akta Syarikat 2016; diselia Lembaga Pengarah dan jawatankuasa.' },
     { t: 'Pembangunan aset', d: 'Aset wakaf dibangunkan menjadi perniagaan dan aset produktif milik ummah.' },
@@ -79,20 +85,29 @@ const pillars = [
 
 <template>
     <Head title="Membina Ekonomi. Memakmurkan Ummah. Mewariskan Masa Depan.">
-        <link rel="preload" as="image" href="/images/hero/awqaf-hero.webp.png" />
+        <link rel="preload" as="image" type="image/webp" imagesrcset="/images/hero/awqaf-hero-768.webp 768w, /images/hero/awqaf-hero-1152.webp 1152w, /images/hero/awqaf-hero-1536.webp 1536w" imagesizes="100vw" />
     </Head>
 
     <PublicLayout>
         <!-- ═══ M0 · THE IDEA ═══ Curiosity -->
         <section class="relative isolate flex min-h-[92vh] flex-col overflow-hidden bg-slate-950 lg:min-h-screen">
-            <img
-                src="/images/hero/awqaf-hero.webp.png"
-                alt=""
-                aria-hidden="true"
-                decoding="async"
-                fetchpriority="high"
-                class="hero-img pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover object-[72%_center] lg:object-[right_center]"
-            />
+            <picture class="pointer-events-none absolute inset-0 -z-10 block">
+                <source
+                    type="image/webp"
+                    srcset="/images/hero/awqaf-hero-768.webp 768w, /images/hero/awqaf-hero-1152.webp 1152w, /images/hero/awqaf-hero-1536.webp 1536w"
+                    sizes="100vw"
+                />
+                <img
+                    src="/images/hero/awqaf-hero-1536.webp"
+                    alt=""
+                    aria-hidden="true"
+                    width="1536"
+                    height="1024"
+                    decoding="async"
+                    fetchpriority="high"
+                    class="hero-img h-full w-full object-cover object-[72%_center] lg:object-[right_center]"
+                />
+            </picture>
             <div
                 class="pointer-events-none absolute inset-0 -z-10 hidden md:block"
                 style="background: linear-gradient(90deg, rgba(6,9,20,.94) 0%, rgba(6,9,20,.88) 38%, rgba(6,9,20,.5) 68%, rgba(6,9,20,.22) 100%);"
@@ -177,12 +192,16 @@ const pillars = [
                         Bagaimana kemakmuran menjadi milik bersama
                     </h2>
                     <p v-reveal="'140ms'" class="mt-5 text-lg leading-relaxed text-slate-600">
-                        Nilai yang dijana tidak dibelanjakan sekali habis. Modal dikekalkan sebagai amanah kekal,
+                        Nilai yang dijana tidak dibelanjakan sekali habis. Aset dikekalkan sebagai amanah kekal,
                         manakala hasilnya membina pendidikan, kesihatan dan masa depan komuniti.
                     </p>
                 </div>
-                <div v-reveal class="mt-16">
-                    <WaqafModel />
+                <div v-reveal class="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-3">
+                    <div v-for="step in modelFlow" :key="step.n" class="bg-white p-8">
+                        <span class="text-sm font-semibold tabular-nums text-emerald-700">{{ step.n }}</span>
+                        <h3 class="mt-4 text-lg font-semibold text-slate-900">{{ step.t }}</h3>
+                        <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ step.d }}</p>
+                    </div>
                 </div>
                 <div class="mt-10">
                     <Link :href="route('waqaf.corporate')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:underline">
@@ -230,7 +249,7 @@ const pillars = [
                 </div>
 
                 <div class="mt-16 grid grid-cols-1 gap-x-16 gap-y-14 lg:grid-cols-2">
-                    <!-- 70% — assets built -->
+                    <!-- Assets built — Portfolio Pelaburan -->
                     <div v-reveal>
                         <p class="text-sm font-semibold text-slate-900">Aset yang dibina <span class="text-slate-400">— Portfolio Pelaburan</span></p>
                         <ul class="mt-6 divide-y divide-slate-100 border-t border-slate-100">
@@ -246,7 +265,7 @@ const pillars = [
                         </ul>
                     </div>
 
-                    <!-- 30% — benefit shared -->
+                    <!-- Benefits shared — Program & Inisiatif -->
                     <div v-reveal="'100ms'">
                         <p class="text-sm font-semibold text-slate-900">Manfaat yang dikongsi <span class="text-slate-400">— Program &amp; Inisiatif</span></p>
                         <ul class="mt-6 divide-y divide-slate-100 border-t border-slate-100">
