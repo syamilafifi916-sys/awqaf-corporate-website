@@ -145,18 +145,17 @@ const bookCta = props.founder.book.cta_verified_url || route('hubungi');
         <section class="bg-slate-950 py-16 lg:py-20">
             <div class="mx-auto max-w-5xl px-6 lg:px-8">
                 <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
-                    <!-- Typographic book cover (stands in for the official cover art) -->
+                    <!-- Official biography cover (3D render, presented as the focus) -->
                     <div class="lg:col-span-4">
-                        <div class="mx-auto flex aspect-[3/4] max-w-[16rem] flex-col justify-between overflow-hidden rounded-xl border-l-4 border-emerald-400 bg-emerald-800 p-6 shadow-xl">
-                            <div>
-                                <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-200">Biografi</p>
-                                <p class="mt-5 text-lg font-bold leading-snug text-white">{{ founder.book.title }}</p>
-                            </div>
-                            <div class="text-xs text-emerald-100">
-                                <p class="font-semibold">{{ founder.book.author }}</p>
-                                <p class="mt-0.5 text-emerald-200/80">{{ founder.book.year }}</p>
-                            </div>
-                        </div>
+                        <img
+                            src="/images/buku-biografi.webp"
+                            :alt="`Muka depan buku ${founder.book.title} oleh ${founder.book.author}`"
+                            width="1122"
+                            height="1402"
+                            loading="lazy"
+                            decoding="async"
+                            class="mx-auto w-full max-w-[17rem] drop-shadow-2xl"
+                        />
                     </div>
 
                     <div class="lg:col-span-8">

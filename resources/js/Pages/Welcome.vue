@@ -327,6 +327,39 @@ const pillars = [
             </div>
         </section>
 
+        <!-- ═══ KARYA & WARISAN · founder biography as institutional archive ═══ -->
+        <section class="bg-slate-50">
+            <div class="mx-auto max-w-6xl px-6 py-28 lg:px-8 lg:py-36">
+                <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+                    <div v-reveal class="lg:col-span-5">
+                        <img
+                            src="/images/buku-biografi.webp"
+                            alt="Muka depan buku 'Muhammad Ali Hashim: Champion of Business Jihad and Corporate Waqaf' oleh Rokiah Talib"
+                            width="1122"
+                            height="1402"
+                            loading="lazy"
+                            decoding="async"
+                            class="mx-auto w-full max-w-sm rounded-2xl shadow-2xl shadow-slate-900/25"
+                        />
+                    </div>
+                    <div class="lg:col-span-7">
+                        <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Karya &amp; Warisan</p>
+                        <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+                            Memahami Waqaf Korporat bermula dengan memahami pemikiran pengasasnya.
+                        </h2>
+                        <p v-reveal="'140ms'" class="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
+                            Biografi Allahyarham Tan Sri Muhammad Ali Hashim merakamkan pemikiran yang mendasari
+                            gagasan Waqaf Korporat — sebuah rujukan institusi yang meletakkan falsafah AWQAF dalam
+                            konteks sejarah dan idea yang lebih luas.
+                        </p>
+                        <Link :href="route('korporat.founder')" class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
+                            Terokai Biografi <ArrowRightIcon class="h-4 w-4" />
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ═══ M7 · THE INVITATION + CLOSING ═══ Participation -->
         <section class="bg-white">
             <div class="mx-auto max-w-5xl px-6 py-28 lg:px-8 lg:py-36">
