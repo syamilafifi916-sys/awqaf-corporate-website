@@ -89,7 +89,7 @@ const pillars = [
     </Head>
 
     <PublicLayout>
-        <!-- ═══ M0 · THE IDEA ═══ Curiosity -->
+        <!-- ═══ M0 · IDEA ═══ -->
         <section class="relative isolate flex min-h-[92vh] flex-col overflow-hidden bg-slate-950 lg:min-h-screen">
             <picture class="pointer-events-none absolute inset-0 -z-10 block">
                 <source
@@ -140,7 +140,7 @@ const pillars = [
             </div>
         </section>
 
-        <!-- ═══ M1 · THE REFLECTION ═══ Reflection -->
+        <!-- ═══ M1 · PROBLEM ═══ -->
         <section id="refleksi" class="bg-slate-950">
             <div class="mx-auto max-w-4xl px-6 py-28 lg:px-8 lg:py-40">
                 <p v-reveal class="text-2xl font-medium leading-relaxed text-slate-400 sm:text-3xl sm:leading-[1.5]">
@@ -154,7 +154,7 @@ const pillars = [
             </div>
         </section>
 
-        <!-- ═══ M2 · NORTH STAR + CONVICTION ═══ Understanding -->
+        <!-- ═══ M2 · PHILOSOPHY ═══ -->
         <section class="bg-white">
             <div class="mx-auto max-w-5xl px-6 py-28 lg:px-8 lg:py-40">
                 <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Waqaf Korporat</p>
@@ -191,7 +191,7 @@ const pillars = [
             </div>
         </section>
 
-        <!-- ═══ M3 · THE MODEL ═══ Hope -->
+        <!-- ═══ M3 · MODEL ═══ -->
         <section class="bg-slate-50">
             <div class="mx-auto max-w-4xl px-6 py-24 lg:px-8 lg:py-32">
                 <div class="max-w-2xl">
@@ -219,7 +219,7 @@ const pillars = [
             </div>
         </section>
 
-        <!-- ═══ M4 · THE INSTITUTION ═══ Trust building -->
+        <!-- ═══ M4 · INSTITUTION ═══ -->
         <section class="bg-slate-950">
             <div class="mx-auto max-w-5xl px-6 py-28 lg:px-8 lg:py-36">
                 <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">Institusi</p>
@@ -246,7 +246,7 @@ const pillars = [
             </div>
         </section>
 
-        <!-- ═══ M5 · WHAT IT BUILDS ═══ Hope → Trust -->
+        <!-- ═══ M5 · WHAT IT BUILDS ═══ -->
         <section class="bg-white">
             <div class="mx-auto max-w-5xl px-6 py-28 lg:px-8 lg:py-36">
                 <div class="max-w-2xl">
@@ -292,7 +292,7 @@ const pillars = [
             </div>
         </section>
 
-        <!-- ═══ M6 · WHY TO TRUST IT ═══ Trust -->
+        <!-- ═══ M6 · AMANAH & EVIDENCE ═══ -->
         <section class="bg-slate-950">
             <div class="mx-auto max-w-6xl px-6 py-28 lg:px-8 lg:py-36">
                 <div class="max-w-2xl">
@@ -327,8 +327,11 @@ const pillars = [
             </div>
         </section>
 
-        <!-- ═══ KARYA & WARISAN · founder biography as institutional archive ═══ -->
-        <section class="bg-slate-50">
+        <!-- ═══ M7 · KARYA & WARISAN ═══ -->
+        <!-- Warm near-black bg (#100c08) matches the book render's own dark bokeh edges
+             so the cover floats with no hard rectangular boundary; also distinguishes
+             this movement from M6's cool slate-950. -->
+        <section class="bg-[#100c08]">
             <div class="mx-auto max-w-6xl px-6 py-28 lg:px-8 lg:py-36">
                 <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
                     <div v-reveal class="lg:col-span-5">
@@ -339,20 +342,20 @@ const pillars = [
                             height="1402"
                             loading="lazy"
                             decoding="async"
-                            class="mx-auto w-full max-w-sm rounded-2xl shadow-2xl shadow-slate-900/25"
+                            class="mx-auto w-full max-w-sm rounded-lg shadow-2xl shadow-black/50"
                         />
                     </div>
                     <div class="lg:col-span-7">
-                        <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Karya &amp; Warisan</p>
-                        <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+                        <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">Karya &amp; Warisan</p>
+                        <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
                             Memahami Waqaf Korporat bermula dengan memahami pemikiran pengasasnya.
                         </h2>
-                        <p v-reveal="'140ms'" class="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
+                        <p v-reveal="'140ms'" class="mt-6 max-w-xl text-lg leading-relaxed text-slate-300">
                             Biografi Allahyarham Tan Sri Muhammad Ali Hashim merakamkan pemikiran yang mendasari
                             gagasan Waqaf Korporat — sebuah rujukan institusi yang meletakkan falsafah AWQAF dalam
                             konteks sejarah dan idea yang lebih luas.
                         </p>
-                        <Link :href="route('korporat.founder')" class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
+                        <Link :href="route('korporat.founder')" class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-emerald-400 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
                             Terokai Biografi <ArrowRightIcon class="h-4 w-4" />
                         </Link>
                     </div>
@@ -360,7 +363,7 @@ const pillars = [
             </div>
         </section>
 
-        <!-- ═══ M7 · THE INVITATION + CLOSING ═══ Participation -->
+        <!-- ═══ M8 · INVITATION ═══ -->
         <section class="bg-white">
             <div class="mx-auto max-w-5xl px-6 py-28 lg:px-8 lg:py-36">
                 <div class="max-w-2xl">
