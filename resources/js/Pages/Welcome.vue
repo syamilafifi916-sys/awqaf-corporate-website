@@ -2,26 +2,56 @@
 import CollectionChart from '@/Components/CollectionChart.vue';
 import PublicLayout from '@/Layouts/PublicLayout.vue';
 import WaqafModel from '@/Components/WaqafModel.vue';
-import {
-    AcademicCapIcon,
-    ArrowRightIcon,
-    BanknotesIcon,
-    BuildingLibraryIcon,
-    BuildingOffice2Icon,
-    CpuChipIcon,
-    DocumentCheckIcon,
-    HeartIcon,
-    UsersIcon,
-} from '@heroicons/vue/24/outline';
+import { ArrowRightIcon, ChevronDownIcon } from '@heroicons/vue/24/outline';
 import { Head, Link, usePage } from '@inertiajs/vue3';
 
 const page = usePage();
 
-// Verified facts only (Laporan Tahunan 2024 diaudit).
+// Editorial reveal-on-scroll. Calm: one element rises and fades in once.
+// Fully disabled for prefers-reduced-motion.
+const vReveal = {
+    mounted(el, binding) {
+        if (typeof window === 'undefined') return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            el.classList.add('reveal-in');
+            return;
+        }
+        if (binding.value) el.style.transitionDelay = binding.value;
+        el.classList.add('reveal');
+        const io = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-in');
+                        io.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
+        );
+        io.observe(el);
+    },
+};
+
+// M5 — what the model builds (the 70%) and what it shares (the 30%).
+const portfolios = [
+    { name: 'Pendidikan', line: 'Pendidikan Islam bersepadu menerusi AWQAF Education Sdn. Bhd.', slug: 'pendidikan' },
+    { name: 'Kesihatan & Kesejahteraan', line: 'Kesihatan dan kecergasan wanita menerusi AHB Wellness Sdn. Bhd.', slug: 'kesihatan-kesejahteraan' },
+    { name: 'Hartanah', line: 'Pembangunan tanah wakaf dan institusi secara produktif.', slug: 'hartanah' },
+    { name: 'Fintech', line: 'Penyelesaian kewangan digital dan pembiayaan Islam.', slug: 'fintech' },
+];
+
+const programmes = [
+    { name: 'Yayasan ZuriatCARE', line: 'Perlindungan sosial dan kesedaran kesihatan mental.', slug: 'yayasan-zuriatcare' },
+    { name: 'EduWAQF', line: 'Bantuan pendidikan dan biasiswa.', slug: 'eduwaqf' },
+    { name: 'AWQAF4Health', line: 'Bantuan kesihatan untuk golongan berpendapatan rendah.', slug: 'awqaf4health' },
+];
+
+// M6 — proof. Verified figures only.
 const facts = [
-    { icon: UsersIcon, value: '3,431', label: 'Ahli & Pewakaf (2024)' },
-    { icon: BanknotesIcon, value: 'RM13.27 juta', label: 'Dana Wakaf Kumpulan & Ahli (Ogos 2024)' },
-    { icon: DocumentCheckIcon, value: 'Tersedia', label: 'Laporan Tahunan & Penyata Kewangan' },
+    { value: '3,431', label: 'Ahli & Pewakaf (2024)' },
+    { value: 'RM13.27 juta', label: 'Dana Wakaf Kumpulan & Ahli (Ogos 2024)' },
+    { value: '2015–2024', label: 'Penyata Kewangan Diaudit' },
 ];
 
 const collections = [
@@ -38,236 +68,304 @@ const collections = [
     { year: 2024, amount: 206356 },
 ];
 
-const about = [
-    { k: 'Pengurusan Wakaf', h: 'Pengurusan aset wakaf', b: 'Modal asal dikekalkan; hasilnya disalurkan untuk manfaat masyarakat.' },
-    { k: 'Wakaf Korporat', h: 'Waqaf Korporat®', b: 'Konsep berdaftar yang dilesenkan kepada AWQAF Holdings Berhad.' },
-    { k: 'Tadbir Urus', h: 'Struktur korporat', b: 'Diperbadankan di bawah Akta Syarikat 2016 dan diaudit setiap tahun.' },
-];
-
-const areas = [
-    { icon: AcademicCapIcon, h: 'Pendidikan', b: 'AWQAF Education Sdn. Bhd. — pendidikan Islam bersepadu.', slug: 'pendidikan' },
-    { icon: HeartIcon, h: 'Kesihatan & Kesejahteraan', b: 'CURVES di bawah AHB Wellness Sdn. Bhd.', slug: 'kesihatan-kesejahteraan' },
-    { icon: BuildingOffice2Icon, h: 'Hartanah', b: 'Pembangunan tanah wakaf dan institusi.', slug: 'hartanah' },
-    { icon: CpuChipIcon, h: 'Fintech', b: 'Platform Infaq di bawah AHB Fintech Sdn. Bhd.', slug: 'fintech' },
-];
-
-const programs = [
-    { name: 'Yayasan ZuriatCARE', category: 'Kebajikan & Kesihatan Mental', icon: HeartIcon, slug: 'yayasan-zuriatcare' },
-    { name: 'EduWAQF', category: 'Pendidikan', icon: AcademicCapIcon, slug: 'eduwaqf' },
-    { name: 'AWQAF4Health', category: 'Kesihatan', icon: BuildingLibraryIcon, slug: 'awqaf4health' },
+const pillars = [
+    { t: 'Tadbir urus', d: 'Diperbadankan di bawah Akta Syarikat 2016; diselia Lembaga Pengarah dan jawatankuasa.' },
+    { t: 'Pembangunan aset', d: 'Aset wakaf dibangunkan menjadi perniagaan dan aset produktif milik ummah.' },
+    { t: 'Pelaburan mampan', d: 'Modal asal dikekalkan; hasilnya dilaburkan semula untuk kelestarian jangka panjang.' },
+    { t: 'Pengurusan profesional', d: 'Diurus mengikut amalan korporat dan keusahawanan terbaik.' },
+    { t: 'Impak komuniti', d: 'Nilai yang dijana disalurkan kepada pendidikan, kesihatan dan kebajikan.' },
 ];
 </script>
 
 <template>
-    <Head title="Membangunkan Wakaf Korporat untuk Manfaat Ummah">
+    <Head title="Membina Ekonomi. Memakmurkan Ummah. Mewariskan Masa Depan.">
         <link rel="preload" as="image" href="/images/hero/awqaf-hero.webp.png" />
     </Head>
 
     <PublicLayout>
-        <!-- 1. Hero -->
-        <!-- bg-slate-950 is the fallback so text stays readable if the image fails to load. -->
-        <section class="relative isolate overflow-hidden bg-slate-950">
-            <!-- Background artwork: cover, focal point centre-right. Decorative (text is live HTML). -->
+        <!-- ═══ M0 · THE IDEA ═══ Curiosity -->
+        <section class="relative isolate flex min-h-[92vh] flex-col overflow-hidden bg-slate-950 lg:min-h-screen">
             <img
                 src="/images/hero/awqaf-hero.webp.png"
                 alt=""
                 aria-hidden="true"
                 decoding="async"
                 fetchpriority="high"
-                class="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover object-[72%_center] lg:object-[right_center]"
+                class="hero-img pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover object-[72%_center] lg:object-[right_center]"
             />
-
-            <!-- Desktop/tablet overlay: dark on the left for text, artwork visible on the right. -->
             <div
                 class="pointer-events-none absolute inset-0 -z-10 hidden md:block"
-                style="background: linear-gradient(90deg, rgba(6,9,20,.92) 0%, rgba(6,9,20,.84) 35%, rgba(6,9,20,.45) 65%, rgba(6,9,20,.18) 100%);"
+                style="background: linear-gradient(90deg, rgba(6,9,20,.94) 0%, rgba(6,9,20,.88) 38%, rgba(6,9,20,.5) 68%, rgba(6,9,20,.22) 100%);"
             ></div>
-            <!-- Mobile overlay: stronger, full-width darkening so text stays AA-readable on a narrow screen. -->
             <div
                 class="pointer-events-none absolute inset-0 -z-10 md:hidden"
-                style="background: linear-gradient(180deg, rgba(6,9,20,.92) 0%, rgba(6,9,20,.72) 55%, rgba(6,9,20,.88) 100%);"
+                style="background: linear-gradient(180deg, rgba(6,9,20,.92) 0%, rgba(6,9,20,.74) 52%, rgba(6,9,20,.9) 100%);"
             ></div>
 
-            <div class="relative mx-auto flex min-h-[92vh] max-w-7xl items-center px-6 py-32 lg:min-h-screen lg:px-8">
+            <div class="relative mx-auto flex w-full max-w-7xl flex-1 items-center px-6 py-28 lg:px-8">
                 <div class="max-w-3xl">
-                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-400">AWQAF Holdings Berhad</p>
-                    <h1 class="mt-6 text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-6xl">
-                        Membangunkan Wakaf Korporat untuk Manfaat Ummah
+                    <p class="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-400">AWQAF Holdings Berhad</p>
+                    <h1 class="mt-8 text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-6xl lg:text-7xl">
+                        <span class="block">Membina Ekonomi.</span>
+                        <span class="block">Memakmurkan Ummah.</span>
+                        <span class="block text-emerald-400">Mewariskan Masa Depan.</span>
                     </h1>
                     <p class="mt-8 max-w-xl text-lg leading-relaxed text-slate-300">
-                        Sebuah institusi Wakaf Korporat yang mengurus dan membangunkan aset serta inisiatif wakaf
-                        melalui pendekatan korporat dan tadbir urus yang teratur.
+                        Sebuah tamadun yang makmur tidak dibina oleh kekayaan semata-mata, tetapi oleh bagaimana
+                        kekayaan diurus dengan amanah demi manfaat generasi yang akan datang.
                     </p>
-                    <div class="mt-12 flex flex-wrap gap-4">
-                        <Link :href="route('waqaf.howto')" class="rounded-lg bg-emerald-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-emerald-950/50 transition hover:bg-emerald-500">
-                            Wakaf Sekarang
-                        </Link>
-                        <Link :href="route('korporat.overview')" class="rounded-lg border border-white/15 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10">
-                            Kenali AWQAF
-                        </Link>
-                    </div>
                 </div>
+            </div>
+
+            <div class="relative mx-auto w-full max-w-7xl px-6 pb-10 lg:px-8">
+                <a href="#refleksi" class="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
+                    Terokai idea ini
+                    <ChevronDownIcon class="h-4 w-4 animate-bounce" aria-hidden="true" />
+                </a>
             </div>
         </section>
 
-        <!-- 2. Verified facts strip -->
-        <section class="bg-slate-50 py-20">
-            <div class="mx-auto max-w-6xl px-6 lg:px-8">
-                <div class="grid grid-cols-1 gap-y-12 gap-x-8 sm:grid-cols-3">
-                    <div v-for="fact in facts" :key="fact.label" class="text-center">
-                        <component :is="fact.icon" class="mx-auto h-6 w-6 text-emerald-600" />
-                        <div class="mt-4 text-3xl font-bold text-emerald-700 sm:text-4xl">{{ fact.value }}</div>
-                        <div class="mx-auto mt-2 max-w-[18ch] text-xs uppercase tracking-wide text-slate-500">{{ fact.label }}</div>
-                    </div>
-                </div>
+        <!-- ═══ M1 · THE REFLECTION ═══ Reflection -->
+        <section id="refleksi" class="bg-slate-950">
+            <div class="mx-auto max-w-4xl px-6 py-28 lg:px-8 lg:py-40">
+                <p v-reveal class="text-2xl font-medium leading-relaxed text-slate-400 sm:text-3xl sm:leading-[1.5]">
+                    Setiap tamadun yang agung dibina di atas ekonomi yang kukuh. Apabila ekonomi berkembang
+                    dengan adil, masyarakat memperoleh peluang untuk belajar, bekerja dan membina kehidupan
+                    yang lebih sejahtera.
+                </p>
+                <p v-reveal="'150ms'" class="mt-10 text-2xl font-semibold leading-relaxed text-white sm:text-3xl sm:leading-[1.5]">
+                    Namun apabila kekayaan hanya tertumpu kepada segelintir, jurang semakin melebar — dan
+                    manfaat pembangunan tidak lagi dinikmati secara menyeluruh.
+                </p>
             </div>
         </section>
 
-        <!-- 3. Tentang AWQAF -->
-        <section class="bg-white py-28">
-            <div class="mx-auto max-w-3xl px-6 text-center lg:px-8">
-                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">Tentang AWQAF</p>
-                <h2 class="mt-4 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl">
-                    Institusi Wakaf Korporat berpangkalan komuniti
+        <!-- ═══ M2 · NORTH STAR + CONVICTION ═══ Understanding -->
+        <section class="bg-white">
+            <div class="mx-auto max-w-5xl px-6 py-28 lg:px-8 lg:py-40">
+                <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Corporate Waqf</p>
+                <h2 v-reveal="'80ms'" class="mt-8 text-3xl font-bold leading-[1.18] tracking-tight text-slate-900 sm:text-5xl">
+                    Waqaf bukan sekadar warisan harta. Ia warisan peluang — sebuah ekonomi yang membolehkan
+                    setiap generasi membina masa depannya sendiri.
                 </h2>
-            </div>
-            <div class="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-x-10 gap-y-12 px-6 sm:grid-cols-3 lg:px-8">
-                <div v-for="a in about" :key="a.h">
-                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">{{ a.k }}</span>
-                    <h3 class="mt-3 text-lg font-semibold text-slate-900">{{ a.h }}</h3>
-                    <p class="mt-2 text-sm leading-relaxed text-slate-500">{{ a.b }}</p>
-                </div>
-            </div>
-            <div class="mx-auto mt-16 max-w-3xl px-6 text-center lg:px-8">
-                <Link :href="route('korporat.overview')" class="text-sm font-semibold text-emerald-700 hover:underline">Maklumat korporat lanjut →</Link>
-            </div>
-        </section>
 
-        <!-- 4. Waqaf Korporat -->
-        <section class="bg-slate-50 py-24">
-            <div class="mx-auto max-w-5xl px-6 lg:px-8">
-                <div class="grid grid-cols-1 gap-10 lg:grid-cols-5 lg:gap-16">
-                    <div class="lg:col-span-2">
-                        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">Waqaf Korporat®</p>
-                        <h2 class="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">Apa itu Waqaf Korporat?</h2>
-                    </div>
-                    <div class="lg:col-span-3">
-                        <p class="text-lg leading-relaxed text-slate-600">
-                            Waqaf Korporat® ialah konsep berdaftar yang dilesenkan kepada AWQAF Holdings Berhad. Wakaf
-                            ditukar menjadi perniagaan dan aset produktif milik ummah — modal asal dikekalkan sebagai
-                            amanah kekal, dan hanya hasilnya disalurkan untuk manfaat masyarakat.
-                        </p>
-                        <Link :href="route('waqaf.corporate')" class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:underline">
-                            Fahami Waqaf Korporat <ArrowRightIcon class="h-4 w-4" />
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <p v-reveal class="mt-16 max-w-2xl text-lg leading-relaxed text-slate-600">
+                    Corporate Waqf lahir daripada satu keyakinan: pertumbuhan ekonomi dan amanah kepada
+                    masyarakat tidak seharusnya dipisahkan.
+                </p>
 
-        <!-- 5. Model Waqaf Korporat (30% / 70%) preview -->
-        <section class="bg-white py-24">
-            <div class="mx-auto max-w-4xl px-6 lg:px-8">
-                <div class="text-center">
-                    <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">Model Waqaf Korporat</p>
-                    <h2 class="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">Bagaimana hasil disalurkan</h2>
-                    <p class="mx-auto mt-4 max-w-2xl text-slate-500">
-                        Sebahagian daripada hasil aktiviti pelaburan dan perniagaan AWQAF disalurkan kepada program
-                        kebajikan, manakala sebahagian besar dilaburkan semula bagi mengembangkan aset dan sumber
-                        pendapatan jangka panjang.
+                <div class="mt-12 space-y-5 border-t border-slate-100 pt-12">
+                    <p v-reveal class="text-2xl leading-snug text-slate-400 sm:text-3xl">
+                        Waqaf bukan sekadar memberi — <span class="font-semibold text-slate-900">ia membina.</span>
+                    </p>
+                    <p v-reveal="'100ms'" class="text-2xl leading-snug text-slate-400 sm:text-3xl">
+                        Bukan sekadar membantu — <span class="font-semibold text-slate-900">ia memperkasa.</span>
+                    </p>
+                    <p v-reveal="'200ms'" class="max-w-3xl text-2xl leading-snug text-slate-400 sm:text-3xl">
+                        Bukan sekadar mengurus aset — <span class="font-semibold text-slate-900">ia membina sistem ekonomi yang menjadikan kemakmuran sebagai manfaat bersama.</span>
                     </p>
                 </div>
-                <div class="mt-12">
-                    <WaqafModel preview />
-                </div>
-                <div class="mt-8 text-center">
-                    <Link :href="route('waqaf.corporate')" class="text-sm font-semibold text-emerald-700 hover:underline">Fahami model Waqaf Korporat →</Link>
-                </div>
             </div>
         </section>
 
-        <!-- 6. Portfolio Pelaburan preview -->
-        <section class="bg-slate-50 py-28">
-            <div class="mx-auto max-w-6xl px-6 lg:px-8">
+        <!-- ═══ M3 · THE MODEL ═══ Hope -->
+        <section class="bg-slate-50">
+            <div class="mx-auto max-w-4xl px-6 py-24 lg:px-8 lg:py-32">
                 <div class="max-w-2xl">
-                    <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">Portfolio Pelaburan</p>
-                    <h2 class="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">Empat portfolio pelaburan wakaf</h2>
+                    <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Model</p>
+                    <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                        Bagaimana kemakmuran menjadi milik bersama
+                    </h2>
+                    <p v-reveal="'140ms'" class="mt-5 text-lg leading-relaxed text-slate-600">
+                        Nilai yang dijana tidak dibelanjakan sekali habis. Modal dikekalkan sebagai amanah kekal,
+                        manakala hasilnya membina pendidikan, kesihatan dan masa depan komuniti.
+                    </p>
                 </div>
-                <div class="mt-14 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-                    <Link v-for="area in areas" :key="area.h" :href="route('portfolio.show', area.slug)" class="group block">
-                        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-50 text-emerald-700 shadow-sm transition group-hover:bg-emerald-50"><component :is="area.icon" class="h-6 w-6" /></div>
-                        <h3 class="mt-5 font-semibold text-slate-900 transition group-hover:text-emerald-700">{{ area.h }}</h3>
-                        <p class="mt-2 text-sm text-slate-500">{{ area.b }}</p>
+                <div v-reveal class="mt-16">
+                    <WaqafModel />
+                </div>
+                <div class="mt-10">
+                    <Link :href="route('waqaf.corporate')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:underline">
+                        Fahami Waqaf Korporat <ArrowRightIcon class="h-4 w-4" />
                     </Link>
                 </div>
-                <div class="mt-12">
-                    <Link :href="route('portfolio.index')" class="text-sm font-semibold text-emerald-700 hover:underline">Lihat semua portfolio pelaburan →</Link>
-                </div>
             </div>
         </section>
 
-        <!-- 7. Program & Inisiatif preview -->
-        <section class="bg-white py-28">
-            <div class="mx-auto max-w-6xl px-6 lg:px-8">
-                <div class="max-w-2xl">
-                    <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">Program &amp; Inisiatif</p>
-                    <h2 class="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">Tiga program kebajikan komuniti</h2>
-                </div>
-                <div class="mt-14 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-3">
-                    <Link v-for="program in programs" :key="program.name" :href="route('program.show', program.slug)" class="group block">
-                        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-amber-600 shadow-sm"><component :is="program.icon" class="h-6 w-6" /></div>
-                        <div class="mt-5 text-lg font-semibold text-emerald-700 group-hover:underline">{{ program.name }}</div>
-                        <p class="mt-1 text-sm text-slate-500">{{ program.category }}</p>
-                    </Link>
-                </div>
-                <div class="mt-12">
-                    <Link :href="route('program.index')" class="text-sm font-semibold text-emerald-700 hover:underline">Lihat semua program &amp; inisiatif →</Link>
-                </div>
-            </div>
-        </section>
+        <!-- ═══ M4 · THE INSTITUTION ═══ Trust building -->
+        <section class="bg-slate-950">
+            <div class="mx-auto max-w-5xl px-6 py-28 lg:px-8 lg:py-36">
+                <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">Institusi</p>
+                <h2 v-reveal="'80ms'" class="mt-6 max-w-3xl text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
+                    Institusi yang menterjemahkan falsafah ini menjadi tindakan.
+                </h2>
+                <p v-reveal="'140ms'" class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
+                    AWQAF Holdings Berhad ialah institusi Wakaf Korporat berpangkalan komuniti. Ia membina dan
+                    menguruskan aset wakaf secara profesional — supaya nilai yang dijana kekal, berkembang, dan
+                    memberi manfaat berterusan kepada masyarakat.
+                </p>
 
-        <!-- 8. Laporan Tahunan & Penyata Kewangan preview -->
-        <section class="bg-slate-950 py-28">
-            <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                <div class="grid grid-cols-1 gap-14 lg:grid-cols-3">
-                    <div>
-                        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-400">Laporan Tahunan &amp; Penyata Kewangan</p>
-                        <h2 class="mt-4 text-3xl font-bold text-white sm:text-4xl">Kutipan wakaf tahunan, 2014–2024</h2>
-                        <p class="mt-6 text-sm text-slate-400">Seperti dilaporkan dalam Penyata Kewangan Diaudit AWQAF Holdings Berhad.</p>
-                        <Link :href="route('korporat.reports')" class="mt-8 inline-block text-sm font-semibold text-emerald-400 hover:underline">Muat turun Laporan Tahunan →</Link>
+                <dl class="mt-16 grid grid-cols-1 gap-x-12 gap-y-10 border-t border-white/10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
+                    <div v-for="(p, i) in pillars" :key="p.t" v-reveal="`${i * 60}ms`">
+                        <dt class="text-sm font-semibold text-white">{{ p.t }}</dt>
+                        <dd class="mt-2 text-sm leading-relaxed text-slate-400">{{ p.d }}</dd>
                     </div>
-                    <div class="lg:col-span-2"><CollectionChart :data="collections" dark /></div>
+                    <div v-reveal="'300ms'" class="flex items-end">
+                        <Link :href="route('korporat.overview')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-400 hover:underline">
+                            Mengenai AWQAF <ArrowRightIcon class="h-4 w-4" />
+                        </Link>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- ═══ M5 · WHAT IT BUILDS ═══ Hope → Trust -->
+        <section class="bg-white">
+            <div class="mx-auto max-w-5xl px-6 py-28 lg:px-8 lg:py-36">
+                <div class="max-w-2xl">
+                    <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Di sebalik model</p>
+                    <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                        Nilai yang dibina. Manfaat yang dikongsi.
+                    </h2>
+                </div>
+
+                <div class="mt-16 grid grid-cols-1 gap-x-16 gap-y-14 lg:grid-cols-2">
+                    <!-- 70% — assets built -->
+                    <div v-reveal>
+                        <p class="text-sm font-semibold text-slate-900">Aset yang dibina <span class="text-slate-400">— Portfolio Pelaburan</span></p>
+                        <ul class="mt-6 divide-y divide-slate-100 border-t border-slate-100">
+                            <li v-for="p in portfolios" :key="p.slug">
+                                <Link :href="route('portfolio.show', p.slug)" class="group flex items-start justify-between gap-4 py-4">
+                                    <span>
+                                        <span class="font-semibold text-slate-900 transition group-hover:text-emerald-700">{{ p.name }}</span>
+                                        <span class="mt-0.5 block text-sm text-slate-500">{{ p.line }}</span>
+                                    </span>
+                                    <ArrowRightIcon class="mt-1 h-4 w-4 flex-none text-slate-300 transition group-hover:text-emerald-700" />
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 30% — benefit shared -->
+                    <div v-reveal="'100ms'">
+                        <p class="text-sm font-semibold text-slate-900">Manfaat yang dikongsi <span class="text-slate-400">— Program &amp; Inisiatif</span></p>
+                        <ul class="mt-6 divide-y divide-slate-100 border-t border-slate-100">
+                            <li v-for="p in programmes" :key="p.slug">
+                                <Link :href="route('program.show', p.slug)" class="group flex items-start justify-between gap-4 py-4">
+                                    <span>
+                                        <span class="font-semibold text-slate-900 transition group-hover:text-emerald-700">{{ p.name }}</span>
+                                        <span class="mt-0.5 block text-sm text-slate-500">{{ p.line }}</span>
+                                    </span>
+                                    <ArrowRightIcon class="mt-1 h-4 w-4 flex-none text-slate-300 transition group-hover:text-emerald-700" />
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- 9. Contribution CTA + Portal Pewakaf -->
-        <section class="bg-white py-28">
-            <div class="mx-auto max-w-5xl px-6 lg:px-8">
-                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <!-- ═══ M6 · WHY TO TRUST IT ═══ Trust -->
+        <section class="bg-slate-950">
+            <div class="mx-auto max-w-6xl px-6 py-28 lg:px-8 lg:py-36">
+                <div class="max-w-2xl">
+                    <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">Amanah</p>
+                    <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                        Amanah yang dibuktikan, bukan dilaung.
+                    </h2>
+                    <p v-reveal="'140ms'" class="mt-5 text-lg leading-relaxed text-slate-300">
+                        Diperbadankan di bawah Akta Syarikat 2016, diselia Lembaga Pengarah sembilan ahli, dan
+                        diaudit setiap tahun. Sebelas tahun rekod kutipan wakaf didedahkan sepenuhnya.
+                    </p>
+                </div>
+
+                <dl v-reveal class="mt-14 grid grid-cols-1 gap-x-10 gap-y-8 border-y border-white/10 py-10 sm:grid-cols-3">
+                    <div v-for="f in facts" :key="f.label">
+                        <dt class="text-3xl font-bold text-white sm:text-4xl">{{ f.value }}</dt>
+                        <dd class="mt-2 text-sm text-slate-400">{{ f.label }}</dd>
+                    </div>
+                </dl>
+
+                <div v-reveal class="mt-14">
+                    <p class="text-sm font-semibold text-slate-300">Kutipan wakaf tahunan, 2014–2024</p>
+                    <p class="mt-1 text-xs text-slate-500">Seperti dilaporkan dalam Penyata Kewangan Diaudit AWQAF Holdings Berhad.</p>
+                    <div class="mt-8"><CollectionChart :data="collections" dark /></div>
+                </div>
+
+                <div class="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold">
+                    <Link :href="route('korporat.reports')" class="text-emerald-400 hover:underline">Laporan Tahunan &amp; Penyata Kewangan →</Link>
+                    <Link :href="route('korporat.leadership.index')" class="text-emerald-400 hover:underline">Lembaga Pengarah →</Link>
+                    <Link :href="route('ketelusan')" class="text-emerald-400 hover:underline">Laporan &amp; Tadbir Urus →</Link>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ M7 · THE INVITATION + CLOSING ═══ Participation -->
+        <section class="bg-white">
+            <div class="mx-auto max-w-5xl px-6 py-28 lg:px-8 lg:py-36">
+                <div class="max-w-2xl">
+                    <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Sertai pembinaan</p>
+                    <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Bina bersama kami.</h2>
+                    <p v-reveal="'140ms'" class="mt-5 text-lg leading-relaxed text-slate-600">
+                        Setiap wakaf menyertai usaha membina ekonomi yang memberi manfaat berterusan kepada ummah —
+                        sebuah amanah yang mewarisi kebaikan merentas generasi.
+                    </p>
+                </div>
+
+                <div v-reveal class="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div class="rounded-3xl bg-emerald-700 p-8 sm:p-10">
-                        <h2 class="text-2xl font-bold text-white">Wakaf Sekarang</h2>
+                        <h3 class="text-2xl font-bold text-white">Bina bersama AWQAF</h3>
                         <p class="mt-3 text-sm leading-relaxed text-emerald-50">
-                            Untuk pewakaf baharu atau sedia ada yang ingin memilih kaedah berwakaf kepada AWQAF Holdings Berhad.
+                            Sertai sebagai pewakaf dan pilih kaedah berwakaf kepada AWQAF Holdings Berhad.
                         </p>
                         <Link :href="route('waqaf.howto')" class="mt-6 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-50">
                             Lihat Kaedah Berwakaf <ArrowRightIcon class="h-4 w-4" />
                         </Link>
                     </div>
                     <div class="rounded-3xl border border-slate-200 p-8 sm:p-10">
-                        <h2 class="text-2xl font-bold text-slate-900">Portal Pewakaf</h2>
+                        <h3 class="text-2xl font-bold text-slate-900">Portal Pewakaf</h3>
                         <p class="mt-3 text-sm leading-relaxed text-slate-500">
-                            Untuk ahli sedia ada mengakses akaun, rekod wakaf, resit dan dokumen keahlian.
+                            Untuk pewakaf sedia ada mengakses akaun, rekod wakaf, resit dan dokumen keahlian.
                         </p>
                         <a :href="page.props.portalUrl" class="mt-6 inline-flex items-center gap-2 rounded-lg border border-emerald-600 px-6 py-3 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50">
                             Masuk ke Portal <ArrowRightIcon class="h-4 w-4" />
                         </a>
                     </div>
                 </div>
-                <div class="mt-8 text-center">
-                    <Link :href="route('hubungi')" class="text-sm font-semibold text-emerald-700 hover:underline">Hubungi AWQAF untuk pertanyaan korporat →</Link>
-                </div>
+
+                <p v-reveal class="mt-24 border-t border-slate-100 pt-16 text-center text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+                    Waqaf membina hari ini. Amanahnya mewarisi selamanya.
+                </p>
             </div>
         </section>
     </PublicLayout>
 </template>
+
+<style scoped>
+.reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+}
+.reveal-in {
+    opacity: 1;
+    transform: none;
+}
+.hero-img {
+    animation: heroDrift 24s ease-out both;
+}
+@keyframes heroDrift {
+    from {
+        transform: scale(1.06);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .hero-img {
+        animation: none;
+    }
+}
+</style>
