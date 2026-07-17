@@ -164,9 +164,10 @@ const pillars = [
                 </h2>
 
                 <p v-reveal class="mt-16 max-w-2xl text-lg leading-relaxed text-slate-600">
-                    Waqaf Korporat ialah pendekatan mengurus wakaf sebagai sebuah institusi korporat: aset wakaf
-                    dibangunkan menjadi perniagaan yang mampan, modal asalnya dikekalkan, dan hasilnya disalurkan
-                    untuk manfaat masyarakat.
+                    <span class="font-medium text-slate-900">Pertumbuhan ekonomi dan amanah kepada masyarakat tidak seharusnya dipisahkan.</span>
+                    Daripada prinsip inilah Waqaf Korporat terbentuk — pendekatan mengurus wakaf sebagai sebuah
+                    institusi korporat: aset wakaf dibangunkan menjadi perniagaan mampan, modalnya dikekalkan, dan
+                    hasilnya disalurkan untuk manfaat masyarakat.
                 </p>
 
                 <div class="mt-12 space-y-5 border-t border-slate-100 pt-12">
