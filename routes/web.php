@@ -10,7 +10,7 @@ use Spatie\Sitemap\Tags\Url;
 Route::get('/', function () {
     Seo::set([
         'title' => 'AWQAF Holdings Berhad — Waqaf Korporat untuk Kelestarian Ummah',
-        'description' => 'AWQAF Holdings Berhad membangunkan waqaf korporat yang telus dan bertadbir urus baik, menyalurkan manfaat berterusan kepada pendidikan, kesihatan dan kebajikan komuniti.',
+        'description' => 'AWQAF Holdings Berhad membangunkan Waqaf Korporat yang telus dan bertadbir urus baik, menyalurkan manfaat berterusan kepada pendidikan, kesihatan dan kebajikan masyarakat.',
     ]);
 
     return Inertia::render('Welcome');
@@ -19,7 +19,7 @@ Route::get('/', function () {
 Route::get('/wakaf/wakaf-korporat', function () {
     Seo::set([
         'title' => 'Waqaf Korporat® — Definisi & Ciri-ciri — AWQAF Holdings Berhad',
-        'description' => 'Definisi Waqaf Korporat® dan lapan ciri asas yang menjadi penanda unik konsep ini menurut AWQAF Holdings Berhad.',
+        'description' => 'Definisi Waqaf Korporat® dan lapan ciri asas yang mentakrifkan konsep ini menurut AWQAF Holdings Berhad.',
     ]);
 
     return Inertia::render('Waqaf/Corporate');

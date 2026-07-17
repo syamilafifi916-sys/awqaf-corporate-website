@@ -26,7 +26,7 @@ const navGroups = computed(() => [
             { label: 'Hubungi Kami', href: route('hubungi') },
         ],
     },
-    { label: 'Wakaf Korporat', href: route('waqaf.corporate') },
+    { label: 'Waqaf Korporat', href: route('waqaf.corporate') },
     {
         label: 'Portfolio Pelaburan',
         href: route('portfolio.index'),
@@ -313,7 +313,7 @@ onBeforeUnmount(() => {
                 <div class="col-span-2 sm:col-span-1">
                     <img src="/images/brand/awqaf-symbol.png" alt="AWQAF Holdings Berhad" class="h-11 w-auto" />
                     <p class="mt-4 text-sm text-slate-500">
-                        AWQAF Holdings Berhad — memacu pengurusan waqaf korporat untuk kelestarian ummah.
+                        AWQAF Holdings Berhad — memacu pengurusan Waqaf Korporat untuk kelestarian ummah.
                     </p>
                 </div>
 

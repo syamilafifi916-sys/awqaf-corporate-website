@@ -20,7 +20,7 @@ class Seo
     {
         return [
             'title' => config('app.name'),
-            'description' => 'AWQAF Holdings Berhad — institusi wakaf korporat yang memacu kelestarian ummah menerusi tadbir urus yang telus dan bertanggungjawab.',
+            'description' => 'AWQAF Holdings Berhad — institusi Waqaf Korporat yang memacu kelestarian ummah menerusi tadbir urus yang telus dan bertanggungjawab.',
             'image' => asset('images/og-default.jpg'),
             'canonical' => url()->current(),
             'type' => 'website',

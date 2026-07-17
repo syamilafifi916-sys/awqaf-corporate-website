@@ -200,9 +200,9 @@ const pillars = [
                     Institusi yang menterjemahkan falsafah ini menjadi tindakan.
                 </h2>
                 <p v-reveal="'140ms'" class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-                    AWQAF Holdings Berhad ialah institusi Wakaf Korporat berpangkalan komuniti. Ia membina dan
-                    menguruskan aset wakaf secara profesional — supaya nilai yang dijana kekal, berkembang, dan
-                    memberi manfaat berterusan kepada masyarakat.
+                    AWQAF Holdings Berhad ialah sebuah institusi Waqaf Korporat yang membina dan menguruskan
+                    aset wakaf secara profesional — supaya nilai yang dijana kekal, berkembang, dan memberi
+                    manfaat berterusan kepada masyarakat.
                 </p>
 
                 <dl class="mt-16 grid grid-cols-1 gap-x-12 gap-y-10 border-t border-white/10 pt-14 sm:grid-cols-2 lg:grid-cols-3">

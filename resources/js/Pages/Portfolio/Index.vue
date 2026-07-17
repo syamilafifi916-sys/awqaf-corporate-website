@@ -19,7 +19,7 @@ defineProps({
                     Portfolio pelaburan AWQAF Holdings Berhad
                 </h1>
                 <p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-                    Empat portfolio pelaburan yang menjana pulangan mampan bagi menyokong mandat waqaf korporat.
+                    Empat portfolio pelaburan yang menjana pulangan mampan bagi menyokong mandat Waqaf Korporat.
                 </p>
                 <p class="mt-4 max-w-2xl text-sm text-slate-400">
                     Program kebajikan Kumpulan AWQAF dipaparkan secara berasingan di bawah

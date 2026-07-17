@@ -127,7 +127,7 @@ return [
         ],
         'description' => [
             'Portfolio hartanah Kumpulan AWQAF memberi tumpuan kepada pembangunan tanah wakaf dan tanah institusi, termasuk kerjasama dengan Majlis Agama Islam Negeri Sembilan (MAINS) sebagaimana dinyatakan dalam Company Profile.',
-            'Tumpuan pembangunan adalah berskala kecil dan sederhana, dengan hasrat memberi manfaat kepada usahawan dan komuniti setempat, selaras dengan model wakaf korporat yang mengekalkan modal asal sebagai amanah kekal.',
+            'Tumpuan pembangunan adalah berskala kecil dan sederhana, dengan hasrat memberi manfaat kepada usahawan dan komuniti setempat, selaras dengan model Waqaf Korporat yang mengekalkan modal asal sebagai amanah kekal.',
         ],
         'units' => [],
         'activities' => [

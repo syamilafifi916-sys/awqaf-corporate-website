@@ -36,7 +36,7 @@ const reinvestment = [
     <div v-else>
         <!-- Accessible text equivalent of the diagram -->
         <p class="sr-only">
-            Model aliran Waqaf Korporat AWQAF: Pewakaf menyumbang kepada aktiviti Pelaburan dan Bisnes AWQAF.
+            Model aliran Waqaf Korporat AWQAF: Pewakaf menyertai aktiviti Pelaburan dan Perniagaan AWQAF.
             Daripada hasil aktiviti tersebut, 30 peratus disalurkan kepada program kebajikan iaitu Yayasan
             ZuriatCARE, EduWAQF dan AWQAF4Health, manakala 70 peratus dilaburkan semula untuk pengembangan aset,
             pengukuhan aktiviti ekonomi dan pertumbuhan sumber pendapatan jangka panjang.
@@ -51,10 +51,10 @@ const reinvestment = [
             <div class="flex justify-center py-3">
                 <ArrowLongDownIcon class="h-6 w-6 text-slate-300" />
             </div>
-            <!-- Pelaburan & Bisnes -->
+            <!-- Pelaburan & Perniagaan -->
             <div class="rounded-xl border border-slate-900 bg-slate-900 px-6 py-4 text-center">
                 <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-400">Aktiviti AWQAF</p>
-                <p class="mt-1 text-lg font-bold text-white">Pelaburan &amp; Bisnes</p>
+                <p class="mt-1 text-lg font-bold text-white">Pelaburan &amp; Perniagaan</p>
             </div>
             <div class="flex justify-center py-3">
                 <ArrowLongDownIcon class="h-6 w-6 text-slate-300" />

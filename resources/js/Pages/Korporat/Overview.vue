@@ -64,8 +64,8 @@ const sectionNav = [
                     AWQAF Holdings Berhad
                 </h1>
                 <p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-                    Institusi waqaf korporat berasaskan komuniti yang memegang wakaf sebagai amanah kekal —
-                    diuruskan di bawah tadbir urus korporat yang telus untuk memberi manfaat berterusan kepada ummah.
+                    Sebuah institusi Waqaf Korporat yang memegang wakaf sebagai amanah kekal, diuruskan di bawah
+                    tadbir urus korporat yang telus untuk memberi manfaat berterusan kepada ummah.
                 </p>
 
                 <div class="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 lg:grid-cols-4">
@@ -116,7 +116,7 @@ const sectionNav = [
                     <div class="rounded-2xl border border-slate-100 p-8">
                         <h3 class="font-semibold text-emerald-700">Visi</h3>
                         <p class="mt-3 text-slate-600">
-                            Menjadi peneraju waqaf korporat yang memanfaatkan aset dan perniagaan berasaskan wakaf
+                            Menjadi peneraju Waqaf Korporat yang memanfaatkan aset dan perniagaan berasaskan wakaf
                             untuk memacu transformasi ekonomi ke arah masyarakat yang adil dan sejahtera.
                         </p>
                     </div>
@@ -124,7 +124,7 @@ const sectionNav = [
                         <h3 class="font-semibold text-emerald-700">Misi</h3>
                         <ul class="mt-3 space-y-2 text-slate-600">
                             <li>• Membina perniagaan dan aset berasaskan dana wakaf bagi mewujudkan peluang ekonomi baharu untuk masyarakat.</li>
-                            <li>• Menjadi institusi waqaf korporat pimpinan komuniti yang memperkasakan ekonomi umat menerusi pendekatan perniagaan.</li>
+                            <li>• Menjadi institusi Waqaf Korporat yang memperkasakan ekonomi ummah menerusi pendekatan perniagaan yang mampan.</li>
                             <li>• Membangunkan usaha keusahawanan yang memberi manfaat meluas menerusi model kewangan wakaf yang lestari.</li>
                         </ul>
                     </div>
