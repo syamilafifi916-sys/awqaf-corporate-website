@@ -327,38 +327,59 @@ const pillars = [
             </div>
         </section>
 
-        <!-- ═══ M7 · KARYA & WARISAN ═══ -->
+        <!-- ═══ M7 · WARISAN PEMIKIRAN ═══ -->
         <!-- Warm near-black bg (#100c08) matches the book render's own dark bokeh edges
              so the cover floats with no hard rectangular boundary; also distinguishes
-             this movement from M6's cool slate-950. -->
-        <section class="bg-[#100c08]">
-            <div class="mx-auto max-w-6xl px-6 py-28 lg:px-8 lg:py-36">
-                <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
-                    <div v-reveal class="lg:col-span-5">
-                        <img
-                            src="/images/buku-biografi.webp"
-                            alt="Muka depan buku 'Muhammad Ali Hashim: Champion of Business Jihad and Corporate Waqaf' oleh Rokiah Talib"
-                            width="1122"
-                            height="1402"
-                            loading="lazy"
-                            decoding="async"
-                            class="mx-auto w-full max-w-sm rounded-lg shadow-2xl shadow-black/50"
-                        />
-                    </div>
+             this movement from M6's cool slate-950. The biography is treated as a
+             museum object (spotlight + vignette + gentle float + grounded reflection),
+             not an e-commerce product. Reading order is text → book: heading, body and
+             CTA lead (left / first), the cover is the terminal focal point (right / last). -->
+        <section class="relative isolate overflow-hidden bg-[#100c08]">
+            <div class="section-vignette" aria-hidden="true"></div>
+            <div class="relative mx-auto max-w-6xl px-6 py-28 lg:px-8 lg:py-36">
+                <div class="grid grid-cols-1 items-center gap-14 lg:grid-cols-12 lg:gap-16">
+                    <!-- Editorial copy — leads the eye -->
                     <div class="lg:col-span-7">
-                        <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">Karya &amp; Warisan</p>
-                        <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
-                            Memahami Waqaf Korporat bermula dengan memahami pemikiran pengasasnya.
+                        <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">Warisan Pemikiran</p>
+                        <h2 v-reveal="'80ms'" class="mt-5 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
+                            Warisan sebenar bukan sekadar institusi yang dibina,<br class="hidden sm:block" />
+                            tetapi pemikiran yang ditinggalkan.
                         </h2>
-                        <p v-reveal="'140ms'" class="mt-6 max-w-xl text-lg leading-relaxed text-slate-300">
+                        <p v-reveal="'140ms'" class="mt-7 max-w-xl text-lg leading-relaxed text-slate-300">
                             Biografi Allahyarham Tan Sri Muhammad Ali Hashim merakamkan pemikiran yang mendasari
                             gagasan Waqaf Korporat — sebuah rujukan institusi yang meletakkan falsafah AWQAF dalam
                             konteks sejarah dan idea yang lebih luas.
                         </p>
-                        <Link :href="route('korporat.founder')" class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-emerald-400 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
-                            Terokai Biografi <ArrowRightIcon class="h-4 w-4" />
+                        <Link :href="route('korporat.founder')" class="mt-9 inline-flex items-center gap-2 text-sm font-semibold text-emerald-400 transition hover:gap-3 hover:text-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+                            Mengenali Pemikiran Pengasas <ArrowRightIcon class="h-4 w-4" />
                         </Link>
                     </div>
+
+                    <!-- The biography as a museum object — terminal focal point -->
+                    <figure v-reveal="'200ms'" class="lg:col-span-5">
+                        <div class="book-stage relative mx-auto w-full max-w-sm">
+                            <div class="book-spot" aria-hidden="true"></div>
+                            <img
+                                src="/images/buku-biografi.webp"
+                                alt="Muka depan buku 'Muhammad Ali Hashim: Champion of Business Jihad and Corporate Waqaf' oleh Rokiah Talib"
+                                width="1122"
+                                height="1402"
+                                loading="lazy"
+                                decoding="async"
+                                class="book-cover block w-full rounded-md"
+                            />
+                            <img
+                                src="/images/buku-biografi.webp"
+                                alt=""
+                                aria-hidden="true"
+                                width="1122"
+                                height="1402"
+                                loading="lazy"
+                                decoding="async"
+                                class="book-reflection block w-full rounded-md"
+                            />
+                        </div>
+                    </figure>
                 </div>
             </div>
         </section>
@@ -426,8 +447,76 @@ const pillars = [
         transform: scale(1);
     }
 }
+
+/* ── M7 · Warisan Pemikiran — biography as a museum object ── */
+
+/* Soft vignette: darkens the section corners so the eye settles centrally. */
+.section-vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(120% 115% at 50% 40%, transparent 52%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.book-stage {
+    padding-top: 1.5rem;
+}
+
+/* Radial spotlight glowing warmly behind the cover, as if lit in a gallery. */
+.book-spot {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    width: 122%;
+    aspect-ratio: 1 / 1;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+        closest-side,
+        rgba(255, 241, 214, 0.16),
+        rgba(255, 241, 214, 0.05) 46%,
+        transparent 72%
+    );
+    filter: blur(8px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Realistic light-from-above shadow + a gentle, slow float for depth. */
+.book-cover {
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 26px 44px rgba(0, 0, 0, 0.62))
+        drop-shadow(0 8px 16px rgba(0, 0, 0, 0.45));
+    animation: bookFloat 7s ease-in-out infinite alternate;
+    will-change: transform;
+}
+
+/* Very subtle grounded reflection; stays on the "floor" while the cover floats. */
+.book-reflection {
+    position: relative;
+    z-index: 0;
+    margin-top: 2px;
+    transform: scaleY(-1);
+    opacity: 0.16;
+    filter: blur(1px);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent 42%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent 42%);
+    pointer-events: none;
+}
+
+@keyframes bookFloat {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
-    .hero-img {
+    .hero-img,
+    .book-cover {
         animation: none;
     }
 }
