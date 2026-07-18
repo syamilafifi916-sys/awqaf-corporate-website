@@ -186,8 +186,7 @@ const bookCta = props.founder.book.cta_verified_url || route('hubungi');
              editorial themes (not historical achievements). Ends quietly, no CTA. -->
         <section class="bg-white py-20 lg:py-28">
             <div class="mx-auto max-w-5xl px-6 lg:px-8">
-                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">Epilog</p>
-                <h2 class="mt-3 text-2xl font-bold text-slate-900 sm:text-3xl">Kesinambungan Amanah</h2>
+                <h2 class="text-2xl font-bold text-slate-900 sm:text-3xl">Kesinambungan Amanah</h2>
                 <p class="mt-6 max-w-3xl leading-relaxed text-slate-700">{{ founder.leadership_legacy.intro }}</p>
 
                 <!-- Garis masa kepimpinan: setiap pengerusi ialah pertanda kesinambungan institusi. -->
@@ -214,7 +213,7 @@ const bookCta = props.founder.book.cta_verified_url || route('hubungi');
                                 height="96"
                                 loading="lazy"
                                 decoding="async"
-                                class="h-24 w-24 rounded-full object-cover object-center grayscale ring-1 ring-slate-900/5"
+                                class="h-24 w-24 rounded-full object-cover object-center ring-1 ring-slate-900/5"
                             />
                             <div
                                 v-else
@@ -234,10 +233,8 @@ const bookCta = props.founder.book.cta_verified_url || route('hubungi');
                                     <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span> Kini
                                 </span>
                             </div>
-                            <p v-if="c.era" class="mt-1.5 text-xs font-medium tracking-wide text-slate-400">{{ c.era }}</p>
-                            <h3 class="mt-1 text-lg font-bold text-slate-900 sm:text-xl">{{ c.name }}</h3>
+                            <h3 class="mt-2 text-lg font-bold text-slate-900 sm:text-xl">{{ c.name }}</h3>
                             <p class="mt-1 text-sm font-medium text-slate-500">{{ c.term }}</p>
-                            <p class="mt-3 max-w-2xl leading-relaxed text-slate-700">{{ c.description }}</p>
                         </div>
                     </li>
                 </ol>

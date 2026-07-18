@@ -85,17 +85,16 @@ return [
         'Perbincangan dan penyelidikan berterusan mengenai pengurusan korporat Islam',
     ],
 
-    // Kesinambungan Amanah (epilog) — hanya maklumat disahkan. Jangan tokok
-    // tambah pencapaian yang tidak dinyatakan. 'era' ialah tema editorial, bukan
-    // pencapaian sejarah. Potret rasmi grayscale (rangka & saiz seragam); jika
-    // 'portrait' null, UI berpatah semula kepada monogram.
+    // Kesinambungan Amanah — hanya maklumat disahkan (jawatan, nama penuh,
+    // tempoh perkhidmatan). Jangan tokok tambah pencapaian atau label editorial.
+    // Potret rasmi berwarna (rangka & saiz seragam); jika 'portrait' null, UI
+    // berpatah semula kepada monogram.
     'leadership_legacy' => [
         'intro' => 'Sebuah institusi yang kukuh tidak bergantung kepada seorang individu. Amanah yang diasaskan oleh Allahyarham Tan Sri Muhammad Ali Hashim diteruskan oleh barisan kepimpinan AWQAF bagi memastikan falsafah Waqaf Korporat terus berkembang demi manfaat ummah.',
         'closing' => 'Legasi sebenar bukan sekadar institusi yang ditinggalkan, tetapi nilai, amanah dan pemikiran yang terus dipelihara serta diteruskan oleh generasi kepimpinan seterusnya.',
         'chairmen' => [
             [
                 'role' => 'Pengerusi Pengasas',
-                'era' => 'Membina Asas',
                 'name' => 'Allahyarham Tan Sri Muhammad Ali Hashim',
                 'term' => 'September 2012 – Julai 2017',
                 'monogram' => 'MAH',
@@ -105,7 +104,6 @@ return [
             ],
             [
                 'role' => 'Pengerusi Kedua',
-                'era' => 'Memperkukuh Institusi',
                 'name' => 'Tan Sri Siti Sa\'diah binti Sheikh Bakir',
                 'term' => 'Ogos 2017 – Disember 2024',
                 'monogram' => 'SSB',
@@ -115,7 +113,6 @@ return [
             ],
             [
                 'role' => 'Pengerusi Semasa',
-                'era' => 'Meneruskan Amanah',
                 'name' => 'Dato\' Mohammad Sahar bin Mat Din',
                 'term' => 'Januari 2025 – Kini',
                 'monogram' => 'MSD',
