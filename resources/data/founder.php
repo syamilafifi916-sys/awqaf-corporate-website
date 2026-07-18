@@ -85,42 +85,41 @@ return [
         'Perbincangan dan penyelidikan berterusan mengenai pengurusan korporat Islam',
     ],
 
-    // Kesinambungan kepimpinan — hanya maklumat disahkan. Jangan tokok tambah
-    // pencapaian yang tidak dinyatakan. Potret rasmi digunakan jika tersedia;
-    // jika 'portrait' null, UI menggunakan monogram sebagai ganti sementara
-    // (menyokong kandungan campuran dengan kemas).
+    // Kesinambungan Amanah (epilog) — hanya maklumat disahkan. Jangan tokok
+    // tambah pencapaian yang tidak dinyatakan. 'era' ialah tema editorial, bukan
+    // pencapaian sejarah. Potret rasmi grayscale (rangka & saiz seragam); jika
+    // 'portrait' null, UI berpatah semula kepada monogram.
     'leadership_legacy' => [
-        'intro' => 'Waqaf Korporat bukan sekadar sebuah idea yang diasaskan oleh seorang tokoh. Ia merupakan amanah institusi yang diteruskan melalui kepimpinan yang memelihara falsafah, memperkukuh tadbir urus dan memastikan manfaatnya terus diwariskan kepada masyarakat.',
+        'intro' => 'Sebuah institusi yang kukuh tidak bergantung kepada seorang individu. Amanah yang diasaskan oleh Allahyarham Tan Sri Muhammad Ali Hashim diteruskan oleh barisan kepimpinan AWQAF bagi memastikan falsafah Waqaf Korporat terus berkembang demi manfaat ummah.',
+        'closing' => 'Legasi sebenar bukan sekadar institusi yang ditinggalkan, tetapi nilai, amanah dan pemikiran yang terus dipelihara serta diteruskan oleh generasi kepimpinan seterusnya.',
         'chairmen' => [
             [
                 'role' => 'Pengerusi Pengasas',
+                'era' => 'Membina Asas',
                 'name' => 'Allahyarham Tan Sri Muhammad Ali Hashim',
                 'term' => 'September 2012 – Julai 2017',
                 'monogram' => 'MAH',
-                // Potret rasmi WUJUD (pengasas-tan-sri-muhammad-ali-hashim.png) dan
-                // potret Pengerusi semasa juga wujud, TETAPI potret Pengerusi Kedua
-                // (Tan Sri Siti Sa'diah) tiada dalam aset projek. Untuk mengelakkan
-                // sistem visual campuran, ketiga-tiga entri kekal monogram sehingga
-                // ketiga-tiga potret rasmi tersedia (atau sistem campuran diluluskan).
-                'portrait' => null,
+                'portrait' => 'chairman-muhammad-ali-hashim.webp',
                 'current' => false,
                 'description' => 'Pengasas AWQAF Holdings Berhad. Memperkenalkan dan memperjuangkan falsafah Waqaf Korporat dan Jihad Bisnes sebagai pembangunan ekonomi mampan untuk ummah.',
             ],
             [
                 'role' => 'Pengerusi Kedua',
+                'era' => 'Memperkukuh Institusi',
                 'name' => 'Tan Sri Siti Sa\'diah binti Sheikh Bakir',
                 'term' => 'Ogos 2017 – Disember 2024',
                 'monogram' => 'SSB',
-                'portrait' => null,
+                'portrait' => 'chairman-siti-sadiah.webp',
                 'current' => false,
                 'description' => 'Meneruskan pengukuhan institusi dan tadbir urus AWQAF.',
             ],
             [
                 'role' => 'Pengerusi Semasa',
+                'era' => 'Meneruskan Amanah',
                 'name' => 'Dato\' Mohammad Sahar bin Mat Din',
                 'term' => 'Januari 2025 – Kini',
                 'monogram' => 'MSD',
-                'portrait' => null,
+                'portrait' => 'chairman-mohammad-sahar.webp',
                 'current' => true,
                 'description' => 'Pengerusi semasa AWQAF Holdings Berhad.',
             ],
