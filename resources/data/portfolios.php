@@ -24,20 +24,27 @@ return [
         'contribution' => 'Portfolio pendidikan menyumbang kepada objektif AWQAF menerusi akses pendidikan berstruktur, pembangunan pelajar, pembinaan keupayaan pendidikan yang mampan, serta kepakaran pengurusan pendidikan.',
         'rationale' => 'Portfolio ini diwujudkan untuk menterjemahkan hasil wakaf kepada akses pendidikan Islam bersepadu — menjadikan pendidikan sebagai aset produktif yang berkekalan, selaras dengan prinsip Waqaf Korporat.',
         'outlook' => 'Impak jangka panjang yang disasarkan ialah keupayaan pendidikan yang mampan dan pembangunan pelajar berterusan. Prestasi dinilai menerusi perkembangan institusi pendidikan yang dilaporkan dalam Laporan Tahunan.',
-        // Imej rasmi sekolah (Al-Hamra / AMIIS) belum dibekalkan oleh AWQAF.
+        // Imej rasmi projek pendidikan belum dibekalkan oleh AWQAF.
         // Fail dijangka: public/images/portfolio/al-hamra-integrated-school.jpg
         // JANGAN guna imej AI/stok — lihat public/images/portfolio/README.md.
         'image' => null,
+        //
+        // NOTA DALAMAN (tidak dipaparkan kepada umum) — TERTAKLUK PENGESAHAN PENGURUSAN:
+        // Hubungan komersial dan tadbir urus sebenar antara AWQAF / Al-Hamra dengan
+        // AMIIS, serta status operasi semasa Al-Hamra, perlu disahkan oleh pengurusan
+        // AWQAF sebelum sebarang dakwaan pemilikan/kawalan dibuat. Kedudukan awam di
+        // bawah hanya menyatakan penyertaan Al-Hamra sebagai RAKAN STRATEGIK (sumber
+        // awam 2025) dan TIDAK mendakwa AWQAF memiliki atau mengendalikan AMIIS.
         'description' => [
             'Pendidikan ialah antara aset wakaf yang paling berkekalan. Menerusi model Waqaf Korporat, hasil yang dijana disalurkan untuk membina keupayaan pendidikan yang mampan — supaya manfaatnya diwarisi oleh pelajar merentas generasi, bukan sekadar bantuan sekali sahaja.',
             'Portfolio pendidikan Kumpulan AWQAF diuruskan menerusi AWQAF Education Sdn. Bhd., entiti yang membangun dan menyelia institusi pendidikan Islam bersepadu Kumpulan.',
-            'Sekolah Al-Hamra (Al-Hamra Integrated School) merupakan projek pendidikan pertama di bawah AWQAF Holdings Berhad, diuruskan oleh AWQAF Education Sdn. Bhd. mulai 2021. Ia menawarkan model pendidikan holistik yang menggabungkan Cambridge Assessment International Education, sukatan Kementerian Pendidikan Malaysia, serta prinsip pendidikan berteraskan al-Quran dan Sunnah.',
-            'Menurut Laporan Tahunan 2024, inisiatif pendidikan semasa Kumpulan ialah Al-Mashoor International Islamic School (AMIIS), yang meneruskan komitmen AWQAF terhadap pendidikan Islam bersepadu.',
+            'Sekolah Al-Hamra (Al-Hamra Integrated School) merupakan projek pendidikan perintis di bawah AWQAF Holdings Berhad, diuruskan menerusi AWQAF Education Sdn. Bhd. mulai 2021. Ia menawarkan model pendidikan holistik yang menggabungkan Cambridge Assessment International Education, sukatan Kementerian Pendidikan Malaysia, serta prinsip pendidikan berteraskan al-Quran dan Sunnah.',
+            'Sekolah Al-Hamra kemudiannya turut serta sebagai rakan strategik bersama Majlis Agama Islam Negeri Pulau Pinang (MAINPP) dan Yayasan Islam Pulau Pinang dalam penubuhan Al-Mashoor International Islamic School (AMIIS).',
+            'AMIIS dirancang untuk menjadi sebuah sekolah antarabangsa Islam yang memberi manfaat kepada Pulau Pinang dan wilayah utara — menggabungkan nilai-nilai Islam, pembangunan holistik dan kurikulum antarabangsa.',
         ],
         'units' => [
             ['name' => 'AWQAF Education Sdn. Bhd.', 'note' => 'Entiti pengurusan portfolio pendidikan.'],
-            ['name' => 'Sekolah Al-Hamra (Al-Hamra Integrated School)', 'note' => 'Projek pendidikan pertama AWQAF Holdings (mulai 2021). Menurut Laporan Tahunan 2024, unit ini telah ditamatkan pada 2024.'],
-            ['name' => 'Al-Mashoor International Islamic School (AMIIS)', 'note' => 'Inisiatif pendidikan semasa Kumpulan (Laporan Tahunan 2024). Butiran lanjut tertakluk pengesahan pengurusan AWQAF.'],
+            ['name' => 'Sekolah Al-Hamra (Al-Hamra Integrated School)', 'note' => 'Projek pendidikan perintis AWQAF Holdings (mulai 2021); kemudiannya rakan strategik dalam penubuhan AMIIS.'],
         ],
         'curriculum' => [
             'Cambridge Assessment International Education',
@@ -52,7 +59,9 @@ return [
         'branches' => [],
         'facts' => [],
         'history' => [],
-        'status_note' => 'Nota status: Menurut Laporan Tahunan 2024 (Nota Portfolio), unit Al-Hamra Integrated School telah ditamatkan pada tahun 2024. Inisiatif pendidikan semasa yang dinyatakan dalam Laporan Tahunan 2024 ialah Al-Mashoor International Islamic School (AMIIS). Status semasa portfolio ini perlu disahkan oleh pihak pengurusan AWQAF.',
+        // Caveat pengesahan pengurusan disimpan sebagai nota dalaman (lihat di atas),
+        // bukan sebagai nota status awam. Tiada dakwaan pemilikan AMIIS dibuat.
+        'status_note' => null,
         'related_links' => [],
         'reports' => [2022, 2024],
         'display_order' => 1,

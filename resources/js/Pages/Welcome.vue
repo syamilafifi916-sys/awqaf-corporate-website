@@ -313,8 +313,8 @@ const pillars = [
              from M6's cool slate-950. Editorial feature (spotlight + vignette + gentle float
              + grounded reflection) — tightened spacing balances the copy against the cover.
              Reading order text → book: heading/body/actions lead, cover is the focal point.
-             Two book actions: "Maklumat Buku" (founder page) and "Beli Buku" (enquiry until a
-             verified purchase URL exists). -->
+             Two book actions: "Maklumat Buku" (founder page) and "Dapatkan Buku" (a specific
+             book-purchase enquiry mailto until a verified purchase URL / WhatsApp exists). -->
         <section class="relative isolate overflow-hidden bg-[#100c08]">
             <div class="section-vignette" aria-hidden="true"></div>
             <div class="relative mx-auto max-w-6xl px-6 py-20 lg:px-8 lg:py-28">
@@ -332,9 +332,12 @@ const pillars = [
                             konteks sejarah dan idea yang lebih luas.
                         </p>
                         <div v-reveal="'200ms'" class="mt-8 flex flex-wrap items-center gap-4">
-                            <Link :href="route('hubungi')" class="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#100c08]">
-                                Beli Buku <ArrowRightIcon class="h-4 w-4" />
-                            </Link>
+                            <!-- Aliran pertanyaan pembelian khusus (bukan halaman hubungi umum).
+                                 Tukar kepada pautan WhatsApp rasmi (wa.me/<no>) apabila nombor
+                                 rasmi disahkan, atau URL pembelian sebenar apabila tersedia. -->
+                            <a href="mailto:admin@awqaf.my?subject=Pertanyaan%20Pembelian%20Buku%20Biografi%20Tan%20Sri%20Muhammad%20Ali%20Hashim&body=Assalamualaikum%2C%20saya%20berminat%20untuk%20mendapatkan%20naskhah%20buku%20biografi%20Tan%20Sri%20Muhammad%20Ali%20Hashim.%20Mohon%20maklumat%20lanjut%20mengenai%20cara%20pembelian." class="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#100c08]">
+                                Dapatkan Buku <ArrowRightIcon class="h-4 w-4" />
+                            </a>
                             <Link :href="route('korporat.founder')" class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-400 transition hover:gap-3 hover:text-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#100c08]">
                                 Maklumat Buku <ArrowRightIcon class="h-4 w-4" />
                             </Link>
