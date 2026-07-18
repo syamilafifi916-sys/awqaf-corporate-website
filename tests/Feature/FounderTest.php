@@ -32,13 +32,23 @@ it('routes the book CTA to enquiry until a verified purchase URL exists', functi
 
 it('exposes no book PDF in the public directory', function () {
     $pdfs = glob(public_path('*.pdf')) ?: [];
-    $bookImages = glob(public_path('images/*hashim*')) ?: [];
+    $hashimImages = array_map('basename', glob(public_path('images/*hashim*')) ?: []);
 
-    // Only the official portrait may exist; no book PDF, no biography dump.
+    // No book PDF / biography dump anywhere in public/.
     foreach ($pdfs as $pdf) {
         expect(basename($pdf))->not->toContain('hashim');
     }
-    expect(count($bookImages))->toBeLessThanOrEqual(1); // portrait only
+
+    // Only the approved official founder portraits may exist — the hero portrait
+    // and the timeline (Kesinambungan Amanah) portrait. Guards against any
+    // biography image dump while allowing the two Board-approved assets.
+    $approved = [
+        'pengasas-tan-sri-muhammad-ali-hashim.png',
+        'chairman-muhammad-ali-hashim.webp',
+    ];
+    foreach ($hashimImages as $img) {
+        expect($approved)->toContain($img);
+    }
 });
 
 it('emits Person schema and portrait OpenGraph image', function () {
