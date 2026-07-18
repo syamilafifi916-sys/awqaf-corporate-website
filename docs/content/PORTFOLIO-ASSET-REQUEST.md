@@ -1,47 +1,58 @@
-# Portfolio & Programme — Official Image Asset Request
+# Portfolio — Official Image Asset Request
 
 **Purpose:** collect official, permission-cleared photographs/renderings so the
-portfolio pages can move from text-led editorial to text + imagery.
+portfolio pages display real project imagery.
 **Owner (to complete):** AWQAF Communications / Marketing.
 **Hard rule:** **No AI-generated or stock imagery.** Only official AWQAF-owned or
-formally licensed assets. See `public/images/portfolio/README.md`.
+formally licensed assets.
 
-Until every field below is supplied and cleared, the affected portfolio entry
-**stays text-led** (no blank image boxes are shown). The data model already
-carries `image` fields (currently `null`) ready to receive the files.
+**Status:** the gallery is **fully implemented**. The data model and the Portfolio
+Show page already render polished editorial image blocks — but **only where a real
+image exists** (no empty placeholders). The **only remaining step** is dropping the
+authorised files into the paths below and setting the matching `image` field.
 
 ---
 
-## What we need
+## What we need — exact files & paths
 
-| # | Asset | Target file (drop into `public/images/portfolio/`) | Data slot |
-|---|-------|-----------------------------------------------------|-----------|
-| 1 | **Al-Hamra / education project** — official photograph(s) | `al-hamra-integrated-school.jpg` | `portfolios.php` → `pendidikan.image` |
-| 2 | **AMIIS** — authorised rendering(s) or project photograph(s) | `amiis.jpg` | `pendidikan` (new `amiis_image` slot on receipt) |
-| 3 | **CURVES Bukit Jelutong** — official photograph(s) | `curves-bukit-jelutong.jpg` | `kesihatan-kesejahteraan.branches[0].image` |
-| 4 | **CURVES Setia Alam** — official photograph(s) | `curves-setia-alam.jpg` | `kesihatan-kesejahteraan.branches[1].image` |
-| 5 | **CURVES Bangi Sentral** — official photograph(s) | `curves-bangi-sentral.jpg` | `kesihatan-kesejahteraan.branches[2].image` |
+| # | Asset | Drop file at | Then set in `resources/data/portfolios.php` |
+|---|-------|--------------|---------------------------------------------|
+| 1 | **Al-Hamra** (pioneering education project) — official photo(s) | `public/images/portfolio/education/al-hamra.jpg` | `pendidikan.media[0].image = 'portfolio/education/al-hamra.jpg'` |
+| 2 | **AMIIS** (subsequent strategic initiative) — authorised rendering/photo(s) | `public/images/portfolio/education/amiis.jpg` | `pendidikan.media[1].image = 'portfolio/education/amiis.jpg'` |
+| 3 | **CURVES Bukit Jelutong** — official photo(s) | `public/images/portfolio/wellness/curves-bukit-jelutong.jpg` | `kesihatan-kesejahteraan.branches[0].image = 'portfolio/wellness/curves-bukit-jelutong.jpg'` |
+| 4 | **CURVES Setia Alam** — official photo(s) | `public/images/portfolio/wellness/curves-setia-alam.jpg` | `…branches[1].image = 'portfolio/wellness/curves-setia-alam.jpg'` |
+| 5 | **CURVES Bangi Sentral** — official photo(s) | `public/images/portfolio/wellness/curves-bangi-sentral.jpg` | `…branches[2].image = 'portfolio/wellness/curves-bangi-sentral.jpg'` |
+
+The `image` value is a path **relative to `public/images/`** (e.g.
+`portfolio/education/al-hamra.jpg`). Once set, the block renders automatically.
+
+## Official sourcing references (for AWQAF to obtain assets — do NOT scrape)
+
+- CURVES Bukit Jelutong: https://www.facebook.com/curvesbukitjelutong
+- CURVES Setia Alam: https://www.facebook.com/profile.php?id=100067166107050
+- CURVES Bangi Sentral: official page to be provided.
+
+> Images from these pages must be obtained **with permission** from the page/asset
+> owner. Do not copy images without a usage licence.
 
 ## Per-asset metadata (required before publishing)
 
-For **each** asset above, provide:
+For **each** asset, also provide (fields already exist in the data model —
+`alt`, `caption`, `credit`):
 
-- [ ] **File** — high-resolution (min. 1600px on the long edge), landscape preferred.
-- [ ] **Source owner** — who owns/holds the image (entity or individual).
-- [ ] **Usage permission** — written confirmation the image may be published on the
-      public AWQAF website (scope: web, marketing). Note any expiry or restriction.
-- [ ] **Caption** — the exact caption to display (BM and/or EN).
-- [ ] **Photographer credit** — required? If yes, the exact credit line to show.
-
-### Asset record template (copy per asset)
+- [ ] **File** — high-resolution (min. 1600px long edge), landscape preferred.
+- [ ] **Source owner** — who owns/holds the image.
+- [ ] **Usage permission** — written confirmation it may be published on the public
+      AWQAF website; note any restriction/expiry.
+- [ ] **Caption** — exact caption to display (a default is already set per asset).
+- [ ] **Photographer credit** — if required, set the `credit` field to the exact line.
 
 ```
 Asset:                 # e.g. CURVES Setia Alam
-File supplied:         [ ] yes  (filename: __________________)
+File supplied:         [ ] yes  (path: public/images/portfolio/wellness/curves-setia-alam.jpg)
 Source owner:          __________________
 Usage permission:      [ ] cleared for public web   granted by: __________  date: ______
-Caption (BM):          __________________
-Caption (EN):          __________________
+Caption:               (default set; override if needed) __________________
 Photographer credit:   [ ] not required   [ ] required → credit line: __________
 ```
 
@@ -49,28 +60,26 @@ Photographer credit:   [ ] not required   [ ] required → credit line: ________
 
 ## AMIIS — note for management confirmation
 
-AMIIS is presented publicly **only** as a school that Sekolah Al-Hamra
-participated in establishing as a **strategic partner** (with MAINPP and Yayasan
-Islam Pulau Pinang), per public 2025 sources. The public copy makes **no claim**
-that AWQAF owns, operates, or controls AMIIS.
+AMIIS is presented publicly **only** as a school that Sekolah Al-Hamra participated
+in establishing as a **strategic partner** (with MAINPP and Yayasan Islam Pulau
+Pinang), per public 2025 sources. The public copy makes **no claim** that AWQAF
+owns, operates, or controls AMIIS. Before publishing AMIIS imagery or stronger
+positioning, confirm:
 
-Before publishing any AMIIS imagery or stronger positioning, confirm:
-- [ ] The exact commercial / governance relationship between AWQAF (or Al-Hamra)
-      and AMIIS.
-- [ ] Al-Hamra's current operational status.
-- [ ] Whether AMIIS renderings/photos are cleared for AWQAF to publish, and under
-      whose permission.
+- [ ] the exact commercial / governance relationship between AWQAF (or Al-Hamra) and AMIIS;
+- [ ] Al-Hamra's current operational status;
+- [ ] that AMIIS renderings/photos are cleared for AWQAF to publish, and under whose permission.
 
-(Internal caveat is recorded in `resources/data/portfolios.php` on the
-`pendidikan` entry; it is intentionally **not** shown in public-facing copy.)
+(Internal caveat is recorded in `resources/data/portfolios.php` on the `pendidikan`
+entry; it is intentionally **not** shown in public-facing copy.)
 
 ---
 
-## Once assets are received
+## Implementation status (done)
 
-1. Drop the cleared files into `public/images/portfolio/`.
-2. Set the corresponding `image` field(s) in `resources/data/portfolios.php`.
-3. A small, guarded image render is added to `Portfolio/Show.vue`
-   (`v-if="…image"`) so imagery appears **only** where a real, cleared asset
-   exists — never a blank placeholder.
-4. Rebuild, verify mobile, and re-run the test suite.
+- ✅ Data model: education `media[]` (Al-Hamra = *Projek perintis*, AMIIS =
+  *Inisiatif strategik seterusnya*) and per-branch `image`/`alt`/`caption`/`credit`.
+- ✅ `Portfolio/Show.vue`: education **project gallery** + **per-branch photo blocks**,
+  each guarded by `v-if` so imagery shows only where a real asset exists.
+- ✅ Folders created: `public/images/portfolio/education/`, `.../wellness/`.
+- ⏳ **Remaining:** drop the five authorised files in and set the `image` fields.

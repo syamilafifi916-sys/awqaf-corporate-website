@@ -317,8 +317,8 @@ const pillars = [
              book-purchase enquiry mailto until a verified purchase URL / WhatsApp exists). -->
         <section class="relative isolate overflow-hidden bg-[#100c08]">
             <div class="section-vignette" aria-hidden="true"></div>
-            <div class="relative mx-auto max-w-6xl px-6 py-20 lg:px-8 lg:py-28">
-                <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14">
+            <div class="relative mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
+                <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
                     <!-- Editorial copy — leads the eye -->
                     <div class="lg:col-span-7">
                         <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">Warisan Pemikiran</p>
@@ -344,30 +344,18 @@ const pillars = [
                         </div>
                     </div>
 
-                    <!-- The biography as a museum object — terminal focal point -->
+                    <!-- The biography cover — compact editorial focal point (no reflection/spotlight
+                         stack; those inflated the section to hero height). -->
                     <figure v-reveal="'200ms'" class="lg:col-span-5">
-                        <div class="book-stage relative mx-auto w-full max-w-sm">
-                            <div class="book-spot" aria-hidden="true"></div>
-                            <img
-                                src="/images/buku-biografi.webp"
-                                alt="Muka depan buku 'Muhammad Ali Hashim: Champion of Business Jihad and Corporate Waqaf' oleh Rokiah Talib"
-                                width="1122"
-                                height="1402"
-                                loading="lazy"
-                                decoding="async"
-                                class="book-cover block w-full rounded-md"
-                            />
-                            <img
-                                src="/images/buku-biografi.webp"
-                                alt=""
-                                aria-hidden="true"
-                                width="1122"
-                                height="1402"
-                                loading="lazy"
-                                decoding="async"
-                                class="book-reflection block w-full rounded-md"
-                            />
-                        </div>
+                        <img
+                            src="/images/buku-biografi.webp"
+                            alt="Muka depan buku 'Muhammad Ali Hashim: Champion of Business Jihad and Corporate Waqaf' oleh Rokiah Talib"
+                            width="1122"
+                            height="1402"
+                            loading="lazy"
+                            decoding="async"
+                            class="book-cover mx-auto block w-full max-w-[360px] rounded-md"
+                        />
                     </figure>
                 </div>
             </div>

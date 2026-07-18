@@ -24,10 +24,31 @@ return [
         'contribution' => 'Portfolio pendidikan menyumbang kepada objektif AWQAF menerusi akses pendidikan berstruktur, pembangunan pelajar, pembinaan keupayaan pendidikan yang mampan, serta kepakaran pengurusan pendidikan.',
         'rationale' => 'Portfolio ini diwujudkan untuk menterjemahkan hasil wakaf kepada akses pendidikan Islam bersepadu — menjadikan pendidikan sebagai aset produktif yang berkekalan, selaras dengan prinsip Waqaf Korporat.',
         'outlook' => 'Impak jangka panjang yang disasarkan ialah keupayaan pendidikan yang mampan dan pembangunan pelajar berterusan. Prestasi dinilai menerusi perkembangan institusi pendidikan yang dilaporkan dalam Laporan Tahunan.',
-        // Imej rasmi projek pendidikan belum dibekalkan oleh AWQAF.
-        // Fail dijangka: public/images/portfolio/al-hamra-integrated-school.jpg
-        // JANGAN guna imej AI/stok — lihat public/images/portfolio/README.md.
-        'image' => null,
+        // Galeri projek pendidikan — dipaparkan HANYA apabila 'image' sebenar wujud
+        // (tiada kotak placeholder kosong). Tetapkan 'image' kepada laluan relatif di
+        // bawah /public/images apabila fail rasmi dibekalkan. JANGAN guna imej AI/stok.
+        //   Al-Hamra → public/images/portfolio/education/al-hamra.jpg
+        //   AMIIS    → public/images/portfolio/education/amiis.jpg
+        'media' => [
+            [
+                'key' => 'al-hamra',
+                'label' => 'Projek perintis',
+                'title' => 'Sekolah Al-Hamra',
+                'image' => null, // 'portfolio/education/al-hamra.jpg'
+                'alt' => 'Sekolah Al-Hamra (Al-Hamra Integrated School), projek pendidikan perintis AWQAF Holdings Berhad.',
+                'caption' => 'Sekolah Al-Hamra — projek pendidikan perintis di bawah AWQAF Holdings Berhad (mulai 2021).',
+                'credit' => null,
+            ],
+            [
+                'key' => 'amiis',
+                'label' => 'Inisiatif strategik seterusnya',
+                'title' => 'Al-Mashoor International Islamic School (AMIIS)',
+                'image' => null, // 'portfolio/education/amiis.jpg'
+                'alt' => 'Al-Mashoor International Islamic School (AMIIS).',
+                'caption' => 'AMIIS — inisiatif pendidikan strategik seterusnya; Sekolah Al-Hamra sebagai rakan strategik penubuhannya.',
+                'credit' => null,
+            ],
+        ],
         //
         // NOTA DALAMAN (tidak dipaparkan kepada umum) — TERTAKLUK PENGESAHAN PENGURUSAN:
         // Hubungan komersial dan tadbir urus sebenar antara AWQAF / Al-Hamra dengan
@@ -88,13 +109,21 @@ return [
             ['name' => 'Kecergasan wanita', 'desc' => 'Menyediakan kemudahan dan program kecergasan khusus untuk wanita menerusi rangkaian CURVES.'],
             ['name' => 'Kesejahteraan komuniti', 'desc' => 'Menggalakkan gaya hidup sihat dalam kalangan komuniti setempat di sekitar setiap cawangan.'],
         ],
-        // Tiga cawangan CURVES. Imej rasmi setiap cawangan belum dibekalkan oleh
-        // AWQAF (JANGAN guna imej AI/stok). Pautan rasmi disertakan hanya di mana disahkan.
+        // Tiga cawangan CURVES — setiap satu dipaparkan secara individu dengan imejnya
+        // sendiri (bukan satu imej generik). Imej dipaparkan HANYA apabila 'image' sebenar
+        // wujud (tiada placeholder kosong). Tetapkan 'image' apabila fail rasmi dibekalkan.
+        // JANGAN guna imej AI/stok. Sumber rujukan rasmi: pautan Facebook setiap cawangan.
+        //   public/images/portfolio/wellness/curves-bukit-jelutong.jpg
+        //   public/images/portfolio/wellness/curves-setia-alam.jpg
+        //   public/images/portfolio/wellness/curves-bangi-sentral.jpg
         'branches' => [
             [
                 'name' => 'CURVES Bukit Jelutong',
                 'location' => 'Bukit Jelutong, Shah Alam, Selangor',
-                'image' => null,
+                'image' => null, // 'portfolio/wellness/curves-bukit-jelutong.jpg'
+                'alt' => 'Pusat kecergasan wanita CURVES di Bukit Jelutong, Shah Alam.',
+                'caption' => 'CURVES Bukit Jelutong, Shah Alam.',
+                'credit' => null,
                 'description' => 'Cawangan CURVES di Bukit Jelutong, Shah Alam.',
                 'url' => 'https://www.facebook.com/curvesbukitjelutong',
                 'url_label' => 'Facebook rasmi',
@@ -103,7 +132,10 @@ return [
             [
                 'name' => 'CURVES Setia Alam',
                 'location' => 'Setia Alam, Shah Alam, Selangor',
-                'image' => null,
+                'image' => null, // 'portfolio/wellness/curves-setia-alam.jpg'
+                'alt' => 'Pusat kecergasan wanita CURVES di Setia Alam, Shah Alam.',
+                'caption' => 'CURVES Setia Alam, Shah Alam.',
+                'credit' => null,
                 'description' => 'Cawangan CURVES di Setia Alam.',
                 'url' => 'https://www.facebook.com/profile.php?id=100067166107050',
                 'url_label' => 'Facebook rasmi',
@@ -112,7 +144,10 @@ return [
             [
                 'name' => 'CURVES Bangi Sentral',
                 'location' => 'Bangi Sentral, Selangor',
-                'image' => null,
+                'image' => null, // 'portfolio/wellness/curves-bangi-sentral.jpg'
+                'alt' => 'Pusat kecergasan wanita CURVES di Bangi Sentral, Selangor.',
+                'caption' => 'CURVES Bangi Sentral, Selangor.',
+                'credit' => null,
                 'description' => 'Cawangan CURVES di Bangi Sentral.',
                 'url' => null,
                 'url_label' => null,

@@ -49,6 +49,23 @@ defineProps({
                         <p class="mt-1.5 text-sm leading-relaxed text-slate-600">{{ portfolio.contribution }}</p>
                     </div>
 
+                    <!-- Project gallery (education) — polished editorial blocks; renders ONLY
+                         where a real image exists (no empty placeholders shown). -->
+                    <div v-if="portfolio.media && portfolio.media.some((m) => m.image)" class="mt-12">
+                        <h2 class="text-xl font-bold text-slate-900">Galeri projek</h2>
+                        <div class="mt-6 grid gap-6 sm:grid-cols-2">
+                            <figure v-for="m in portfolio.media.filter((m) => m.image)" :key="m.key" class="overflow-hidden rounded-2xl border border-slate-100">
+                                <img :src="`/images/${m.image}`" :alt="m.alt" loading="lazy" decoding="async" class="aspect-[4/3] w-full object-cover" />
+                                <figcaption class="p-5">
+                                    <p v-if="m.label" class="text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">{{ m.label }}</p>
+                                    <p class="mt-1 font-semibold text-slate-900">{{ m.title }}</p>
+                                    <p class="mt-1.5 text-sm leading-relaxed text-slate-600">{{ m.caption }}</p>
+                                    <p v-if="m.credit" class="mt-2 text-xs text-slate-400">Sumber: {{ m.credit }}</p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
                     <!-- Outlook / long-term impact + how success is measured -->
                     <div v-if="portfolio.outlook" class="mt-10">
                         <h2 class="text-xl font-bold text-slate-900">Hala tuju &amp; ukuran prestasi</h2>
@@ -87,6 +104,13 @@ defineProps({
                         <h2 class="text-xl font-bold text-slate-900">Cawangan</h2>
                         <div class="mt-6 divide-y divide-slate-100 border-y border-slate-100">
                             <div v-for="b in portfolio.branches" :key="b.name" class="py-5">
+                                <!-- Branch photo — renders ONLY where a real image exists (no empty placeholder). -->
+                                <figure v-if="b.image" class="mb-4 overflow-hidden rounded-2xl border border-slate-100">
+                                    <img :src="`/images/${b.image}`" :alt="b.alt || `Cawangan ${b.name}`" loading="lazy" decoding="async" class="aspect-[16/9] w-full object-cover" />
+                                    <figcaption v-if="b.caption || b.credit" class="px-4 py-3 text-xs text-slate-500">
+                                        {{ b.caption }}<span v-if="b.credit" class="text-slate-400"> · Sumber: {{ b.credit }}</span>
+                                    </figcaption>
+                                </figure>
                                 <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                                     <h3 class="font-semibold text-slate-900">{{ b.name }}</h3>
                                     <p class="text-sm text-slate-500">{{ b.location }}</p>
