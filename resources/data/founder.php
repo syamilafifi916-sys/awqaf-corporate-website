@@ -90,7 +90,7 @@ return [
     // Potret rasmi berwarna (rangka & saiz seragam); jika 'portrait' null, UI
     // berpatah semula kepada monogram.
     'leadership_legacy' => [
-        'intro' => 'Sebuah institusi yang kukuh tidak bergantung kepada seorang individu. Amanah yang diasaskan oleh Allahyarham Tan Sri Muhammad Ali Hashim diteruskan oleh barisan kepimpinan AWQAF bagi memastikan falsafah Waqaf Korporat terus berkembang demi manfaat ummah.',
+        'intro' => 'Amanah yang diasaskan oleh Allahyarham Tan Sri Muhammad Ali Hashim terus dipelihara melalui kesinambungan kepimpinan AWQAF. Peralihan kepimpinan mencerminkan kematangan sebuah institusi yang dibina untuk terus berkhidmat kepada ummah merentas generasi.',
         'closing' => 'Legasi sebenar bukan sekadar institusi yang ditinggalkan, tetapi nilai, amanah dan pemikiran yang terus dipelihara serta diteruskan oleh generasi kepimpinan seterusnya.',
         'chairmen' => [
             [

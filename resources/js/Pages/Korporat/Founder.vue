@@ -227,12 +227,7 @@ const bookCta = props.founder.book.cta_verified_url || route('hubungi');
 
                         <!-- Pertanda kepimpinan -->
                         <div class="pt-1">
-                            <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-                                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-700">{{ c.role }}</p>
-                                <span v-if="c.current" class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700">
-                                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span> Kini
-                                </span>
-                            </div>
+                            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-700">{{ c.role }}</p>
                             <h3 class="mt-2 text-lg font-bold text-slate-900 sm:text-xl">{{ c.name }}</h3>
                             <p class="mt-1 text-sm font-medium text-slate-500">{{ c.term }}</p>
                         </div>
