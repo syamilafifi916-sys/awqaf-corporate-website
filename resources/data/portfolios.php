@@ -24,13 +24,20 @@ return [
         'contribution' => 'Portfolio pendidikan menyumbang kepada objektif AWQAF menerusi akses pendidikan berstruktur, pembangunan pelajar, pembinaan keupayaan pendidikan yang mampan, serta kepakaran pengurusan pendidikan.',
         'rationale' => 'Portfolio ini diwujudkan untuk menterjemahkan hasil wakaf kepada akses pendidikan Islam bersepadu — menjadikan pendidikan sebagai aset produktif yang berkekalan, selaras dengan prinsip Waqaf Korporat.',
         'outlook' => 'Impak jangka panjang yang disasarkan ialah keupayaan pendidikan yang mampan dan pembangunan pelajar berterusan. Prestasi dinilai menerusi perkembangan institusi pendidikan yang dilaporkan dalam Laporan Tahunan.',
+        // Imej rasmi sekolah (Al-Hamra / AMIIS) belum dibekalkan oleh AWQAF.
+        // Fail dijangka: public/images/portfolio/al-hamra-integrated-school.jpg
+        // JANGAN guna imej AI/stok — lihat public/images/portfolio/README.md.
+        'image' => null,
         'description' => [
-            'Portfolio pendidikan Kumpulan AWQAF diuruskan menerusi AWQAF Education Sdn. Bhd., entiti yang menyelia pembangunan dan operasi inisiatif pendidikan Kumpulan.',
-            'Al-Hamra Integrated School ialah sebuah sekolah antarabangsa Islam bersepadu yang menawarkan model pendidikan holistik menerusi Cambridge Assessment International Education, sukatan pelajaran Kementerian Pendidikan Malaysia, serta prinsip pendidikan berteraskan al-Quran dan Sunnah.',
+            'Pendidikan ialah antara aset wakaf yang paling berkekalan. Menerusi model Waqaf Korporat, hasil yang dijana disalurkan untuk membina keupayaan pendidikan yang mampan — supaya manfaatnya diwarisi oleh pelajar merentas generasi, bukan sekadar bantuan sekali sahaja.',
+            'Portfolio pendidikan Kumpulan AWQAF diuruskan menerusi AWQAF Education Sdn. Bhd., entiti yang membangun dan menyelia institusi pendidikan Islam bersepadu Kumpulan.',
+            'Sekolah Al-Hamra (Al-Hamra Integrated School) merupakan projek pendidikan pertama di bawah AWQAF Holdings Berhad, diuruskan oleh AWQAF Education Sdn. Bhd. mulai 2021. Ia menawarkan model pendidikan holistik yang menggabungkan Cambridge Assessment International Education, sukatan Kementerian Pendidikan Malaysia, serta prinsip pendidikan berteraskan al-Quran dan Sunnah.',
+            'Menurut Laporan Tahunan 2024, inisiatif pendidikan semasa Kumpulan ialah Al-Mashoor International Islamic School (AMIIS), yang meneruskan komitmen AWQAF terhadap pendidikan Islam bersepadu.',
         ],
         'units' => [
             ['name' => 'AWQAF Education Sdn. Bhd.', 'note' => 'Entiti pengurusan portfolio pendidikan.'],
-            ['name' => 'Al-Hamra Integrated School', 'note' => 'Sekolah antarabangsa Islam bersepadu (Cambridge · KPM · al-Quran & Sunnah).'],
+            ['name' => 'Sekolah Al-Hamra (Al-Hamra Integrated School)', 'note' => 'Projek pendidikan pertama AWQAF Holdings (mulai 2021). Menurut Laporan Tahunan 2024, unit ini telah ditamatkan pada 2024.'],
+            ['name' => 'Al-Mashoor International Islamic School (AMIIS)', 'note' => 'Inisiatif pendidikan semasa Kumpulan (Laporan Tahunan 2024). Butiran lanjut tertakluk pengesahan pengurusan AWQAF.'],
         ],
         'curriculum' => [
             'Cambridge Assessment International Education',
@@ -56,13 +63,13 @@ return [
         'entity' => 'AHB Wellness Sdn. Bhd.',
         'status' => 'Aktif',
         'summary' => 'Portfolio kesihatan dan kesejahteraan, termasuk rangkaian pusat kecergasan wanita CURVES di bawah AHB Wellness Sdn. Bhd.',
-        'role' => 'Portfolio kesihatan dan kesejahteraan menyelia perniagaan kecergasan dan kesejahteraan Kumpulan AWQAF, dengan tumpuan kepada kesihatan dan kecergasan wanita menerusi rangkaian francais CURVES.',
+        'role' => 'Portfolio kesihatan dan kesejahteraan menyelia perniagaan kecergasan wanita Kumpulan AWQAF menerusi rangkaian CURVES — menyediakan wanita ruang senaman yang selamat dan bermaruah, sambil menjana pendapatan mampan untuk wakaf.',
         'contribution' => 'Portfolio ini menyumbang kepada objektif AWQAF dengan menjana pendapatan mampan daripada perniagaan kesihatan dan kesejahteraan, sekali gus menyokong kelestarian dana wakaf.',
-        'rationale' => 'Portfolio ini diwujudkan bagi menjana pendapatan berterusan daripada perniagaan kesihatan dan kecergasan wanita, yang seterusnya menyokong kelestarian dana wakaf mengikut model Waqaf Korporat.',
+        'rationale' => 'Portfolio ini menggabungkan tujuan sosial dan daya maju ekonomi: menyediakan akses kesejahteraan khusus wanita dalam persekitaran yang selamat dan tertutup, sekali gus menjana pendapatan berterusan yang menyokong kelestarian dana wakaf mengikut model Waqaf Korporat.',
         'outlook' => 'Impak jangka panjang ialah aliran pendapatan yang mampan dan akses kesejahteraan komuniti. Prestasi diukur menerusi pendapatan dan keahlian yang dilaporkan dalam Laporan Tahunan.',
         'description' => [
-            'Portfolio kesihatan dan kesejahteraan Kumpulan AWQAF diuruskan menerusi AHB Wellness Sdn. Bhd.',
-            'CURVES ialah rangkaian francais pusat kecergasan dan kesejahteraan khusus wanita, yang menyediakan kemudahan senaman dalam persekitaran mesra dan tertutup untuk wanita.',
+            'Kesihatan dan kecergasan wanita sering kurang mendapat ruang yang sesuai dalam kemudahan senaman umum. Menerusi rangkaian CURVES, portfolio ini menyediakan persekitaran senaman khusus wanita yang selamat, tertutup dan menghormati maruah — menjadikan kesejahteraan sesuatu yang lebih mudah diakses oleh wanita dalam komuniti setempat.',
+            'Sebagai portfolio pelaburan di bawah AHB Wellness Sdn. Bhd., CURVES turut menjana pendapatan yang mampan bagi menyokong kelestarian dana wakaf — sejajar dengan model Waqaf Korporat yang mengaitkan manfaat sosial dengan daya maju ekonomi.',
         ],
         'units' => [
             ['name' => 'AHB Wellness Sdn. Bhd.', 'note' => 'Entiti pengurusan portfolio kesihatan & kesejahteraan.'],
@@ -72,11 +79,13 @@ return [
             ['name' => 'Kecergasan wanita', 'desc' => 'Menyediakan kemudahan dan program kecergasan khusus untuk wanita menerusi rangkaian CURVES.'],
             ['name' => 'Kesejahteraan komuniti', 'desc' => 'Menggalakkan gaya hidup sihat dalam kalangan komuniti setempat di sekitar setiap cawangan.'],
         ],
-        // Tiga cawangan CURVES. Pautan rasmi disertakan hanya di mana disahkan.
+        // Tiga cawangan CURVES. Imej rasmi setiap cawangan belum dibekalkan oleh
+        // AWQAF (JANGAN guna imej AI/stok). Pautan rasmi disertakan hanya di mana disahkan.
         'branches' => [
             [
                 'name' => 'CURVES Bukit Jelutong',
                 'location' => 'Bukit Jelutong, Shah Alam, Selangor',
+                'image' => null,
                 'description' => 'Cawangan CURVES di Bukit Jelutong, Shah Alam.',
                 'url' => 'https://www.facebook.com/curvesbukitjelutong',
                 'url_label' => 'Facebook rasmi',
@@ -85,6 +94,7 @@ return [
             [
                 'name' => 'CURVES Setia Alam',
                 'location' => 'Setia Alam, Shah Alam, Selangor',
+                'image' => null,
                 'description' => 'Cawangan CURVES di Setia Alam.',
                 'url' => 'https://www.facebook.com/profile.php?id=100067166107050',
                 'url_label' => 'Facebook rasmi',
@@ -93,6 +103,7 @@ return [
             [
                 'name' => 'CURVES Bangi Sentral',
                 'location' => 'Bangi Sentral, Selangor',
+                'image' => null,
                 'description' => 'Cawangan CURVES di Bangi Sentral.',
                 'url' => null,
                 'url_label' => null,

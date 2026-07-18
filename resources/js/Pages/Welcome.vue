@@ -1,5 +1,4 @@
 <script setup>
-import CollectionChart from '@/Components/CollectionChart.vue';
 import PublicLayout from '@/Layouts/PublicLayout.vue';
 import { ArrowRightIcon, ChevronDownIcon } from '@heroicons/vue/24/outline';
 import { Head, Link, usePage } from '@inertiajs/vue3';
@@ -51,20 +50,6 @@ const facts = [
     { value: '3,431', label: 'Ahli & Pewakaf (2024)' },
     { value: 'RM13.27 juta', label: 'Dana Wakaf Kumpulan & Ahli (Ogos 2024)' },
     { value: '2015–2024', label: 'Penyata Kewangan Diaudit' },
-];
-
-const collections = [
-    { year: 2014, amount: 303500 },
-    { year: 2015, amount: 737100 },
-    { year: 2016, amount: 797181 },
-    { year: 2017, amount: 2696466 },
-    { year: 2018, amount: 8030924 },
-    { year: 2019, amount: 104968 },
-    { year: 2020, amount: 141377 },
-    { year: 2021, amount: 172172 },
-    { year: 2022, amount: 36972 },
-    { year: 2023, amount: 47073 },
-    { year: 2024, amount: 206356 },
 ];
 
 // M3 — policy-neutral stewardship model (no allocation ratio on the homepage).
@@ -302,7 +287,8 @@ const pillars = [
                     </h2>
                     <p v-reveal="'140ms'" class="mt-5 text-lg leading-relaxed text-slate-300">
                         Diperbadankan di bawah Akta Syarikat 2016, diselia Lembaga Pengarah sembilan ahli, dan
-                        diaudit setiap tahun. Sebelas tahun rekod kutipan wakaf didedahkan sepenuhnya.
+                        diaudit setiap tahun. Rekod kewangan didedahkan sepenuhnya menerusi Pusat Ketelusan
+                        dan laporan tahunan yang diterbitkan.
                     </p>
                 </div>
 
@@ -313,13 +299,7 @@ const pillars = [
                     </div>
                 </dl>
 
-                <div v-reveal class="mt-14">
-                    <p class="text-sm font-semibold text-slate-300">Kutipan wakaf tahunan, 2014–2024</p>
-                    <p class="mt-1 text-xs text-slate-500">Seperti dilaporkan dalam Penyata Kewangan Diaudit AWQAF Holdings Berhad.</p>
-                    <div class="mt-8"><CollectionChart :data="collections" dark /></div>
-                </div>
-
-                <div class="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold">
+                <div v-reveal class="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold">
                     <Link :href="route('korporat.reports')" class="text-emerald-400 hover:underline">Laporan Tahunan &amp; Penyata Kewangan →</Link>
                     <Link :href="route('korporat.leadership.index')" class="text-emerald-400 hover:underline">Lembaga Pengarah →</Link>
                     <Link :href="route('ketelusan')" class="text-emerald-400 hover:underline">Laporan &amp; Tadbir Urus →</Link>
@@ -328,31 +308,37 @@ const pillars = [
         </section>
 
         <!-- ═══ M7 · WARISAN PEMIKIRAN ═══ -->
-        <!-- Warm near-black bg (#100c08) matches the book render's own dark bokeh edges
-             so the cover floats with no hard rectangular boundary; also distinguishes
-             this movement from M6's cool slate-950. The biography is treated as a
-             museum object (spotlight + vignette + gentle float + grounded reflection),
-             not an e-commerce product. Reading order is text → book: heading, body and
-             CTA lead (left / first), the cover is the terminal focal point (right / last). -->
+        <!-- Warm near-black bg (#100c08) matches the book render's dark bokeh edges so the
+             cover floats with no hard rectangular boundary; also distinguishes this movement
+             from M6's cool slate-950. Editorial feature (spotlight + vignette + gentle float
+             + grounded reflection) — tightened spacing balances the copy against the cover.
+             Reading order text → book: heading/body/actions lead, cover is the focal point.
+             Two book actions: "Maklumat Buku" (founder page) and "Beli Buku" (enquiry until a
+             verified purchase URL exists). -->
         <section class="relative isolate overflow-hidden bg-[#100c08]">
             <div class="section-vignette" aria-hidden="true"></div>
-            <div class="relative mx-auto max-w-6xl px-6 py-28 lg:px-8 lg:py-36">
-                <div class="grid grid-cols-1 items-center gap-14 lg:grid-cols-12 lg:gap-16">
+            <div class="relative mx-auto max-w-6xl px-6 py-20 lg:px-8 lg:py-28">
+                <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14">
                     <!-- Editorial copy — leads the eye -->
                     <div class="lg:col-span-7">
                         <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">Warisan Pemikiran</p>
-                        <h2 v-reveal="'80ms'" class="mt-5 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
+                        <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
                             Warisan sebenar bukan sekadar institusi yang dibina,<br class="hidden sm:block" />
                             tetapi pemikiran yang ditinggalkan.
                         </h2>
-                        <p v-reveal="'140ms'" class="mt-7 max-w-xl text-lg leading-relaxed text-slate-300">
+                        <p v-reveal="'140ms'" class="mt-5 max-w-xl text-lg leading-relaxed text-slate-300">
                             Biografi Allahyarham Tan Sri Muhammad Ali Hashim merakamkan pemikiran yang mendasari
                             gagasan Waqaf Korporat — sebuah rujukan institusi yang meletakkan falsafah AWQAF dalam
                             konteks sejarah dan idea yang lebih luas.
                         </p>
-                        <Link :href="route('korporat.founder')" class="mt-9 inline-flex items-center gap-2 text-sm font-semibold text-emerald-400 transition hover:gap-3 hover:text-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
-                            Mengenali Pemikiran Pengasas <ArrowRightIcon class="h-4 w-4" />
-                        </Link>
+                        <div v-reveal="'200ms'" class="mt-8 flex flex-wrap items-center gap-4">
+                            <Link :href="route('hubungi')" class="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#100c08]">
+                                Beli Buku <ArrowRightIcon class="h-4 w-4" />
+                            </Link>
+                            <Link :href="route('korporat.founder')" class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-400 transition hover:gap-3 hover:text-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#100c08]">
+                                Maklumat Buku <ArrowRightIcon class="h-4 w-4" />
+                            </Link>
+                        </div>
                     </div>
 
                     <!-- The biography as a museum object — terminal focal point -->
