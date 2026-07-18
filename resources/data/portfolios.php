@@ -34,7 +34,7 @@ return [
                 'key' => 'al-hamra',
                 'label' => 'Projek perintis',
                 'title' => 'Sekolah Al-Hamra',
-                'image' => null, // 'portfolio/education/al-hamra.jpg'
+                'image' => 'portfolio/education/al-hamra.jpg', // imej rasmi tersedia
                 'alt' => 'Sekolah Al-Hamra (Al-Hamra Integrated School), projek pendidikan perintis AWQAF Holdings Berhad.',
                 'caption' => 'Sekolah Al-Hamra — projek pendidikan perintis di bawah AWQAF Holdings Berhad (mulai 2021).',
                 'credit' => null,
@@ -43,7 +43,9 @@ return [
                 'key' => 'amiis',
                 'label' => 'Inisiatif strategik seterusnya',
                 'title' => 'Al-Mashoor International Islamic School (AMIIS)',
-                'image' => null, // 'portfolio/education/amiis.jpg'
+                // Sengaja kekal blok teks sahaja (tiada imej) sehingga aset rasmi AMIIS
+                // dibekalkan; tiada placeholder ditunjukkan.
+                'image' => null, // 'portfolio/education/amiis.jpg' apabila tersedia
                 'alt' => 'Al-Mashoor International Islamic School (AMIIS).',
                 'caption' => 'AMIIS — inisiatif pendidikan strategik seterusnya; Sekolah Al-Hamra sebagai rakan strategik penubuhannya.',
                 'credit' => null,
@@ -120,7 +122,7 @@ return [
             [
                 'name' => 'CURVES Bukit Jelutong',
                 'location' => 'Bukit Jelutong, Shah Alam, Selangor',
-                'image' => null, // 'portfolio/wellness/curves-bukit-jelutong.jpg'
+                'image' => 'portfolio/wellness/curves-bukit-jelutong.jpg', // imej rasmi tersedia
                 'alt' => 'Pusat kecergasan wanita CURVES di Bukit Jelutong, Shah Alam.',
                 'caption' => 'CURVES Bukit Jelutong, Shah Alam.',
                 'credit' => null,
@@ -132,7 +134,7 @@ return [
             [
                 'name' => 'CURVES Setia Alam',
                 'location' => 'Setia Alam, Shah Alam, Selangor',
-                'image' => null, // 'portfolio/wellness/curves-setia-alam.jpg'
+                'image' => 'portfolio/wellness/curves-setia-alam.jpg', // imej rasmi tersedia
                 'alt' => 'Pusat kecergasan wanita CURVES di Setia Alam, Shah Alam.',
                 'caption' => 'CURVES Setia Alam, Shah Alam.',
                 'credit' => null,
@@ -144,7 +146,11 @@ return [
             [
                 'name' => 'CURVES Bangi Sentral',
                 'location' => 'Bangi Sentral, Selangor',
-                'image' => null, // 'portfolio/wellness/curves-bangi-sentral.jpg'
+                // DITAHAN: fail curves-bangi-sentral.jpg yang dibekalkan ialah tangkapan
+                // skrin Google Street View (tera air "© Google" / "mudah.my" + kawalan UI)
+                // — isu hak cipta/lesen, tidak boleh diterbitkan. Kekal blok teks sahaja
+                // sehingga foto rasmi yang bersih dibekalkan. Tetapkan laluan apabila sedia.
+                'image' => null, // 'portfolio/wellness/curves-bangi-sentral.jpg' (ganti dgn foto rasmi bersih)
                 'alt' => 'Pusat kecergasan wanita CURVES di Bangi Sentral, Selangor.',
                 'caption' => 'CURVES Bangi Sentral, Selangor.',
                 'credit' => null,
