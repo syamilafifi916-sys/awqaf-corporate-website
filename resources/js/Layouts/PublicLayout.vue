@@ -203,11 +203,19 @@ onBeforeUnmount(() => {
                         Wakaf Sekarang
                     </Link>
                     <a
+                        v-if="page.props.portalReady"
                         :href="page.props.portalUrl"
                         class="hidden whitespace-nowrap rounded-lg border border-emerald-600 px-4 py-2 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 xl:inline-flex"
                     >
                         Portal Pewakaf
                     </a>
+                    <span
+                        v-else
+                        class="hidden whitespace-nowrap rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-400 xl:inline-flex"
+                        title="Portal Keahlian sedang dalam persediaan"
+                    >
+                        Portal · Akan Dibuka
+                    </span>
 
                     <button
                         ref="menuToggle"
@@ -294,11 +302,18 @@ onBeforeUnmount(() => {
                             Wakaf Sekarang
                         </Link>
                         <a
+                            v-if="page.props.portalReady"
                             :href="page.props.portalUrl"
                             class="block rounded-lg border border-emerald-600 px-4 py-3 text-center text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
                         >
                             Portal Pewakaf
                         </a>
+                        <span
+                            v-else
+                            class="block rounded-lg border border-slate-200 px-4 py-3 text-center text-sm font-semibold text-slate-400"
+                        >
+                            Portal Keahlian · Akan Dibuka
+                        </span>
                     </div>
                 </div>
             </div>

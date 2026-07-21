@@ -39,6 +39,10 @@ return [
     // (ADR-001). Production: https://member.awqaf.my
     'portal' => [
         'url' => env('PORTAL_URL', 'http://localhost'),
+        // Postponed for the static corporate release: when false, public
+        // portal CTAs render a non-clickable "Akan Dibuka" status instead
+        // of linking to an unavailable portal (AWQAF-CORPORATE-STATIC-001).
+        'ready' => filter_var(env('PORTAL_READY', false), FILTER_VALIDATE_BOOL),
     ],
 
 ];

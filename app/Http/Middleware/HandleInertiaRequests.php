@@ -35,7 +35,10 @@ class HandleInertiaRequests extends Middleware
                 'user' => $request->user(),
             ],
             // Member identities live exclusively in the member portal (ADR-001).
-            'portalUrl' => config('services.portal.url'),
+            // While the portal is postponed we do NOT expose its URL at all —
+            // CTAs render an "Akan Dibuka" status instead (STATIC-001).
+            'portalReady' => config('services.portal.ready'),
+            'portalUrl' => config('services.portal.ready') ? config('services.portal.url') : null,
         ];
     }
 }

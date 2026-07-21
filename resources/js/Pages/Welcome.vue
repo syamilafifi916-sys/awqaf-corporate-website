@@ -388,9 +388,12 @@ const pillars = [
                         <p class="mt-3 text-sm leading-relaxed text-slate-500">
                             Untuk pewakaf sedia ada mengakses akaun, rekod wakaf, resit dan dokumen keahlian.
                         </p>
-                        <a :href="page.props.portalUrl" class="mt-6 inline-flex items-center gap-2 rounded-lg border border-emerald-600 px-6 py-3 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50">
+                        <a v-if="page.props.portalReady" :href="page.props.portalUrl" class="mt-6 inline-flex items-center gap-2 rounded-lg border border-emerald-600 px-6 py-3 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50">
                             Masuk ke Portal <ArrowRightIcon class="h-4 w-4" />
                         </a>
+                        <span v-else class="mt-6 inline-flex items-center gap-2 rounded-lg border border-slate-200 px-6 py-3 text-sm font-semibold text-slate-400">
+                            Akan Dibuka
+                        </span>
                     </div>
                 </div>
 

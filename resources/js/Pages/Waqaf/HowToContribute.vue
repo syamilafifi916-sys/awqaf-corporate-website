@@ -66,11 +66,18 @@ import { Head, Link } from '@inertiajs/vue3';
                     Log masuk Portal Pewakaf untuk menjejaki jumlah wakaf terkumpul dan tahap keahlian anda.
                 </p>
                 <a
+                    v-if="$page.props.portalReady"
                     :href="$page.props.portalUrl"
                     class="mt-6 inline-block rounded-lg bg-emerald-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-800"
                 >
                     Log Masuk Portal Pewakaf
                 </a>
+                <span
+                    v-else
+                    class="mt-6 inline-block rounded-lg bg-slate-100 px-6 py-3 text-sm font-semibold text-slate-500"
+                >
+                    Portal Keahlian · Akan Dibuka
+                </span>
             </div>
         </section>
     </PublicLayout>

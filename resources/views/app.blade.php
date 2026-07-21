@@ -33,8 +33,9 @@
         <meta name="robots" content="index, follow">
 
         <script type="application/ld+json">
+            {{-- '@'.'context' avoids Blade compiling the literal @context token as a directive (leaked raw PHP into the JSON-LD). --}}
             {!! json_encode([
-                '@context' => 'https://schema.org',
+                '@'.'context' => 'https://schema.org',
                 '@type' => 'Organization',
                 'name' => config('app.name'),
                 'url' => url('/'),

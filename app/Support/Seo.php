@@ -16,6 +16,16 @@ class Seo
         return array_merge(static::defaults(), static::$data);
     }
 
+    /**
+     * Clear per-page overrides. Needed by the static exporter, which renders
+     * many routes in a single process — without this, one page's title/schema
+     * would bleed into the next (STATIC-001).
+     */
+    public static function reset(): void
+    {
+        static::$data = [];
+    }
+
     protected static function defaults(): array
     {
         return [

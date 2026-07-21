@@ -35,13 +35,20 @@ const page = usePage();
                 <div class="lg:col-span-2">
                     <h2 class="text-xl font-bold text-slate-900">Saluran rasmi</h2>
                     <div class="mt-6 space-y-4">
-                        <a :href="page.props.portalUrl" class="flex items-center justify-between gap-4 rounded-2xl border border-slate-100 p-6 transition hover:border-emerald-200 hover:bg-emerald-50/40">
+                        <a v-if="page.props.portalReady" :href="page.props.portalUrl" class="flex items-center justify-between gap-4 rounded-2xl border border-slate-100 p-6 transition hover:border-emerald-200 hover:bg-emerald-50/40">
                             <div class="flex items-start gap-4">
                                 <Square3Stack3DIcon class="h-6 w-6 flex-none text-emerald-700" />
                                 <div><h3 class="font-semibold text-slate-900">Portal Pewakaf</h3><p class="mt-1 text-sm text-slate-500">Akses rekod wakaf, resit dan keahlian anda.</p></div>
                             </div>
                             <ArrowRightIcon class="h-5 w-5 flex-none text-emerald-700" />
                         </a>
+                        <div v-else class="flex items-center justify-between gap-4 rounded-2xl border border-slate-100 bg-slate-50/60 p-6">
+                            <div class="flex items-start gap-4">
+                                <Square3Stack3DIcon class="h-6 w-6 flex-none text-slate-400" />
+                                <div><h3 class="font-semibold text-slate-900">Portal Pewakaf</h3><p class="mt-1 text-sm text-slate-500">Akses rekod wakaf, resit dan keahlian anda.</p></div>
+                            </div>
+                            <span class="flex-none rounded-full bg-slate-200 px-2.5 py-0.5 text-xs font-semibold text-slate-600">Akan Dibuka</span>
+                        </div>
                         <Link :href="route('korporat.reports')" class="flex items-center justify-between gap-4 rounded-2xl border border-slate-100 p-6 transition hover:border-emerald-200 hover:bg-emerald-50/40">
                             <div class="flex items-start gap-4">
                                 <DocumentTextIcon class="h-6 w-6 flex-none text-emerald-700" />
