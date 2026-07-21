@@ -127,7 +127,6 @@ defineProps({
                                     {{ b.url_label || 'Pautan rasmi' }}
                                     <ArrowTopRightOnSquareIcon class="h-4 w-4" />
                                 </a>
-                                <p v-else class="mt-3 text-xs text-slate-400">Pautan rasmi belum disahkan.</p>
                             </div>
                         </div>
                     </div>
@@ -155,9 +154,6 @@ defineProps({
                                 <p v-if="p.note" class="mt-2 text-sm leading-relaxed text-slate-600">{{ p.note }}</p>
                             </div>
                         </div>
-                        <p v-if="portfolio.status_legend" class="mt-4 text-xs text-slate-400">
-                            Label status: {{ portfolio.status_legend.join(' · ') }}.
-                        </p>
                     </div>
 
                     <!-- Verified figures — shown ONLY when audited facts exist
