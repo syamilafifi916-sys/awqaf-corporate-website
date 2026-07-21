@@ -160,12 +160,13 @@ defineProps({
                         </p>
                     </div>
 
-                    <!-- Verified figures -->
-                    <div class="mt-12">
+                    <!-- Verified figures — shown ONLY when audited facts exist
+                         (no empty placeholder, which weakened credibility). -->
+                    <div v-if="portfolio.facts && portfolio.facts.length" class="mt-12">
                         <h2 class="text-xl font-bold text-slate-900">Fakta &amp; Angka</h2>
                         <p class="mt-1 text-sm text-slate-500">Setiap angka disahkan terhadap halaman Laporan Tahunan sumber.</p>
 
-                        <div v-if="portfolio.facts && portfolio.facts.length" class="mt-6 overflow-x-auto rounded-2xl border border-slate-100">
+                        <div class="mt-6 overflow-x-auto rounded-2xl border border-slate-100">
                             <table class="min-w-full divide-y divide-slate-100 text-sm">
                                 <thead>
                                     <tr class="bg-slate-50 text-left text-xs uppercase tracking-wide text-slate-500">
@@ -186,9 +187,6 @@ defineProps({
                                 </tbody>
                             </table>
                         </div>
-                        <p v-else class="mt-6 rounded-2xl bg-slate-50 p-6 text-sm text-slate-500">
-                            Angka kewangan yang disahkan bagi portfolio ini akan dipaparkan apabila tersedia dalam Laporan Tahunan.
-                        </p>
                     </div>
 
                     <!-- History / past operations -->
