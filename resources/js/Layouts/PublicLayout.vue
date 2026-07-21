@@ -333,7 +333,7 @@ onBeforeUnmount(() => {
                 </div>
 
                 <div>
-                    <h4 class="text-sm font-semibold text-slate-900">Wakaf</h4>
+                    <h2 class="text-sm font-semibold text-slate-900">Wakaf</h2>
                     <ul class="mt-4 space-y-2 text-sm text-slate-500">
                         <li><Link :href="route('waqaf.corporate')" class="hover:text-emerald-700">Waqaf Korporat</Link></li>
                         <li><Link :href="route('waqaf.howto')" class="font-medium text-emerald-700 hover:text-emerald-800">Wakaf Sekarang</Link></li>
@@ -342,7 +342,7 @@ onBeforeUnmount(() => {
                 </div>
 
                 <div>
-                    <h4 class="text-sm font-semibold text-slate-900">Korporat</h4>
+                    <h2 class="text-sm font-semibold text-slate-900">Korporat</h2>
                     <ul class="mt-4 space-y-2 text-sm text-slate-500">
                         <li><Link :href="route('korporat.overview')" class="hover:text-emerald-700">Mengenai AWQAF</Link></li>
                         <li><Link :href="route('korporat.leadership.index')" class="hover:text-emerald-700">Lembaga Pengarah</Link></li>
@@ -351,7 +351,7 @@ onBeforeUnmount(() => {
                 </div>
 
                 <div>
-                    <h4 class="text-sm font-semibold text-slate-900">Laporan</h4>
+                    <h2 class="text-sm font-semibold text-slate-900">Laporan</h2>
                     <ul class="mt-4 space-y-2 text-sm text-slate-500">
                         <li><Link :href="route('korporat.reports')" class="hover:text-emerald-700">Laporan Tahunan</Link></li>
                         <li><Link :href="route('korporat.reports')" class="hover:text-emerald-700">Penyata Kewangan</Link></li>

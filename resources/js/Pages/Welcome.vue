@@ -217,17 +217,19 @@ const pillars = [
                     manfaat kepada masyarakat.
                 </p>
 
-                <dl class="mt-16 grid grid-cols-1 gap-x-12 gap-y-10 border-t border-white/10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
+                <!-- Semantic grid (not a <dl>): the last cell is a CTA, not a
+                     term/definition, so a definition list would be invalid (a11y). -->
+                <div class="mt-16 grid grid-cols-1 gap-x-12 gap-y-10 border-t border-white/10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
                     <div v-for="(p, i) in pillars" :key="p.t" v-reveal="`${i * 60}ms`">
-                        <dt class="text-sm font-semibold text-white">{{ p.t }}</dt>
-                        <dd class="mt-2 text-sm leading-relaxed text-slate-400">{{ p.d }}</dd>
+                        <p class="text-sm font-semibold text-white">{{ p.t }}</p>
+                        <p class="mt-2 text-sm leading-relaxed text-slate-400">{{ p.d }}</p>
                     </div>
                     <div v-reveal="'300ms'" class="flex items-end">
                         <Link :href="route('korporat.overview')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-400 hover:underline">
                             Mengenai AWQAF <ArrowRightIcon class="h-4 w-4" />
                         </Link>
                     </div>
-                </dl>
+                </div>
             </div>
         </section>
 
