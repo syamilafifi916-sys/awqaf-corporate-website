@@ -296,7 +296,7 @@ const pillars = [
 
                 <dl v-reveal class="mt-14 grid grid-cols-1 gap-x-10 gap-y-8 border-y border-white/10 py-10 sm:grid-cols-3">
                     <div v-for="f in facts" :key="f.label">
-                        <dt class="text-3xl font-bold text-white sm:text-4xl">{{ f.value }}</dt>
+                        <dt class="text-3xl font-bold text-emerald-400 sm:text-4xl">{{ f.value }}</dt>
                         <dd class="mt-2 text-sm text-slate-400">{{ f.label }}</dd>
                     </div>
                 </dl>

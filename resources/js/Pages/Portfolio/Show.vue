@@ -20,7 +20,7 @@ defineProps({
                     <ArrowLeftIcon class="h-4 w-4" /> Portfolio Pelaburan
                 </Link>
                 <div class="mt-6">
-                    <span class="rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-slate-300">{{ portfolio.status }}</span>
+                    <span class="rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-medium text-emerald-300 ring-1 ring-inset ring-emerald-400/30">{{ portfolio.status }}</span>
                 </div>
                 <h1 class="mt-5 text-4xl font-bold text-white sm:text-5xl">{{ portfolio.name }}</h1>
                 <p class="mt-3 text-slate-400">{{ portfolio.entity }}</p>
