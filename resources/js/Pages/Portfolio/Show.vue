@@ -38,6 +38,14 @@ defineProps({
                         <p class="mt-3 text-xl leading-relaxed text-slate-800">{{ portfolio.rationale }}</p>
                     </div>
 
+                    <!-- Background / past operations — placed early to set the story's context (before Impact). -->
+                    <div v-if="portfolio.history && portfolio.history.length" class="mt-12">
+                        <h2 class="text-xl font-bold text-slate-900">Latar belakang &amp; operasi lampau</h2>
+                        <div class="mt-4 space-y-3">
+                            <p v-for="(h, i) in portfolio.history" :key="i" class="rounded-xl border border-slate-100 bg-slate-50 p-4 text-sm text-slate-600">{{ h }}</p>
+                        </div>
+                    </div>
+
                     <h2 class="mt-12 text-xl font-bold text-slate-900">Pengenalan</h2>
                     <div class="mt-4 space-y-4">
                         <p v-for="(para, i) in portfolio.description" :key="i" class="leading-relaxed text-slate-700">{{ para }}</p>
@@ -150,11 +158,20 @@ defineProps({
                         </div>
                     </div>
 
+                    <!-- Implementation record — documented achievements where verified
+                         figures are not applicable (e.g. a completed education project). -->
+                    <div v-if="portfolio.implementation && portfolio.implementation.length" class="mt-12">
+                        <h2 class="text-xl font-bold text-slate-900">Rekod Pelaksanaan</h2>
+                        <div class="mt-4 space-y-3">
+                            <p v-for="(r, i) in portfolio.implementation" :key="i" class="rounded-xl border border-slate-100 bg-slate-50 p-4 text-sm leading-relaxed text-slate-600">{{ r }}</p>
+                        </div>
+                    </div>
+
                     <!-- Verified figures — shown ONLY when audited facts exist
                          (no empty placeholder, which weakened credibility). -->
                     <div v-if="portfolio.facts && portfolio.facts.length" class="mt-12">
                         <h2 class="text-xl font-bold text-slate-900">Impak Berdasarkan Laporan Tahunan AWQAF</h2>
-                        <p class="mt-1 text-sm text-slate-500">Pencapaian yang didokumenkan dalam Laporan Tahunan AWQAF — bukan dakwaan pemasaran. Rujukan sumber disertakan bagi setiap angka.</p>
+                        <p class="mt-1 text-sm text-slate-500">Rekod impak berikut adalah berdasarkan maklumat yang didokumenkan dalam Laporan Tahunan AWQAF.</p>
 
                         <div class="mt-6 overflow-x-auto rounded-2xl border border-slate-100">
                             <table class="min-w-full divide-y divide-slate-100 text-sm">
@@ -176,14 +193,6 @@ defineProps({
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-
-                    <!-- History / past operations -->
-                    <div v-if="portfolio.history && portfolio.history.length" class="mt-12">
-                        <h2 class="text-xl font-bold text-slate-900">Latar belakang &amp; operasi lampau</h2>
-                        <div class="mt-4 space-y-3">
-                            <p v-for="(h, i) in portfolio.history" :key="i" class="rounded-xl border border-slate-100 bg-slate-50 p-4 text-sm text-slate-600">{{ h }}</p>
                         </div>
                     </div>
 

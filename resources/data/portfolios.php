@@ -71,10 +71,11 @@ return [
         ],
         'branches' => [],
         'facts' => [],
-        'history' => [
-            '2021 — AWQAF Holdings, menerusi AWQAF Education Sdn. Bhd., mengambil alih Al-Hamra Integrated School ketika pandemik COVID-19 bagi memastikan sekolah dapat terus beroperasi dan memelihara kesinambungan pendidikan pelajar serta pendidik.',
-            '2021–2025 — Sepanjang tempoh pengurusan, AWQAF menambah baik operasi, kualiti akademik dan pendidikan berteraskan nilai, sekali gus memperoleh pengalaman berharga mengurus institusi pendidikan swasta.',
-            'Oktober 2025 — Operasi ditamatkan sebagai sebahagian daripada penstrukturan semula strategik portfolio pelaburan AWQAF; pengalaman dan pengajaran yang diperoleh terus membentuk perspektif pendidikan Kumpulan.',
+        'history' => [],
+        'implementation' => [
+            'AWQAF Education Sdn. Bhd. mengambil alih Al-Hamra Integrated School pada 2021 ketika pandemik COVID-19.',
+            'Pengambilalihan ini membantu memelihara kesinambungan operasi dan pendidikan bagi para pelajar serta pendidik.',
+            'Operasi ditamatkan pada Oktober 2025 berikutan penstrukturan semula portfolio pelaburan AWQAF.',
         ],
         // Caveat pengesahan pengurusan disimpan sebagai nota dalaman (lihat di atas),
         // bukan sebagai nota status awam. Tiada dakwaan pemilikan AMIIS dibuat.

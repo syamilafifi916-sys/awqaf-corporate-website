@@ -86,7 +86,7 @@ defineProps({
                     <!-- Impact evidence (from Annual Reports) — only when audited facts exist -->
                     <div v-if="programme.facts && programme.facts.length" class="mt-12">
                         <h2 class="text-xl font-bold text-slate-900">Impak Berdasarkan Laporan Tahunan AWQAF</h2>
-                        <p class="mt-1 text-sm text-slate-500">Pencapaian yang didokumenkan dalam Laporan Tahunan AWQAF — bukan dakwaan pemasaran. Rujukan sumber disertakan bagi setiap angka.</p>
+                        <p class="mt-1 text-sm text-slate-500">Rekod impak berikut adalah berdasarkan maklumat yang didokumenkan dalam Laporan Tahunan AWQAF.</p>
 
                         <div class="mt-6 overflow-x-auto rounded-2xl border border-slate-100">
                             <table class="min-w-full divide-y divide-slate-100 text-sm">
