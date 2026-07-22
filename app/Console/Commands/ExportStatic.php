@@ -69,6 +69,7 @@ class ExportStatic extends Command
 
         $this->copyAssets($dist);
         $this->writeCloudflareFiles($dist);
+        $this->pruneJunk($dist);
 
         if ($failed > 0) {
             $this->error("Export finished with {$failed} failed route(s).");
@@ -147,6 +148,25 @@ class ExportStatic extends Command
         // public/storage is a symlink → copy the real target into the output.
         if (File::isDirectory(storage_path('app/public'))) {
             File::copyDirectory(storage_path('app/public'), $dist.'/storage');
+        }
+    }
+
+    /**
+     * Strip non-production leftovers that `copyDirectory` drags in from public/:
+     * macOS `.DS_Store` (leaks directory structure), in-repo `README.md` asset
+     * notes, and stray editor/source artefacts. Keeps the deployable artefact
+     * clean without touching the version-controlled public/ sources.
+     */
+    private function pruneJunk(string $dist): void
+    {
+        foreach (File::allFiles($dist, true) as $file) {
+            $name = $file->getFilename();
+            if ($name === '.DS_Store'
+                || $name === 'README.md'
+                || str_ends_with($name, '.webp.png')
+            ) {
+                File::delete($file->getPathname());
+            }
         }
     }
 
