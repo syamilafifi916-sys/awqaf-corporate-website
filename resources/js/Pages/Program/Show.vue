@@ -83,12 +83,12 @@ defineProps({
                         </dl>
                     </div>
 
-                    <!-- Verified figures -->
-                    <div class="mt-12">
-                        <h2 class="text-xl font-bold text-slate-900">Fakta &amp; Angka</h2>
-                        <p class="mt-1 text-sm text-slate-500">Setiap angka disahkan terhadap halaman Laporan Tahunan sumber.</p>
+                    <!-- Impact evidence (from Annual Reports) — only when audited facts exist -->
+                    <div v-if="programme.facts && programme.facts.length" class="mt-12">
+                        <h2 class="text-xl font-bold text-slate-900">Impak Berdasarkan Laporan Tahunan AWQAF</h2>
+                        <p class="mt-1 text-sm text-slate-500">Pencapaian yang didokumenkan dalam Laporan Tahunan AWQAF — bukan dakwaan pemasaran. Rujukan sumber disertakan bagi setiap angka.</p>
 
-                        <div v-if="programme.facts && programme.facts.length" class="mt-6 overflow-x-auto rounded-2xl border border-slate-100">
+                        <div class="mt-6 overflow-x-auto rounded-2xl border border-slate-100">
                             <table class="min-w-full divide-y divide-slate-100 text-sm">
                                 <thead>
                                     <tr class="bg-slate-50 text-left text-xs uppercase tracking-wide text-slate-500">
@@ -109,13 +109,12 @@ defineProps({
                                 </tbody>
                             </table>
                         </div>
-                        <p v-else class="mt-6 rounded-2xl bg-slate-50 p-6 text-sm text-slate-500">
-                            Angka kewangan yang disahkan akan dipaparkan apabila tersedia dalam Laporan Tahunan.
-                        </p>
+                    </div>
 
-                        <p v-if="programme.note" class="mt-4 rounded-xl border border-amber-100 bg-amber-50 p-4 text-sm text-amber-800">
-                            {{ programme.note }}
-                        </p>
+                    <!-- Future direction — the page closes on a forward-looking statement -->
+                    <div v-if="programme.future" class="mt-12">
+                        <h2 class="text-xl font-bold text-slate-900">Hala tuju</h2>
+                        <p class="mt-3 leading-relaxed text-slate-600">{{ programme.future }}</p>
                     </div>
                 </div>
 

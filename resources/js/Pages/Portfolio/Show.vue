@@ -66,12 +66,6 @@ defineProps({
                         </div>
                     </div>
 
-                    <!-- Outlook / long-term impact + how success is measured -->
-                    <div v-if="portfolio.outlook" class="mt-10">
-                        <h2 class="text-xl font-bold text-slate-900">Hala tuju &amp; ukuran prestasi</h2>
-                        <p class="mt-3 leading-relaxed text-slate-600">{{ portfolio.outlook }}</p>
-                    </div>
-
                     <!-- Status note / integrity flag -->
                     <p v-if="portfolio.status_note" class="mt-6 rounded-xl border border-amber-100 bg-amber-50 p-4 text-sm text-amber-800">
                         {{ portfolio.status_note }}
@@ -159,8 +153,8 @@ defineProps({
                     <!-- Verified figures — shown ONLY when audited facts exist
                          (no empty placeholder, which weakened credibility). -->
                     <div v-if="portfolio.facts && portfolio.facts.length" class="mt-12">
-                        <h2 class="text-xl font-bold text-slate-900">Fakta &amp; Angka</h2>
-                        <p class="mt-1 text-sm text-slate-500">Setiap angka disahkan terhadap halaman Laporan Tahunan sumber.</p>
+                        <h2 class="text-xl font-bold text-slate-900">Impak Berdasarkan Laporan Tahunan AWQAF</h2>
+                        <p class="mt-1 text-sm text-slate-500">Pencapaian yang didokumenkan dalam Laporan Tahunan AWQAF — bukan dakwaan pemasaran. Rujukan sumber disertakan bagi setiap angka.</p>
 
                         <div class="mt-6 overflow-x-auto rounded-2xl border border-slate-100">
                             <table class="min-w-full divide-y divide-slate-100 text-sm">
@@ -191,6 +185,12 @@ defineProps({
                         <div class="mt-4 space-y-3">
                             <p v-for="(h, i) in portfolio.history" :key="i" class="rounded-xl border border-slate-100 bg-slate-50 p-4 text-sm text-slate-600">{{ h }}</p>
                         </div>
+                    </div>
+
+                    <!-- Future direction — the page closes on a forward-looking statement -->
+                    <div v-if="portfolio.outlook" class="mt-12">
+                        <h2 class="text-xl font-bold text-slate-900">Hala tuju</h2>
+                        <p class="mt-3 leading-relaxed text-slate-600">{{ portfolio.outlook }}</p>
                     </div>
                 </div>
 
