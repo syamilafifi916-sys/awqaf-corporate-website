@@ -45,4 +45,13 @@ return [
         'ready' => filter_var(env('PORTAL_READY', false), FILTER_VALIDATE_BOOL),
     ],
 
+    // Transparency Centre report PDFs. On Cloudflare Pages (25 MB per-file
+    // limit) the audited reports — some ~161 MB — cannot ship in the static
+    // build, so they are served from an external object store (e.g. R2) via
+    // this base URL. When empty, Report::url() falls back to the local public
+    // disk so local development and Laravel hosting keep working unchanged.
+    'reports' => [
+        'base_url' => env('REPORTS_BASE_URL'),
+    ],
+
 ];
