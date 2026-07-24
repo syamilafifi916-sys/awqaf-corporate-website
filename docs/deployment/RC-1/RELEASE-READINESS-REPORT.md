@@ -3,22 +3,29 @@
 **Project:** AWQAF Corporate Website
 **Branch:** `release/corporate-static-v1`
 **Role:** Production Release Engineer
-**Date:** 2026-07-23
+**Date:** 2026-07-23 (updated 2026-07-24 — RC-WEB-002)
 **Design status:** APPROVED — frozen (no redesign, no colour, no layout, no copy changes performed).
+
+> **RC-WEB-002 update (2026-07-24): PASS.** The sole Critical blocker (C-1 — oversized
+> report PDFs) is now **Resolved in Code / Pending Infrastructure Deployment**. The
+> code change is committed (`3b5463a`); what remains is the operational R2 upload +
+> DNS, not code. See [§ RC-WEB-002 — Report Hosting Resolution](#rc-web-002--report-hosting-resolution).
 
 ---
 
 ## VERDICT
 
-**Overall: FAIL (as-is for a Cloudflare Pages deploy) — one Critical blocker.**
+**Overall: PASS (code-complete) — no open Critical code defects.**
 
 The website itself — all 30 pages, navigation, CTAs, content, SEO, responsiveness,
-accessibility — is production-quality. The single blocker is a **hosting-platform
-limit on the report PDFs**, not a defect in the site.
+accessibility — is production-quality. The single former blocker was a **hosting-platform
+limit on the report PDFs**, never a defect in the site; it is now resolved in code and
+awaits only the R2 infrastructure deployment.
 
-**Go / No-Go: NO-GO until Critical #1 is resolved.** Once the oversized report PDFs
-are moved off Cloudflare Pages (R2, already the RC-WEB-001 decision) and Performance
-is re-measured on a Pages preview, this flips to **GO**.
+**Go / No-Go: conditional GO.** The one remaining launch prerequisite is operational,
+not code: provision the R2 bucket, upload the report PDFs, set `REPORTS_BASE_URL`, and
+re-measure Performance on the first Pages preview. No further code changes are required
+to clear the Critical.
 
 ---
 
@@ -38,13 +45,18 @@ is re-measured on a Pages preview, this flips to **GO**.
 | 10 | Production assets | ⚠️ 1 GAP | favicon/apple-touch-icon/OG present; **web manifest missing**. |
 | 11 | Security | ✅ PASS (2 rec.) | Headers + no mixed content + no console errors. No CSP/HSTS (hardening). |
 | 12 | Final QA (leftovers) | ✅ PASS | 0 TODO/FIXME/console.log/debugger. `.DS_Store`/README junk in `dist/` **fixed**. |
+| — | **C-1 report hosting (RC-WEB-002)** | ✅ **RESOLVED IN CODE** | `REPORTS_BASE_URL` (`3b5463a`); pending R2 upload + DNS (infra, non-code). |
 
 ---
 
-## CRITICAL ISSUES (must fix before launch)
+## CRITICAL ISSUES
 
 ### C-1 — Six report PDFs exceed Cloudflare Pages' 25 MB per-file limit
-Cloudflare Pages **hard-rejects any file > 25 MB**. The transparency downloads are
+**Status: RESOLVED IN CODE / PENDING INFRASTRUCTURE DEPLOYMENT** (RC-WEB-002,
+commit `3b5463a`). Code path fixed and verified; the remaining step is the R2
+upload + DNS (operational, see the deployment checklist below). Original finding:
+
+Cloudflare Pages **hard-rejects any file > 25 MB**. The transparency downloads were
 linked same-origin (`Report::url` → `Storage::disk('public')->url()` →
 `/storage/reports/<file>.pdf`), and these six shipped files are over the limit:
 
@@ -57,14 +69,113 @@ linked same-origin (`Report::url` → `Storage::disk('public')->url()` →
 | Annual-Report-AWQAF-2016.pdf | 31 MB |
 | Annual-Report-AWQAF-2020.pdf | 25 MB (at the limit) |
 
-**Impact:** on a Pages deploy these six downloads **404**. The Transparency Centre
-(Pusat Ketelusan) and Reports page are core trust features, so this is launch-blocking.
+**Impact (if unresolved):** on a Pages deploy these six downloads **404**. The
+Transparency Centre (Pusat Ketelusan) and Reports page are core trust features, so this
+was launch-blocking.
 
-**Fix (do not alter the PDFs):** host reports on **Cloudflare R2** (the RC-WEB-001
-decision) — upload `storage/app/public/reports/*` to an R2 bucket, expose it on a
-public domain, and repoint `Report::url` at that base (e.g. a `REPORTS_BASE_URL`
-config). Then exclude `dist/storage/reports` from the Pages upload. Do **not**
-recompress audited financial statements to fit the limit.
+**Resolution:** implemented in RC-WEB-002 — see the dedicated section below.
+
+---
+
+## RC-WEB-002 — Report Hosting Resolution
+
+**Status: PASS — Resolved in Code / Pending Infrastructure Deployment.**
+**Commit:** `3b5463a` — *fix(reports): serve report PDFs from configurable REPORTS_BASE_URL (R2)*
+**Scope:** URL generation only. No PDF was moved, compressed, split, or altered. No
+page behaviour, layout, colour, or copy changed — downloads are byte-identical from the
+user's perspective; only the file host changes.
+
+### What changed
+
+A configurable `REPORTS_BASE_URL` now decides where report PDFs are served from. When
+set, `Report::url` emits `REPORTS_BASE_URL + filename` (external object store, e.g.
+Cloudflare R2), so the oversized audited PDFs never enter the 25 MB-limited Pages build.
+When empty, it falls back to the existing local public disk — local development and
+Laravel hosting are unchanged.
+
+### Architecture — before
+
+```
+Report::url
+  → Storage::disk('public')->url($file_path)
+  → /storage/reports/<file>.pdf        (same-origin; 404s on Pages when > 25 MB)
+```
+
+### Architecture — after
+
+```
+Report::url
+  ├─ REPORTS_BASE_URL set  → rtrim(base,'/') . '/' . basename($file_path)
+  │                          → https://reports.awqaf.my/<file>.pdf   (R2 / object store)
+  └─ REPORTS_BASE_URL empty → Storage::disk('public')->url($file_path)
+                             → /storage/reports/<file>.pdf           (local dev / Laravel)
+```
+
+### Example generated URLs
+
+| `REPORTS_BASE_URL` | Generated URL |
+|--------------------|---------------|
+| *(empty — local dev)* | `http://localhost:8080/storage/reports/Annual-Report-AWQAF-2017.pdf` |
+| `https://reports.awqaf.my` | `https://reports.awqaf.my/Annual-Report-AWQAF-2017.pdf` |
+| `https://<bucket>.r2.dev` | `https://<bucket>.r2.dev/Annual-Report-AWQAF-2017.pdf` |
+| `https://x.r2.dev/` *(trailing slash)* | `https://x.r2.dev/Annual-Report-AWQAF-2015.pdf` *(no double slash)* |
+
+### Files changed
+
+| File | Change |
+|------|--------|
+| `config/services.php` | Added `services.reports.base_url = env('REPORTS_BASE_URL')`. |
+| `app/Models/Report.php` | `url` accessor uses `base_url` when `filled()`, else the public-disk fallback. |
+| `.env.example` | Documents `REPORTS_BASE_URL` (empty by default). |
+
+### Verification (RC-WEB-002)
+
+- ✅ **`REPORTS_BASE_URL` added** — config key + documented env var; read via `config()`
+  (not `env()` in the model), so it is `config:cache`-safe.
+- ✅ **Local fallback preserved** — with the var empty, `site:export` bakes the identical
+  `/storage/reports/*.pdf` links (20 refs); `ops/link-check.py` → 0 broken, 0 missing.
+- ✅ **Production R2 mode verified** — `REPORTS_BASE_URL=https://reports.awqaf.my` export
+  produced **20 R2 URLs and 0 residual `/storage/reports` references**; trailing-slash
+  base does not double-slash; link check clean.
+- ✅ **Zero visual changes** — no template, layout, colour, or copy touched; the change is
+  confined to URL string generation.
+- ✅ **Zero regression** — full suite unchanged: **35 passed**. The 3 non-passing tests
+  (`CorporateQaTest`, `PortfolioProgrammeTest`) are **pre-existing content assertions**
+  (education consultancy activity, CURVES/Infaq placement, property verification status)
+  from earlier approved content refinements.
+- ✅ **Existing failing tests confirmed unrelated** — none reference `Report`, `url`, or
+  `REPORTS_BASE_URL`; with this change **stashed**, the same 3 tests fail identically
+  (2 failed + 1 error), proving they pre-date and are independent of this fix.
+
+### Deployment checklist — Cloudflare R2
+
+1. **Create the R2 bucket** (Cloudflare dashboard → R2 → *Create bucket*), e.g.
+   `awqaf-reports`.
+2. **Upload the report PDFs** to the bucket **root**, filenames unchanged
+   (`Annual-Report-AWQAF-2017.pdf`, `Audited-financial-statement-2021.pdf`, …). The
+   URL scheme is `base + '/' + basename`, so PDFs must sit at the bucket root, not under
+   a `reports/` prefix. Source files: `storage/app/public/reports/*` (20 files).
+3. **Expose the bucket publicly** — either enable the managed **`r2.dev`** subdomain
+   (gives `https://<bucket>.r2.dev`) or, preferred for production, connect a **custom
+   domain** such as `reports.awqaf.my` (R2 → bucket → *Settings → Custom Domains*;
+   Cloudflare provisions the DNS + TLS automatically).
+4. **Set `REPORTS_BASE_URL`** in the build/export environment to that base **with no
+   trailing path and no trailing slash needed**, e.g. `REPORTS_BASE_URL=https://reports.awqaf.my`.
+5. **Re-run the static export** (`php artisan site:export --base=https://awqaf.my`) so the
+   Reports page bakes the R2 URLs. Confirm: `grep -c reports.awqaf.my dist/korporat/laporan-tahunan/index.html`
+   → 20, and `grep -c 'storage/reports' …` → 0.
+6. **Exclude local report copies from the Pages upload** — do **not** ship
+   `dist/storage/reports` (they are now served from R2 and would re-trip the 25 MB limit).
+   Add an ignore/prune step for `dist/storage/reports` in the Pages deploy, or omit that
+   path from the upload set.
+7. **Set CORS on the bucket if inline PDF viewing is used** — for plain download links
+   (current behaviour) this is not required; add a permissive `GET` CORS rule only if a
+   future embedded viewer fetches cross-origin.
+8. **Verify in the Pages preview** — open the Reports page, confirm each of the 20
+   downloads resolves (HTTP 200) from the R2 host, including the six previously oversized
+   files. Then complete the M-3 Performance re-measure.
+
+**Do not** compress, split, or otherwise alter the audited PDFs at any step.
 
 ---
 
@@ -156,17 +267,19 @@ missing assets, no junk in `dist/`, no mixed content.
 
 ## GO / NO-GO
 
-**NO-GO for an immediate Cloudflare Pages launch as-is**, on the strength of Critical
-C-1 alone (six report downloads would 404).
+**Conditional GO.** The Critical (C-1) is **resolved in code** (`3b5463a`); no code
+defect blocks launch. The only remaining C-1 work is operational — provision R2 and set
+`REPORTS_BASE_URL` per the deployment checklist above.
 
 **Path to GO (small and well-defined):**
-1. **C-1** — move report PDFs to R2 and repoint `Report::url`; exclude
-   `dist/storage/reports` from the Pages upload. *(Blocking.)*
+1. **C-1 (code ✅ done)** — execute the R2 deployment checklist: upload PDFs, expose the
+   bucket, set `REPORTS_BASE_URL`, re-export, exclude `dist/storage/reports` from the
+   Pages upload, verify the 20 downloads in the preview. *(Infrastructure, not code.)*
 2. **M-3** — re-measure Lighthouse Performance on the Pages preview; confirm > 95. *(Gate.)*
 3. **M-2** — product decision: accept A11y 96, or authorise a scoped contrast exception.
 4. Optional pre-launch polish: web manifest + icons (M-1), CSP/HSTS (M-4), self-host
    font, skip-link.
 
-Everything outside C-1 is either a deploy-time verification, a documented constraint
+Everything remaining is either a deploy-time verification, a documented constraint
 conflict, or minor polish. The site content, structure, links, SEO, responsiveness, and
-runtime health are **launch-ready**.
+runtime health are **launch-ready**, and the report-hosting architecture is **code-complete**.
