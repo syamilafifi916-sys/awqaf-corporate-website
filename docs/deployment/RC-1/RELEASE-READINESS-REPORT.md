@@ -88,10 +88,15 @@ user's perspective; only the file host changes.
 ### What changed
 
 A configurable `REPORTS_BASE_URL` now decides where report PDFs are served from. When
-set, `Report::url` emits `REPORTS_BASE_URL + filename` (external object store, e.g.
-Cloudflare R2), so the oversized audited PDFs never enter the 25 MB-limited Pages build.
-When empty, it falls back to the existing local public disk — local development and
-Laravel hosting are unchanged.
+set, `Report::url` emits `REPORTS_BASE_URL + filename` (external host), so the oversized
+audited PDFs never enter the 25 MB-limited Pages build. When empty, it falls back to the
+existing local public disk — local development and Laravel hosting are unchanged.
+
+> **Chosen host (RC-WEB-003): GitHub Release Assets** — hosts the site fully free
+> (Cloudflare Pages + GitHub Releases), no paid object storage, no custom DNS. Same
+> `REPORTS_BASE_URL` mechanism; base = `https://github.com/<ORG>/<REPO>/releases/download/reports-v1`.
+> See [GITHUB-RELEASES-DEPLOYMENT.md](GITHUB-RELEASES-DEPLOYMENT.md). Cloudflare R2
+> ([R2-DEPLOYMENT.md](R2-DEPLOYMENT.md)) is retained as a paid alternative.
 
 ### Architecture — before
 

@@ -1,5 +1,11 @@
 # R2 Deployment Runbook — Transparency Centre Report PDFs
 
+> **SUPERSEDED (RC-WEB-003):** the chosen production strategy is now **GitHub Release
+> Assets** — see [GITHUB-RELEASES-DEPLOYMENT.md](GITHUB-RELEASES-DEPLOYMENT.md) — which
+> hosts the corporate site fully free (Cloudflare Pages + GitHub Releases) with no paid
+> object storage and no custom DNS. This R2 runbook is retained as a **paid/alternative
+> option**. Both use the same `REPORTS_BASE_URL` mechanism; only the base URL differs.
+
 **Project:** AWQAF Corporate Website · **Branch:** `release/corporate-static-v1`
 **Role:** Deployment Engineer · **Date:** 2026-07-24
 **Depends on:** RC-WEB-002 (`3b5463a`) — `REPORTS_BASE_URL` support in `Report::url`.
