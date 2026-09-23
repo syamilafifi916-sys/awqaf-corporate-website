@@ -48,8 +48,8 @@ it('labels property projects with an explicit verification status', function () 
 });
 
 it('includes an education consultancy activity under the education portfolio', function () {
-    $education = collect(require resource_path('data/portfolios.php'));
-    $activityNames = collect($education->firstWhere('slug', 'pendidikan')['activities'])->pluck('name');
+    $education = collect(require resource_path('data/portfolios.php'))->firstWhere('slug', 'pendidikan');
+    $activityNames = collect($education['activities'])->pluck('name');
 
     expect($activityNames)->toContain('Perundingan pendidikan');
 });
