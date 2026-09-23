@@ -14,6 +14,19 @@ it('serves the Corporate Information page', function () {
     get('/korporat/maklumat-korporat')->assertOk();
 });
 
+it('permanently redirects verified legacy informational URLs', function (string $legacyPath, string $targetRoute) {
+    get($legacyPath)
+        ->assertStatus(301)
+        ->assertRedirect(route($targetRoute));
+})->with([
+    ['/info-awqaf/pengenalan-awqaf/maklumat-korporat/pengasas-awqaf', 'korporat.founder'],
+    ['/info-awqaf/pengenalan-awqaf/kenyataan-korporat', 'korporat.overview'],
+    ['/hubungan-pihak-berkepentingan/taklimat-pelaburpihak-berkepentingan/tadbir-urus-korporat', 'ketelusan'],
+    ['/hubungan-pihak-berkepentingan/laporan/info-kewangan', 'korporat.reports'],
+    ['/portal-pewaqif/hubungi-kami', 'hubungi'],
+    ['/ahli-lembaga-pengarah-2025', 'korporat.leadership.index'],
+]);
+
 it('keeps the Berita route available even though it is unlinked from navigation', function () {
     // Content/route retained; only removed from nav, homepage and corporate page.
     get('/berita')->assertOk();
@@ -35,8 +48,8 @@ it('labels property projects with an explicit verification status', function () 
 });
 
 it('includes an education consultancy activity under the education portfolio', function () {
-    $education = collect(require resource_path('data/portfolios.php'))->firstWhere('slug', 'pendidikan');
-    $activityNames = collect($education['activities'])->pluck('name');
+    $education = collect(require resource_path('data/portfolios.php'));
+    $activityNames = collect($education->firstWhere('slug', 'pendidikan')['activities'])->pluck('name');
 
     expect($activityNames)->toContain('Perundingan pendidikan');
 });
