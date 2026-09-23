@@ -4,6 +4,12 @@
 /info-awqaf/ciri-ciri-waqaf-korporat   /wakaf/wakaf-korporat               301
 /info-awqaf/kaedah-berwakaf            /wakaf/kaedah-berwakaf              301
 /info-awqaf/kategori-pewakaf           /wakaf/kategori-pewakaf             301
+/info-awqaf/pengenalan-awqaf/maklumat-korporat/pengasas-awqaf  /korporat/pengasas          301
+/info-awqaf/pengenalan-awqaf/kenyataan-korporat                 /korporat/maklumat-korporat 301
+/hubungan-pihak-berkepentingan/taklimat-pelaburpihak-berkepentingan/tadbir-urus-korporat /ketelusan                 301
+/hubungan-pihak-berkepentingan/laporan/info-kewangan            /korporat/laporan-tahunan   301
+/portal-pewaqif/hubungi-kami                                    /hubungi                    301
+/ahli-lembaga-pengarah-2025                                     /korporat/lembaga-pengarah  301
 # Legacy programme slugs → new locations (301).
 /program/zuriatcare                    /program/yayasan-zuriatcare         301
 /program/curves                        /portfolio/kesihatan-kesejahteraan  301

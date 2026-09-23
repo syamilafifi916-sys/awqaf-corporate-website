@@ -14,6 +14,19 @@ it('serves the Corporate Information page', function () {
     get('/korporat/maklumat-korporat')->assertOk();
 });
 
+it('permanently redirects verified legacy informational URLs', function (string $legacyPath, string $targetRoute) {
+    get($legacyPath)
+        ->assertStatus(301)
+        ->assertRedirect(route($targetRoute));
+})->with([
+    ['/info-awqaf/pengenalan-awqaf/maklumat-korporat/pengasas-awqaf', 'korporat.founder'],
+    ['/info-awqaf/pengenalan-awqaf/kenyataan-korporat', 'korporat.overview'],
+    ['/hubungan-pihak-berkepentingan/taklimat-pelaburpihak-berkepentingan/tadbir-urus-korporat', 'ketelusan'],
+    ['/hubungan-pihak-berkepentingan/laporan/info-kewangan', 'korporat.reports'],
+    ['/portal-pewaqif/hubungi-kami', 'hubungi'],
+    ['/ahli-lembaga-pengarah-2025', 'korporat.leadership.index'],
+]);
+
 it('keeps the Berita route available even though it is unlinked from navigation', function () {
     // Content/route retained; only removed from nav, homepage and corporate page.
     get('/berita')->assertOk();
@@ -27,18 +40,18 @@ it('gives every portfolio a contribution-to-objectives statement', function () {
     });
 });
 
-it('labels property projects with an explicit verification status', function () {
+it('does not publish unverified property projects', function () {
     $property = collect(require resource_path('data/portfolios.php'))->firstWhere('slug', 'hartanah');
 
-    expect($property['status_legend'])->toContain('Cadangan / tertakluk pengesahan');
-    expect($property['projects'][0]['status'])->toBe('Cadangan / tertakluk pengesahan');
+    expect($property['status_legend'])->toBeNull();
+    expect($property['projects'])->toBeEmpty();
 });
 
-it('includes an education consultancy activity under the education portfolio', function () {
+it('includes the approved strategic education partnership activity', function () {
     $education = collect(require resource_path('data/portfolios.php'))->firstWhere('slug', 'pendidikan');
     $activityNames = collect($education['activities'])->pluck('name');
 
-    expect($activityNames)->toContain('Perundingan pendidikan');
+    expect($activityNames)->toContain('Perkongsian strategik dalam pendidikan');
 });
 
 it('does not fabricate a Facebook link for CURVES Bangi Sentral', function () {
