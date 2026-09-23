@@ -40,18 +40,18 @@ it('gives every portfolio a contribution-to-objectives statement', function () {
     });
 });
 
-it('labels property projects with an explicit verification status', function () {
+it('does not publish unverified property projects', function () {
     $property = collect(require resource_path('data/portfolios.php'))->firstWhere('slug', 'hartanah');
 
-    expect($property['status_legend'])->toContain('Cadangan / tertakluk pengesahan');
-    expect($property['projects'][0]['status'])->toBe('Cadangan / tertakluk pengesahan');
+    expect($property['status_legend'])->toBeNull();
+    expect($property['projects'])->toBeEmpty();
 });
 
-it('includes an education consultancy activity under the education portfolio', function () {
+it('includes the approved strategic education partnership activity', function () {
     $education = collect(require resource_path('data/portfolios.php'))->firstWhere('slug', 'pendidikan');
     $activityNames = collect($education['activities'])->pluck('name');
 
-    expect($activityNames)->toContain('Perundingan pendidikan');
+    expect($activityNames)->toContain('Perkongsian strategik dalam pendidikan');
 });
 
 it('does not fabricate a Facebook link for CURVES Bangi Sentral', function () {
