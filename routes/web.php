@@ -152,7 +152,7 @@ Route::get('/korporat/lembaga-pengarah/{slug}', [\App\Http\Controllers\Leadershi
 Route::get('/korporat/laporan-tahunan', function () {
     Seo::set([
         'title' => 'Laporan Tahunan & Penyata Kewangan — AWQAF Holdings Berhad',
-        'description' => 'Muat turun Laporan Tahunan dan Penyata Kewangan Diaudit AWQAF Holdings Berhad bagi tahun 2015 hingga 2023.',
+        'description' => 'Muat turun Laporan Tahunan dan Penyata Kewangan Diaudit AWQAF Holdings Berhad bagi tahun 2015 hingga 2024.',
     ]);
 
     $reports = Report::orderByDesc('year')->get()->groupBy('year')->map(function ($group) {
@@ -195,6 +195,18 @@ Route::get('/sitemap.xml', function () {
         ->add(Url::create(route('hubungi'))->setPriority(0.5))
         ->add(Url::create(route('korporat.reports'))->setPriority(0.5));
 
+    $leadership = require resource_path('data/leadership.php');
+    foreach ($leadership as $director) {
+        if (($director['status'] ?? 'active') !== 'active') {
+            continue;
+        }
+
+        $sitemap->add(
+            Url::create(route('korporat.leadership.show', $director['slug']))
+                ->setPriority(0.5)
+        );
+    }
+
     return $sitemap->toResponse(request());
 });
 
@@ -226,6 +238,12 @@ $legacyRedirects = [
     'info-awqaf/ciri-ciri-waqaf-korporat' => 'waqaf.corporate',
     'info-awqaf/kaedah-berwakaf' => 'waqaf.howto',
     'info-awqaf/kategori-pewakaf' => 'waqaf.categories',
+    'info-awqaf/pengenalan-awqaf/maklumat-korporat/pengasas-awqaf' => 'korporat.founder',
+    'info-awqaf/pengenalan-awqaf/kenyataan-korporat' => 'korporat.overview',
+    'hubungan-pihak-berkepentingan/taklimat-pelaburpihak-berkepentingan/tadbir-urus-korporat' => 'ketelusan',
+    'hubungan-pihak-berkepentingan/laporan/info-kewangan' => 'korporat.reports',
+    'portal-pewaqif/hubungi-kami' => 'hubungi',
+    'ahli-lembaga-pengarah-2025' => 'korporat.leadership.index',
 ];
 foreach ($legacyRedirects as $old => $routeName) {
     Route::get('/'.$old, fn () => redirect()->route($routeName, [], 301));
