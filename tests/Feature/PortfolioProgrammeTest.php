@@ -38,14 +38,14 @@ it('does not expose CURVES or Infaq as welfare programmes', function () {
         ->and($programmes)->toHaveCount(3);
 });
 
-it('places CURVES under the health portfolio and Infaq under fintech', function () {
+it('places CURVES under health and the digital infaq platform under fintech', function () {
     $portfolios = collect(require resource_path('data/portfolios.php'))->keyBy('slug');
 
     $healthUnits = collect($portfolios['kesihatan-kesejahteraan']['units'])->pluck('name');
     $fintechUnits = collect($portfolios['fintech']['units'])->pluck('name');
 
     expect($healthUnits)->toContain('CURVES')
-        ->and($fintechUnits)->toContain('Infaq');
+        ->and($fintechUnits)->toContain('Platform Infaq Digital');
 });
 
 it('redirects legacy programme slugs to their new homes', function () {
