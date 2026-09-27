@@ -75,7 +75,7 @@ const pillars = [
 
     <PublicLayout>
         <!-- ═══ M0 · IDEA ═══ -->
-        <section class="relative isolate flex min-h-[92vh] flex-col overflow-hidden bg-slate-950 lg:min-h-screen">
+        <section class="relative isolate flex min-h-[92vh] flex-col overflow-hidden bg-slate-950 lg:min-h-[calc(100vh-4.5rem)]">
             <picture class="pointer-events-none absolute inset-0 -z-10 block">
                 <source
                     type="image/webp"
@@ -95,22 +95,22 @@ const pillars = [
             </picture>
             <div
                 class="pointer-events-none absolute inset-0 -z-10 hidden md:block"
-                style="background: linear-gradient(90deg, rgba(6,9,20,.94) 0%, rgba(6,9,20,.88) 38%, rgba(6,9,20,.5) 68%, rgba(6,9,20,.22) 100%);"
+                style="background: linear-gradient(90deg, rgba(6,9,20,.96) 0%, rgba(6,9,20,.91) 36%, rgba(6,9,20,.58) 62%, rgba(6,9,20,.28) 100%);"
             ></div>
             <div
                 class="pointer-events-none absolute inset-0 -z-10 md:hidden"
                 style="background: linear-gradient(180deg, rgba(6,9,20,.92) 0%, rgba(6,9,20,.74) 52%, rgba(6,9,20,.9) 100%);"
             ></div>
 
-            <div class="relative mx-auto flex w-full max-w-7xl flex-1 items-center px-6 py-28 lg:px-8">
-                <div class="max-w-3xl">
+            <div class="relative mx-auto flex w-full max-w-7xl flex-1 items-center px-6 py-20 lg:px-8 lg:py-24">
+                <div class="max-w-[46rem]">
                     <p class="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-400">AWQAF Holdings Berhad</p>
-                    <h1 class="mt-8 text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-6xl lg:text-7xl">
+                    <h1 class="mt-7 text-4xl font-bold leading-[1.06] tracking-tight text-white sm:text-6xl lg:text-[4rem] xl:text-[4.35rem]">
                         <span class="block">Membina Ekonomi.</span>
                         <span class="block">Memakmurkan Ummah.</span>
                         <span class="block text-emerald-400">Mewariskan Masa Depan.</span>
                     </h1>
-                    <p class="mt-8 max-w-xl text-lg leading-relaxed text-slate-300">
+                    <p class="mt-7 max-w-[40rem] text-base leading-relaxed text-slate-300 sm:text-lg">
                         Sebuah tamadun yang makmur tidak dibina oleh kekayaan semata-mata, tetapi oleh bagaimana
                         kekayaan diurus dengan amanah demi manfaat generasi yang akan datang.
                     </p>
