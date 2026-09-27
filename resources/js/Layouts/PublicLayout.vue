@@ -140,9 +140,9 @@ onBeforeUnmount(() => {
 <template>
     <div class="min-h-screen bg-white text-slate-800">
         <header class="sticky top-0 z-40 border-b border-slate-100 bg-white/90 backdrop-blur">
-            <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+            <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-8">
                 <Link href="/" class="flex items-center" aria-label="AWQAF Holdings Berhad — Laman Utama">
-                    <img src="/images/brand/awqaf-symbol.png" alt="AWQAF Holdings Berhad" class="h-9 w-auto sm:h-11" />
+                    <img src="/images/brand/awqaf-symbol.png" alt="AWQAF Holdings Berhad" class="h-11 w-auto sm:h-12" />
                 </Link>
 
                 <nav class="hidden items-center gap-0.5 lg:flex" aria-label="Navigasi utama">
@@ -209,13 +209,6 @@ onBeforeUnmount(() => {
                     >
                         Portal Pewakaf
                     </a>
-                    <span
-                        v-else
-                        class="hidden whitespace-nowrap rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-400 xl:inline-flex"
-                        title="Portal Keahlian sedang dalam persediaan"
-                    >
-                        Portal · Akan Dibuka
-                    </span>
 
                     <button
                         ref="menuToggle"
