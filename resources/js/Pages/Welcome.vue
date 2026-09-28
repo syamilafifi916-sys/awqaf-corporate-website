@@ -109,7 +109,7 @@ const pillars = [
             </video>
             <div
                 class="pointer-events-none absolute inset-0 -z-10 hidden md:block"
-                style="background: linear-gradient(90deg, rgba(6,9,20,.96) 0%, rgba(6,9,20,.91) 36%, rgba(6,9,20,.58) 62%, rgba(6,9,20,.28) 100%);"
+                style="background: linear-gradient(90deg, rgba(6,9,20,.98) 0%, rgba(6,9,20,.94) 38%, rgba(6,9,20,.66) 64%, rgba(6,9,20,.30) 100%);"
             ></div>
             <div
                 class="pointer-events-none absolute inset-0 -z-10 md:hidden"
@@ -117,14 +117,14 @@ const pillars = [
             ></div>
 
             <div class="relative mx-auto flex w-full max-w-7xl flex-1 items-center px-6 py-20 lg:px-8 lg:py-24">
-                <div class="max-w-[46rem]">
+                <div class="max-w-[54rem]">
                     <p class="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-400">AWQAF Holdings Berhad</p>
-                    <h1 class="mt-7 text-4xl font-bold leading-[1.06] tracking-tight text-white sm:text-6xl lg:text-[4rem] xl:text-[4.35rem]">
+                    <h1 class="mt-7 text-4xl font-bold leading-[1.04] tracking-[-0.025em] text-white sm:text-6xl lg:text-[3.65rem] xl:text-[4rem]">
                         <span class="block">Membina Ekonomi.</span>
                         <span class="block">Memakmurkan Ummah.</span>
-                        <span class="block text-emerald-400">Mewariskan Masa Depan.</span>
+                        <span class="block whitespace-nowrap text-emerald-400">Mewariskan Masa Depan.</span>
                     </h1>
-                    <p class="mt-7 max-w-[40rem] text-base leading-relaxed text-slate-300 sm:text-lg">
+                    <p class="mt-7 max-w-[39rem] text-base leading-[1.7] text-slate-200 sm:text-lg">
                         Sebuah tamadun yang makmur tidak dibina oleh kekayaan semata-mata, tetapi oleh bagaimana
                         kekayaan diurus dengan amanah demi manfaat generasi yang akan datang.
                     </p>
