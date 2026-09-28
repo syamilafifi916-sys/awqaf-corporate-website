@@ -3,6 +3,13 @@ import { Link, router, usePage } from '@inertiajs/vue3';
 import { ChevronDownIcon } from '@heroicons/vue/20/solid';
 import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue';
 
+const agmNoticeOpen = ref(false);
+const AGM_NOTICE_KEY = 'awqaf-agm-2026-notice-v1';
+const dismissAgmNotice = () => {
+    agmNoticeOpen.value = false;
+    try { localStorage.setItem(AGM_NOTICE_KEY, 'dismissed'); } catch (_) {}
+};
+
 const page = usePage();
 
 // ── Primary navigation (Refinement Pass) ─────────────────────────────
@@ -125,6 +132,7 @@ const toggleMobile = () => (mobileOpen.value ? closeMobile() : openMobile());
 
 let stopNavigate;
 onMounted(() => {
+    try { agmNoticeOpen.value = localStorage.getItem(AGM_NOTICE_KEY) !== 'dismissed'; } catch (_) { agmNoticeOpen.value = true; }
     stopNavigate = router.on('start', () => {
         if (mobileOpen.value) closeMobile();
         openLabel.value = null;
@@ -139,6 +147,12 @@ onBeforeUnmount(() => {
 
 <template>
     <div class="min-h-screen bg-white text-slate-800">
+        <div class="relative z-40 bg-emerald-700 px-6 py-2.5 text-white">
+            <div class="mx-auto flex max-w-7xl items-center justify-center gap-3 text-center text-sm">
+                <span class="font-medium">Notis AGM 2026</span>
+                <Link :href="route('agm')" class="font-semibold underline decoration-emerald-300 underline-offset-4 hover:text-emerald-100">Lihat maklumat & dokumen →</Link>
+            </div>
+        </div>
         <header class="sticky top-0 z-40 border-b border-slate-100 bg-white/90 backdrop-blur">
             <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
                 <Link href="/" class="flex items-center" aria-label="AWQAF Holdings Berhad — Laman Utama">
@@ -236,6 +250,23 @@ onBeforeUnmount(() => {
                 </div>
             </div>
         </header>
+
+        <Transition enter-active-class="transition duration-200" enter-from-class="opacity-0" enter-to-class="opacity-100" leave-active-class="transition duration-150" leave-from-class="opacity-100" leave-to-class="opacity-0">
+            <div v-if="agmNoticeOpen" class="fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/60 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="agm-notice-title" @click.self="dismissAgmNotice">
+                <div class="relative w-full max-w-lg overflow-hidden rounded-3xl bg-white shadow-2xl">
+                    <div class="h-1.5 bg-emerald-600"></div>
+                    <button type="button" class="absolute right-4 top-5 rounded-full p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500" aria-label="Tutup notis AGM" @click="dismissAgmNotice">✕</button>
+                    <div class="p-7 sm:p-9">
+                        <p class="text-xs font-bold uppercase tracking-[.2em] text-emerald-700">Pemakluman Rasmi Ahli</p>
+                        <h2 id="agm-notice-title" class="mt-4 pr-8 text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">Mesyuarat Agung Tahunan AWQAF 2026</h2>
+                        <p class="mt-4 leading-7 text-slate-600">Maklumat dan dokumen rasmi berkaitan Mesyuarat Agung Tahunan AWQAF Holdings Berhad akan diterbitkan melalui pusat AGM.</p>
+                        <p class="mt-3 text-sm text-slate-500">Butiran tarikh, masa dan tempat akan dikemas kini selepas pengesahan rasmi.</p>
+                        <Link :href="route('agm')" class="mt-7 inline-flex w-full items-center justify-center rounded-xl bg-emerald-600 px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2" @click="dismissAgmNotice">Lihat Maklumat & Dokumen AGM</Link>
+                        <button type="button" class="mt-3 w-full py-2 text-sm font-medium text-slate-500 hover:text-slate-800" @click="dismissAgmNotice">Tutup</button>
+                    </div>
+                </div>
+            </div>
+        </Transition>
 
         <!-- Mobile navigation drawer -->
         <Transition
