@@ -10,7 +10,7 @@ return new class extends Migration {
    $t->unsignedInteger('sent_count')->default(0); $t->unsignedInteger('delivered_count')->default(0);
    $t->unsignedInteger('read_count')->default(0); $t->unsignedInteger('failed_count')->default(0);
    $t->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete(); $t->timestamp('scheduled_at')->nullable();
-   $t->timestamp('started_at')->nullable(); $t->timestamp('completed_at')->nullable(); $t->timestamps();
+   $t->timestamp('test_sent_at')->nullable(); $t->timestamp('started_at')->nullable(); $t->timestamp('completed_at')->nullable(); $t->timestamps();
   });
   Schema::create('whatsapp_recipients', function (Blueprint $t) {
    $t->id(); $t->foreignId('campaign_id')->constrained('whatsapp_campaigns')->cascadeOnDelete();
