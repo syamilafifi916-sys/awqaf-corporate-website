@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
+use App\Http\Controllers\WhatsAppWebhookController;
+
+Route::get('/webhooks/whatsapp', [WhatsAppWebhookController::class, 'verify'])->name('webhooks.whatsapp.verify');
+Route::post('/webhooks/whatsapp', [WhatsAppWebhookController::class, 'receive'])->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class])->name('webhooks.whatsapp.receive');
 
 Route::get('/', function () {
     $homepage = HomepageSetting::query()
