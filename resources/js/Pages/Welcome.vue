@@ -153,7 +153,7 @@ const pillars = [
             <div class="relative mx-auto flex w-full max-w-7xl flex-1 items-center px-6 py-16 sm:py-14 lg:px-8 lg:py-16">
                 <div class="max-w-[56rem]">
                     <p class="flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.28em] text-emerald-400 sm:text-sm"><span>{{ homepage.eyebrow }}</span><span class="hidden h-px w-12 bg-white/50 sm:block" aria-hidden="true"></span></p>
-                    <h1 class="mt-7 text-[2.7rem] font-bold leading-[1.02] tracking-[-0.035em] text-white sm:text-6xl lg:text-[3.8rem] xl:text-[4.2rem]">
+                    <h1 class="mt-6 text-[2.5rem] font-extrabold leading-[1.02] tracking-[-0.045em] text-white sm:text-5xl lg:text-[3.45rem] xl:text-[3.8rem]">
                         <span class="block">{{ homepage.headline_line_1 }}</span>
                         <span class="block">{{ homepage.headline_line_2 }}</span>
                         <span class="block text-emerald-400 sm:whitespace-nowrap">{{ homepage.headline_line_3 }}</span>
@@ -162,10 +162,10 @@ const pillars = [
                         {{ homepage.hero_description }}
                     </p>
                     <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-                        <Link :href="route('waqaf.howto')" class="inline-flex min-h-14 items-center justify-center gap-3 rounded-xl bg-emerald-500 px-7 py-3.5 text-sm font-semibold text-slate-950 shadow-xl shadow-slate-950/20 transition hover:-translate-y-0.5 hover:bg-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+                        <Link :href="route('waqaf.howto')" class="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-lg bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-xl shadow-slate-950/20 transition hover:-translate-y-0.5 hover:bg-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
                             Berwakaf Sekarang <ArrowRightIcon class="h-4 w-4" />
                         </Link>
-                        <Link :href="route('korporat.overview')" class="inline-flex min-h-14 items-center justify-center gap-3 rounded-xl border border-white/50 bg-slate-950/20 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition hover:-translate-y-0.5 hover:border-white/80 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+                        <Link :href="route('korporat.overview')" class="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-lg border border-white/40 bg-slate-950/20 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition hover:-translate-y-0.5 hover:border-white/80 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
                             Kenali AWQAF <ArrowRightIcon class="h-4 w-4" />
                         </Link>
                     </div>
@@ -452,7 +452,7 @@ const pillars = [
                 </div>
 
                 <div v-reveal class="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <div class="rounded-xl bg-emerald-700 p-5 sm:p-6">
+                    <div class="rounded-2xl bg-gradient-to-br from-emerald-700 to-emerald-800 p-5 shadow-[0_16px_40px_rgba(6,78,59,0.14)] sm:p-6">
                         <h3 class="text-xl font-bold text-white">Bina bersama AWQAF</h3>
                         <p class="mt-3 text-sm leading-relaxed text-emerald-50">
                             Sertai sebagai pewakaf dan pilih kaedah berwakaf kepada AWQAF Holdings Berhad.
@@ -461,7 +461,7 @@ const pillars = [
                             Lihat Kaedah Berwakaf <ArrowRightIcon class="h-4 w-4" />
                         </Link>
                     </div>
-                    <div class="rounded-xl border border-slate-200 p-5 sm:p-6">
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50/70 p-5 sm:p-6">
                         <h3 class="text-xl font-bold text-slate-900">Portal Pewakaf</h3>
                         <p class="mt-3 text-sm leading-relaxed text-slate-500">
                             Untuk pewakaf sedia ada mengakses akaun, rekod wakaf, resit dan dokumen keahlian.
