@@ -185,7 +185,7 @@ const pillars = [
         <section class="border-b border-slate-200 bg-white" aria-label="Ringkasan ketelusan AWQAF">
             <div class="mx-auto grid max-w-7xl grid-cols-1 divide-y divide-slate-100 px-6 sm:grid-cols-3 sm:divide-x sm:divide-y-0 lg:px-8">
                 <div v-for="fact in facts" :key="`hero-${fact.label}`" class="py-7 sm:px-8 sm:first:pl-0 sm:last:pr-0 lg:py-8">
-                    <p class="text-xl font-bold tracking-[-0.03em] text-slate-950 lg:text-2xl">{{ fact.value }}</p>
+                    <p class="text-lg font-bold sm:text-xl tracking-[-0.03em] text-slate-950 lg:text-2xl">{{ fact.value }}</p>
                     <p class="mt-1.5 text-xs font-medium leading-5 text-slate-500 sm:text-sm">{{ fact.label }}</p>
                 </div>
             </div>
@@ -193,12 +193,12 @@ const pillars = [
 
         <!-- ═══ M1 · PROBLEM ═══ -->
         <section id="refleksi" class="border-b border-white/5 bg-slate-950">
-            <div class="mx-auto max-w-4xl px-6 py-14 lg:px-8 lg:py-16">
-                <p v-reveal class="max-w-3xl text-lg font-medium leading-8 text-slate-300 sm:text-xl">
+            <div class="mx-auto max-w-4xl px-5 py-11 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+                <p v-reveal class="max-w-3xl text-base font-medium leading-7 text-slate-300 sm:text-xl">
                     Ekonomi yang berkembang dengan adil membuka peluang untuk masyarakat belajar, bekerja
                     dan membina kehidupan yang lebih sejahtera.
                 </p>
-                <p v-reveal="'150ms'" class="mt-6 max-w-3xl border-l-2 border-emerald-400 pl-5 text-lg font-semibold leading-8 text-white sm:text-xl">
+                <p v-reveal="'150ms'" class="mt-5 max-w-3xl border-l-2 border-emerald-400 pl-4 text-base font-semibold leading-7 text-white sm:text-xl">
                     Namun apabila kekayaan hanya tertumpu kepada segelintir, jurang semakin melebar — dan
                     manfaat pembangunan tidak lagi dinikmati secara menyeluruh.
                 </p>
@@ -207,7 +207,7 @@ const pillars = [
 
         <!-- ═══ M2 · PHILOSOPHY ═══ -->
         <section class="bg-white">
-            <div class="mx-auto max-w-5xl px-6 py-14 lg:px-8 lg:py-16">
+            <div class="mx-auto max-w-5xl px-5 py-11 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
                 <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Waqaf Korporat</p>
                 <h2 v-reveal="'80ms'" class="mt-3 max-w-3xl text-[1.65rem] font-bold leading-[1.18] tracking-[-0.03em] text-slate-900 sm:text-[2rem]">
                     Waqaf bukan sekadar warisan harta. Ia warisan peluang — sebuah ekonomi yang membolehkan
@@ -244,7 +244,7 @@ const pillars = [
 
         <!-- ═══ M3 · MODEL ═══ -->
         <section class="border-y border-slate-100 bg-slate-50">
-            <div class="mx-auto max-w-5xl px-6 py-14 lg:px-8 lg:py-16">
+            <div class="mx-auto max-w-5xl px-5 py-11 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
                 <div class="max-w-2xl">
                     <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Model</p>
                     <h2 v-reveal="'80ms'" class="mt-3 text-[1.65rem] font-bold tracking-tight text-slate-900 sm:text-3xl">
@@ -272,7 +272,7 @@ const pillars = [
 
         <!-- ═══ M4 · INSTITUTION ═══ -->
         <section class="bg-slate-950">
-            <div class="mx-auto max-w-5xl px-6 py-12 lg:px-8 lg:py-14">
+            <div class="mx-auto max-w-5xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
                 <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">Institusi</p>
                 <h2 v-reveal="'80ms'" class="mt-3 max-w-3xl text-[1.65rem] font-bold leading-tight tracking-tight text-white sm:text-3xl">
                     Institusi yang menterjemahkan falsafah ini menjadi tindakan.
@@ -301,7 +301,7 @@ const pillars = [
 
         <!-- ═══ M5 · WHAT IT BUILDS ═══ -->
         <section class="bg-white">
-            <div class="mx-auto max-w-5xl px-6 py-12 lg:px-8 lg:py-14">
+            <div class="mx-auto max-w-5xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
                 <div class="max-w-2xl">
                     <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Di sebalik model</p>
                     <h2 v-reveal="'80ms'" class="mt-3 text-[1.65rem] font-bold tracking-tight text-slate-900 sm:text-3xl">
@@ -357,7 +357,7 @@ const pillars = [
 
         <!-- ═══ M6 · AMANAH & EVIDENCE ═══ -->
         <section class="bg-slate-950">
-            <div class="mx-auto max-w-6xl px-6 py-12 lg:px-8 lg:py-14">
+            <div class="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
                 <div class="max-w-2xl">
                     <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">Amanah</p>
                     <h2 v-reveal="'80ms'" class="mt-3 text-[1.65rem] font-bold tracking-tight text-white sm:text-3xl">
@@ -395,7 +395,7 @@ const pillars = [
              book-purchase enquiry mailto until a verified purchase URL / WhatsApp exists). -->
         <section class="relative isolate overflow-hidden bg-[#100c08]">
             <div class="section-vignette" aria-hidden="true"></div>
-            <div class="relative mx-auto max-w-6xl px-6 py-12 lg:px-8 lg:py-14">
+            <div class="relative mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
                 <div class="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-9">
                     <!-- Editorial copy — leads the eye -->
                     <div class="lg:col-span-7">
@@ -441,7 +441,7 @@ const pillars = [
 
         <!-- ═══ M8 · INVITATION ═══ -->
         <section class="bg-white">
-            <div class="mx-auto max-w-5xl px-6 py-12 lg:px-8 lg:py-14">
+            <div class="mx-auto max-w-5xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
                 <div class="max-w-2xl">
                     <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Sertai pembinaan</p>
                     <h2 v-reveal="'80ms'" class="mt-3 text-[1.65rem] font-bold tracking-tight text-slate-900 sm:text-3xl">Bina bersama kami.</h2>
@@ -453,7 +453,7 @@ const pillars = [
 
                 <div v-reveal class="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div class="rounded-xl bg-gradient-to-br from-emerald-700 to-emerald-800 p-5 shadow-[0_12px_30px_rgba(6,78,59,0.12)]">
-                        <h3 class="text-xl font-bold text-white">Bina bersama AWQAF</h3>
+                        <h3 class="text-lg font-bold sm:text-xl text-white">Bina bersama AWQAF</h3>
                         <p class="mt-3 text-sm leading-relaxed text-emerald-50">
                             Sertai sebagai pewakaf dan pilih kaedah berwakaf kepada AWQAF Holdings Berhad.
                         </p>
@@ -462,7 +462,7 @@ const pillars = [
                         </Link>
                     </div>
                     <div class="rounded-xl border border-slate-200 bg-slate-50/60 p-5">
-                        <h3 class="text-xl font-bold text-slate-900">Portal Pewakaf</h3>
+                        <h3 class="text-lg font-bold sm:text-xl text-slate-900">Portal Pewakaf</h3>
                         <p class="mt-3 text-sm leading-relaxed text-slate-500">
                             Untuk pewakaf sedia ada mengakses akaun, rekod wakaf, resit dan dokumen keahlian.
                         </p>
