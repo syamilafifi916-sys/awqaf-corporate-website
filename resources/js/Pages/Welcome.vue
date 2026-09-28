@@ -193,12 +193,12 @@ const pillars = [
 
         <!-- ═══ M1 · PROBLEM ═══ -->
         <section id="refleksi" class="border-b border-white/5 bg-slate-950">
-            <div class="mx-auto max-w-4xl px-6 py-24 lg:px-8 lg:py-32">
-                <p v-reveal class="text-2xl font-medium leading-relaxed text-slate-400 sm:text-3xl sm:leading-[1.5]">
+            <div class="mx-auto max-w-4xl px-6 py-20 lg:px-8 lg:py-24">
+                <p v-reveal class="max-w-3xl text-xl font-medium leading-[1.6] text-slate-400 sm:text-2xl sm:leading-[1.55]">
                     Ekonomi yang berkembang dengan adil membuka peluang untuk masyarakat belajar, bekerja
                     dan membina kehidupan yang lebih sejahtera.
                 </p>
-                <p v-reveal="'150ms'" class="mt-10 text-2xl font-semibold leading-relaxed text-white sm:text-3xl sm:leading-[1.5]">
+                <p v-reveal="'150ms'" class="mt-8 max-w-3xl border-l-2 border-emerald-400 pl-6 text-xl font-semibold leading-[1.55] text-white sm:text-2xl sm:leading-[1.5]">
                     Namun apabila kekayaan hanya tertumpu kepada segelintir, jurang semakin melebar — dan
                     manfaat pembangunan tidak lagi dinikmati secara menyeluruh.
                 </p>
