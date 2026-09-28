@@ -109,7 +109,7 @@ const pillars = [
             </video>
             <div
                 class="pointer-events-none absolute inset-0 -z-10 hidden md:block"
-                style="background: linear-gradient(90deg, rgba(6,9,20,.98) 0%, rgba(6,9,20,.94) 38%, rgba(6,9,20,.66) 64%, rgba(6,9,20,.30) 100%);"
+                style="background: linear-gradient(90deg, rgba(6,9,20,.98) 0%, rgba(6,9,20,.95) 34%, rgba(6,9,20,.76) 58%, rgba(6,9,20,.38) 82%, rgba(6,9,20,.22) 100%);"
             ></div>
             <div
                 class="pointer-events-none absolute inset-0 -z-10 md:hidden"
