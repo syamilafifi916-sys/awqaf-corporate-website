@@ -20,7 +20,9 @@ Route::get('/', function () {
         'description' => $homepage?->seo_description
             ?: 'AWQAF Holdings Berhad membangunkan Waqaf Korporat yang telus dan bertadbir urus baik, menyalurkan manfaat berterusan kepada pendidikan, kesihatan dan kebajikan masyarakat.',
         'image' => $homepage?->og_image
-            ? asset('storage/'.$homepage->og_image)
+            ? (str_starts_with($homepage->og_image, 'images/')
+                ? asset($homepage->og_image)
+                : asset('storage/'.$homepage->og_image))
             : null,
     ]);
 
