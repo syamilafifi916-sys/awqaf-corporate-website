@@ -108,7 +108,7 @@ const pillars = [
 
     <PublicLayout>
         <!-- ═══ M0 · IDEA ═══ -->
-        <section class="relative isolate flex min-h-[88vh] flex-col overflow-hidden bg-slate-950 lg:min-h-[calc(100vh-4.5rem)]">
+        <section class="relative isolate flex min-h-[76vh] flex-col overflow-hidden bg-slate-950 lg:min-h-[82vh]">
             <!-- Cinematic hero: poster remains the resilient fallback while the muted
                  video loads. Reduced-motion users keep the static poster. -->
             <picture class="pointer-events-none absolute inset-0 -z-10 block">
@@ -153,7 +153,7 @@ const pillars = [
             <div class="relative mx-auto flex w-full max-w-7xl flex-1 items-center px-5 py-12 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
                 <div class="max-w-[56rem]">
                     <p class="flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.28em] text-emerald-400 sm:text-sm"><span>{{ homepage.eyebrow }}</span><span class="hidden h-px w-12 bg-white/50 sm:block" aria-hidden="true"></span></p>
-                    <h1 class="mt-6 text-[2.5rem] font-extrabold leading-[1.02] tracking-[-0.045em] text-white sm:text-5xl lg:text-[3.45rem] xl:text-[3.8rem]">
+                    <h1 class="mt-6 text-[2.5rem] font-extrabold leading-[1.02] tracking-[-0.045em] text-white sm:text-[2.9rem] lg:text-[3.25rem] xl:text-[3.5rem]">
                         <span class="block">{{ homepage.headline_line_1 }}</span>
                         <span class="block">{{ homepage.headline_line_2 }}</span>
                         <span class="block text-emerald-400 sm:whitespace-nowrap">{{ homepage.headline_line_3 }}</span>
@@ -209,7 +209,7 @@ const pillars = [
         <section class="bg-white">
             <div class="mx-auto max-w-5xl px-6 py-14 lg:px-8 lg:py-16">
                 <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Waqaf Korporat</p>
-                <h2 v-reveal="'80ms'" class="mt-4 max-w-4xl text-2xl font-bold leading-[1.18] tracking-[-0.025em] text-slate-900 sm:text-3xl lg:text-[2.25rem]">
+                <h2 v-reveal="'80ms'" class="mt-4 max-w-4xl text-2xl font-bold leading-[1.18] tracking-[-0.025em] text-slate-900 sm:text-3xl lg:text-[2.1rem]">
                     Waqaf bukan sekadar warisan harta. Ia warisan peluang — sebuah ekonomi yang membolehkan
                     setiap generasi membina masa depannya sendiri.
                 </h2>
