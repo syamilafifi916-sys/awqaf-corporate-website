@@ -209,12 +209,12 @@ const pillars = [
         <section class="bg-white">
             <div class="mx-auto max-w-5xl px-6 py-14 lg:px-8 lg:py-16">
                 <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Waqaf Korporat</p>
-                <h2 v-reveal="'80ms'" class="mt-4 max-w-4xl text-2xl font-bold leading-[1.18] tracking-[-0.025em] text-slate-900 sm:text-3xl lg:text-[2.1rem]">
+                <h2 v-reveal="'80ms'" class="mt-3 max-w-3xl text-2xl font-bold leading-[1.16] tracking-[-0.03em] text-slate-900 sm:text-[2rem]">
                     Waqaf bukan sekadar warisan harta. Ia warisan peluang — sebuah ekonomi yang membolehkan
                     setiap generasi membina masa depannya sendiri.
                 </h2>
 
-                <p v-reveal class="mt-8 max-w-3xl text-lg font-semibold leading-snug tracking-tight text-slate-900 sm:text-xl">
+                <p v-reveal class="mt-6 max-w-3xl text-base font-semibold leading-7 tracking-tight text-slate-900 sm:text-lg">
                     Pertumbuhan ekonomi dan amanah kepada masyarakat tidak seharusnya dipisahkan.
                 </p>
                 <p v-reveal class="mt-6 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
@@ -255,7 +255,7 @@ const pillars = [
                         kesihatan dan masa depan komuniti.
                     </p>
                 </div>
-                <div v-reveal class="mt-7 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-slate-200 bg-slate-200 shadow-sm sm:grid-cols-3">
+                <div v-reveal class="mt-6 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-slate-200 bg-slate-200 sm:grid-cols-3">
                     <div v-for="step in modelFlow" :key="step.n" class="bg-white p-5 transition hover:bg-slate-50 lg:p-5">
                         <span class="text-sm font-semibold tabular-nums text-emerald-700">{{ step.n }}</span>
                         <h3 class="mt-3 text-base font-semibold text-slate-900 lg:text-lg">{{ step.t }}</h3>
@@ -309,13 +309,13 @@ const pillars = [
                     </h2>
                 </div>
 
-                <div class="mt-7 grid grid-cols-1 gap-x-8 gap-y-7 lg:grid-cols-2">
+                <div class="mt-6 grid grid-cols-1 gap-x-8 gap-y-6 lg:grid-cols-2">
                     <!-- Assets built — Portfolio Pelaburan -->
                     <div v-reveal>
                         <p class="text-sm font-semibold text-slate-900">Aset yang dibina <span class="text-slate-400">— Portfolio Pelaburan</span></p>
                         <ul class="mt-4 grid gap-2">
                             <li v-for="p in portfolios" :key="p.slug">
-                                <Link :href="route('portfolio.show', p.slug)" class="group flex items-center justify-between gap-3 rounded-lg border border-slate-200 bg-white p-3 transition hover:border-emerald-200 hover:bg-emerald-50/40">
+                                <Link :href="route('portfolio.show', p.slug)" class="group flex items-center justify-between gap-3 border-b border-slate-200 bg-white px-1 py-3 transition hover:border-emerald-300 hover:bg-slate-50/70">
                                     <span class="flex min-w-0 items-center gap-3">
                                         <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-slate-50 text-emerald-700 ring-1 ring-slate-200 transition group-hover:bg-white group-hover:ring-emerald-200">
                                             <component :is="p.icon" class="h-4 w-4" aria-hidden="true" />
@@ -336,7 +336,7 @@ const pillars = [
                         <p class="text-sm font-semibold text-slate-900">Manfaat yang dikongsi <span class="text-slate-400">— Program &amp; Inisiatif</span></p>
                         <ul class="mt-4 grid gap-2">
                             <li v-for="p in programmes" :key="p.slug">
-                                <Link :href="route('program.show', p.slug)" class="group flex items-center justify-between gap-3 rounded-lg border border-slate-200 bg-white p-3 transition hover:border-emerald-200 hover:bg-emerald-50/40">
+                                <Link :href="route('program.show', p.slug)" class="group flex items-center justify-between gap-3 border-b border-slate-200 bg-white px-1 py-3 transition hover:border-emerald-300 hover:bg-slate-50/70">
                                     <span class="flex min-w-0 items-center gap-3">
                                         <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-slate-50 text-emerald-700 ring-1 ring-slate-200 transition group-hover:bg-white group-hover:ring-emerald-200">
                                             <component :is="p.icon" class="h-4 w-4" aria-hidden="true" />
@@ -452,7 +452,7 @@ const pillars = [
                 </div>
 
                 <div v-reveal class="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <div class="rounded-2xl bg-gradient-to-br from-emerald-700 to-emerald-800 p-5 shadow-[0_16px_40px_rgba(6,78,59,0.14)] sm:p-6">
+                    <div class="rounded-xl bg-gradient-to-br from-emerald-700 to-emerald-800 p-5 shadow-[0_12px_30px_rgba(6,78,59,0.12)]">
                         <h3 class="text-xl font-bold text-white">Bina bersama AWQAF</h3>
                         <p class="mt-3 text-sm leading-relaxed text-emerald-50">
                             Sertai sebagai pewakaf dan pilih kaedah berwakaf kepada AWQAF Holdings Berhad.
@@ -461,7 +461,7 @@ const pillars = [
                             Lihat Kaedah Berwakaf <ArrowRightIcon class="h-4 w-4" />
                         </Link>
                     </div>
-                    <div class="rounded-2xl border border-slate-200 bg-slate-50/70 p-5 sm:p-6">
+                    <div class="rounded-xl border border-slate-200 bg-slate-50/60 p-5">
                         <h3 class="text-xl font-bold text-slate-900">Portal Pewakaf</h3>
                         <p class="mt-3 text-sm leading-relaxed text-slate-500">
                             Untuk pewakaf sedia ada mengakses akaun, rekod wakaf, resit dan dokumen keahlian.
@@ -475,7 +475,7 @@ const pillars = [
                     </div>
                 </div>
 
-                <p v-reveal class="mt-10 border-t border-slate-100 pt-8 text-center text-lg font-semibold tracking-tight text-slate-900 sm:text-xl">
+                <p v-reveal class="mt-8 border-t border-slate-100 pt-6 text-center text-base font-semibold tracking-tight text-slate-900 sm:text-lg">
                     Waqaf membina hari ini. Amanahnya mewarisi selamanya.
                 </p>
             </div>
