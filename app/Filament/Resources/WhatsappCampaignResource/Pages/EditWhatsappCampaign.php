@@ -2,6 +2,8 @@
 namespace App\Filament\Resources\WhatsappCampaignResource\Pages;
 use App\Filament\Resources\WhatsappCampaignResource;
 use App\Services\WhatsApp\RecipientImporter;
+use App\Services\WhatsApp\TestSender;
+use App\Services\WhatsApp\PhoneNormalizer;
 use Filament\Actions;
 use Filament\Forms\Components\FileUpload;
 use Filament\Notifications\Notification;
@@ -20,6 +22,11 @@ class EditWhatsappCampaign extends EditRecord {
       @unlink($path);
       Notification::make()->title('Recipient import completed')->body("Imported: {$stats['imported']} · Duplicates: {$stats['duplicate']} · Suppressed: {$stats['suppressed']} · Invalid: {$stats['invalid']}")->success()->send();
     }),
+   Actions\Action::make('testSend')->label('Test Send')->icon('heroicon-o-paper-airplane')->color('gray')
+    ->visible(fn()=>in_array($this->record->status,['draft','ready'],true))
+    ->form([\Filament\Forms\Components\TextInput::make('phone')->label('Test phone')->tel()->required()->helperText('One test number only. This does not add the number to campaign recipients.')])
+    ->requiresConfirmation()->modalDescription('Send the approved template to this one test number? The official provider must already be enabled.')
+    ->action(function(array $data,TestSender $sender){$sender->send($this->record,$data['phone']);Notification::make()->title('Test message submitted to provider')->success()->send();}),
    Actions\Action::make('markReady')->label('Mark Ready')->color('warning')
     ->requiresConfirmation()->modalDescription('This locks the campaign content for review. It still does not send any WhatsApp messages.')
     ->visible(fn()=>$this->record->status==='draft' && $this->record->recipient_count>0)
