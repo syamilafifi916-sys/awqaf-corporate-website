@@ -156,7 +156,7 @@ const pillars = [
                     <h1 class="mt-7 text-4xl font-bold leading-[1.04] tracking-[-0.025em] text-white sm:text-6xl lg:text-[3.65rem] xl:text-[4rem]">
                         <span class="block">{{ homepage.headline_line_1 }}</span>
                         <span class="block">{{ homepage.headline_line_2 }}</span>
-                        <span class="block whitespace-nowrap text-emerald-400">{{ homepage.headline_line_3 }}</span>
+                        <span class="block text-emerald-400 sm:whitespace-nowrap">{{ homepage.headline_line_3 }}</span>
                     </h1>
                     <p class="mt-7 max-w-[39rem] text-base leading-[1.7] text-slate-200 sm:text-lg">
                         {{ homepage.hero_description }}
