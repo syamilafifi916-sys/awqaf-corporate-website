@@ -2,6 +2,7 @@
 namespace App\Filament\Resources;
 use App\Filament\Resources\WhatsappCampaignResource\Pages;
 use App\Models\WhatsappCampaign;
+use App\Filament\Resources\WhatsappCampaignResource\RelationManagers\RecipientsRelationManager;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -40,6 +41,7 @@ class WhatsappCampaignResource extends Resource {
    Tables\Actions\EditAction::make(),
   ])->bulkActions([]);
  }
+ public static function getRelations(): array { return [RecipientsRelationManager::class]; }
  public static function getPages(): array {
   return ['index'=>Pages\ListWhatsappCampaigns::route('/'),'create'=>Pages\CreateWhatsappCampaign::route('/create'),'edit'=>Pages\EditWhatsappCampaign::route('/{record}/edit')];
  }
