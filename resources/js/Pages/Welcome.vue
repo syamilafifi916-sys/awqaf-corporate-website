@@ -150,7 +150,7 @@ const pillars = [
                 style="background: linear-gradient(180deg, rgba(6,9,20,.92) 0%, rgba(6,9,20,.74) 52%, rgba(6,9,20,.9) 100%);"
             ></div>
 
-            <div class="relative mx-auto flex w-full max-w-7xl flex-1 items-center px-6 py-16 sm:py-14 lg:px-8 lg:py-16">
+            <div class="relative mx-auto flex w-full max-w-7xl flex-1 items-center px-5 py-12 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
                 <div class="max-w-[56rem]">
                     <p class="flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.28em] text-emerald-400 sm:text-sm"><span>{{ homepage.eyebrow }}</span><span class="hidden h-px w-12 bg-white/50 sm:block" aria-hidden="true"></span></p>
                     <h1 class="mt-6 text-[2.5rem] font-extrabold leading-[1.02] tracking-[-0.045em] text-white sm:text-5xl lg:text-[3.45rem] xl:text-[3.8rem]">
@@ -158,10 +158,10 @@ const pillars = [
                         <span class="block">{{ homepage.headline_line_2 }}</span>
                         <span class="block text-emerald-400 sm:whitespace-nowrap">{{ homepage.headline_line_3 }}</span>
                     </h1>
-                    <p class="mt-7 max-w-[42rem] text-base font-medium leading-[1.75] text-white/90 sm:text-lg">
+                    <p class="mt-5 max-w-[39rem] text-[15px] font-medium leading-7 text-white/90 sm:text-base">
                         {{ homepage.hero_description }}
                     </p>
-                    <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+                    <div class="mt-7 flex flex-col gap-2.5 sm:flex-row sm:items-center">
                         <Link :href="route('waqaf.howto')" class="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-lg bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-xl shadow-slate-950/20 transition hover:-translate-y-0.5 hover:bg-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
                             Berwakaf Sekarang <ArrowRightIcon class="h-4 w-4" />
                         </Link>
@@ -185,7 +185,7 @@ const pillars = [
         <section class="border-b border-slate-200 bg-white" aria-label="Ringkasan ketelusan AWQAF">
             <div class="mx-auto grid max-w-7xl grid-cols-1 divide-y divide-slate-100 px-6 sm:grid-cols-3 sm:divide-x sm:divide-y-0 lg:px-8">
                 <div v-for="fact in facts" :key="`hero-${fact.label}`" class="py-7 sm:px-8 sm:first:pl-0 sm:last:pr-0 lg:py-8">
-                    <p class="text-2xl font-semibold tracking-[-0.03em] text-slate-950 lg:text-3xl">{{ fact.value }}</p>
+                    <p class="text-xl font-bold tracking-[-0.03em] text-slate-950 lg:text-2xl">{{ fact.value }}</p>
                     <p class="mt-1.5 text-xs font-medium leading-5 text-slate-500 sm:text-sm">{{ fact.label }}</p>
                 </div>
             </div>
@@ -194,11 +194,11 @@ const pillars = [
         <!-- ═══ M1 · PROBLEM ═══ -->
         <section id="refleksi" class="border-b border-white/5 bg-slate-950">
             <div class="mx-auto max-w-4xl px-6 py-14 lg:px-8 lg:py-16">
-                <p v-reveal class="max-w-3xl text-xl font-medium leading-[1.6] text-slate-400 sm:text-2xl sm:leading-[1.55]">
+                <p v-reveal class="max-w-3xl text-lg font-medium leading-8 text-slate-300 sm:text-xl">
                     Ekonomi yang berkembang dengan adil membuka peluang untuk masyarakat belajar, bekerja
                     dan membina kehidupan yang lebih sejahtera.
                 </p>
-                <p v-reveal="'150ms'" class="mt-8 max-w-3xl border-l-2 border-emerald-400 pl-6 text-xl font-semibold leading-[1.55] text-white sm:text-2xl sm:leading-[1.5]">
+                <p v-reveal="'150ms'" class="mt-6 max-w-3xl border-l-2 border-emerald-400 pl-5 text-lg font-semibold leading-8 text-white sm:text-xl">
                     Namun apabila kekayaan hanya tertumpu kepada segelintir, jurang semakin melebar — dan
                     manfaat pembangunan tidak lagi dinikmati secara menyeluruh.
                 </p>
@@ -228,14 +228,14 @@ const pillars = [
                     generasi akan datang.
                 </p>
 
-                <div class="mt-7 space-y-2 border-t border-slate-100 pt-6">
-                    <p v-reveal class="text-xl leading-snug text-slate-400 sm:text-2xl">
+                <div class="mt-6 grid gap-2 border-t border-slate-100 pt-5 sm:grid-cols-3">
+                    <p v-reveal class="text-base font-medium leading-7 text-slate-500 sm:text-lg">
                         Waqaf bukan sekadar memberi — <span class="font-semibold text-slate-900">ia membina.</span>
                     </p>
-                    <p v-reveal="'100ms'" class="text-xl leading-snug text-slate-400 sm:text-2xl">
+                    <p v-reveal="'100ms'" class="text-base font-medium leading-7 text-slate-500 sm:text-lg">
                         Bukan sekadar membantu — <span class="font-semibold text-slate-900">ia memperkasa.</span>
                     </p>
-                    <p v-reveal="'200ms'" class="max-w-3xl text-xl leading-snug text-slate-400 sm:text-2xl">
+                    <p v-reveal="'200ms'" class="text-base font-medium leading-7 text-slate-500 sm:text-lg">
                         Bukan sekadar mengurus aset — <span class="font-semibold text-slate-900">ia membina ekonomi yang memberi manfaat kepada semua.</span>
                     </p>
                 </div>
@@ -400,7 +400,7 @@ const pillars = [
                     <!-- Editorial copy — leads the eye -->
                     <div class="lg:col-span-7">
                         <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">Warisan Pemikiran</p>
-                        <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
+                        <h2 v-reveal="'80ms'" class="mt-3 text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl">
                             Warisan sebenar bukan sekadar institusi yang dibina,<br class="hidden sm:block" />
                             tetapi pemikiran yang ditinggalkan.
                         </h2>
@@ -432,7 +432,7 @@ const pillars = [
                             height="1402"
                             loading="lazy"
                             decoding="async"
-                            class="book-cover mx-auto block w-full max-w-[360px] rounded-md"
+                            class="book-cover mx-auto block w-full max-w-[320px] rounded-lg shadow-2xl shadow-black/30"
                         />
                     </figure>
                 </div>
@@ -475,7 +475,7 @@ const pillars = [
                     </div>
                 </div>
 
-                <p v-reveal class="mt-14 border-t border-slate-100 pt-10 text-center text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
+                <p v-reveal class="mt-10 border-t border-slate-100 pt-8 text-center text-lg font-semibold tracking-tight text-slate-900 sm:text-xl">
                     Waqaf membina hari ini. Amanahnya mewarisi selamanya.
                 </p>
             </div>
