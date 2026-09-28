@@ -159,7 +159,7 @@ onBeforeUnmount(() => {
                     >
                         <Link
                             :href="group.href"
-                            class="inline-flex min-h-10 items-center gap-1 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                            class="inline-flex min-h-10 items-center gap-1 whitespace-nowrap rounded-lg px-3 py-2 text-[13px] font-semibold text-slate-700 transition hover:bg-slate-50 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
                             :aria-haspopup="group.children ? 'true' : undefined"
                             :aria-expanded="group.children ? (openLabel === group.label ? 'true' : 'false') : undefined"
                             :aria-controls="group.children ? `menu-${slug(group.label)}` : undefined"
@@ -200,7 +200,7 @@ onBeforeUnmount(() => {
                 <div class="flex items-center gap-2">
                     <Link
                         :href="route('waqaf.howto')"
-                        class="hidden min-h-11 items-center whitespace-nowrap rounded-xl bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-emerald-900/10 transition hover:-translate-y-0.5 hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 sm:inline-flex"
+                        class="hidden min-h-11 items-center whitespace-nowrap rounded-lg bg-emerald-600 px-4 py-2.5 text-[13px] font-semibold text-white shadow-md shadow-emerald-900/10 transition hover:-translate-y-0.5 hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 sm:inline-flex"
                     >
                         Wakaf Sekarang
                     </Link>
@@ -318,7 +318,7 @@ onBeforeUnmount(() => {
             <slot />
         </main>
 
-        <footer class="border-t border-slate-800 bg-slate-950 text-white">
+        <footer class="border-t border-slate-800 bg-[#070b12] text-white">
             <div class="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 py-12 sm:grid-cols-4 lg:px-8">
                 <div class="col-span-2 sm:col-span-1">
                     <img src="/images/brand/awqaf-symbol.png" alt="AWQAF Holdings Berhad" class="h-11 w-auto" />
