@@ -1,6 +1,6 @@
 <script setup>
 import PublicLayout from '@/Layouts/PublicLayout.vue';
-import { ArrowRightIcon, ChevronDownIcon } from '@heroicons/vue/24/outline';
+import { ArrowRightIcon, ChevronDownIcon, AcademicCapIcon, HeartIcon, BuildingOffice2Icon, DevicePhoneMobileIcon, ShieldCheckIcon, BookOpenIcon } from '@heroicons/vue/24/outline';
 import { Head, Link, usePage } from '@inertiajs/vue3';
 
 const page = usePage();
@@ -30,7 +30,7 @@ const homepage = {
     headline_line_3: props.homepage?.headline_line_3 || 'Mewariskan Masa Depan.',
     hero_description:
         props.homepage?.hero_description ||
-        'Sebuah tamadun yang makmur tidak dibina oleh kekayaan semata-mata, tetapi oleh bagaimana kekayaan diurus dengan amanah demi manfaat generasi yang akan datang.',
+        'Institusi Waqaf Korporat yang membangun dan mengurus aset wakaf secara profesional untuk manfaat ummah yang berkekalan.',
     hero_video: resolveMediaUrl(props.homepage?.hero_video, '/video/awqaf-hero.mp4'),
     hero_image: resolveMediaUrl(props.homepage?.hero_image, defaultHeroImage),
     cta_label: props.homepage?.cta_label || 'TEROKAI IDEA INI',
@@ -65,16 +65,16 @@ const vReveal = {
 
 // M5 — assets built (portfolios) and benefits shared (programmes).
 const portfolios = [
-    { name: 'Pendidikan', line: 'Pendidikan Islam bersepadu menerusi AWQAF Education Sdn. Bhd.', slug: 'pendidikan' },
-    { name: 'Kesihatan & Kesejahteraan', line: 'Kesihatan dan kecergasan wanita menerusi AHB Wellness Sdn. Bhd.', slug: 'kesihatan-kesejahteraan' },
-    { name: 'Hartanah', line: 'Pembangunan tanah wakaf dan institusi secara produktif.', slug: 'hartanah' },
-    { name: 'Fintech', line: 'Penyelesaian kewangan digital dan pembiayaan Islam.', slug: 'fintech' },
+    { name: 'Pendidikan', line: 'Pendidikan Islam bersepadu menerusi AWQAF Education Sdn. Bhd.', slug: 'pendidikan', icon: AcademicCapIcon },
+    { name: 'Kesihatan & Kesejahteraan', line: 'Kesihatan dan kecergasan wanita menerusi AHB Wellness Sdn. Bhd.', slug: 'kesihatan-kesejahteraan', icon: HeartIcon },
+    { name: 'Hartanah', line: 'Pembangunan tanah wakaf dan institusi secara produktif.', slug: 'hartanah', icon: BuildingOffice2Icon },
+    { name: 'Fintech', line: 'Penyelesaian kewangan digital dan pembiayaan Islam.', slug: 'fintech', icon: DevicePhoneMobileIcon },
 ];
 
 const programmes = [
-    { name: 'Yayasan ZuriatCARE', line: 'Perlindungan sosial dan kesedaran kesihatan mental.', slug: 'yayasan-zuriatcare' },
-    { name: 'EduWAQF', line: 'Bantuan pendidikan dan biasiswa.', slug: 'eduwaqf' },
-    { name: 'AWQAF4Health', line: 'Bantuan kesihatan untuk golongan berpendapatan rendah.', slug: 'awqaf4health' },
+    { name: 'Yayasan ZuriatCARE', line: 'Perlindungan sosial dan kesedaran kesihatan mental.', slug: 'yayasan-zuriatcare', icon: ShieldCheckIcon },
+    { name: 'EduWAQF', line: 'Bantuan pendidikan dan biasiswa.', slug: 'eduwaqf', icon: BookOpenIcon },
+    { name: 'AWQAF4Health', line: 'Bantuan kesihatan untuk golongan berpendapatan rendah.', slug: 'awqaf4health', icon: HeartIcon },
 ];
 
 // M6 — proof. Verified figures only.
@@ -108,7 +108,7 @@ const pillars = [
 
     <PublicLayout>
         <!-- ═══ M0 · IDEA ═══ -->
-        <section class="relative isolate flex min-h-[92vh] flex-col overflow-hidden bg-slate-950 lg:min-h-[calc(100vh-4.5rem)]">
+        <section class="relative isolate flex min-h-[76vh] flex-col overflow-hidden bg-slate-950 lg:min-h-[82vh]">
             <!-- Cinematic hero: poster remains the resilient fallback while the muted
                  video loads. Reduced-motion users keep the static poster. -->
             <picture class="pointer-events-none absolute inset-0 -z-10 block">
@@ -143,43 +143,62 @@ const pillars = [
             </video>
             <div
                 class="pointer-events-none absolute inset-0 -z-10 hidden md:block"
-                style="background: linear-gradient(90deg, rgba(6,9,20,.98) 0%, rgba(6,9,20,.95) 34%, rgba(6,9,20,.76) 58%, rgba(6,9,20,.38) 82%, rgba(6,9,20,.22) 100%);"
+                style="background: linear-gradient(90deg, rgba(4,10,18,.97) 0%, rgba(4,10,18,.92) 32%, rgba(4,10,18,.72) 55%, rgba(4,10,18,.30) 78%, rgba(4,10,18,.08) 100%);"
             ></div>
             <div
                 class="pointer-events-none absolute inset-0 -z-10 md:hidden"
                 style="background: linear-gradient(180deg, rgba(6,9,20,.92) 0%, rgba(6,9,20,.74) 52%, rgba(6,9,20,.9) 100%);"
             ></div>
 
-            <div class="relative mx-auto flex w-full max-w-7xl flex-1 items-center px-6 py-20 lg:px-8 lg:py-24">
-                <div class="max-w-[54rem]">
-                    <p class="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-400">{{ homepage.eyebrow }}</p>
-                    <h1 class="mt-7 text-4xl font-bold leading-[1.04] tracking-[-0.025em] text-white sm:text-6xl lg:text-[3.65rem] xl:text-[4rem]">
+            <div class="relative mx-auto flex w-full max-w-7xl flex-1 items-center px-5 py-12 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+                <div class="max-w-[56rem]">
+                    <p class="flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.28em] text-emerald-400 sm:text-sm"><span>{{ homepage.eyebrow }}</span><span class="hidden h-px w-12 bg-white/50 sm:block" aria-hidden="true"></span></p>
+                    <h1 class="mt-5 text-[2.15rem] font-extrabold leading-[1.04] tracking-[-0.04em] text-white min-[390px]:text-[2.35rem] sm:text-[2.9rem] lg:text-[3.25rem] xl:text-[3.5rem]">
                         <span class="block">{{ homepage.headline_line_1 }}</span>
                         <span class="block">{{ homepage.headline_line_2 }}</span>
-                        <span class="block whitespace-nowrap text-emerald-400">{{ homepage.headline_line_3 }}</span>
+                        <span class="block text-emerald-400 sm:whitespace-nowrap">{{ homepage.headline_line_3 }}</span>
                     </h1>
-                    <p class="mt-7 max-w-[39rem] text-base leading-[1.7] text-slate-200 sm:text-lg">
+                    <p class="mt-4 max-w-[39rem] text-[14px] font-medium leading-6 text-white/90 min-[390px]:text-[15px] sm:text-base sm:leading-7">
                         {{ homepage.hero_description }}
                     </p>
+                    <div class="mt-6 flex flex-col gap-2.5 sm:flex-row sm:items-center">
+                        <Link :href="route('waqaf.howto')" class="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-lg bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-xl shadow-slate-950/20 transition hover:-translate-y-0.5 hover:bg-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+                            Berwakaf Sekarang <ArrowRightIcon class="h-4 w-4" />
+                        </Link>
+                        <Link :href="route('korporat.overview')" class="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-lg border border-white/40 bg-slate-950/20 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition hover:-translate-y-0.5 hover:border-white/80 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+                            Kenali AWQAF <ArrowRightIcon class="h-4 w-4" />
+                        </Link>
+                    </div>
                 </div>
             </div>
 
-            <div class="relative mx-auto w-full max-w-7xl px-6 pb-10 lg:px-8">
+            <div class="relative mx-auto w-full max-w-7xl px-6 pb-8 lg:px-8">
                 <a :href="homepage.cta_url" class="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
-                    {{ homepage.cta_label }}
-                    <ChevronDownIcon class="h-4 w-4 animate-bounce" aria-hidden="true" />
+                    Terokai bagaimana ia berfungsi
+                    <ChevronDownIcon class="h-4 w-4 motion-safe:animate-bounce" aria-hidden="true" />
                 </a>
             </div>
         </section>
 
+        <!-- Quick institutional proof: gives first-time visitors immediate confidence
+             before the longer editorial narrative begins. -->
+        <section class="border-b border-slate-200 bg-white" aria-label="Ringkasan ketelusan AWQAF">
+            <div class="mx-auto grid max-w-7xl grid-cols-1 divide-y divide-slate-100 px-6 sm:grid-cols-3 sm:divide-x sm:divide-y-0 lg:px-8">
+                <div v-for="fact in facts" :key="`hero-${fact.label}`" class="py-7 sm:px-8 sm:first:pl-0 sm:last:pr-0 lg:py-8">
+                    <p class="text-lg font-bold sm:text-xl tracking-[-0.03em] text-slate-950 lg:text-2xl">{{ fact.value }}</p>
+                    <p class="mt-1.5 text-xs font-medium leading-5 text-slate-500 sm:text-sm">{{ fact.label }}</p>
+                </div>
+            </div>
+        </section>
+
         <!-- ═══ M1 · PROBLEM ═══ -->
-        <section id="refleksi" class="bg-slate-950">
-            <div class="mx-auto max-w-4xl px-6 py-28 lg:px-8 lg:py-40">
-                <p v-reveal class="text-2xl font-medium leading-relaxed text-slate-400 sm:text-3xl sm:leading-[1.5]">
+        <section id="refleksi" class="border-b border-white/5 bg-slate-950">
+            <div class="mx-auto max-w-4xl px-5 py-11 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+                <p v-reveal class="max-w-3xl text-base font-medium leading-7 text-slate-300 sm:text-xl">
                     Ekonomi yang berkembang dengan adil membuka peluang untuk masyarakat belajar, bekerja
                     dan membina kehidupan yang lebih sejahtera.
                 </p>
-                <p v-reveal="'150ms'" class="mt-10 text-2xl font-semibold leading-relaxed text-white sm:text-3xl sm:leading-[1.5]">
+                <p v-reveal="'150ms'" class="mt-5 max-w-3xl border-l-2 border-emerald-400 pl-4 text-base font-semibold leading-7 text-white sm:text-xl">
                     Namun apabila kekayaan hanya tertumpu kepada segelintir, jurang semakin melebar — dan
                     manfaat pembangunan tidak lagi dinikmati secara menyeluruh.
                 </p>
@@ -188,35 +207,35 @@ const pillars = [
 
         <!-- ═══ M2 · PHILOSOPHY ═══ -->
         <section class="bg-white">
-            <div class="mx-auto max-w-5xl px-6 py-28 lg:px-8 lg:py-40">
+            <div class="mx-auto max-w-5xl px-5 py-11 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
                 <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Waqaf Korporat</p>
-                <h2 v-reveal="'80ms'" class="mt-8 text-3xl font-bold leading-[1.18] tracking-tight text-slate-900 sm:text-5xl">
+                <h2 v-reveal="'80ms'" class="mt-3 max-w-3xl text-[1.65rem] font-bold leading-[1.18] tracking-[-0.03em] text-slate-900 sm:text-[2rem]">
                     Waqaf bukan sekadar warisan harta. Ia warisan peluang — sebuah ekonomi yang membolehkan
                     setiap generasi membina masa depannya sendiri.
                 </h2>
 
-                <p v-reveal class="mt-16 max-w-3xl text-2xl font-semibold leading-snug tracking-tight text-slate-900 sm:text-3xl">
+                <p v-reveal class="mt-6 max-w-3xl text-base font-semibold leading-7 tracking-tight text-slate-900 sm:text-lg">
                     Pertumbuhan ekonomi dan amanah kepada masyarakat tidak seharusnya dipisahkan.
                 </p>
-                <p v-reveal class="mt-8 max-w-2xl text-lg leading-relaxed text-slate-600">
+                <p v-reveal class="mt-6 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
                     Apabila keduanya berjalan seiring, setiap kemajuan ekonomi turut mengangkat kehidupan
                     masyarakat — dan kemakmuran menjadi warisan yang dikongsi, bukan sekadar keuntungan yang berlalu.
                 </p>
-                <p v-reveal="'80ms'" class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
+                <p v-reveal="'80ms'" class="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
                     Daripada keyakinan inilah Waqaf Korporat lahir — sebuah pendekatan pembangunan yang memajukan
                     dan mengurus aset wakaf secara profesional sebagai amanah, menjadikannya pemangkin pembangunan
                     ekonomi yang mampan, supaya kemakmuran yang dijana terus memberi manfaat kepada masyarakat dan
                     generasi akan datang.
                 </p>
 
-                <div class="mt-12 space-y-5 border-t border-slate-100 pt-12">
-                    <p v-reveal class="text-2xl leading-snug text-slate-400 sm:text-3xl">
+                <div class="mt-6 grid gap-2 border-t border-slate-100 pt-5 sm:grid-cols-3">
+                    <p v-reveal class="text-base font-medium leading-7 text-slate-500 sm:text-lg">
                         Waqaf bukan sekadar memberi — <span class="font-semibold text-slate-900">ia membina.</span>
                     </p>
-                    <p v-reveal="'100ms'" class="text-2xl leading-snug text-slate-400 sm:text-3xl">
+                    <p v-reveal="'100ms'" class="text-base font-medium leading-7 text-slate-500 sm:text-lg">
                         Bukan sekadar membantu — <span class="font-semibold text-slate-900">ia memperkasa.</span>
                     </p>
-                    <p v-reveal="'200ms'" class="max-w-3xl text-2xl leading-snug text-slate-400 sm:text-3xl">
+                    <p v-reveal="'200ms'" class="text-base font-medium leading-7 text-slate-500 sm:text-lg">
                         Bukan sekadar mengurus aset — <span class="font-semibold text-slate-900">ia membina ekonomi yang memberi manfaat kepada semua.</span>
                     </p>
                 </div>
@@ -224,26 +243,26 @@ const pillars = [
         </section>
 
         <!-- ═══ M3 · MODEL ═══ -->
-        <section class="bg-slate-50">
-            <div class="mx-auto max-w-4xl px-6 py-24 lg:px-8 lg:py-32">
+        <section class="border-y border-slate-100 bg-slate-50">
+            <div class="mx-auto max-w-5xl px-5 py-11 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
                 <div class="max-w-2xl">
                     <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Model</p>
-                    <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                    <h2 v-reveal="'80ms'" class="mt-3 text-[1.65rem] font-bold tracking-tight text-slate-900 sm:text-3xl">
                         Bagaimana kemakmuran menjadi milik bersama
                     </h2>
-                    <p v-reveal="'140ms'" class="mt-5 text-lg leading-relaxed text-slate-600">
+                    <p v-reveal="'140ms'" class="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
                         Nilai yang dijana tidak dibelanjakan sekali habis. Hasilnya membina pendidikan,
                         kesihatan dan masa depan komuniti.
                     </p>
                 </div>
-                <div v-reveal class="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-3">
-                    <div v-for="step in modelFlow" :key="step.n" class="bg-white p-8">
+                <div v-reveal class="mt-6 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-slate-200 bg-slate-200 sm:grid-cols-3">
+                    <div v-for="step in modelFlow" :key="step.n" class="bg-white p-5 transition hover:bg-slate-50 lg:p-5">
                         <span class="text-sm font-semibold tabular-nums text-emerald-700">{{ step.n }}</span>
-                        <h3 class="mt-4 text-lg font-semibold text-slate-900">{{ step.t }}</h3>
-                        <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ step.d }}</p>
+                        <h3 class="mt-3 text-base font-semibold text-slate-900 lg:text-lg">{{ step.t }}</h3>
+                        <p class="mt-2 text-sm leading-6 text-slate-600">{{ step.d }}</p>
                     </div>
                 </div>
-                <div class="mt-10">
+                <div class="mt-7">
                     <Link :href="route('waqaf.corporate')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:underline">
                         Fahami Waqaf Korporat <ArrowRightIcon class="h-4 w-4" />
                     </Link>
@@ -253,12 +272,12 @@ const pillars = [
 
         <!-- ═══ M4 · INSTITUTION ═══ -->
         <section class="bg-slate-950">
-            <div class="mx-auto max-w-5xl px-6 py-28 lg:px-8 lg:py-36">
+            <div class="mx-auto max-w-5xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
                 <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">Institusi</p>
-                <h2 v-reveal="'80ms'" class="mt-6 max-w-3xl text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
+                <h2 v-reveal="'80ms'" class="mt-3 max-w-3xl text-[1.65rem] font-bold leading-tight tracking-tight text-white sm:text-3xl">
                     Institusi yang menterjemahkan falsafah ini menjadi tindakan.
                 </h2>
-                <p v-reveal="'140ms'" class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
+                <p v-reveal="'140ms'" class="mt-4 max-w-2xl text-base leading-7 text-slate-300">
                     AWQAF Holdings Berhad ialah sebuah institusi Waqaf Korporat. Ia membina dan menguruskan
                     aset wakaf secara profesional supaya nilai yang dijana kekal, berkembang dan terus memberi
                     manfaat kepada masyarakat.
@@ -266,10 +285,10 @@ const pillars = [
 
                 <!-- Semantic grid (not a <dl>): the last cell is a CTA, not a
                      term/definition, so a definition list would be invalid (a11y). -->
-                <div class="mt-16 grid grid-cols-1 gap-x-12 gap-y-10 border-t border-white/10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="mt-7 grid grid-cols-1 gap-x-8 gap-y-5 border-t border-white/10 pt-6 sm:grid-cols-2 lg:grid-cols-3">
                     <div v-for="(p, i) in pillars" :key="p.t" v-reveal="`${i * 60}ms`">
                         <p class="text-sm font-semibold text-white">{{ p.t }}</p>
-                        <p class="mt-2 text-sm leading-relaxed text-slate-400">{{ p.d }}</p>
+                        <p class="mt-1.5 text-sm leading-6 text-slate-400">{{ p.d }}</p>
                     </div>
                     <div v-reveal="'300ms'" class="flex items-end">
                         <Link :href="route('korporat.overview')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-400 hover:underline">
@@ -282,26 +301,31 @@ const pillars = [
 
         <!-- ═══ M5 · WHAT IT BUILDS ═══ -->
         <section class="bg-white">
-            <div class="mx-auto max-w-5xl px-6 py-28 lg:px-8 lg:py-36">
+            <div class="mx-auto max-w-5xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
                 <div class="max-w-2xl">
                     <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Di sebalik model</p>
-                    <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                    <h2 v-reveal="'80ms'" class="mt-3 text-[1.65rem] font-bold tracking-tight text-slate-900 sm:text-3xl">
                         Nilai yang dibina. Manfaat yang dikongsi.
                     </h2>
                 </div>
 
-                <div class="mt-16 grid grid-cols-1 gap-x-16 gap-y-14 lg:grid-cols-2">
+                <div class="mt-6 grid grid-cols-1 gap-x-8 gap-y-6 lg:grid-cols-2">
                     <!-- Assets built — Portfolio Pelaburan -->
                     <div v-reveal>
                         <p class="text-sm font-semibold text-slate-900">Aset yang dibina <span class="text-slate-400">— Portfolio Pelaburan</span></p>
-                        <ul class="mt-6 divide-y divide-slate-100 border-t border-slate-100">
+                        <ul class="mt-4 grid gap-2">
                             <li v-for="p in portfolios" :key="p.slug">
-                                <Link :href="route('portfolio.show', p.slug)" class="group flex items-start justify-between gap-4 py-4">
-                                    <span>
-                                        <span class="font-semibold text-slate-900 transition group-hover:text-emerald-700">{{ p.name }}</span>
-                                        <span class="mt-0.5 block text-sm text-slate-500">{{ p.line }}</span>
+                                <Link :href="route('portfolio.show', p.slug)" class="group flex items-center justify-between gap-3 border-b border-slate-200 bg-white px-1 py-3 transition hover:border-emerald-300 hover:bg-slate-50/70">
+                                    <span class="flex min-w-0 items-center gap-3">
+                                        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-slate-50 text-emerald-700 ring-1 ring-slate-200 transition group-hover:bg-white group-hover:ring-emerald-200">
+                                            <component :is="p.icon" class="h-4 w-4" aria-hidden="true" />
+                                        </span>
+                                        <span class="min-w-0">
+                                            <span class="font-semibold text-slate-900 transition group-hover:text-emerald-700">{{ p.name }}</span>
+                                            <span class="mt-0.5 block text-sm leading-5 text-slate-500">{{ p.line }}</span>
+                                        </span>
                                     </span>
-                                    <ArrowRightIcon class="mt-1 h-4 w-4 flex-none text-slate-300 transition group-hover:text-emerald-700" />
+                                    <ArrowRightIcon class="h-4 w-4 flex-none text-slate-300 transition group-hover:translate-x-0.5 group-hover:text-emerald-700" />
                                 </Link>
                             </li>
                         </ul>
@@ -310,14 +334,19 @@ const pillars = [
                     <!-- Benefits shared — Program & Inisiatif -->
                     <div v-reveal="'100ms'">
                         <p class="text-sm font-semibold text-slate-900">Manfaat yang dikongsi <span class="text-slate-400">— Program &amp; Inisiatif</span></p>
-                        <ul class="mt-6 divide-y divide-slate-100 border-t border-slate-100">
+                        <ul class="mt-4 grid gap-2">
                             <li v-for="p in programmes" :key="p.slug">
-                                <Link :href="route('program.show', p.slug)" class="group flex items-start justify-between gap-4 py-4">
-                                    <span>
-                                        <span class="font-semibold text-slate-900 transition group-hover:text-emerald-700">{{ p.name }}</span>
-                                        <span class="mt-0.5 block text-sm text-slate-500">{{ p.line }}</span>
+                                <Link :href="route('program.show', p.slug)" class="group flex items-center justify-between gap-3 border-b border-slate-200 bg-white px-1 py-3 transition hover:border-emerald-300 hover:bg-slate-50/70">
+                                    <span class="flex min-w-0 items-center gap-3">
+                                        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-slate-50 text-emerald-700 ring-1 ring-slate-200 transition group-hover:bg-white group-hover:ring-emerald-200">
+                                            <component :is="p.icon" class="h-4 w-4" aria-hidden="true" />
+                                        </span>
+                                        <span class="min-w-0">
+                                            <span class="font-semibold text-slate-900 transition group-hover:text-emerald-700">{{ p.name }}</span>
+                                            <span class="mt-0.5 block text-sm leading-5 text-slate-500">{{ p.line }}</span>
+                                        </span>
                                     </span>
-                                    <ArrowRightIcon class="mt-1 h-4 w-4 flex-none text-slate-300 transition group-hover:text-emerald-700" />
+                                    <ArrowRightIcon class="h-4 w-4 flex-none text-slate-300 transition group-hover:translate-x-0.5 group-hover:text-emerald-700" />
                                 </Link>
                             </li>
                         </ul>
@@ -328,27 +357,27 @@ const pillars = [
 
         <!-- ═══ M6 · AMANAH & EVIDENCE ═══ -->
         <section class="bg-slate-950">
-            <div class="mx-auto max-w-6xl px-6 py-28 lg:px-8 lg:py-36">
+            <div class="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
                 <div class="max-w-2xl">
                     <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">Amanah</p>
-                    <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                    <h2 v-reveal="'80ms'" class="mt-3 text-[1.65rem] font-bold tracking-tight text-white sm:text-3xl">
                         Amanah yang dibuktikan, bukan dilaung.
                     </h2>
-                    <p v-reveal="'140ms'" class="mt-5 text-lg leading-relaxed text-slate-300">
+                    <p v-reveal="'140ms'" class="mt-4 text-base leading-7 text-slate-300 sm:text-lg">
                         Diperbadankan di bawah Akta Syarikat 2016, diselia Lembaga Pengarah sembilan ahli, dan
                         diaudit setiap tahun. Rekod kewangan didedahkan sepenuhnya menerusi Pusat Ketelusan
                         dan laporan tahunan yang diterbitkan.
                     </p>
                 </div>
 
-                <dl v-reveal class="mt-14 grid grid-cols-1 gap-x-10 gap-y-8 border-y border-white/10 py-10 sm:grid-cols-3">
+                <dl v-reveal class="mt-7 grid grid-cols-1 gap-x-7 gap-y-5 border-y border-white/10 py-5 sm:grid-cols-3">
                     <div v-for="f in facts" :key="f.label">
-                        <dt class="text-3xl font-bold text-emerald-400 sm:text-4xl">{{ f.value }}</dt>
-                        <dd class="mt-2 text-sm text-slate-400">{{ f.label }}</dd>
+                        <dt class="text-2xl font-bold tracking-tight text-emerald-400 sm:text-3xl">{{ f.value }}</dt>
+                        <dd class="mt-1.5 text-sm text-slate-400">{{ f.label }}</dd>
                     </div>
                 </dl>
 
-                <div v-reveal class="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold">
+                <div v-reveal class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
                     <Link :href="route('korporat.reports')" class="text-emerald-400 hover:underline">Laporan Tahunan &amp; Penyata Kewangan →</Link>
                     <Link :href="route('korporat.leadership.index')" class="text-emerald-400 hover:underline">Lembaga Pengarah →</Link>
                     <Link :href="route('ketelusan')" class="text-emerald-400 hover:underline">Laporan &amp; Tadbir Urus →</Link>
@@ -366,21 +395,21 @@ const pillars = [
              book-purchase enquiry mailto until a verified purchase URL / WhatsApp exists). -->
         <section class="relative isolate overflow-hidden bg-[#100c08]">
             <div class="section-vignette" aria-hidden="true"></div>
-            <div class="relative mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
-                <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
+            <div class="relative mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
+                <div class="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-9">
                     <!-- Editorial copy — leads the eye -->
                     <div class="lg:col-span-7">
                         <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">Warisan Pemikiran</p>
-                        <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
+                        <h2 v-reveal="'80ms'" class="mt-3 text-[1.65rem] font-bold leading-tight tracking-tight text-white sm:text-3xl">
                             Warisan sebenar bukan sekadar institusi yang dibina,<br class="hidden sm:block" />
                             tetapi pemikiran yang ditinggalkan.
                         </h2>
-                        <p v-reveal="'140ms'" class="mt-5 max-w-xl text-lg leading-relaxed text-slate-300">
+                        <p v-reveal="'140ms'" class="mt-4 max-w-xl text-base leading-7 text-slate-300 sm:text-lg">
                             Biografi Allahyarham Tan Sri Muhammad Ali Hashim merakamkan pemikiran yang mendasari
                             gagasan Waqaf Korporat — sebuah rujukan institusi yang meletakkan falsafah AWQAF dalam
                             konteks sejarah dan idea yang lebih luas.
                         </p>
-                        <div v-reveal="'200ms'" class="mt-8 flex flex-wrap items-center gap-4">
+                        <div v-reveal="'200ms'" class="mt-6 flex flex-wrap items-center gap-4">
                             <!-- Aliran pertanyaan pembelian khusus (bukan halaman hubungi umum).
                                  Tukar kepada pautan WhatsApp rasmi (wa.me/<no>) apabila nombor
                                  rasmi disahkan, atau URL pembelian sebenar apabila tersedia. -->
@@ -403,7 +432,7 @@ const pillars = [
                             height="1402"
                             loading="lazy"
                             decoding="async"
-                            class="book-cover mx-auto block w-full max-w-[360px] rounded-md"
+                            class="book-cover mx-auto block w-full max-w-[320px] rounded-lg shadow-2xl shadow-black/30"
                         />
                     </figure>
                 </div>
@@ -412,41 +441,41 @@ const pillars = [
 
         <!-- ═══ M8 · INVITATION ═══ -->
         <section class="bg-white">
-            <div class="mx-auto max-w-5xl px-6 py-28 lg:px-8 lg:py-36">
+            <div class="mx-auto max-w-5xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
                 <div class="max-w-2xl">
                     <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Sertai pembinaan</p>
-                    <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Bina bersama kami.</h2>
-                    <p v-reveal="'140ms'" class="mt-5 text-lg leading-relaxed text-slate-600">
+                    <h2 v-reveal="'80ms'" class="mt-3 text-[1.65rem] font-bold tracking-tight text-slate-900 sm:text-3xl">Bina bersama kami.</h2>
+                    <p v-reveal="'140ms'" class="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
                         Setiap wakaf menyertai usaha membina ekonomi yang memberi manfaat berterusan kepada ummah —
                         sebuah amanah yang mewarisi kebaikan merentas generasi.
                     </p>
                 </div>
 
-                <div v-reveal class="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2">
-                    <div class="rounded-3xl bg-emerald-700 p-8 sm:p-10">
-                        <h3 class="text-2xl font-bold text-white">Bina bersama AWQAF</h3>
+                <div v-reveal class="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <div class="rounded-xl bg-gradient-to-br from-emerald-700 to-emerald-800 p-5 shadow-[0_12px_30px_rgba(6,78,59,0.12)]">
+                        <h3 class="text-lg font-bold sm:text-xl text-white">Bina bersama AWQAF</h3>
                         <p class="mt-3 text-sm leading-relaxed text-emerald-50">
                             Sertai sebagai pewakaf dan pilih kaedah berwakaf kepada AWQAF Holdings Berhad.
                         </p>
-                        <Link :href="route('waqaf.howto')" class="mt-6 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-50">
+                        <Link :href="route('waqaf.howto')" class="mt-5 inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-50">
                             Lihat Kaedah Berwakaf <ArrowRightIcon class="h-4 w-4" />
                         </Link>
                     </div>
-                    <div class="rounded-3xl border border-slate-200 p-8 sm:p-10">
-                        <h3 class="text-2xl font-bold text-slate-900">Portal Pewakaf</h3>
+                    <div class="rounded-xl border border-slate-200 bg-slate-50/60 p-5">
+                        <h3 class="text-lg font-bold sm:text-xl text-slate-900">Portal Pewakaf</h3>
                         <p class="mt-3 text-sm leading-relaxed text-slate-500">
                             Untuk pewakaf sedia ada mengakses akaun, rekod wakaf, resit dan dokumen keahlian.
                         </p>
-                        <a v-if="page.props.portalReady" :href="page.props.portalUrl" class="mt-6 inline-flex items-center gap-2 rounded-lg border border-emerald-600 px-6 py-3 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50">
+                        <a v-if="page.props.portalReady" :href="page.props.portalUrl" class="mt-5 inline-flex items-center gap-2 rounded-lg border border-emerald-600 px-5 py-2.5 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50">
                             Masuk ke Portal <ArrowRightIcon class="h-4 w-4" />
                         </a>
-                        <span v-else class="mt-6 inline-flex items-center gap-2 rounded-lg border border-slate-200 px-6 py-3 text-sm font-semibold text-slate-400">
+                        <span v-else class="mt-5 inline-flex items-center gap-2 rounded-lg border border-slate-200 px-5 py-2.5 text-sm font-semibold text-slate-400">
                             Akan Dibuka
                         </span>
                     </div>
                 </div>
 
-                <p v-reveal class="mt-24 border-t border-slate-100 pt-16 text-center text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+                <p v-reveal class="mt-8 border-t border-slate-100 pt-6 text-center text-base font-semibold tracking-tight text-slate-900 sm:text-lg">
                     Waqaf membina hari ini. Amanahnya mewarisi selamanya.
                 </p>
             </div>
