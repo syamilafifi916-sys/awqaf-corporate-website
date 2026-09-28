@@ -69,8 +69,8 @@ class HomepageSettingResource extends Resource
                             ->disk('public')
                             ->directory('cms/homepage/video')
                             ->acceptedFileTypes(['video/mp4'])
-                            ->maxSize(15360)
-                            ->helperText('MP4 sahaja. Disyorkan 16:9 dan bawah 10 MB.'),
+                            ->maxSize(10240)
+                            ->helperText('MP4 sahaja. Disyorkan 16:9 dan maksimum 10 MB.'),
 
                         Forms\Components\FileUpload::make('hero_image')
                             ->label('Imej Fallback')
