@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\HomepageSetting;
 use App\Models\Report;
 use App\Support\Seo;
 use Illuminate\Support\Facades\Route;
@@ -8,12 +9,34 @@ use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 
 Route::get('/', function () {
+    $homepage = HomepageSetting::query()
+        ->where('is_published', true)
+        ->latest('published_at')
+        ->first();
+
     Seo::set([
-        'title' => 'AWQAF Holdings Berhad — Waqaf Korporat untuk Kelestarian Ummah',
-        'description' => 'AWQAF Holdings Berhad membangunkan Waqaf Korporat yang telus dan bertadbir urus baik, menyalurkan manfaat berterusan kepada pendidikan, kesihatan dan kebajikan masyarakat.',
+        'title' => $homepage?->seo_title
+            ?: 'AWQAF Holdings Berhad — Waqaf Korporat untuk Kelestarian Ummah',
+        'description' => $homepage?->seo_description
+            ?: 'AWQAF Holdings Berhad membangunkan Waqaf Korporat yang telus dan bertadbir urus baik, menyalurkan manfaat berterusan kepada pendidikan, kesihatan dan kebajikan masyarakat.',
+        'image' => $homepage?->og_image
+            ? asset('storage/'.$homepage->og_image)
+            : null,
     ]);
 
-    return Inertia::render('Welcome');
+    return Inertia::render('Welcome', [
+        'homepage' => $homepage ? [
+            'eyebrow' => $homepage->eyebrow,
+            'headline_line_1' => $homepage->headline_line_1,
+            'headline_line_2' => $homepage->headline_line_2,
+            'headline_line_3' => $homepage->headline_line_3,
+            'hero_description' => $homepage->hero_description,
+            'hero_video' => $homepage->hero_video,
+            'hero_image' => $homepage->hero_image,
+            'cta_label' => $homepage->cta_label,
+            'cta_url' => $homepage->cta_url,
+        ] : null,
+    ]);
 })->name('welcome');
 
 Route::get('/wakaf/wakaf-korporat', function () {

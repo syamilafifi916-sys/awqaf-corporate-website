@@ -5,6 +5,35 @@ import { Head, Link, usePage } from '@inertiajs/vue3';
 
 const page = usePage();
 
+const props = defineProps({
+    homepage: {
+        type: Object,
+        default: null,
+    },
+});
+
+const homepage = {
+    eyebrow: props.homepage?.eyebrow || 'AWQAF Holdings Berhad',
+    headline_line_1: props.homepage?.headline_line_1 || 'Membina Ekonomi.',
+    headline_line_2: props.homepage?.headline_line_2 || 'Memakmurkan Ummah.',
+    headline_line_3: props.homepage?.headline_line_3 || 'Mewariskan Masa Depan.',
+    hero_description:
+        props.homepage?.hero_description ||
+        'Sebuah tamadun yang makmur tidak dibina oleh kekayaan semata-mata, tetapi oleh bagaimana kekayaan diurus dengan amanah demi manfaat generasi yang akan datang.',
+    hero_video: props.homepage?.hero_video
+        ? (props.homepage.hero_video.startsWith('video/')
+            ? `/${props.homepage.hero_video}`
+            : `/storage/${props.homepage.hero_video}`)
+        : '/video/awqaf-hero.mp4',
+    hero_image: props.homepage?.hero_image
+        ? (props.homepage.hero_image.startsWith('images/')
+            ? `/${props.homepage.hero_image}`
+            : `/storage/${props.homepage.hero_image}`)
+        : '/images/hero/awqaf-hero-1536.webp',
+    cta_label: props.homepage?.cta_label || 'TEROKAI IDEA INI',
+    cta_url: props.homepage?.cta_url || '#refleksi',
+};
+
 // Editorial reveal-on-scroll. Calm: one element rises and fades in once.
 // Fully disabled for prefers-reduced-motion.
 const vReveal = {
@@ -85,7 +114,7 @@ const pillars = [
                     sizes="100vw"
                 />
                 <img
-                    src="/images/hero/awqaf-hero-1536.webp"
+                    :src="homepage.hero_image"
                     alt=""
                     aria-hidden="true"
                     width="1536"
@@ -102,10 +131,10 @@ const pillars = [
                 loop
                 playsinline
                 preload="metadata"
-                poster="/images/hero/awqaf-hero-1536.webp"
+                :poster="homepage.hero_image"
                 aria-hidden="true"
             >
-                <source src="/video/awqaf-hero.mp4" type="video/mp4" />
+                <source :src="homepage.hero_video" type="video/mp4" />
             </video>
             <div
                 class="pointer-events-none absolute inset-0 -z-10 hidden md:block"
@@ -118,22 +147,21 @@ const pillars = [
 
             <div class="relative mx-auto flex w-full max-w-7xl flex-1 items-center px-6 py-20 lg:px-8 lg:py-24">
                 <div class="max-w-[54rem]">
-                    <p class="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-400">AWQAF Holdings Berhad</p>
+                    <p class="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-400">{{ homepage.eyebrow }}</p>
                     <h1 class="mt-7 text-4xl font-bold leading-[1.04] tracking-[-0.025em] text-white sm:text-6xl lg:text-[3.65rem] xl:text-[4rem]">
-                        <span class="block">Membina Ekonomi.</span>
-                        <span class="block">Memakmurkan Ummah.</span>
-                        <span class="block whitespace-nowrap text-emerald-400">Mewariskan Masa Depan.</span>
+                        <span class="block">{{ homepage.headline_line_1 }}</span>
+                        <span class="block">{{ homepage.headline_line_2 }}</span>
+                        <span class="block whitespace-nowrap text-emerald-400">{{ homepage.headline_line_3 }}</span>
                     </h1>
                     <p class="mt-7 max-w-[39rem] text-base leading-[1.7] text-slate-200 sm:text-lg">
-                        Sebuah tamadun yang makmur tidak dibina oleh kekayaan semata-mata, tetapi oleh bagaimana
-                        kekayaan diurus dengan amanah demi manfaat generasi yang akan datang.
+                        {{ homepage.hero_description }}
                     </p>
                 </div>
             </div>
 
             <div class="relative mx-auto w-full max-w-7xl px-6 pb-10 lg:px-8">
-                <a href="#refleksi" class="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
-                    Terokai idea ini
+                <a :href="homepage.cta_url" class="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
+                    {{ homepage.cta_label }}
                     <ChevronDownIcon class="h-4 w-4 animate-bounce" aria-hidden="true" />
                 </a>
             </div>
