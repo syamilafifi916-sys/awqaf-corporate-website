@@ -12,6 +12,17 @@ const props = defineProps({
     },
 });
 
+const resolveMediaUrl = (path, fallback) => {
+    if (!path) return fallback;
+    if (/^https?:\/\//i.test(path)) return path;
+    if (path.startsWith('/')) return path;
+    if (path.startsWith('images/') || path.startsWith('video/')) return `/${path}`;
+    return `/storage/${path}`;
+};
+
+const defaultHeroImage = '/images/hero/awqaf-hero-1536.webp';
+const hasCustomHeroImage = Boolean(props.homepage?.hero_image);
+
 const homepage = {
     eyebrow: props.homepage?.eyebrow || 'AWQAF Holdings Berhad',
     headline_line_1: props.homepage?.headline_line_1 || 'Membina Ekonomi.',
@@ -20,16 +31,8 @@ const homepage = {
     hero_description:
         props.homepage?.hero_description ||
         'Sebuah tamadun yang makmur tidak dibina oleh kekayaan semata-mata, tetapi oleh bagaimana kekayaan diurus dengan amanah demi manfaat generasi yang akan datang.',
-    hero_video: props.homepage?.hero_video
-        ? (props.homepage.hero_video.startsWith('video/')
-            ? `/${props.homepage.hero_video}`
-            : `/storage/${props.homepage.hero_video}`)
-        : '/video/awqaf-hero.mp4',
-    hero_image: props.homepage?.hero_image
-        ? (props.homepage.hero_image.startsWith('images/')
-            ? `/${props.homepage.hero_image}`
-            : `/storage/${props.homepage.hero_image}`)
-        : '/images/hero/awqaf-hero-1536.webp',
+    hero_video: resolveMediaUrl(props.homepage?.hero_video, '/video/awqaf-hero.mp4'),
+    hero_image: resolveMediaUrl(props.homepage?.hero_image, defaultHeroImage),
     cta_label: props.homepage?.cta_label || 'TEROKAI IDEA INI',
     cta_url: props.homepage?.cta_url || '#refleksi',
 };
@@ -99,7 +102,8 @@ const pillars = [
 
 <template>
     <Head title="Membina Ekonomi. Memakmurkan Ummah. Mewariskan Masa Depan.">
-        <link rel="preload" as="image" type="image/webp" imagesrcset="/images/hero/awqaf-hero-768.webp 768w, /images/hero/awqaf-hero-1152.webp 1152w, /images/hero/awqaf-hero-1536.webp 1536w" imagesizes="100vw" />
+        <link v-if="hasCustomHeroImage" rel="preload" as="image" :href="homepage.hero_image" />
+        <link v-else rel="preload" as="image" type="image/webp" imagesrcset="/images/hero/awqaf-hero-768.webp 768w, /images/hero/awqaf-hero-1152.webp 1152w, /images/hero/awqaf-hero-1536.webp 1536w" imagesizes="100vw" />
     </Head>
 
     <PublicLayout>
@@ -109,6 +113,7 @@ const pillars = [
                  video loads. Reduced-motion users keep the static poster. -->
             <picture class="pointer-events-none absolute inset-0 -z-10 block">
                 <source
+                    v-if="!hasCustomHeroImage"
                     type="image/webp"
                     srcset="/images/hero/awqaf-hero-768.webp 768w, /images/hero/awqaf-hero-1152.webp 1152w, /images/hero/awqaf-hero-1536.webp 1536w"
                     sizes="100vw"
