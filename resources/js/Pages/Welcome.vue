@@ -150,7 +150,7 @@ const pillars = [
                 style="background: linear-gradient(180deg, rgba(6,9,20,.92) 0%, rgba(6,9,20,.74) 52%, rgba(6,9,20,.9) 100%);"
             ></div>
 
-            <div class="relative mx-auto flex w-full max-w-7xl flex-1 items-center px-6 py-16 sm:py-20 lg:px-8 lg:py-24">
+            <div class="relative mx-auto flex w-full max-w-7xl flex-1 items-center px-6 py-16 sm:py-14 lg:px-8 lg:py-16">
                 <div class="max-w-[56rem]">
                     <p class="flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.28em] text-emerald-400 sm:text-sm"><span>{{ homepage.eyebrow }}</span><span class="hidden h-px w-12 bg-white/50 sm:block" aria-hidden="true"></span></p>
                     <h1 class="mt-7 text-[2.7rem] font-bold leading-[1.02] tracking-[-0.035em] text-white sm:text-6xl lg:text-[3.8rem] xl:text-[4.2rem]">
@@ -193,7 +193,7 @@ const pillars = [
 
         <!-- ═══ M1 · PROBLEM ═══ -->
         <section id="refleksi" class="border-b border-white/5 bg-slate-950">
-            <div class="mx-auto max-w-4xl px-6 py-20 lg:px-8 lg:py-24">
+            <div class="mx-auto max-w-4xl px-6 py-14 lg:px-8 lg:py-16">
                 <p v-reveal class="max-w-3xl text-xl font-medium leading-[1.6] text-slate-400 sm:text-2xl sm:leading-[1.55]">
                     Ekonomi yang berkembang dengan adil membuka peluang untuk masyarakat belajar, bekerja
                     dan membina kehidupan yang lebih sejahtera.
@@ -207,14 +207,14 @@ const pillars = [
 
         <!-- ═══ M2 · PHILOSOPHY ═══ -->
         <section class="bg-white">
-            <div class="mx-auto max-w-5xl px-6 py-20 lg:px-8 lg:py-24">
+            <div class="mx-auto max-w-5xl px-6 py-14 lg:px-8 lg:py-16">
                 <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Waqaf Korporat</p>
-                <h2 v-reveal="'80ms'" class="mt-5 max-w-4xl text-3xl font-bold leading-[1.15] tracking-[-0.025em] text-slate-900 sm:text-4xl lg:text-[2.75rem]">
+                <h2 v-reveal="'80ms'" class="mt-4 max-w-4xl text-2xl font-bold leading-[1.18] tracking-[-0.025em] text-slate-900 sm:text-3xl lg:text-[2.25rem]">
                     Waqaf bukan sekadar warisan harta. Ia warisan peluang — sebuah ekonomi yang membolehkan
                     setiap generasi membina masa depannya sendiri.
                 </h2>
 
-                <p v-reveal class="mt-12 max-w-3xl text-xl font-semibold leading-snug tracking-tight text-slate-900 sm:text-2xl">
+                <p v-reveal class="mt-8 max-w-3xl text-lg font-semibold leading-snug tracking-tight text-slate-900 sm:text-xl">
                     Pertumbuhan ekonomi dan amanah kepada masyarakat tidak seharusnya dipisahkan.
                 </p>
                 <p v-reveal class="mt-6 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
@@ -228,7 +228,7 @@ const pillars = [
                     generasi akan datang.
                 </p>
 
-                <div class="mt-10 space-y-3 border-t border-slate-100 pt-8">
+                <div class="mt-7 space-y-2 border-t border-slate-100 pt-6">
                     <p v-reveal class="text-xl leading-snug text-slate-400 sm:text-2xl">
                         Waqaf bukan sekadar memberi — <span class="font-semibold text-slate-900">ia membina.</span>
                     </p>
@@ -244,10 +244,10 @@ const pillars = [
 
         <!-- ═══ M3 · MODEL ═══ -->
         <section class="border-y border-slate-100 bg-slate-50">
-            <div class="mx-auto max-w-5xl px-6 py-20 lg:px-8 lg:py-24">
+            <div class="mx-auto max-w-5xl px-6 py-14 lg:px-8 lg:py-16">
                 <div class="max-w-2xl">
                     <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Model</p>
-                    <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                    <h2 v-reveal="'80ms'" class="mt-3 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
                         Bagaimana kemakmuran menjadi milik bersama
                     </h2>
                     <p v-reveal="'140ms'" class="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
@@ -255,8 +255,8 @@ const pillars = [
                         kesihatan dan masa depan komuniti.
                     </p>
                 </div>
-                <div v-reveal class="mt-9 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 shadow-sm sm:grid-cols-3">
-                    <div v-for="step in modelFlow" :key="step.n" class="bg-white p-6 transition hover:bg-slate-50 lg:p-7">
+                <div v-reveal class="mt-7 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-slate-200 bg-slate-200 shadow-sm sm:grid-cols-3">
+                    <div v-for="step in modelFlow" :key="step.n" class="bg-white p-5 transition hover:bg-slate-50 lg:p-5">
                         <span class="text-sm font-semibold tabular-nums text-emerald-700">{{ step.n }}</span>
                         <h3 class="mt-3 text-base font-semibold text-slate-900 lg:text-lg">{{ step.t }}</h3>
                         <p class="mt-2 text-sm leading-6 text-slate-600">{{ step.d }}</p>
@@ -272,7 +272,7 @@ const pillars = [
 
         <!-- ═══ M4 · INSTITUTION ═══ -->
         <section class="bg-slate-950">
-            <div class="mx-auto max-w-5xl px-6 py-16 lg:px-8 lg:py-20">
+            <div class="mx-auto max-w-5xl px-6 py-12 lg:px-8 lg:py-14">
                 <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">Institusi</p>
                 <h2 v-reveal="'80ms'" class="mt-4 max-w-3xl text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl">
                     Institusi yang menterjemahkan falsafah ini menjadi tindakan.
@@ -285,7 +285,7 @@ const pillars = [
 
                 <!-- Semantic grid (not a <dl>): the last cell is a CTA, not a
                      term/definition, so a definition list would be invalid (a11y). -->
-                <div class="mt-10 grid grid-cols-1 gap-x-10 gap-y-7 border-t border-white/10 pt-9 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="mt-7 grid grid-cols-1 gap-x-8 gap-y-5 border-t border-white/10 pt-6 sm:grid-cols-2 lg:grid-cols-3">
                     <div v-for="(p, i) in pillars" :key="p.t" v-reveal="`${i * 60}ms`">
                         <p class="text-sm font-semibold text-white">{{ p.t }}</p>
                         <p class="mt-1.5 text-sm leading-6 text-slate-400">{{ p.d }}</p>
@@ -301,24 +301,24 @@ const pillars = [
 
         <!-- ═══ M5 · WHAT IT BUILDS ═══ -->
         <section class="bg-white">
-            <div class="mx-auto max-w-5xl px-6 py-16 lg:px-8 lg:py-20">
+            <div class="mx-auto max-w-5xl px-6 py-12 lg:px-8 lg:py-14">
                 <div class="max-w-2xl">
                     <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Di sebalik model</p>
-                    <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                    <h2 v-reveal="'80ms'" class="mt-3 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
                         Nilai yang dibina. Manfaat yang dikongsi.
                     </h2>
                 </div>
 
-                <div class="mt-10 grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-2">
+                <div class="mt-7 grid grid-cols-1 gap-x-8 gap-y-7 lg:grid-cols-2">
                     <!-- Assets built — Portfolio Pelaburan -->
                     <div v-reveal>
                         <p class="text-sm font-semibold text-slate-900">Aset yang dibina <span class="text-slate-400">— Portfolio Pelaburan</span></p>
                         <ul class="mt-4 grid gap-2">
                             <li v-for="p in portfolios" :key="p.slug">
-                                <Link :href="route('portfolio.show', p.slug)" class="group flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-4 transition hover:border-emerald-200 hover:bg-emerald-50/40">
+                                <Link :href="route('portfolio.show', p.slug)" class="group flex items-center justify-between gap-3 rounded-lg border border-slate-200 bg-white p-3 transition hover:border-emerald-200 hover:bg-emerald-50/40">
                                     <span class="flex min-w-0 items-center gap-3">
-                                        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-50 text-emerald-700 ring-1 ring-slate-200 transition group-hover:bg-white group-hover:ring-emerald-200">
-                                            <component :is="p.icon" class="h-[18px] w-[18px]" aria-hidden="true" />
+                                        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-slate-50 text-emerald-700 ring-1 ring-slate-200 transition group-hover:bg-white group-hover:ring-emerald-200">
+                                            <component :is="p.icon" class="h-4 w-4" aria-hidden="true" />
                                         </span>
                                         <span class="min-w-0">
                                             <span class="font-semibold text-slate-900 transition group-hover:text-emerald-700">{{ p.name }}</span>
@@ -336,10 +336,10 @@ const pillars = [
                         <p class="text-sm font-semibold text-slate-900">Manfaat yang dikongsi <span class="text-slate-400">— Program &amp; Inisiatif</span></p>
                         <ul class="mt-4 grid gap-2">
                             <li v-for="p in programmes" :key="p.slug">
-                                <Link :href="route('program.show', p.slug)" class="group flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-4 transition hover:border-emerald-200 hover:bg-emerald-50/40">
+                                <Link :href="route('program.show', p.slug)" class="group flex items-center justify-between gap-3 rounded-lg border border-slate-200 bg-white p-3 transition hover:border-emerald-200 hover:bg-emerald-50/40">
                                     <span class="flex min-w-0 items-center gap-3">
-                                        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-50 text-emerald-700 ring-1 ring-slate-200 transition group-hover:bg-white group-hover:ring-emerald-200">
-                                            <component :is="p.icon" class="h-[18px] w-[18px]" aria-hidden="true" />
+                                        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-slate-50 text-emerald-700 ring-1 ring-slate-200 transition group-hover:bg-white group-hover:ring-emerald-200">
+                                            <component :is="p.icon" class="h-4 w-4" aria-hidden="true" />
                                         </span>
                                         <span class="min-w-0">
                                             <span class="font-semibold text-slate-900 transition group-hover:text-emerald-700">{{ p.name }}</span>
@@ -357,10 +357,10 @@ const pillars = [
 
         <!-- ═══ M6 · AMANAH & EVIDENCE ═══ -->
         <section class="bg-slate-950">
-            <div class="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
+            <div class="mx-auto max-w-6xl px-6 py-12 lg:px-8 lg:py-14">
                 <div class="max-w-2xl">
                     <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">Amanah</p>
-                    <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                    <h2 v-reveal="'80ms'" class="mt-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
                         Amanah yang dibuktikan, bukan dilaung.
                     </h2>
                     <p v-reveal="'140ms'" class="mt-4 text-base leading-7 text-slate-300 sm:text-lg">
@@ -370,14 +370,14 @@ const pillars = [
                     </p>
                 </div>
 
-                <dl v-reveal class="mt-9 grid grid-cols-1 gap-x-8 gap-y-6 border-y border-white/10 py-7 sm:grid-cols-3">
+                <dl v-reveal class="mt-7 grid grid-cols-1 gap-x-7 gap-y-5 border-y border-white/10 py-5 sm:grid-cols-3">
                     <div v-for="f in facts" :key="f.label">
                         <dt class="text-2xl font-bold tracking-tight text-emerald-400 sm:text-3xl">{{ f.value }}</dt>
                         <dd class="mt-1.5 text-sm text-slate-400">{{ f.label }}</dd>
                     </div>
                 </dl>
 
-                <div v-reveal class="mt-7 flex flex-wrap gap-x-7 gap-y-3 text-sm font-semibold">
+                <div v-reveal class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
                     <Link :href="route('korporat.reports')" class="text-emerald-400 hover:underline">Laporan Tahunan &amp; Penyata Kewangan →</Link>
                     <Link :href="route('korporat.leadership.index')" class="text-emerald-400 hover:underline">Lembaga Pengarah →</Link>
                     <Link :href="route('ketelusan')" class="text-emerald-400 hover:underline">Laporan &amp; Tadbir Urus →</Link>
@@ -395,8 +395,8 @@ const pillars = [
              book-purchase enquiry mailto until a verified purchase URL / WhatsApp exists). -->
         <section class="relative isolate overflow-hidden bg-[#100c08]">
             <div class="section-vignette" aria-hidden="true"></div>
-            <div class="relative mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
-                <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
+            <div class="relative mx-auto max-w-6xl px-6 py-12 lg:px-8 lg:py-14">
+                <div class="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-9">
                     <!-- Editorial copy — leads the eye -->
                     <div class="lg:col-span-7">
                         <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">Warisan Pemikiran</p>
@@ -441,18 +441,18 @@ const pillars = [
 
         <!-- ═══ M8 · INVITATION ═══ -->
         <section class="bg-white">
-            <div class="mx-auto max-w-5xl px-6 py-16 lg:px-8 lg:py-20">
+            <div class="mx-auto max-w-5xl px-6 py-12 lg:px-8 lg:py-14">
                 <div class="max-w-2xl">
                     <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Sertai pembinaan</p>
-                    <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Bina bersama kami.</h2>
+                    <h2 v-reveal="'80ms'" class="mt-3 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Bina bersama kami.</h2>
                     <p v-reveal="'140ms'" class="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
                         Setiap wakaf menyertai usaha membina ekonomi yang memberi manfaat berterusan kepada ummah —
                         sebuah amanah yang mewarisi kebaikan merentas generasi.
                     </p>
                 </div>
 
-                <div v-reveal class="mt-9 grid grid-cols-1 gap-5 sm:grid-cols-2">
-                    <div class="rounded-2xl bg-emerald-700 p-6 sm:p-7">
+                <div v-reveal class="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <div class="rounded-xl bg-emerald-700 p-5 sm:p-6">
                         <h3 class="text-xl font-bold text-white">Bina bersama AWQAF</h3>
                         <p class="mt-3 text-sm leading-relaxed text-emerald-50">
                             Sertai sebagai pewakaf dan pilih kaedah berwakaf kepada AWQAF Holdings Berhad.
@@ -461,7 +461,7 @@ const pillars = [
                             Lihat Kaedah Berwakaf <ArrowRightIcon class="h-4 w-4" />
                         </Link>
                     </div>
-                    <div class="rounded-2xl border border-slate-200 p-6 sm:p-7">
+                    <div class="rounded-xl border border-slate-200 p-5 sm:p-6">
                         <h3 class="text-xl font-bold text-slate-900">Portal Pewakaf</h3>
                         <p class="mt-3 text-sm leading-relaxed text-slate-500">
                             Untuk pewakaf sedia ada mengakses akaun, rekod wakaf, resit dan dokumen keahlian.
@@ -475,7 +475,7 @@ const pillars = [
                     </div>
                 </div>
 
-                <p v-reveal class="mt-24 border-t border-slate-100 pt-16 text-center text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+                <p v-reveal class="mt-14 border-t border-slate-100 pt-10 text-center text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
                     Waqaf membina hari ini. Amanahnya mewarisi selamanya.
                 </p>
             </div>
