@@ -404,12 +404,12 @@ const pillars = [
                             Warisan sebenar bukan sekadar institusi yang dibina,<br class="hidden sm:block" />
                             tetapi pemikiran yang ditinggalkan.
                         </h2>
-                        <p v-reveal="'140ms'" class="mt-5 max-w-xl text-lg leading-relaxed text-slate-300">
+                        <p v-reveal="'140ms'" class="mt-4 max-w-xl text-base leading-7 text-slate-300 sm:text-lg">
                             Biografi Allahyarham Tan Sri Muhammad Ali Hashim merakamkan pemikiran yang mendasari
                             gagasan Waqaf Korporat — sebuah rujukan institusi yang meletakkan falsafah AWQAF dalam
                             konteks sejarah dan idea yang lebih luas.
                         </p>
-                        <div v-reveal="'200ms'" class="mt-8 flex flex-wrap items-center gap-4">
+                        <div v-reveal="'200ms'" class="mt-6 flex flex-wrap items-center gap-4">
                             <!-- Aliran pertanyaan pembelian khusus (bukan halaman hubungi umum).
                                  Tukar kepada pautan WhatsApp rasmi (wa.me/<no>) apabila nombor
                                  rasmi disahkan, atau URL pembelian sebenar apabila tersedia. -->
@@ -445,31 +445,31 @@ const pillars = [
                 <div class="max-w-2xl">
                     <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Sertai pembinaan</p>
                     <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Bina bersama kami.</h2>
-                    <p v-reveal="'140ms'" class="mt-5 text-lg leading-relaxed text-slate-600">
+                    <p v-reveal="'140ms'" class="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
                         Setiap wakaf menyertai usaha membina ekonomi yang memberi manfaat berterusan kepada ummah —
                         sebuah amanah yang mewarisi kebaikan merentas generasi.
                     </p>
                 </div>
 
-                <div v-reveal class="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2">
-                    <div class="rounded-3xl bg-emerald-700 p-8 sm:p-10">
-                        <h3 class="text-2xl font-bold text-white">Bina bersama AWQAF</h3>
+                <div v-reveal class="mt-9 grid grid-cols-1 gap-5 sm:grid-cols-2">
+                    <div class="rounded-2xl bg-emerald-700 p-6 sm:p-7">
+                        <h3 class="text-xl font-bold text-white">Bina bersama AWQAF</h3>
                         <p class="mt-3 text-sm leading-relaxed text-emerald-50">
                             Sertai sebagai pewakaf dan pilih kaedah berwakaf kepada AWQAF Holdings Berhad.
                         </p>
-                        <Link :href="route('waqaf.howto')" class="mt-6 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-50">
+                        <Link :href="route('waqaf.howto')" class="mt-5 inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-50">
                             Lihat Kaedah Berwakaf <ArrowRightIcon class="h-4 w-4" />
                         </Link>
                     </div>
-                    <div class="rounded-3xl border border-slate-200 p-8 sm:p-10">
-                        <h3 class="text-2xl font-bold text-slate-900">Portal Pewakaf</h3>
+                    <div class="rounded-2xl border border-slate-200 p-6 sm:p-7">
+                        <h3 class="text-xl font-bold text-slate-900">Portal Pewakaf</h3>
                         <p class="mt-3 text-sm leading-relaxed text-slate-500">
                             Untuk pewakaf sedia ada mengakses akaun, rekod wakaf, resit dan dokumen keahlian.
                         </p>
-                        <a v-if="page.props.portalReady" :href="page.props.portalUrl" class="mt-6 inline-flex items-center gap-2 rounded-lg border border-emerald-600 px-6 py-3 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50">
+                        <a v-if="page.props.portalReady" :href="page.props.portalUrl" class="mt-5 inline-flex items-center gap-2 rounded-lg border border-emerald-600 px-5 py-2.5 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50">
                             Masuk ke Portal <ArrowRightIcon class="h-4 w-4" />
                         </a>
-                        <span v-else class="mt-6 inline-flex items-center gap-2 rounded-lg border border-slate-200 px-6 py-3 text-sm font-semibold text-slate-400">
+                        <span v-else class="mt-5 inline-flex items-center gap-2 rounded-lg border border-slate-200 px-5 py-2.5 text-sm font-semibold text-slate-400">
                             Akan Dibuka
                         </span>
                     </div>
