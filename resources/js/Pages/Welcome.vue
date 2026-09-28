@@ -108,7 +108,7 @@ const pillars = [
 
     <PublicLayout>
         <!-- ═══ M0 · IDEA ═══ -->
-        <section class="relative isolate flex min-h-[92vh] flex-col overflow-hidden bg-slate-950 lg:min-h-[calc(100vh-4.5rem)]">
+        <section class="relative isolate flex min-h-[88vh] flex-col overflow-hidden bg-slate-950 lg:min-h-[calc(100vh-4.5rem)]">
             <!-- Cinematic hero: poster remains the resilient fallback while the muted
                  video loads. Reduced-motion users keep the static poster. -->
             <picture class="pointer-events-none absolute inset-0 -z-10 block">
@@ -143,29 +143,29 @@ const pillars = [
             </video>
             <div
                 class="pointer-events-none absolute inset-0 -z-10 hidden md:block"
-                style="background: linear-gradient(90deg, rgba(6,9,20,.98) 0%, rgba(6,9,20,.95) 34%, rgba(6,9,20,.76) 58%, rgba(6,9,20,.38) 82%, rgba(6,9,20,.22) 100%);"
+                style="background: linear-gradient(90deg, rgba(4,10,18,.97) 0%, rgba(4,10,18,.92) 32%, rgba(4,10,18,.72) 55%, rgba(4,10,18,.30) 78%, rgba(4,10,18,.08) 100%);"
             ></div>
             <div
                 class="pointer-events-none absolute inset-0 -z-10 md:hidden"
                 style="background: linear-gradient(180deg, rgba(6,9,20,.92) 0%, rgba(6,9,20,.74) 52%, rgba(6,9,20,.9) 100%);"
             ></div>
 
-            <div class="relative mx-auto flex w-full max-w-7xl flex-1 items-center px-6 py-20 lg:px-8 lg:py-24">
-                <div class="max-w-[54rem]">
-                    <p class="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-400">{{ homepage.eyebrow }}</p>
-                    <h1 class="mt-7 text-4xl font-bold leading-[1.04] tracking-[-0.025em] text-white sm:text-6xl lg:text-[3.65rem] xl:text-[4rem]">
+            <div class="relative mx-auto flex w-full max-w-7xl flex-1 items-center px-6 py-16 sm:py-20 lg:px-8 lg:py-24">
+                <div class="max-w-[56rem]">
+                    <p class="flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.28em] text-emerald-400 sm:text-sm"><span>{{ homepage.eyebrow }}</span><span class="hidden h-px w-12 bg-white/50 sm:block" aria-hidden="true"></span></p>
+                    <h1 class="mt-7 text-[2.7rem] font-bold leading-[1.02] tracking-[-0.035em] text-white sm:text-6xl lg:text-[3.8rem] xl:text-[4.2rem]">
                         <span class="block">{{ homepage.headline_line_1 }}</span>
                         <span class="block">{{ homepage.headline_line_2 }}</span>
                         <span class="block text-emerald-400 sm:whitespace-nowrap">{{ homepage.headline_line_3 }}</span>
                     </h1>
-                    <p class="mt-7 max-w-[39rem] text-base leading-[1.7] text-slate-200 sm:text-lg">
+                    <p class="mt-7 max-w-[42rem] text-base font-medium leading-[1.75] text-white/90 sm:text-lg">
                         {{ homepage.hero_description }}
                     </p>
                     <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-                        <Link :href="route('waqaf.howto')" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-950/20 transition hover:bg-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+                        <Link :href="route('waqaf.howto')" class="inline-flex min-h-14 items-center justify-center gap-3 rounded-xl bg-emerald-500 px-7 py-3.5 text-sm font-semibold text-slate-950 shadow-xl shadow-slate-950/20 transition hover:-translate-y-0.5 hover:bg-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
                             Berwakaf Sekarang <ArrowRightIcon class="h-4 w-4" />
                         </Link>
-                        <Link :href="route('korporat.overview')" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-white/35 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+                        <Link :href="route('korporat.overview')" class="inline-flex min-h-14 items-center justify-center gap-3 rounded-xl border border-white/50 bg-slate-950/20 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition hover:-translate-y-0.5 hover:border-white/80 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
                             Kenali AWQAF <ArrowRightIcon class="h-4 w-4" />
                         </Link>
                     </div>
@@ -184,16 +184,16 @@ const pillars = [
              before the longer editorial narrative begins. -->
         <section class="border-b border-slate-200 bg-white" aria-label="Ringkasan ketelusan AWQAF">
             <div class="mx-auto grid max-w-7xl grid-cols-1 divide-y divide-slate-100 px-6 sm:grid-cols-3 sm:divide-x sm:divide-y-0 lg:px-8">
-                <div v-for="fact in facts" :key="`hero-${fact.label}`" class="py-6 sm:px-6 sm:first:pl-0 sm:last:pr-0 lg:py-7">
-                    <p class="text-2xl font-bold tracking-tight text-slate-950 lg:text-3xl">{{ fact.value }}</p>
-                    <p class="mt-1 text-xs font-medium leading-5 text-slate-500 sm:text-sm">{{ fact.label }}</p>
+                <div v-for="fact in facts" :key="`hero-${fact.label}`" class="py-7 sm:px-8 sm:first:pl-0 sm:last:pr-0 lg:py-8">
+                    <p class="text-2xl font-semibold tracking-[-0.03em] text-slate-950 lg:text-3xl">{{ fact.value }}</p>
+                    <p class="mt-1.5 text-xs font-medium leading-5 text-slate-500 sm:text-sm">{{ fact.label }}</p>
                 </div>
             </div>
         </section>
 
         <!-- ═══ M1 · PROBLEM ═══ -->
-        <section id="refleksi" class="bg-slate-950">
-            <div class="mx-auto max-w-4xl px-6 py-28 lg:px-8 lg:py-40">
+        <section id="refleksi" class="border-b border-white/5 bg-slate-950">
+            <div class="mx-auto max-w-4xl px-6 py-24 lg:px-8 lg:py-32">
                 <p v-reveal class="text-2xl font-medium leading-relaxed text-slate-400 sm:text-3xl sm:leading-[1.5]">
                     Ekonomi yang berkembang dengan adil membuka peluang untuk masyarakat belajar, bekerja
                     dan membina kehidupan yang lebih sejahtera.
@@ -207,7 +207,7 @@ const pillars = [
 
         <!-- ═══ M2 · PHILOSOPHY ═══ -->
         <section class="bg-white">
-            <div class="mx-auto max-w-5xl px-6 py-28 lg:px-8 lg:py-40">
+            <div class="mx-auto max-w-5xl px-6 py-24 lg:px-8 lg:py-32">
                 <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Waqaf Korporat</p>
                 <h2 v-reveal="'80ms'" class="mt-8 text-3xl font-bold leading-[1.18] tracking-tight text-slate-900 sm:text-5xl">
                     Waqaf bukan sekadar warisan harta. Ia warisan peluang — sebuah ekonomi yang membolehkan
@@ -243,8 +243,8 @@ const pillars = [
         </section>
 
         <!-- ═══ M3 · MODEL ═══ -->
-        <section class="bg-slate-50">
-            <div class="mx-auto max-w-4xl px-6 py-24 lg:px-8 lg:py-32">
+        <section class="border-y border-slate-100 bg-slate-50">
+            <div class="mx-auto max-w-5xl px-6 py-24 lg:px-8 lg:py-32">
                 <div class="max-w-2xl">
                     <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Model</p>
                     <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
@@ -255,8 +255,8 @@ const pillars = [
                         kesihatan dan masa depan komuniti.
                     </p>
                 </div>
-                <div v-reveal class="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-3">
-                    <div v-for="step in modelFlow" :key="step.n" class="bg-white p-8">
+                <div v-reveal class="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-slate-200 bg-slate-200 shadow-sm sm:grid-cols-3">
+                    <div v-for="step in modelFlow" :key="step.n" class="bg-white p-8 transition hover:bg-slate-50 lg:p-9">
                         <span class="text-sm font-semibold tabular-nums text-emerald-700">{{ step.n }}</span>
                         <h3 class="mt-4 text-lg font-semibold text-slate-900">{{ step.t }}</h3>
                         <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ step.d }}</p>
