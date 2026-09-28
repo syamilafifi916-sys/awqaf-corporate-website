@@ -1,6 +1,6 @@
 <script setup>
 import PublicLayout from '@/Layouts/PublicLayout.vue';
-import { ArrowRightIcon, ChevronDownIcon } from '@heroicons/vue/24/outline';
+import { ArrowRightIcon, ChevronDownIcon, AcademicCapIcon, HeartIcon, BuildingOffice2Icon, DevicePhoneMobileIcon, ShieldCheckIcon, BookOpenIcon } from '@heroicons/vue/24/outline';
 import { Head, Link, usePage } from '@inertiajs/vue3';
 
 const page = usePage();
@@ -65,16 +65,16 @@ const vReveal = {
 
 // M5 — assets built (portfolios) and benefits shared (programmes).
 const portfolios = [
-    { name: 'Pendidikan', line: 'Pendidikan Islam bersepadu menerusi AWQAF Education Sdn. Bhd.', slug: 'pendidikan' },
-    { name: 'Kesihatan & Kesejahteraan', line: 'Kesihatan dan kecergasan wanita menerusi AHB Wellness Sdn. Bhd.', slug: 'kesihatan-kesejahteraan' },
-    { name: 'Hartanah', line: 'Pembangunan tanah wakaf dan institusi secara produktif.', slug: 'hartanah' },
-    { name: 'Fintech', line: 'Penyelesaian kewangan digital dan pembiayaan Islam.', slug: 'fintech' },
+    { name: 'Pendidikan', line: 'Pendidikan Islam bersepadu menerusi AWQAF Education Sdn. Bhd.', slug: 'pendidikan', icon: AcademicCapIcon },
+    { name: 'Kesihatan & Kesejahteraan', line: 'Kesihatan dan kecergasan wanita menerusi AHB Wellness Sdn. Bhd.', slug: 'kesihatan-kesejahteraan', icon: HeartIcon },
+    { name: 'Hartanah', line: 'Pembangunan tanah wakaf dan institusi secara produktif.', slug: 'hartanah', icon: BuildingOffice2Icon },
+    { name: 'Fintech', line: 'Penyelesaian kewangan digital dan pembiayaan Islam.', slug: 'fintech', icon: DevicePhoneMobileIcon },
 ];
 
 const programmes = [
-    { name: 'Yayasan ZuriatCARE', line: 'Perlindungan sosial dan kesedaran kesihatan mental.', slug: 'yayasan-zuriatcare' },
-    { name: 'EduWAQF', line: 'Bantuan pendidikan dan biasiswa.', slug: 'eduwaqf' },
-    { name: 'AWQAF4Health', line: 'Bantuan kesihatan untuk golongan berpendapatan rendah.', slug: 'awqaf4health' },
+    { name: 'Yayasan ZuriatCARE', line: 'Perlindungan sosial dan kesedaran kesihatan mental.', slug: 'yayasan-zuriatcare', icon: ShieldCheckIcon },
+    { name: 'EduWAQF', line: 'Bantuan pendidikan dan biasiswa.', slug: 'eduwaqf', icon: BookOpenIcon },
+    { name: 'AWQAF4Health', line: 'Bantuan kesihatan untuk golongan berpendapatan rendah.', slug: 'awqaf4health', icon: HeartIcon },
 ];
 
 // M6 — proof. Verified figures only.
@@ -301,7 +301,7 @@ const pillars = [
 
         <!-- ═══ M5 · WHAT IT BUILDS ═══ -->
         <section class="bg-white">
-            <div class="mx-auto max-w-5xl px-6 py-28 lg:px-8 lg:py-36">
+            <div class="mx-auto max-w-5xl px-6 py-16 lg:px-8 lg:py-20">
                 <div class="max-w-2xl">
                     <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Di sebalik model</p>
                     <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
@@ -309,13 +309,13 @@ const pillars = [
                     </h2>
                 </div>
 
-                <div class="mt-16 grid grid-cols-1 gap-x-16 gap-y-14 lg:grid-cols-2">
+                <div class="mt-10 grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-2">
                     <!-- Assets built — Portfolio Pelaburan -->
                     <div v-reveal>
                         <p class="text-sm font-semibold text-slate-900">Aset yang dibina <span class="text-slate-400">— Portfolio Pelaburan</span></p>
-                        <ul class="mt-6 divide-y divide-slate-100 border-t border-slate-100">
+                        <ul class="mt-4 grid gap-2">
                             <li v-for="p in portfolios" :key="p.slug">
-                                <Link :href="route('portfolio.show', p.slug)" class="group flex items-start justify-between gap-4 py-4">
+                                <Link :href="route('portfolio.show', p.slug)" class="group flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-4 transition hover:border-emerald-200 hover:bg-emerald-50/40">
                                     <span>
                                         <span class="font-semibold text-slate-900 transition group-hover:text-emerald-700">{{ p.name }}</span>
                                         <span class="mt-0.5 block text-sm text-slate-500">{{ p.line }}</span>
@@ -329,9 +329,9 @@ const pillars = [
                     <!-- Benefits shared — Program & Inisiatif -->
                     <div v-reveal="'100ms'">
                         <p class="text-sm font-semibold text-slate-900">Manfaat yang dikongsi <span class="text-slate-400">— Program &amp; Inisiatif</span></p>
-                        <ul class="mt-6 divide-y divide-slate-100 border-t border-slate-100">
+                        <ul class="mt-4 grid gap-2">
                             <li v-for="p in programmes" :key="p.slug">
-                                <Link :href="route('program.show', p.slug)" class="group flex items-start justify-between gap-4 py-4">
+                                <Link :href="route('program.show', p.slug)" class="group flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-4 transition hover:border-emerald-200 hover:bg-emerald-50/40">
                                     <span>
                                         <span class="font-semibold text-slate-900 transition group-hover:text-emerald-700">{{ p.name }}</span>
                                         <span class="mt-0.5 block text-sm text-slate-500">{{ p.line }}</span>
@@ -431,7 +431,7 @@ const pillars = [
 
         <!-- ═══ M8 · INVITATION ═══ -->
         <section class="bg-white">
-            <div class="mx-auto max-w-5xl px-6 py-28 lg:px-8 lg:py-36">
+            <div class="mx-auto max-w-5xl px-6 py-16 lg:px-8 lg:py-20">
                 <div class="max-w-2xl">
                     <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Sertai pembinaan</p>
                     <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Bina bersama kami.</h2>
