@@ -207,35 +207,35 @@ const pillars = [
 
         <!-- ═══ M2 · PHILOSOPHY ═══ -->
         <section class="bg-white">
-            <div class="mx-auto max-w-5xl px-6 py-24 lg:px-8 lg:py-32">
+            <div class="mx-auto max-w-5xl px-6 py-20 lg:px-8 lg:py-24">
                 <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Waqaf Korporat</p>
-                <h2 v-reveal="'80ms'" class="mt-8 text-3xl font-bold leading-[1.18] tracking-tight text-slate-900 sm:text-5xl">
+                <h2 v-reveal="'80ms'" class="mt-5 max-w-4xl text-3xl font-bold leading-[1.15] tracking-[-0.025em] text-slate-900 sm:text-4xl lg:text-[2.75rem]">
                     Waqaf bukan sekadar warisan harta. Ia warisan peluang — sebuah ekonomi yang membolehkan
                     setiap generasi membina masa depannya sendiri.
                 </h2>
 
-                <p v-reveal class="mt-16 max-w-3xl text-2xl font-semibold leading-snug tracking-tight text-slate-900 sm:text-3xl">
+                <p v-reveal class="mt-12 max-w-3xl text-xl font-semibold leading-snug tracking-tight text-slate-900 sm:text-2xl">
                     Pertumbuhan ekonomi dan amanah kepada masyarakat tidak seharusnya dipisahkan.
                 </p>
-                <p v-reveal class="mt-8 max-w-2xl text-lg leading-relaxed text-slate-600">
+                <p v-reveal class="mt-6 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
                     Apabila keduanya berjalan seiring, setiap kemajuan ekonomi turut mengangkat kehidupan
                     masyarakat — dan kemakmuran menjadi warisan yang dikongsi, bukan sekadar keuntungan yang berlalu.
                 </p>
-                <p v-reveal="'80ms'" class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
+                <p v-reveal="'80ms'" class="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
                     Daripada keyakinan inilah Waqaf Korporat lahir — sebuah pendekatan pembangunan yang memajukan
                     dan mengurus aset wakaf secara profesional sebagai amanah, menjadikannya pemangkin pembangunan
                     ekonomi yang mampan, supaya kemakmuran yang dijana terus memberi manfaat kepada masyarakat dan
                     generasi akan datang.
                 </p>
 
-                <div class="mt-12 space-y-5 border-t border-slate-100 pt-12">
-                    <p v-reveal class="text-2xl leading-snug text-slate-400 sm:text-3xl">
+                <div class="mt-10 space-y-3 border-t border-slate-100 pt-8">
+                    <p v-reveal class="text-xl leading-snug text-slate-400 sm:text-2xl">
                         Waqaf bukan sekadar memberi — <span class="font-semibold text-slate-900">ia membina.</span>
                     </p>
-                    <p v-reveal="'100ms'" class="text-2xl leading-snug text-slate-400 sm:text-3xl">
+                    <p v-reveal="'100ms'" class="text-xl leading-snug text-slate-400 sm:text-2xl">
                         Bukan sekadar membantu — <span class="font-semibold text-slate-900">ia memperkasa.</span>
                     </p>
-                    <p v-reveal="'200ms'" class="max-w-3xl text-2xl leading-snug text-slate-400 sm:text-3xl">
+                    <p v-reveal="'200ms'" class="max-w-3xl text-xl leading-snug text-slate-400 sm:text-2xl">
                         Bukan sekadar mengurus aset — <span class="font-semibold text-slate-900">ia membina ekonomi yang memberi manfaat kepada semua.</span>
                     </p>
                 </div>
@@ -244,7 +244,7 @@ const pillars = [
 
         <!-- ═══ M3 · MODEL ═══ -->
         <section class="border-y border-slate-100 bg-slate-50">
-            <div class="mx-auto max-w-5xl px-6 py-24 lg:px-8 lg:py-32">
+            <div class="mx-auto max-w-5xl px-6 py-20 lg:px-8 lg:py-24">
                 <div class="max-w-2xl">
                     <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">Model</p>
                     <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
