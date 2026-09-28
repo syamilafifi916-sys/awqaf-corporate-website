@@ -76,6 +76,8 @@ const pillars = [
     <PublicLayout>
         <!-- ═══ M0 · IDEA ═══ -->
         <section class="relative isolate flex min-h-[92vh] flex-col overflow-hidden bg-slate-950 lg:min-h-[calc(100vh-4.5rem)]">
+            <!-- Cinematic hero: poster remains the resilient fallback while the muted
+                 video loads. Reduced-motion users keep the static poster. -->
             <picture class="pointer-events-none absolute inset-0 -z-10 block">
                 <source
                     type="image/webp"
@@ -93,6 +95,18 @@ const pillars = [
                     class="hero-img h-full w-full object-cover object-[72%_center] lg:object-[right_center]"
                 />
             </picture>
+            <video
+                class="hero-video pointer-events-none absolute inset-0 -z-[9] hidden h-full w-full object-cover object-center motion-safe:md:block"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="/images/hero/awqaf-hero-1536.webp"
+                aria-hidden="true"
+            >
+                <source src="/video/awqaf-hero.mp4" type="video/mp4" />
+            </video>
             <div
                 class="pointer-events-none absolute inset-0 -z-10 hidden md:block"
                 style="background: linear-gradient(90deg, rgba(6,9,20,.96) 0%, rgba(6,9,20,.91) 36%, rgba(6,9,20,.58) 62%, rgba(6,9,20,.28) 100%);"
@@ -420,6 +434,9 @@ const pillars = [
 }
 .hero-img {
     animation: heroDrift 24s ease-out both;
+}
+.hero-video {
+    background: #060914;
 }
 @keyframes heroDrift {
     from {
