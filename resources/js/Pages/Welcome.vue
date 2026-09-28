@@ -30,7 +30,7 @@ const homepage = {
     headline_line_3: props.homepage?.headline_line_3 || 'Mewariskan Masa Depan.',
     hero_description:
         props.homepage?.hero_description ||
-        'Sebuah tamadun yang makmur tidak dibina oleh kekayaan semata-mata, tetapi oleh bagaimana kekayaan diurus dengan amanah demi manfaat generasi yang akan datang.',
+        'Institusi Waqaf Korporat yang membangun dan mengurus aset wakaf secara profesional untuk manfaat ummah yang berkekalan.',
     hero_video: resolveMediaUrl(props.homepage?.hero_video, '/video/awqaf-hero.mp4'),
     hero_image: resolveMediaUrl(props.homepage?.hero_image, defaultHeroImage),
     cta_label: props.homepage?.cta_label || 'TEROKAI IDEA INI',
@@ -161,14 +161,33 @@ const pillars = [
                     <p class="mt-7 max-w-[39rem] text-base leading-[1.7] text-slate-200 sm:text-lg">
                         {{ homepage.hero_description }}
                     </p>
+                    <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+                        <Link :href="route('waqaf.howto')" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-950/20 transition hover:bg-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+                            Berwakaf Sekarang <ArrowRightIcon class="h-4 w-4" />
+                        </Link>
+                        <Link :href="route('korporat.overview')" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-white/35 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+                            Kenali AWQAF <ArrowRightIcon class="h-4 w-4" />
+                        </Link>
+                    </div>
                 </div>
             </div>
 
-            <div class="relative mx-auto w-full max-w-7xl px-6 pb-10 lg:px-8">
+            <div class="relative mx-auto w-full max-w-7xl px-6 pb-8 lg:px-8">
                 <a :href="homepage.cta_url" class="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
-                    {{ homepage.cta_label }}
-                    <ChevronDownIcon class="h-4 w-4 animate-bounce" aria-hidden="true" />
+                    Terokai bagaimana ia berfungsi
+                    <ChevronDownIcon class="h-4 w-4 motion-safe:animate-bounce" aria-hidden="true" />
                 </a>
+            </div>
+        </section>
+
+        <!-- Quick institutional proof: gives first-time visitors immediate confidence
+             before the longer editorial narrative begins. -->
+        <section class="border-b border-slate-200 bg-white" aria-label="Ringkasan ketelusan AWQAF">
+            <div class="mx-auto grid max-w-7xl grid-cols-1 divide-y divide-slate-100 px-6 sm:grid-cols-3 sm:divide-x sm:divide-y-0 lg:px-8">
+                <div v-for="fact in facts" :key="`hero-${fact.label}`" class="py-6 sm:px-6 sm:first:pl-0 sm:last:pr-0 lg:py-7">
+                    <p class="text-2xl font-bold tracking-tight text-slate-950 lg:text-3xl">{{ fact.value }}</p>
+                    <p class="mt-1 text-xs font-medium leading-5 text-slate-500 sm:text-sm">{{ fact.label }}</p>
+                </div>
             </div>
         </section>
 
