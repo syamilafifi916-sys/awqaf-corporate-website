@@ -357,27 +357,27 @@ const pillars = [
 
         <!-- ═══ M6 · AMANAH & EVIDENCE ═══ -->
         <section class="bg-slate-950">
-            <div class="mx-auto max-w-6xl px-6 py-28 lg:px-8 lg:py-36">
+            <div class="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
                 <div class="max-w-2xl">
                     <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">Amanah</p>
                     <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                         Amanah yang dibuktikan, bukan dilaung.
                     </h2>
-                    <p v-reveal="'140ms'" class="mt-5 text-lg leading-relaxed text-slate-300">
+                    <p v-reveal="'140ms'" class="mt-4 text-base leading-7 text-slate-300 sm:text-lg">
                         Diperbadankan di bawah Akta Syarikat 2016, diselia Lembaga Pengarah sembilan ahli, dan
                         diaudit setiap tahun. Rekod kewangan didedahkan sepenuhnya menerusi Pusat Ketelusan
                         dan laporan tahunan yang diterbitkan.
                     </p>
                 </div>
 
-                <dl v-reveal class="mt-14 grid grid-cols-1 gap-x-10 gap-y-8 border-y border-white/10 py-10 sm:grid-cols-3">
+                <dl v-reveal class="mt-9 grid grid-cols-1 gap-x-8 gap-y-6 border-y border-white/10 py-7 sm:grid-cols-3">
                     <div v-for="f in facts" :key="f.label">
-                        <dt class="text-3xl font-bold text-emerald-400 sm:text-4xl">{{ f.value }}</dt>
-                        <dd class="mt-2 text-sm text-slate-400">{{ f.label }}</dd>
+                        <dt class="text-2xl font-bold tracking-tight text-emerald-400 sm:text-3xl">{{ f.value }}</dt>
+                        <dd class="mt-1.5 text-sm text-slate-400">{{ f.label }}</dd>
                     </div>
                 </dl>
 
-                <div v-reveal class="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold">
+                <div v-reveal class="mt-7 flex flex-wrap gap-x-7 gap-y-3 text-sm font-semibold">
                     <Link :href="route('korporat.reports')" class="text-emerald-400 hover:underline">Laporan Tahunan &amp; Penyata Kewangan →</Link>
                     <Link :href="route('korporat.leadership.index')" class="text-emerald-400 hover:underline">Lembaga Pengarah →</Link>
                     <Link :href="route('ketelusan')" class="text-emerald-400 hover:underline">Laporan &amp; Tadbir Urus →</Link>
