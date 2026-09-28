@@ -16,6 +16,15 @@ Route::get('/', function () {
     return Inertia::render('Welcome');
 })->name('welcome');
 
+Route::get('/agm', function () {
+    Seo::set([
+        'title' => 'Mesyuarat Agung Tahunan 2026 — AWQAF Holdings Berhad',
+        'description' => 'Notis, maklumat dan dokumen rasmi Mesyuarat Agung Tahunan AWQAF Holdings Berhad 2026.',
+    ]);
+
+    return Inertia::render('Agm');
+})->name('agm');
+
 Route::get('/wakaf/wakaf-korporat', function () {
     Seo::set([
         'title' => 'Waqaf Korporat® — Definisi & Ciri-ciri — AWQAF Holdings Berhad',
