@@ -54,4 +54,14 @@ return [
         'base_url' => env('REPORTS_BASE_URL'),
     ],
 
+
+    'whatsapp' => [
+        'enabled' => env('WHATSAPP_ENABLED', false),
+        'token' => env('WHATSAPP_TOKEN'),
+        'phone_number_id' => env('WHATSAPP_PHONE_NUMBER_ID'),
+        'verify_token' => env('WHATSAPP_VERIFY_TOKEN'),
+        'app_secret' => env('WHATSAPP_APP_SECRET'),
+        'graph_version' => env('WHATSAPP_GRAPH_VERSION', 'v23.0'),
+        'language' => env('WHATSAPP_TEMPLATE_LANGUAGE', 'ms'),
+    ],
 ];
