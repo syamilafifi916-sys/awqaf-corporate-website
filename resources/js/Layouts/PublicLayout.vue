@@ -141,13 +141,13 @@ onBeforeUnmount(() => {
 
 <template>
     <div class="min-h-screen bg-white text-slate-800">
-        <header class="sticky top-0 z-40 border-b border-slate-100 bg-white/90 backdrop-blur">
-            <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-8">
+        <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/95 shadow-[0_1px_0_rgba(15,23,42,0.02)] backdrop-blur-xl">
+            <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5 lg:px-8">
                 <Link href="/" class="flex items-center" aria-label="AWQAF Holdings Berhad — Laman Utama">
-                    <img src="/images/brand/awqaf-symbol.png" alt="AWQAF Holdings Berhad" class="h-11 w-auto sm:h-12" />
+                    <img src="/images/brand/awqaf-symbol.png" alt="AWQAF Holdings Berhad" class="h-10 w-auto sm:h-11" />
                 </Link>
 
-                <nav class="hidden items-center gap-0.5 lg:flex" aria-label="Navigasi utama">
+                <nav class="hidden items-center gap-1 lg:flex" aria-label="Navigasi utama">
                     <div
                         v-for="group in navGroups"
                         :key="group.label"
@@ -159,7 +159,7 @@ onBeforeUnmount(() => {
                     >
                         <Link
                             :href="group.href"
-                            class="inline-flex min-h-10 items-center gap-1 whitespace-nowrap rounded-lg px-2.5 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                            class="inline-flex min-h-10 items-center gap-1 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
                             :aria-haspopup="group.children ? 'true' : undefined"
                             :aria-expanded="group.children ? (openLabel === group.label ? 'true' : 'false') : undefined"
                             :aria-controls="group.children ? `menu-${slug(group.label)}` : undefined"
@@ -200,7 +200,7 @@ onBeforeUnmount(() => {
                 <div class="flex items-center gap-2">
                     <Link
                         :href="route('waqaf.howto')"
-                        class="hidden whitespace-nowrap rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 sm:inline-flex"
+                        class="hidden min-h-11 items-center whitespace-nowrap rounded-xl bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-emerald-900/10 transition hover:-translate-y-0.5 hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 sm:inline-flex"
                     >
                         Wakaf Sekarang
                     </Link>
@@ -318,18 +318,18 @@ onBeforeUnmount(() => {
             <slot />
         </main>
 
-        <footer class="border-t border-slate-100 bg-slate-50">
+        <footer class="border-t border-slate-800 bg-slate-950 text-white">
             <div class="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 py-12 sm:grid-cols-4 lg:px-8">
                 <div class="col-span-2 sm:col-span-1">
                     <img src="/images/brand/awqaf-symbol.png" alt="AWQAF Holdings Berhad" class="h-11 w-auto" />
-                    <p class="mt-4 text-sm text-slate-500">
+                    <p class="mt-4 text-sm leading-6 text-slate-400">
                         AWQAF Holdings Berhad — memacu pengurusan Waqaf Korporat untuk kelestarian ummah.
                     </p>
                 </div>
 
                 <div>
-                    <h2 class="text-sm font-semibold text-slate-900">Wakaf</h2>
-                    <ul class="mt-4 space-y-2 text-sm text-slate-500">
+                    <h2 class="text-sm font-semibold text-white">Wakaf</h2>
+                    <ul class="mt-4 space-y-2.5 text-sm text-slate-400">
                         <li><Link :href="route('waqaf.corporate')" class="hover:text-emerald-700">Waqaf Korporat</Link></li>
                         <li><Link :href="route('waqaf.howto')" class="font-medium text-emerald-700 hover:text-emerald-800">Wakaf Sekarang</Link></li>
                         <li><Link :href="route('waqaf.categories')" class="hover:text-emerald-700">Kategori Pewakaf</Link></li>
@@ -337,8 +337,8 @@ onBeforeUnmount(() => {
                 </div>
 
                 <div>
-                    <h2 class="text-sm font-semibold text-slate-900">Korporat</h2>
-                    <ul class="mt-4 space-y-2 text-sm text-slate-500">
+                    <h2 class="text-sm font-semibold text-white">Korporat</h2>
+                    <ul class="mt-4 space-y-2.5 text-sm text-slate-400">
                         <li><Link :href="route('korporat.overview')" class="hover:text-emerald-700">Mengenai AWQAF</Link></li>
                         <li><Link :href="route('korporat.leadership.index')" class="hover:text-emerald-700">Lembaga Pengarah</Link></li>
                         <li><Link :href="route('hubungi')" class="hover:text-emerald-700">Hubungi Kami</Link></li>
@@ -346,8 +346,8 @@ onBeforeUnmount(() => {
                 </div>
 
                 <div>
-                    <h2 class="text-sm font-semibold text-slate-900">Laporan</h2>
-                    <ul class="mt-4 space-y-2 text-sm text-slate-500">
+                    <h2 class="text-sm font-semibold text-white">Laporan</h2>
+                    <ul class="mt-4 space-y-2.5 text-sm text-slate-400">
                         <li><Link :href="route('korporat.reports')" class="hover:text-emerald-700">Laporan Tahunan</Link></li>
                         <li><Link :href="route('korporat.reports')" class="hover:text-emerald-700">Penyata Kewangan</Link></li>
                         <li><Link :href="route('ketelusan')" class="hover:text-emerald-700">Laporan &amp; Tadbir Urus</Link></li>
@@ -355,7 +355,7 @@ onBeforeUnmount(() => {
                 </div>
             </div>
 
-            <div class="border-t border-slate-200 px-6 py-6 text-center text-xs text-slate-500 lg:px-8">
+            <div class="border-t border-white/10 px-6 py-6 text-center text-xs text-slate-500 lg:px-8">
                 © {{ new Date().getFullYear() }} AWQAF Holdings Berhad. Hak cipta terpelihara.
             </div>
         </footer>
