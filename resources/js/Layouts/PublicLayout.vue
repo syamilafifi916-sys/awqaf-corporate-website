@@ -142,9 +142,9 @@ onBeforeUnmount(() => {
 <template>
     <div class="min-h-screen bg-white text-slate-800">
         <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/95 shadow-[0_1px_0_rgba(15,23,42,0.02)] backdrop-blur-xl">
-            <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5 lg:px-8">
+            <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-6 lg:px-8">
                 <Link href="/" class="flex items-center" aria-label="AWQAF Holdings Berhad — Laman Utama">
-                    <img src="/images/brand/awqaf-symbol.png" alt="AWQAF Holdings Berhad" class="h-10 w-auto sm:h-11" />
+                    <img src="/images/brand/awqaf-symbol.png" alt="AWQAF Holdings Berhad" class="h-9 w-auto sm:h-10" />
                 </Link>
 
                 <nav class="hidden items-center gap-1 lg:flex" aria-label="Navigasi utama">
@@ -319,7 +319,7 @@ onBeforeUnmount(() => {
         </main>
 
         <footer class="border-t border-slate-800 bg-[#070b12] text-white">
-            <div class="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 py-12 sm:grid-cols-4 lg:px-8">
+            <div class="mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-8 px-5 py-10 sm:grid-cols-4 sm:px-6 lg:px-8">
                 <div class="col-span-2 sm:col-span-1">
                     <img src="/images/brand/awqaf-symbol.png" alt="AWQAF Holdings Berhad" class="h-11 w-auto" />
                     <p class="mt-4 text-sm leading-6 text-slate-400">
@@ -355,7 +355,7 @@ onBeforeUnmount(() => {
                 </div>
             </div>
 
-            <div class="border-t border-white/10 px-6 py-6 text-center text-xs text-slate-500 lg:px-8">
+            <div class="border-t border-white/10 px-5 py-5 text-center text-xs text-slate-500 lg:px-8">
                 © {{ new Date().getFullYear() }} AWQAF Holdings Berhad. Hak cipta terpelihara.
             </div>
         </footer>
