@@ -132,7 +132,7 @@ class ExportStatic extends Command
 
     private function copyAssets(string $dist): void
     {
-        foreach (['build', 'css', 'js', 'images'] as $dir) {
+        foreach (['build', 'css', 'js', 'images', 'video'] as $dir) {
             if (File::isDirectory(public_path($dir))) {
                 File::copyDirectory(public_path($dir), $dist.'/'.$dir);
             }
