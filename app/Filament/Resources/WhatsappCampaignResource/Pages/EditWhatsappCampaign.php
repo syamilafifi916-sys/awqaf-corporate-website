@@ -34,8 +34,8 @@ class EditWhatsappCampaign extends EditRecord {
    Actions\Action::make('approveQueue')->label('Approve for Queue')->color('danger')
     ->requiresConfirmation()->modalHeading('Approve this broadcast?')
     ->modalDescription('Approval changes status to queued only. Real dispatch remains disabled until an official provider and test-send gate are configured.')
-    ->visible(fn()=>$this->record->status==='ready')
-    ->action(function(){ $this->record->update(['status'=>'queued']); Notification::make()->title('Campaign queued — dispatch is disabled')->warning()->send(); }),
+    ->visible(fn()=>$this->record->status==='ready' && $this->record->test_sent_at !== null)
+    ->action(function(){ abort_unless($this->record->test_sent_at, 409, 'A successful test send is required before queue approval.'); $this->record->update(['status'=>'queued']); Notification::make()->title('Campaign queued — dispatch is disabled')->warning()->send(); }),
   ];
  }
  protected function mutateFormDataBeforeSave(array $data): array {
