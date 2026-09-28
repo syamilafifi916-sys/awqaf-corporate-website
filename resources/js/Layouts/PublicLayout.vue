@@ -47,11 +47,13 @@ const navGroups = computed(() => [
         ],
     },
     {
-        label: 'Muat Turun',
-        href: route('korporat.reports'),
+        label: 'Ketelusan',
+        href: route('ketelusan'),
         children: [
+            { label: 'Pusat Ketelusan', href: route('ketelusan') },
             { label: 'Laporan Tahunan', href: route('korporat.reports') },
             { label: 'Penyata Kewangan', href: route('korporat.reports') },
+            { label: 'Lembaga Pengarah', href: route('korporat.leadership.index') },
         ],
     },
 ]);
@@ -157,7 +159,7 @@ onBeforeUnmount(() => {
                     >
                         <Link
                             :href="group.href"
-                            class="inline-flex items-center gap-1 whitespace-nowrap rounded-lg px-2.5 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                            class="inline-flex min-h-10 items-center gap-1 whitespace-nowrap rounded-lg px-2.5 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
                             :aria-haspopup="group.children ? 'true' : undefined"
                             :aria-expanded="group.children ? (openLabel === group.label ? 'true' : 'false') : undefined"
                             :aria-controls="group.children ? `menu-${slug(group.label)}` : undefined"
@@ -213,7 +215,7 @@ onBeforeUnmount(() => {
                     <button
                         ref="menuToggle"
                         type="button"
-                        class="inline-flex items-center justify-center rounded-lg p-2 text-slate-700 transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 lg:hidden"
+                        class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2 text-slate-700 transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 lg:hidden"
                         :aria-expanded="mobileOpen"
                         aria-controls="mobile-menu"
                         aria-label="Buka menu navigasi"
