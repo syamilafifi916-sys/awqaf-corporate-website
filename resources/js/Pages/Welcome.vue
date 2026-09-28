@@ -250,19 +250,19 @@ const pillars = [
                     <h2 v-reveal="'80ms'" class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
                         Bagaimana kemakmuran menjadi milik bersama
                     </h2>
-                    <p v-reveal="'140ms'" class="mt-5 text-lg leading-relaxed text-slate-600">
+                    <p v-reveal="'140ms'" class="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
                         Nilai yang dijana tidak dibelanjakan sekali habis. Hasilnya membina pendidikan,
                         kesihatan dan masa depan komuniti.
                     </p>
                 </div>
-                <div v-reveal class="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-slate-200 bg-slate-200 shadow-sm sm:grid-cols-3">
-                    <div v-for="step in modelFlow" :key="step.n" class="bg-white p-8 transition hover:bg-slate-50 lg:p-9">
+                <div v-reveal class="mt-9 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 shadow-sm sm:grid-cols-3">
+                    <div v-for="step in modelFlow" :key="step.n" class="bg-white p-6 transition hover:bg-slate-50 lg:p-7">
                         <span class="text-sm font-semibold tabular-nums text-emerald-700">{{ step.n }}</span>
-                        <h3 class="mt-4 text-lg font-semibold text-slate-900">{{ step.t }}</h3>
-                        <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ step.d }}</p>
+                        <h3 class="mt-3 text-base font-semibold text-slate-900 lg:text-lg">{{ step.t }}</h3>
+                        <p class="mt-2 text-sm leading-6 text-slate-600">{{ step.d }}</p>
                     </div>
                 </div>
-                <div class="mt-10">
+                <div class="mt-7">
                     <Link :href="route('waqaf.corporate')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:underline">
                         Fahami Waqaf Korporat <ArrowRightIcon class="h-4 w-4" />
                     </Link>
