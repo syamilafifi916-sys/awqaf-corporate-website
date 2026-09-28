@@ -272,12 +272,12 @@ const pillars = [
 
         <!-- ═══ M4 · INSTITUTION ═══ -->
         <section class="bg-slate-950">
-            <div class="mx-auto max-w-5xl px-6 py-28 lg:px-8 lg:py-36">
+            <div class="mx-auto max-w-5xl px-6 py-16 lg:px-8 lg:py-20">
                 <p v-reveal class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">Institusi</p>
-                <h2 v-reveal="'80ms'" class="mt-6 max-w-3xl text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
+                <h2 v-reveal="'80ms'" class="mt-4 max-w-3xl text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl">
                     Institusi yang menterjemahkan falsafah ini menjadi tindakan.
                 </h2>
-                <p v-reveal="'140ms'" class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
+                <p v-reveal="'140ms'" class="mt-4 max-w-2xl text-base leading-7 text-slate-300">
                     AWQAF Holdings Berhad ialah sebuah institusi Waqaf Korporat. Ia membina dan menguruskan
                     aset wakaf secara profesional supaya nilai yang dijana kekal, berkembang dan terus memberi
                     manfaat kepada masyarakat.
@@ -285,10 +285,10 @@ const pillars = [
 
                 <!-- Semantic grid (not a <dl>): the last cell is a CTA, not a
                      term/definition, so a definition list would be invalid (a11y). -->
-                <div class="mt-16 grid grid-cols-1 gap-x-12 gap-y-10 border-t border-white/10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="mt-10 grid grid-cols-1 gap-x-10 gap-y-7 border-t border-white/10 pt-9 sm:grid-cols-2 lg:grid-cols-3">
                     <div v-for="(p, i) in pillars" :key="p.t" v-reveal="`${i * 60}ms`">
                         <p class="text-sm font-semibold text-white">{{ p.t }}</p>
-                        <p class="mt-2 text-sm leading-relaxed text-slate-400">{{ p.d }}</p>
+                        <p class="mt-1.5 text-sm leading-6 text-slate-400">{{ p.d }}</p>
                     </div>
                     <div v-reveal="'300ms'" class="flex items-end">
                         <Link :href="route('korporat.overview')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-400 hover:underline">
