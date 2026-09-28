@@ -316,11 +316,16 @@ const pillars = [
                         <ul class="mt-4 grid gap-2">
                             <li v-for="p in portfolios" :key="p.slug">
                                 <Link :href="route('portfolio.show', p.slug)" class="group flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-4 transition hover:border-emerald-200 hover:bg-emerald-50/40">
-                                    <span>
-                                        <span class="font-semibold text-slate-900 transition group-hover:text-emerald-700">{{ p.name }}</span>
-                                        <span class="mt-0.5 block text-sm text-slate-500">{{ p.line }}</span>
+                                    <span class="flex min-w-0 items-center gap-3">
+                                        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-50 text-emerald-700 ring-1 ring-slate-200 transition group-hover:bg-white group-hover:ring-emerald-200">
+                                            <component :is="p.icon" class="h-[18px] w-[18px]" aria-hidden="true" />
+                                        </span>
+                                        <span class="min-w-0">
+                                            <span class="font-semibold text-slate-900 transition group-hover:text-emerald-700">{{ p.name }}</span>
+                                            <span class="mt-0.5 block text-sm leading-5 text-slate-500">{{ p.line }}</span>
+                                        </span>
                                     </span>
-                                    <ArrowRightIcon class="mt-1 h-4 w-4 flex-none text-slate-300 transition group-hover:text-emerald-700" />
+                                    <ArrowRightIcon class="h-4 w-4 flex-none text-slate-300 transition group-hover:translate-x-0.5 group-hover:text-emerald-700" />
                                 </Link>
                             </li>
                         </ul>
@@ -332,11 +337,16 @@ const pillars = [
                         <ul class="mt-4 grid gap-2">
                             <li v-for="p in programmes" :key="p.slug">
                                 <Link :href="route('program.show', p.slug)" class="group flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-4 transition hover:border-emerald-200 hover:bg-emerald-50/40">
-                                    <span>
-                                        <span class="font-semibold text-slate-900 transition group-hover:text-emerald-700">{{ p.name }}</span>
-                                        <span class="mt-0.5 block text-sm text-slate-500">{{ p.line }}</span>
+                                    <span class="flex min-w-0 items-center gap-3">
+                                        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-50 text-emerald-700 ring-1 ring-slate-200 transition group-hover:bg-white group-hover:ring-emerald-200">
+                                            <component :is="p.icon" class="h-[18px] w-[18px]" aria-hidden="true" />
+                                        </span>
+                                        <span class="min-w-0">
+                                            <span class="font-semibold text-slate-900 transition group-hover:text-emerald-700">{{ p.name }}</span>
+                                            <span class="mt-0.5 block text-sm leading-5 text-slate-500">{{ p.line }}</span>
+                                        </span>
                                     </span>
-                                    <ArrowRightIcon class="mt-1 h-4 w-4 flex-none text-slate-300 transition group-hover:text-emerald-700" />
+                                    <ArrowRightIcon class="h-4 w-4 flex-none text-slate-300 transition group-hover:translate-x-0.5 group-hover:text-emerald-700" />
                                 </Link>
                             </li>
                         </ul>
