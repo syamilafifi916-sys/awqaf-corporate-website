@@ -171,10 +171,13 @@ const pillars = [
                             </p>
 
                             <div class="mt-5 grid gap-2.5 sm:grid-cols-2">
+                                <Link :href="route('agm.rsvp')" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-500">
+                                    Pengesahan Kehadiran <ArrowRightIcon class="h-4 w-4" />
+                                </Link>
                                 <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800" @click="openReader('notice')">
                                     <EyeIcon class="h-4 w-4" /> Baca Notis AGM
                                 </button>
-                                <a href="/documents/agm/2026/Notis-AGM-Ke-13-dan-Borang-Proksi.pdf" download class="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-slate-300 hover:bg-slate-50">
+                                <a href="/documents/agm/2026/Notis-AGM-Ke-13-dan-Borang-Proksi.pdf" download class="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-slate-300 hover:bg-slate-50 sm:col-span-2">
                                     <ArrowDownTrayIcon class="h-4 w-4" /> Muat Turun Notis &amp; Proksi
                                 </a>
                             </div>
