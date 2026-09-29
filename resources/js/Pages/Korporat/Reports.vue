@@ -69,8 +69,8 @@ const formatRm = (value) => 'RM ' + Number(value).toLocaleString('en-MY');
                     </div>
                 </div>
 
-                <div class="flex flex-col gap-3 border-t border-slate-100 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
-                    <div>
+                <div class="grid gap-4 border-t border-slate-100 px-5 py-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+                    <div class="min-w-0">
                         <p class="text-sm font-medium text-slate-800">
                             Notis Mesyuarat &amp; Borang Proksi
                         </p>
@@ -79,12 +79,12 @@ const formatRm = (value) => 'RM ' + Number(value).toLocaleString('en-MY');
                         </p>
                     </div>
 
-                    <div class="flex flex-col gap-2 sm:flex-row">
+                    <div class="flex flex-col gap-2 sm:flex-row lg:justify-end">
                         <a
                             href="/documents/reports/Penyata-Kewangan-Diaudit-2025.pdf"
                             target="_blank"
                             rel="noopener"
-                            class="inline-flex shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-800 transition hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-800"
+                            class="inline-flex min-h-10 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-800 transition hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-800"
                         >
                             Penyata Kewangan 2025 ↗
                         </a>
@@ -92,7 +92,7 @@ const formatRm = (value) => 'RM ' + Number(value).toLocaleString('en-MY');
                             href="/documents/agm/2026/Notis-AGM-Ke-13-dan-Borang-Proksi.pdf"
                             target="_blank"
                             rel="noopener"
-                            class="inline-flex shrink-0 items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
+                            class="inline-flex min-h-10 shrink-0 items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
                         >
                             Notis &amp; Borang Proksi ↗
                         </a>
