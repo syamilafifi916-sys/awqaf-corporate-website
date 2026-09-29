@@ -25,6 +25,10 @@ class AgmRsvpResource extends Resource
             ->defaultSort('created_at', 'desc')
             ->columns([
                 Tables\Columns\TextColumn::make('name')->label('Nama')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('ic_number')
+                    ->label('No. IC')
+                    ->copyable()
+                    ->copyMessage('No. IC disalin'),
                 Tables\Columns\TextColumn::make('attendance')
                     ->label('Kehadiran')
                     ->badge()
@@ -45,11 +49,12 @@ class AgmRsvpResource extends Resource
                         return response()->streamDownload(function () {
                             $out = fopen('php://output', 'w');
                             fwrite($out, "\xEF\xBB\xBF");
-                            fputcsv($out, ['Nama', 'Kehadiran', 'Tarikh', 'Masa']);
+                            fputcsv($out, ['Nama', 'No. IC', 'Kehadiran', 'Tarikh', 'Masa']);
                             AgmRsvp::query()->latest()->chunk(500, function ($rows) use ($out) {
                                 foreach ($rows as $row) {
                                     fputcsv($out, [
                                         $row->name,
+                                        $row->ic_number,
                                         $row->attendance === 'hadir' ? 'Hadir' : 'Tidak Hadir',
                                         $row->created_at?->format('d/m/Y'),
                                         $row->created_at?->format('h:i A'),
