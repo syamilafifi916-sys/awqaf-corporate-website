@@ -14,7 +14,7 @@ class ReportSeeder extends Seeder
     {
         $annualReportYears = range(2015, 2024);
         // 2021 Audited Financial Statement is now available in reports/.
-        $financialStatementYears = range(2015, 2024);
+        $financialStatementYears = range(2015, 2025);
 
         foreach ($annualReportYears as $year) {
             Report::updateOrCreate(
@@ -31,7 +31,9 @@ class ReportSeeder extends Seeder
                 ['year' => $year, 'type' => 'financial_statement'],
                 [
                     'title' => "Penyata Kewangan Diaudit {$year}",
-                    'file_path' => "reports/Audited-financial-statement-{$year}.pdf",
+                    'file_path' => $year === 2025
+                        ? 'documents/reports/Penyata-Kewangan-Diaudit-2025.pdf'
+                        : "reports/Audited-financial-statement-{$year}.pdf",
                 ],
             );
         }
