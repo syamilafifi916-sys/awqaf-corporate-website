@@ -1,4 +1,12 @@
 <?php
+// AGM 2026 documents: explicit PDF response for production hosting.
+Route::get('/dokumen/agm/notis-2026', function () {
+    return response()->file(public_path('documents/agm/2026/Notis-AGM-Ke-13-dan-Borang-Proksi.pdf'), ['Content-Type' => 'application/pdf']);
+});
+Route::get('/dokumen/laporan/2025', function () {
+    return response()->file(public_path('documents/reports/Penyata-Kewangan-Diaudit-2025.pdf'), ['Content-Type' => 'application/pdf']);
+});
+
 
 use App\Models\AgmRsvp;
 use App\Models\HomepageSetting;
