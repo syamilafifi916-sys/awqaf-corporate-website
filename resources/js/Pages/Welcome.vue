@@ -161,7 +161,7 @@ const pillars = [
                             </div>
                             <div class="px-4 py-3.5">
                                 <p class="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">Lokasi</p>
-                                <p class="mt-1 text-[13px] font-semibold leading-5 text-slate-900">City, M-02-05, Second Floor, Conezion Comercial, Persiaran IRC 3, Ioi Resort, 62502 Putrajaya.</p>
+                                <p class="mt-1 text-[13px] font-semibold leading-5 text-slate-900">Ibu Pejabat DPIM — M-02-05, Second Floor, Conezion Comercial, Persiaran IRC 3, Ioi Resort, 62502 Putrajaya</p>
                             </div>
                         </div>
 
