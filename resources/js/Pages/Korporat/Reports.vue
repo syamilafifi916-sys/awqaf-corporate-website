@@ -41,19 +41,13 @@ const formatRm = (value) => 'RM ' + Number(value).toLocaleString('en-MY');
 
             <!-- AGM Ke-13 -->
             <div class="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white">
-                <div class="border-b border-slate-100 px-5 py-4 sm:flex sm:items-center sm:justify-between sm:gap-6">
-                    <div>
-                        <p class="text-xs font-semibold uppercase tracking-wider text-emerald-700">
-                            Mesyuarat Agung Tahunan
-                        </p>
-                        <h2 class="mt-1 text-xl font-bold text-slate-900">
-                            AGM Ke-13 AWQAF Holdings Berhad
-                        </h2>
-                    </div>
-
-                    <span class="mt-3 inline-flex rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-800 sm:mt-0">
-                        21 Oktober 2026
-                    </span>
+                <div class="border-b border-slate-100 px-5 py-4">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-emerald-700">
+                        Mesyuarat Agung Tahunan
+                    </p>
+                    <h2 class="mt-1 text-xl font-bold text-slate-900">
+                        AGM Ke-13 AWQAF Holdings Berhad
+                    </h2>
                 </div>
 
                 <div class="grid gap-px bg-slate-100 sm:grid-cols-3">
@@ -69,7 +63,9 @@ const formatRm = (value) => 'RM ' + Number(value).toLocaleString('en-MY');
 
                     <div class="bg-white px-5 py-4">
                         <p class="text-xs font-medium text-slate-500">Lokasi</p>
-                        <p class="mt-1 text-sm font-semibold text-slate-900">DPIM, IOI Resort City, Putrajaya</p>
+                        <p class="mt-1 text-sm font-semibold leading-snug text-slate-900">
+                            Ibu Pejabat DPIM, IOI Conezion, Putrajaya
+                        </p>
                     </div>
                 </div>
 
@@ -89,7 +85,7 @@ const formatRm = (value) => 'RM ' + Number(value).toLocaleString('en-MY');
                         rel="noopener"
                         class="inline-flex shrink-0 items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
                     >
-                        Buka Dokumen
+                        Notis &amp; Borang Proksi ↗
                     </a>
                 </div>
             </div>
