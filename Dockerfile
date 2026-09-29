@@ -26,4 +26,4 @@ RUN composer dump-autoload --no-dev --optimize --no-interaction \
     && chmod -R 775 storage bootstrap/cache
 COPY --from=frontend /app/public/build ./public/build
 EXPOSE 10000
-CMD ["sh", "-c", "php artisan config:cache && php artisan route:cache && php artisan view:cache && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-10000}"]
+CMD ["sh", "-c", "php artisan optimize:clear && php artisan config:cache && php artisan view:cache && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-10000}"]
