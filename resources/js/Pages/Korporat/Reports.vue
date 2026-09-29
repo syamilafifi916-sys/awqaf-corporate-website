@@ -79,14 +79,24 @@ const formatRm = (value) => 'RM ' + Number(value).toLocaleString('en-MY');
                         </p>
                     </div>
 
-                    <a
-                        href="/documents/agm/2026/Notis-AGM-Ke-13-dan-Borang-Proksi.pdf"
-                        target="_blank"
-                        rel="noopener"
-                        class="inline-flex shrink-0 items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
-                    >
-                        Notis &amp; Borang Proksi ↗
-                    </a>
+                    <div class="flex flex-col gap-2 sm:flex-row">
+                        <a
+                            href="/documents/reports/Penyata-Kewangan-Diaudit-2025.pdf"
+                            target="_blank"
+                            rel="noopener"
+                            class="inline-flex shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-800 transition hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-800"
+                        >
+                            Penyata Kewangan 2025 ↗
+                        </a>
+                        <a
+                            href="/documents/agm/2026/Notis-AGM-Ke-13-dan-Borang-Proksi.pdf"
+                            target="_blank"
+                            rel="noopener"
+                            class="inline-flex shrink-0 items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
+                        >
+                            Notis &amp; Borang Proksi ↗
+                        </a>
+                    </div>
                 </div>
             </div>
 
