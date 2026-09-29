@@ -10,9 +10,8 @@
         <meta name="description" content="{{ $seo['description'] }}">
         <link rel="canonical" href="{{ $seo['canonical'] }}">
 
-        <link rel="icon" href="/favicon.ico" sizes="32x32">
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link rel="icon" href="/awqaf-favicon.png?v=20260929" type="image/png">
+        <link rel="apple-touch-icon" href="/awqaf-favicon.png?v=20260929">
         <meta name="theme-color" content="#047857">
 
         <meta property="og:type" content="{{ $seo['type'] }}">
