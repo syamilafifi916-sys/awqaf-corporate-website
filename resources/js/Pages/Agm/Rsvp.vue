@@ -50,8 +50,8 @@ const submit = () => {
                     <div class="p-6 sm:p-8">
                         <div v-if="props.submitted" class="rounded-xl border border-emerald-200 bg-emerald-50 p-5">
                             <CheckCircleIcon class="h-8 w-8 text-emerald-700" />
-                            <h2 class="mt-3 text-lg font-bold text-slate-950">Pengesahan diterima</h2>
-                            <p class="mt-1 text-sm leading-6 text-slate-600">Terima kasih. Maklumat kehadiran anda telah direkodkan.</p>
+                            <h2 class="mt-3 text-lg font-bold text-slate-950">Pengesahan Kehadiran Berjaya Dihantar</h2>
+                            <p class="mt-1 text-sm leading-6 text-slate-600">Terima kasih. Maklumat pengesahan kehadiran anda telah berjaya diterima dan direkodkan.</p>
                         </div>
 
                         <form v-else class="space-y-5" @submit.prevent="submit">
