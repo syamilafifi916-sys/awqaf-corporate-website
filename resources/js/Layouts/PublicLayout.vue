@@ -28,15 +28,6 @@ const navGroups = computed(() => [
     },
     { label: 'Waqaf Korporat', href: route('waqaf.corporate') },
     {
-        label: 'AGM 2026',
-        href: '/agm/pengesahan-kehadiran',
-        children: [
-            { label: 'Pengesahan Kehadiran', href: '/agm/pengesahan-kehadiran' },
-            { label: 'Notis AGM & Borang Proksi', href: '/documents/agm/2026/Notis-AGM-Ke-13-dan-Borang-Proksi.pdf' },
-            { label: 'Penyata Kewangan Diaudit 2025', href: '/documents/reports/Penyata-Kewangan-Diaudit-2025.pdf' },
-        ],
-    },
-    {
         label: 'Portfolio Pelaburan',
         href: route('portfolio.index'),
         children: [
@@ -53,6 +44,15 @@ const navGroups = computed(() => [
             { label: 'Yayasan ZuriatCARE', href: route('program.show', 'yayasan-zuriatcare') },
             { label: 'EduWAQF', href: route('program.show', 'eduwaqf') },
             { label: 'AWQAF4Health', href: route('program.show', 'awqaf4health') },
+        ],
+    },
+    {
+        label: 'AGM 2026',
+        href: '/agm/pengesahan-kehadiran',
+        children: [
+            { label: 'Pengesahan Kehadiran', href: '/agm/pengesahan-kehadiran' },
+            { label: 'Notis AGM & Borang Proksi', href: '/dokumen/agm/notis-2026' },
+            { label: 'Penyata Kewangan Diaudit 2025', href: '/dokumen/laporan/2025' },
         ],
     },
     {
@@ -173,7 +173,7 @@ onBeforeUnmount(() => {
                             :aria-expanded="group.children ? (openLabel === group.label ? 'true' : 'false') : undefined"
                             :aria-controls="group.children ? `menu-${slug(group.label)}` : undefined"
                         >
-                            {{ group.label }}
+                            <span :class="group.label === 'AGM 2026' ? 'rounded-md bg-amber-100 px-2 py-1 text-amber-800 ring-1 ring-amber-200' : ''">{{ group.label }}</span>
                             <ChevronDownIcon v-if="group.children" class="h-4 w-4 text-slate-400" aria-hidden="true" />
                         </Link>
 
