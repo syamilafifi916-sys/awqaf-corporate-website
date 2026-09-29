@@ -57,10 +57,11 @@ Route::get('/agm/pengesahan-kehadiran', function () {
 Route::post('/agm/pengesahan-kehadiran', function (Request $request) {
     $validated = $request->validate([
         'name' => ['required', 'string', 'max:150'],
-        'ic_number' => ['required', 'regex:/^\\d{12}$/'],
+        'ic_number' => ['required', 'string', 'size:12', 'regex:/^[0-9]{12}$/'],
         'attendance' => ['required', 'in:hadir,tidak_hadir'],
     ], [
-        'ic_number.regex' => 'Sila masukkan 12 digit nombor Kad Pengenalan tanpa sengkang.',
+        'ic_number.size' => 'Sila masukkan tepat 12 digit nombor Kad Pengenalan tanpa sengkang.',
+        'ic_number.regex' => 'Nombor Kad Pengenalan hanya boleh mengandungi angka tanpa sengkang atau ruang.',
     ]);
 
     AgmRsvp::create($validated);
