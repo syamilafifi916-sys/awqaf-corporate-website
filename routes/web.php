@@ -1,7 +1,9 @@
 <?php
 
+use App\Models\AgmRsvp;
 use App\Models\HomepageSetting;
 use App\Models\Report;
+use Illuminate\Http\Request;
 use App\Support\Seo;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -40,6 +42,31 @@ Route::get('/', function () {
         ] : null,
     ]);
 })->name('welcome');
+
+Route::get('/agm/pengesahan-kehadiran', function () {
+    Seo::set([
+        'title' => 'Pengesahan Kehadiran AGM Ke-13 — AWQAF Holdings Berhad',
+        'description' => 'Pengesahan kehadiran Mesyuarat Agung Tahunan Ke-13 AWQAF Holdings Berhad.',
+    ]);
+
+    return Inertia::render('Agm/Rsvp', [
+        'submitted' => session('agm_rsvp_submitted', false),
+    ]);
+})->name('agm.rsvp');
+
+Route::post('/agm/pengesahan-kehadiran', function (Request $request) {
+    $validated = $request->validate([
+        'name' => ['required', 'string', 'max:150'],
+        'ic_number' => ['required', 'regex:/^\\d{12}$/'],
+        'attendance' => ['required', 'in:hadir,tidak_hadir'],
+    ], [
+        'ic_number.regex' => 'Sila masukkan 12 digit nombor Kad Pengenalan tanpa sengkang.',
+    ]);
+
+    AgmRsvp::create($validated);
+
+    return redirect()->route('agm.rsvp')->with('agm_rsvp_submitted', true);
+})->middleware('throttle:10,1')->name('agm.rsvp.store');
 
 Route::get('/wakaf/wakaf-korporat', function () {
     Seo::set([
