@@ -43,7 +43,7 @@ const submit = () => {
                         <dl class="mt-6 space-y-5 text-sm">
                             <div><dt class="text-slate-400">Tarikh</dt><dd class="mt-1 font-semibold">Rabu, 21 Oktober 2026</dd></div>
                             <div><dt class="text-slate-400">Masa</dt><dd class="mt-1 font-semibold">10.30 pagi</dd></div>
-                            <div><dt class="text-slate-400">Lokasi</dt><dd class="mt-1 font-semibold leading-6">City, M-02-05, Second Floor, Conezion Comercial, Persiaran IRC 3, Ioi Resort, 62502 Putrajaya.</dd></div>
+                            <div><dt class="text-slate-400">Lokasi</dt><dd class="mt-1 font-semibold leading-6">Ibu Pejabat DPIM — M-02-05, Second Floor, Conezion Comercial, Persiaran IRC 3, Ioi Resort, 62502 Putrajaya</dd></div>
                         </dl>
                     </aside>
 
