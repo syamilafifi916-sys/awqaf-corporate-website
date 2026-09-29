@@ -39,6 +39,67 @@ const formatRm = (value) => 'RM ' + Number(value).toLocaleString('en-MY');
                 Laporan Tahunan dan Penyata Kewangan Diaudit setiap tahun untuk semakan pewakaf dan orang awam.
             </p>
 
+            <!-- AGM Ke-13 -->
+            <div class="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                <div class="border-b border-slate-100 px-5 py-4">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-emerald-700">
+                        Mesyuarat Agung Tahunan
+                    </p>
+                    <h2 class="mt-1 text-xl font-bold text-slate-900">
+                        AGM Ke-13 AWQAF Holdings Berhad
+                    </h2>
+                </div>
+
+                <div class="grid gap-px bg-slate-100 sm:grid-cols-3">
+                    <div class="bg-white px-5 py-4">
+                        <p class="text-xs font-medium text-slate-500">Tarikh</p>
+                        <p class="mt-1 text-sm font-semibold text-slate-900">Rabu, 21 Oktober 2026</p>
+                    </div>
+
+                    <div class="bg-white px-5 py-4">
+                        <p class="text-xs font-medium text-slate-500">Masa</p>
+                        <p class="mt-1 text-sm font-semibold text-slate-900">10.30 pagi</p>
+                    </div>
+
+                    <div class="bg-white px-5 py-4">
+                        <p class="text-xs font-medium text-slate-500">Lokasi</p>
+                        <p class="mt-1 text-sm font-semibold leading-snug text-slate-900">
+                            Ibu Pejabat DPIM, IOI Conezion, Putrajaya
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid gap-4 border-t border-slate-100 px-5 py-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+                    <div class="min-w-0">
+                        <p class="text-sm font-medium text-slate-800">
+                            Notis Mesyuarat &amp; Borang Proksi
+                        </p>
+                        <p class="mt-0.5 text-xs text-slate-500">
+                            Tarikh akhir penghantaran proksi: 19 Oktober 2026
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col gap-2 sm:flex-row lg:justify-end">
+                        <a
+                            href="/documents/reports/Penyata-Kewangan-Diaudit-2025.pdf"
+                            target="_blank"
+                            rel="noopener"
+                            class="inline-flex min-h-10 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-800 transition hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-800"
+                        >
+                            Penyata Kewangan 2025 ↗
+                        </a>
+                        <a
+                            href="/documents/agm/2026/Notis-AGM-Ke-13-dan-Borang-Proksi.pdf"
+                            target="_blank"
+                            rel="noopener"
+                            class="inline-flex min-h-10 shrink-0 items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
+                        >
+                            Notis &amp; Borang Proksi ↗
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <div class="mt-14 rounded-2xl border border-slate-100 p-8">
                 <h2 class="font-semibold text-slate-900">Jumlah Kutipan Tahunan (2014–2024)</h2>
                 <p class="mt-1 text-sm text-slate-500">Kutipan wakaf baharu setiap tahun, berdasarkan Laporan Tahunan 2024.</p>
