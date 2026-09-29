@@ -8,14 +8,16 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('agm_rsvps', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->text('ic_number');
-            $table->string('attendance', 20);
-            $table->timestamps();
-            $table->index('attendance');
-        });
+        if (! Schema::hasTable('agm_rsvps')) {
+            Schema::create('agm_rsvps', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->text('ic_number');
+                $table->string('attendance', 20);
+                $table->timestamps();
+                $table->index('attendance');
+            });
+        }
     }
 
     public function down(): void
