@@ -28,6 +28,15 @@ const navGroups = computed(() => [
     },
     { label: 'Waqaf Korporat', href: route('waqaf.corporate') },
     {
+        label: 'AGM 2026',
+        href: '/agm/pengesahan-kehadiran',
+        children: [
+            { label: 'Pengesahan Kehadiran', href: '/agm/pengesahan-kehadiran' },
+            { label: 'Notis AGM & Borang Proksi', href: '/documents/agm/2026/Notis-AGM-Ke-13-dan-Borang-Proksi.pdf' },
+            { label: 'Penyata Kewangan Diaudit 2025', href: '/documents/reports/Penyata-Kewangan-Diaudit-2025.pdf' },
+        ],
+    },
+    {
         label: 'Portfolio Pelaburan',
         href: route('portfolio.index'),
         children: [
