@@ -1,9 +1,33 @@
 <script setup>
 import PublicLayout from '@/Layouts/PublicLayout.vue';
-import { ArrowRightIcon, ChevronDownIcon, AcademicCapIcon, HeartIcon, BuildingOffice2Icon, DevicePhoneMobileIcon, ShieldCheckIcon, BookOpenIcon } from '@heroicons/vue/24/outline';
+import { ArrowRightIcon, ChevronDownIcon, AcademicCapIcon, HeartIcon, BuildingOffice2Icon, DevicePhoneMobileIcon, ShieldCheckIcon, BookOpenIcon, XMarkIcon, DocumentTextIcon, ArrowDownTrayIcon, EyeIcon } from '@heroicons/vue/24/outline';
 import { Head, Link, usePage } from '@inertiajs/vue3';
+import { onMounted, ref } from 'vue';
 
 const page = usePage();
+
+const showAgmAnnouncement = ref(false);
+const showAgmReader = ref(false);
+const showFinancialReader = ref(false);
+
+onMounted(() => {
+    if (!sessionStorage.getItem('awqaf-agm-2026-dismissed')) {
+        window.setTimeout(() => {
+            showAgmAnnouncement.value = true;
+        }, 550);
+    }
+});
+
+const closeAgmAnnouncement = () => {
+    showAgmAnnouncement.value = false;
+    sessionStorage.setItem('awqaf-agm-2026-dismissed', '1');
+};
+
+const openReader = (type) => {
+    showAgmAnnouncement.value = false;
+    showAgmReader.value = type === 'notice';
+    showFinancialReader.value = type === 'financial';
+};
 
 const props = defineProps({
     homepage: {
@@ -107,6 +131,88 @@ const pillars = [
     </Head>
 
     <PublicLayout>
+        <!-- AGM 2026 · corporate disclosure -->
+        <Teleport to="body">
+            <Transition enter-active-class="transition duration-300 ease-out" enter-from-class="opacity-0" enter-to-class="opacity-100" leave-active-class="transition duration-200 ease-in" leave-from-class="opacity-100" leave-to-class="opacity-0">
+                <div v-if="showAgmAnnouncement" class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/65 px-4 py-6 backdrop-blur-sm" @click.self="closeAgmAnnouncement">
+                    <div class="w-full max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-white shadow-2xl shadow-slate-950/30">
+                        <div class="flex items-start justify-between gap-5 border-b border-slate-100 px-5 py-5 sm:px-7">
+                            <div>
+                                <div class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-700">
+                                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                                    Pengumuman Korporat
+                                </div>
+                                <h2 class="mt-2 text-xl font-bold tracking-tight text-slate-950 sm:text-2xl">Mesyuarat Agung Tahunan Ke-13</h2>
+                                <p class="mt-1 text-sm text-slate-500">AWQAF Holdings Berhad</p>
+                            </div>
+                            <button type="button" class="rounded-full p-2 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700" aria-label="Tutup pengumuman" @click="closeAgmAnnouncement">
+                                <XMarkIcon class="h-5 w-5" />
+                            </button>
+                        </div>
+
+                        <div class="grid divide-y divide-slate-100 border-b border-slate-100 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+                            <div class="px-5 py-3.5 sm:px-6">
+                                <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Tarikh</p>
+                                <p class="mt-1 text-sm font-semibold text-slate-900">Rabu, 21 Oktober 2026</p>
+                            </div>
+                            <div class="px-5 py-3.5 sm:px-6">
+                                <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Masa</p>
+                                <p class="mt-1 text-sm font-semibold text-slate-900">10.30 pagi</p>
+                            </div>
+                            <div class="px-5 py-3.5 sm:px-6">
+                                <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Lokasi</p>
+                                <p class="mt-1 text-sm font-semibold leading-5 text-slate-900">Ibu Pejabat DPIM, IOI Conezion, Putrajaya</p>
+                            </div>
+                        </div>
+
+                        <div class="px-5 py-5 sm:px-7 sm:py-6">
+                            <p class="max-w-xl text-sm leading-6 text-slate-600">
+                                Notis Mesyuarat Agung Tahunan Ke-13, Borang Proksi dan Penyata Kewangan Diaudit 2025 kini tersedia untuk semakan.
+                            </p>
+
+                            <div class="mt-5 grid gap-2.5 sm:grid-cols-2">
+                                <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800" @click="openReader('notice')">
+                                    <EyeIcon class="h-4 w-4" /> Baca Notis AGM
+                                </button>
+                                <a href="/documents/agm/2026/Notis-AGM-Ke-13-dan-Borang-Proksi.pdf" download class="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-slate-300 hover:bg-slate-50">
+                                    <ArrowDownTrayIcon class="h-4 w-4" /> Muat Turun Notis &amp; Proksi
+                                </a>
+                            </div>
+
+                            <button type="button" class="mt-3 flex w-full items-center justify-between rounded-lg border border-emerald-100 bg-emerald-50/60 px-4 py-3 text-left transition hover:border-emerald-200 hover:bg-emerald-50" @click="openReader('financial')">
+                                <span class="flex items-center gap-3">
+                                    <span class="flex h-9 w-9 items-center justify-center rounded-md bg-white text-emerald-700 ring-1 ring-emerald-100"><DocumentTextIcon class="h-4 w-4" /></span>
+                                    <span>
+                                        <span class="block text-sm font-semibold text-slate-900">Penyata Kewangan Diaudit 2025</span>
+                                        <span class="block text-xs text-slate-500">Baca dokumen dalam paparan laman</span>
+                                    </span>
+                                </span>
+                                <ArrowRightIcon class="h-4 w-4 shrink-0 text-emerald-700" />
+                            </button>
+
+                            <p class="mt-4 text-xs text-slate-400">Tarikh akhir penghantaran Borang Proksi: 19 Oktober 2026.</p>
+                        </div>
+                    </div>
+                </div>
+            </Transition>
+
+            <div v-if="showAgmReader || showFinancialReader" class="fixed inset-0 z-[110] flex flex-col bg-slate-950">
+                <div class="flex min-h-16 items-center justify-between gap-4 border-b border-white/10 bg-slate-950 px-4 sm:px-6">
+                    <div class="min-w-0">
+                        <p class="truncate text-sm font-semibold text-white">{{ showAgmReader ? 'Notis AGM Ke-13 & Borang Proksi' : 'Penyata Kewangan Diaudit 2025' }}</p>
+                        <p class="text-xs text-slate-400">AWQAF Holdings Berhad</p>
+                    </div>
+                    <button type="button" class="inline-flex items-center gap-2 rounded-lg border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10" @click="showAgmReader = false; showFinancialReader = false">
+                        <XMarkIcon class="h-4 w-4" /> Tutup
+                    </button>
+                </div>
+                <iframe
+                    :src="showAgmReader ? '/documents/agm/2026/Notis-AGM-Ke-13-dan-Borang-Proksi.pdf#view=FitH' : '/documents/reports/Penyata-Kewangan-Diaudit-2025.pdf#toolbar=0&navpanes=0&scrollbar=1&view=FitH'"
+                    class="h-full w-full flex-1 bg-slate-100"
+                    :title="showAgmReader ? 'Notis AGM Ke-13 dan Borang Proksi' : 'Penyata Kewangan Diaudit 2025'"
+                ></iframe>
+            </div>
+        </Teleport>
         <!-- ═══ M0 · IDEA ═══ -->
         <section class="relative isolate flex min-h-[76vh] flex-col overflow-hidden bg-slate-950 lg:min-h-[82vh]">
             <!-- Cinematic hero: poster remains the resilient fallback while the muted
