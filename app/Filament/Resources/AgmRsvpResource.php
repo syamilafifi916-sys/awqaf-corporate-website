@@ -7,6 +7,7 @@ use App\Models\AgmRsvp;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class AgmRsvpResource extends Resource
 {
@@ -34,6 +35,30 @@ class AgmRsvpResource extends Resource
                     })
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')->label('Dihantar')->dateTime('d M Y, h:i A')->sortable(),
+            ])
+            ->headerActions([
+                Tables\Actions\Action::make('exportExcel')
+                    ->label('Download Excel')
+                    ->icon('heroicon-o-arrow-down-tray')
+                    ->action(function (): StreamedResponse {
+                        $filename = 'senarai-kehadiran-agm-2026-'.now()->format('Y-m-d-His').'.csv';
+                        return response()->streamDownload(function () {
+                            $out = fopen('php://output', 'w');
+                            fwrite($out, "\xEF\xBB\xBF");
+                            fputcsv($out, ['Nama', 'Kehadiran', 'Tarikh', 'Masa']);
+                            AgmRsvp::query()->latest()->chunk(500, function ($rows) use ($out) {
+                                foreach ($rows as $row) {
+                                    fputcsv($out, [
+                                        $row->name,
+                                        $row->attendance === 'hadir' ? 'Hadir' : 'Tidak Hadir',
+                                        $row->created_at?->format('d/m/Y'),
+                                        $row->created_at?->format('h:i A'),
+                                    ]);
+                                }
+                            });
+                            fclose($out);
+                        }, $filename, ['Content-Type' => 'text/csv; charset=UTF-8']);
+                    }),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('attendance')
