@@ -1,7 +1,7 @@
 FROM composer:2 AS vendor
 WORKDIR /app
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction --no-scripts
+RUN composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction --no-scripts --ignore-platform-req=ext-intl
 
 FROM node:22-alpine AS frontend
 WORKDIR /app
