@@ -22,6 +22,12 @@ class Report extends Model
      */
     public function getUrlAttribute(): string
     {
+        // Documents committed directly under public/documents are served
+        // by Laravel/the web server without going through the storage disk.
+        if (str_starts_with($this->file_path, 'documents/')) {
+            return asset($this->file_path);
+        }
+
         $base = config('services.reports.base_url');
 
         if (filled($base)) {
