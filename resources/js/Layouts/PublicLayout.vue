@@ -47,15 +47,6 @@ const navGroups = computed(() => [
         ],
     },
     {
-        label: 'AGM 2026',
-        href: '/agm/pengesahan-kehadiran',
-        children: [
-            { label: 'Pengesahan Kehadiran', href: '/agm/pengesahan-kehadiran' },
-            { label: 'Notis AGM & Borang Proksi', href: '/dokumen/agm/notis-2026' },
-            { label: 'Penyata Kewangan Diaudit 2025', href: '/dokumen/laporan/2025' },
-        ],
-    },
-    {
         label: 'Tadbir Urus',
         href: route('ketelusan'),
         children: [
@@ -65,6 +56,16 @@ const navGroups = computed(() => [
             { label: 'Lembaga Pengarah', href: route('korporat.leadership.index') },
         ],
     },
+    {
+        label: 'AGM 2026',
+        href: '/agm/pengesahan-kehadiran',
+        children: [
+            { label: 'Pengesahan Kehadiran', href: '/agm/pengesahan-kehadiran' },
+            { label: 'Notis AGM & Borang Proksi', href: '/dokumen/agm/notis-2026', document: true },
+            { label: 'Penyata Kewangan Diaudit 2025', href: '/dokumen/laporan/2025', document: true },
+        ],
+    },
+
 ]);
 
 // ── Desktop dropdowns (one open at a time; hover + keyboard) ──────────
@@ -192,14 +193,10 @@ onBeforeUnmount(() => {
                                 class="absolute left-0 top-full z-50 min-w-[15rem] pt-2"
                             >
                                 <div class="overflow-hidden rounded-xl border border-slate-100 bg-white py-2 shadow-lg shadow-slate-900/5 ring-1 ring-slate-900/5">
-                                    <Link
-                                        v-for="child in group.children"
-                                        :key="child.label"
-                                        :href="child.href"
-                                        class="block px-4 py-2 text-sm text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 focus-visible:bg-emerald-50 focus-visible:text-emerald-700 focus-visible:outline-none"
-                                    >
-                                        {{ child.label }}
-                                    </Link>
+                                    <template v-for="child in group.children" :key="child.label">
+                                        <a v-if="child.document" :href="child.href" target="_blank" rel="noopener" class="block px-4 py-2 text-sm text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 focus-visible:bg-emerald-50 focus-visible:text-emerald-700 focus-visible:outline-none">{{ child.label }}</a>
+                                        <Link v-else :href="child.href" class="block px-4 py-2 text-sm text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 focus-visible:bg-emerald-50 focus-visible:text-emerald-700 focus-visible:outline-none">{{ child.label }}</Link>
+                                    </template>
                                 </div>
                             </div>
                         </Transition>
@@ -286,14 +283,10 @@ onBeforeUnmount(() => {
                                 {{ group.label }}
                             </Link>
                             <div v-if="group.children" class="mt-0.5 space-y-0.5 border-l border-slate-100 pl-3">
-                                <Link
-                                    v-for="child in group.children"
-                                    :key="child.label"
-                                    :href="child.href"
-                                    class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
-                                >
-                                    {{ child.label }}
-                                </Link>
+                                <template v-for="child in group.children" :key="child.label">
+                                    <a v-if="child.document" :href="child.href" target="_blank" rel="noopener" class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">{{ child.label }}</a>
+                                    <Link v-else :href="child.href" class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">{{ child.label }}</Link>
+                                </template>
                             </div>
                         </div>
                     </nav>
