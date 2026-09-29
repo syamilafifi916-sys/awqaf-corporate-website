@@ -161,7 +161,7 @@ const pillars = [
                             </div>
                             <div class="px-4 py-3.5">
                                 <p class="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">Lokasi</p>
-                                <p class="mt-1 text-[13px] font-semibold leading-5 text-slate-900">Ibu Pejabat DPIM, IOI Conezion, Putrajaya</p>
+                                <p class="mt-1 text-[13px] font-semibold leading-5 text-slate-900">City, M-02-05, Second Floor, Conezion Comercial, Persiaran IRC 3, Ioi Resort, 62502 Putrajaya.</p>
                             </div>
                         </div>
 
@@ -170,13 +170,13 @@ const pillars = [
                                 Dokumen AGM Ke-13 dan Penyata Kewangan Diaudit 2025 tersedia untuk semakan.
                             </p>
 
-                            <Link :href="route('agm.rsvp')" class="mt-4 flex min-h-12 w-full items-center justify-between rounded-xl bg-emerald-600 px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-500">
+                            <a href="/agm/pengesahan-kehadiran" class="mt-4 flex min-h-12 w-full items-center justify-between rounded-xl bg-emerald-600 px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-500">
                                 <span>
                                     <span class="block">Pengesahan Kehadiran</span>
                                     <span class="mt-0.5 block text-[11px] font-medium text-emerald-50/80">Sahkan kehadiran AGM secara dalam talian</span>
                                 </span>
                                 <ArrowRightIcon class="h-4 w-4 shrink-0" />
-                            </Link>
+                            </a>
 
                             <div class="mt-3 grid gap-2.5 sm:grid-cols-2">
                                 <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-[13px] font-semibold text-slate-800 transition hover:bg-slate-50" @click="openReader('notice')">
