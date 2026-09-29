@@ -47,10 +47,10 @@ const navGroups = computed(() => [
         ],
     },
     {
-        label: 'Ketelusan',
+        label: 'Tadbir Urus',
         href: route('ketelusan'),
         children: [
-            { label: 'Pusat Ketelusan', href: route('ketelusan') },
+            { label: 'Maklumat Korporat', href: route('ketelusan') },
             { label: 'Laporan Tahunan', href: route('korporat.reports') },
             { label: 'Penyata Kewangan', href: route('korporat.reports') },
             { label: 'Lembaga Pengarah', href: route('korporat.leadership.index') },
