@@ -1,5 +1,15 @@
 <?php
 
+use App\Models\AgmRsvp;
+use App\Models\HomepageSetting;
+use App\Models\Report;
+use App\Support\Seo;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
+
 Route::get('/', function () {
     $homepage = HomepageSetting::query()
         ->where('is_published', true)
