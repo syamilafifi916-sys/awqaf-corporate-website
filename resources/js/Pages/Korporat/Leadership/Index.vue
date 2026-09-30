@@ -46,12 +46,12 @@ const altFor = (d) => `Foto rasmi ${d.full_name}, ${d.designation} AWQAF Holding
                         <h2 class="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">{{ chairman.full_name }}</h2>
                         <p class="mt-3 text-lg text-slate-500">{{ chairman.designation }}</p>
                         <p class="mt-8 max-w-xl text-lg leading-relaxed text-slate-600">{{ chairman.summary }}</p>
-                        <Link
+                        <a
                             :href="route('korporat.leadership.show', chairman.slug)"
                             class="mt-10 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 transition hover:gap-2.5 hover:text-emerald-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
                         >
                             Lihat Profil →
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -62,7 +62,7 @@ const altFor = (d) => `Foto rasmi ${d.full_name}, ${d.designation} AWQAF Holding
                     <h2 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">Ahli Lembaga Pengarah</h2>
                     <ul class="mt-12 grid grid-cols-1 gap-x-10 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
                         <li v-for="d in members" :key="d.slug">
-                            <Link :href="route('korporat.leadership.show', d.slug)" class="group block focus-visible:outline-none">
+                            <a :href="route('korporat.leadership.show', d.slug)" class="group block focus-visible:outline-none">
                                 <img
                                     :src="`/images/leadership/${d.photo}.jpg`"
                                     :alt="altFor(d)"
@@ -74,7 +74,7 @@ const altFor = (d) => `Foto rasmi ${d.full_name}, ${d.designation} AWQAF Holding
                                 </p>
                                 <h3 :class="['text-lg font-semibold leading-snug text-slate-900 transition group-hover:text-emerald-700', d.committee_roles.length ? 'mt-1' : 'mt-6']">{{ d.full_name }}</h3>
                                 <p class="mt-0.5 text-sm text-slate-500">{{ d.designation }}</p>
-                            </Link>
+                            </a>
                         </li>
                     </ul>
                 </div>
