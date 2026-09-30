@@ -332,27 +332,27 @@ onBeforeUnmount(() => {
                 <div>
                     <h2 class="text-sm font-semibold text-white">Wakaf</h2>
                     <ul class="mt-4 space-y-2.5 text-sm text-slate-400">
-                        <li><Link :href="route('waqaf.corporate')" class="hover:text-emerald-700">Waqaf Korporat</Link></li>
-                        <li><Link :href="route('waqaf.howto')" class="font-medium text-emerald-700 hover:text-emerald-800">Wakaf Sekarang</Link></li>
-                        <li><Link :href="route('waqaf.categories')" class="hover:text-emerald-700">Kategori Pewakaf</Link></li>
+                        <li><a :href="route('waqaf.corporate')" class="hover:text-emerald-700">Waqaf Korporat</a></li>
+                        <li><a :href="route('waqaf.howto')" class="font-medium text-emerald-700 hover:text-emerald-800">Wakaf Sekarang</a></li>
+                        <li><a :href="route('waqaf.categories')" class="hover:text-emerald-700">Kategori Pewakaf</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h2 class="text-sm font-semibold text-white">Korporat</h2>
                     <ul class="mt-4 space-y-2.5 text-sm text-slate-400">
-                        <li><Link :href="route('korporat.overview')" class="hover:text-emerald-700">Mengenai AWQAF</Link></li>
-                        <li><Link :href="route('korporat.leadership.index')" class="hover:text-emerald-700">Lembaga Pengarah</Link></li>
-                        <li><Link :href="route('hubungi')" class="hover:text-emerald-700">Hubungi Kami</Link></li>
+                        <li><a :href="route('korporat.overview')" class="hover:text-emerald-700">Mengenai AWQAF</a></li>
+                        <li><a :href="route('korporat.leadership.index')" class="hover:text-emerald-700">Lembaga Pengarah</a></li>
+                        <li><a :href="route('hubungi')" class="hover:text-emerald-700">Hubungi Kami</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h2 class="text-sm font-semibold text-white">Laporan</h2>
                     <ul class="mt-4 space-y-2.5 text-sm text-slate-400">
-                        <li><Link :href="route('korporat.reports')" class="hover:text-emerald-700">Laporan Tahunan</Link></li>
-                        <li><Link :href="route('korporat.reports')" class="hover:text-emerald-700">Penyata Kewangan</Link></li>
-                        <li><Link :href="route('ketelusan')" class="hover:text-emerald-700">Laporan &amp; Tadbir Urus</Link></li>
+                        <li><a :href="route('korporat.reports')" class="hover:text-emerald-700">Laporan Tahunan</a></li>
+                        <li><a :href="route('korporat.reports')" class="hover:text-emerald-700">Penyata Kewangan</a></li>
+                        <li><a :href="route('ketelusan')" class="hover:text-emerald-700">Laporan &amp; Tadbir Urus</a></li>
                     </ul>
                 </div>
             </div>
