@@ -29,7 +29,7 @@ class User extends Authenticatable implements FilamentUser
     {
         try {
             $this->notify(new ResetPassword($token));
-            Log::info('Admin password reset notification handed to mail transport.', [
+            Log::warning('Admin password reset notification handed to mail transport.', [
                 'user_id' => $this->getKey(),
                 'mailer' => config('mail.default'),
             ]);
