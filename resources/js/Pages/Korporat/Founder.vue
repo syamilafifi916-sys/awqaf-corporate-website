@@ -16,9 +16,9 @@ const bookCta = props.founder.book.cta_verified_url || route('hubungi');
         <!-- 1. Founder hero -->
         <section class="bg-slate-950">
             <div class="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
-                <Link :href="route('korporat.overview')" class="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
+                <a :href="route('korporat.overview')" class="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
                     <ArrowLeftIcon class="h-4 w-4" /> Mengenai AWQAF
-                </Link>
+                </a>
 
                 <div class="mt-10 grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
                     <div class="lg:col-span-5">
@@ -109,9 +109,9 @@ const bookCta = props.founder.book.cta_verified_url || route('hubungi');
                 <div class="mt-6 space-y-4">
                     <p v-for="(para, i) in founder.awqaf_contribution" :key="i" class="leading-relaxed text-slate-700">{{ para }}</p>
                 </div>
-                <Link :href="route('korporat.overview')" class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
+                <a :href="route('korporat.overview')" class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
                     Maklumat korporat AWQAF →
-                </Link>
+                </a>
             </div>
         </section>
 
@@ -168,9 +168,9 @@ const bookCta = props.founder.book.cta_verified_url || route('hubungi');
                             <div><dt class="text-slate-500">ISBN</dt><dd class="text-slate-200">{{ founder.book.isbn }}</dd></div>
                         </dl>
 
-                        <Link :href="bookCta" class="mt-8 inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+                        <a :href="bookCta" class="mt-8 inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
                             {{ founder.book.cta_label }}
-                        </Link>
+                        </a>
 
                         <p class="mt-8 border-t border-white/10 pt-6 text-xs leading-relaxed text-slate-500">
                             {{ founder.book.copyright }}
