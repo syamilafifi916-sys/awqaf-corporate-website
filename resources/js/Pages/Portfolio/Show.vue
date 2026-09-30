@@ -16,9 +16,9 @@ defineProps({
         <!-- Header -->
         <section class="bg-slate-950">
             <div class="mx-auto max-w-5xl px-6 py-16 lg:px-8 lg:py-20">
-                <Link :href="route('portfolio.index')" class="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 hover:text-white">
+                <a :href="route('portfolio.index')" class="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 hover:text-white">
                     <ArrowLeftIcon class="h-4 w-4" /> Portfolio Pelaburan
-                </Link>
+                </a>
                 <div class="mt-6">
                     <span class="rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-medium text-emerald-300 ring-1 ring-inset ring-emerald-400/30">{{ portfolio.status }}</span>
                 </div>
@@ -221,9 +221,9 @@ defineProps({
                         <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400">Laporan Berkaitan</h3>
                         <ul class="mt-4 space-y-2">
                             <li v-for="y in portfolio.reports" :key="y">
-                                <Link :href="route('korporat.reports')" class="inline-flex items-center gap-2 text-sm font-medium text-emerald-700 hover:underline">
+                                <a :href="route('korporat.reports')" class="inline-flex items-center gap-2 text-sm font-medium text-emerald-700 hover:underline">
                                     <DocumentTextIcon class="h-4 w-4" /> Laporan Tahunan {{ y }}
-                                </Link>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -248,10 +248,10 @@ defineProps({
             <div class="mx-auto max-w-6xl px-6 lg:px-8">
                 <h2 class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">Portfolio lain</h2>
                 <div class="mt-6 flex flex-wrap gap-3">
-                    <Link v-for="o in others" :key="o.slug" :href="route('portfolio.show', o.slug)"
+                    <a v-for="o in others" :key="o.slug" :href="route('portfolio.show', o.slug)"
                         class="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-emerald-200 hover:text-emerald-700">
                         {{ o.name }}
-                    </Link>
+                    </a>
                 </div>
             </div>
         </section>
