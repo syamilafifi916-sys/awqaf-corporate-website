@@ -204,12 +204,12 @@ onBeforeUnmount(() => {
                 </nav>
 
                 <div class="flex items-center gap-2">
-                    <Link
+                    <a
                         :href="route('waqaf.howto')"
                         class="hidden min-h-11 items-center whitespace-nowrap rounded-lg bg-emerald-600 px-4 py-2.5 text-[13px] font-semibold text-white shadow-md shadow-emerald-900/10 transition hover:-translate-y-0.5 hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 sm:inline-flex"
                     >
                         Wakaf Sekarang
-                    </Link>
+                    </a>
                     <a
                         v-if="page.props.portalReady"
                         :href="page.props.portalUrl"
@@ -276,12 +276,12 @@ onBeforeUnmount(() => {
 
                     <nav class="flex-1 px-3 py-4" aria-label="Navigasi utama mudah alih">
                         <div v-for="group in navGroups" :key="group.label" class="mb-2">
-                            <Link
+                            <a
                                 :href="group.href"
                                 class="block rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-900 transition hover:bg-emerald-50 hover:text-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
                             >
                                 {{ group.label }}
-                            </Link>
+                            </a>
                             <div v-if="group.children" class="mt-0.5 space-y-0.5 border-l border-slate-100 pl-3">
                                 <template v-for="child in group.children" :key="child.label">
                                     <a v-if="child.document" :href="child.href" target="_blank" rel="noopener" class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">{{ child.label }}</a>
@@ -292,12 +292,12 @@ onBeforeUnmount(() => {
                     </nav>
 
                     <div class="space-y-3 border-t border-slate-100 p-4">
-                        <Link
-                            :href="route('waqaf.howto')"
+                        <a
+                        :href="route('waqaf.howto')"
                             class="block rounded-lg bg-emerald-600 px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
                         >
-                            Wakaf Sekarang
-                        </Link>
+                        Wakaf Sekarang
+                    </a>
                         <a
                             v-if="page.props.portalReady"
                             :href="page.props.portalUrl"
