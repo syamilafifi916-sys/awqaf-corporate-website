@@ -132,12 +132,12 @@ const characteristics = [
                 <h2 class="text-2xl font-bold text-slate-900">Ingin menyertai sebagai pewakaf?</h2>
                 <p class="mx-auto mt-3 max-w-xl text-slate-500">Ketahui kaedah berwakaf yang disediakan oleh AWQAF Holdings Berhad.</p>
                 <div class="mt-8 flex flex-wrap justify-center gap-4">
-                    <Link :href="route('waqaf.howto')" class="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
+                    <a :href="route('waqaf.howto')" class="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
                         Wakaf Sekarang <ArrowRightIcon class="h-4 w-4" />
-                    </Link>
-                    <Link :href="route('waqaf.categories')" class="rounded-lg border border-slate-300 px-7 py-3.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
+                    </a>
+                    <a :href="route('waqaf.categories')" class="rounded-lg border border-slate-300 px-7 py-3.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
                         Lihat Kategori Pewakaf
-                    </Link>
+                    </a>
                 </div>
             </div>
         </section>
