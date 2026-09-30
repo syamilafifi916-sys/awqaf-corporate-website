@@ -23,7 +23,7 @@ defineProps({
                 </p>
                 <p class="mt-4 max-w-2xl text-sm text-slate-400">
                     Program kebajikan Kumpulan AWQAF dipaparkan secara berasingan di bawah
-                    <Link :href="route('program.index')" class="font-medium text-emerald-400 hover:underline">Program &amp; Inisiatif</Link>.
+                    <a :href="route('program.index')" class="font-medium text-emerald-400 hover:underline">Program &amp; Inisiatif</a>.
                 </p>
             </div>
         </section>
@@ -33,7 +33,7 @@ defineProps({
                 <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Empat portfolio</p>
                 <ol class="mt-8 border-t border-slate-100">
                     <li v-for="(p, i) in portfolios" :key="p.slug" class="border-b border-slate-100">
-                        <Link :href="route('portfolio.show', p.slug)" class="group grid grid-cols-1 gap-6 py-10 transition lg:grid-cols-12 lg:gap-10">
+                        <a :href="route('portfolio.show', p.slug)" class="group grid grid-cols-1 gap-6 py-10 transition lg:grid-cols-12 lg:gap-10">
                             <div class="flex items-start gap-4 lg:col-span-7">
                                 <span class="mt-1 text-lg font-semibold tabular-nums text-slate-300">{{ String(i + 1).padStart(2, '0') }}</span>
                                 <div>
@@ -63,7 +63,7 @@ defineProps({
                                     </template>
                                 </div>
                             </div>
-                        </Link>
+                        </a>
                     </li>
                 </ol>
             </div>
