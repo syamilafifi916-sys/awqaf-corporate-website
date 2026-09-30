@@ -214,7 +214,7 @@ Route::get('/korporat/lembaga-pengarah/{slug}', [\App\Http\Controllers\Leadershi
 Route::get('/korporat/laporan-tahunan', function () {
     Seo::set([
         'title' => 'Laporan Tahunan & Penyata Kewangan — AWQAF Holdings Berhad',
-        'description' => 'Muat turun Laporan Tahunan dan Penyata Kewangan Diaudit AWQAF Holdings Berhad bagi tahun 2015 hingga 2023.',
+        'description' => 'Muat turun Laporan Tahunan dan Penyata Kewangan Diaudit AWQAF Holdings Berhad bagi tahun 2015 hingga 2025.',
     ]);
 
     $reports = Report::orderByDesc('year')->get()->groupBy('year')->map(function ($group) {
