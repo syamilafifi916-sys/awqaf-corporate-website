@@ -226,9 +226,9 @@ const sectionNav = [
                     </div>
                 </div>
                 <div class="mt-8">
-                    <Link :href="route('korporat.leadership.index')" class="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-700">
+                    <a :href="route('korporat.leadership.index')" class="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-700">
                         Lihat profil penuh Lembaga Pengarah →
-                    </Link>
+                    </a>
                 </div>
             </div>
         </section>
@@ -239,14 +239,14 @@ const sectionNav = [
                 <p class="text-sm font-semibold uppercase tracking-wider text-emerald-700">Rujukan Lanjut</p>
                 <h2 class="mt-3 text-3xl font-bold text-slate-900">Maklumat berkaitan</h2>
                 <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <Link :href="route('korporat.reports')" class="flex items-center justify-between gap-4 rounded-2xl border border-slate-100 p-6 transition hover:border-emerald-200 hover:bg-emerald-50/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
+                    <a :href="route('korporat.reports')" class="flex items-center justify-between gap-4 rounded-2xl border border-slate-100 p-6 transition hover:border-emerald-200 hover:bg-emerald-50/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
                         <span class="text-sm font-semibold text-slate-900">Lihat Laporan Tahunan dan Penyata Kewangan</span>
                         <span class="text-emerald-700">→</span>
-                    </Link>
-                    <Link :href="route('korporat.founder')" class="flex items-center justify-between gap-4 rounded-2xl border border-slate-100 p-6 transition hover:border-emerald-200 hover:bg-emerald-50/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
+                    </a>
+                    <a :href="route('korporat.founder')" class="flex items-center justify-between gap-4 rounded-2xl border border-slate-100 p-6 transition hover:border-emerald-200 hover:bg-emerald-50/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
                         <span class="text-sm font-semibold text-slate-900">Ketahui sejarah pengasas AWQAF</span>
                         <span class="text-emerald-700">→</span>
-                    </Link>
+                    </a>
                 </div>
             </div>
         </section>
