@@ -281,10 +281,10 @@ const pillars = [
                     <div class="mt-6 flex flex-col gap-2.5 sm:flex-row sm:items-center">
                         <Link :href="route('waqaf.howto')" class="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-lg bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-xl shadow-slate-950/20 transition hover:-translate-y-0.5 hover:bg-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
                             Berwakaf Sekarang <ArrowRightIcon class="h-4 w-4" />
-                        </Link>
+                        </a>
                         <Link :href="route('korporat.overview')" class="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-lg border border-white/40 bg-slate-950/20 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition hover:-translate-y-0.5 hover:border-white/80 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
                             Kenali AWQAF <ArrowRightIcon class="h-4 w-4" />
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -382,7 +382,7 @@ const pillars = [
                 <div class="mt-7">
                     <Link :href="route('waqaf.corporate')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:underline">
                         Fahami Waqaf Korporat <ArrowRightIcon class="h-4 w-4" />
-                    </Link>
+                    </a>
                 </div>
             </div>
         </section>
@@ -410,7 +410,7 @@ const pillars = [
                     <div v-reveal="'300ms'" class="flex items-end">
                         <Link :href="route('korporat.overview')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-400 hover:underline">
                             Mengenai AWQAF <ArrowRightIcon class="h-4 w-4" />
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -443,7 +443,7 @@ const pillars = [
                                         </span>
                                     </span>
                                     <ArrowRightIcon class="h-4 w-4 flex-none text-slate-300 transition group-hover:translate-x-0.5 group-hover:text-emerald-700" />
-                                </Link>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -464,7 +464,7 @@ const pillars = [
                                         </span>
                                     </span>
                                     <ArrowRightIcon class="h-4 w-4 flex-none text-slate-300 transition group-hover:translate-x-0.5 group-hover:text-emerald-700" />
-                                </Link>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -495,9 +495,9 @@ const pillars = [
                 </dl>
 
                 <div v-reveal class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
-                    <Link :href="route('korporat.reports')" class="text-emerald-400 hover:underline">Laporan Tahunan &amp; Penyata Kewangan →</Link>
-                    <Link :href="route('korporat.leadership.index')" class="text-emerald-400 hover:underline">Lembaga Pengarah →</Link>
-                    <Link :href="route('ketelusan')" class="text-emerald-400 hover:underline">Laporan &amp; Tadbir Urus →</Link>
+                    <a :href="route('korporat.reports')" class="text-emerald-400 hover:underline">Laporan Tahunan &amp; Penyata Kewangan →</a>
+                    <a :href="route('korporat.leadership.index')" class="text-emerald-400 hover:underline">Lembaga Pengarah →</a>
+                    <a :href="route('ketelusan')" class="text-emerald-400 hover:underline">Laporan &amp; Tadbir Urus →</a>
                 </div>
             </div>
         </section>
@@ -535,7 +535,7 @@ const pillars = [
                             </a>
                             <Link :href="route('korporat.founder')" class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-400 transition hover:gap-3 hover:text-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#100c08]">
                                 Maklumat Buku <ArrowRightIcon class="h-4 w-4" />
-                            </Link>
+                            </a>
                         </div>
                     </div>
 
@@ -576,7 +576,7 @@ const pillars = [
                         </p>
                         <Link :href="route('waqaf.howto')" class="mt-5 inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-50">
                             Lihat Kaedah Berwakaf <ArrowRightIcon class="h-4 w-4" />
-                        </Link>
+                        </a>
                     </div>
                     <div class="rounded-xl border border-slate-200 bg-slate-50/60 p-5">
                         <h3 class="text-lg font-bold sm:text-xl text-slate-900">Portal Pewakaf</h3>
