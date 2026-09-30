@@ -134,10 +134,10 @@ const pillars = [
         <!-- AGM 2026 · corporate disclosure -->
         <Teleport to="body">
             <Transition enter-active-class="transition duration-300 ease-out" enter-from-class="opacity-0" enter-to-class="opacity-100" leave-active-class="transition duration-200 ease-in" leave-from-class="opacity-100" leave-to-class="opacity-0">
-                <div v-if="showAgmAnnouncement" class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/65 px-4 py-6 backdrop-blur-sm" @click.self="closeAgmAnnouncement">
-                    <div class="w-full max-w-[43rem] overflow-hidden rounded-2xl border border-white/10 bg-white shadow-2xl shadow-slate-950/30">
-                        <div class="relative px-6 pb-5 pt-6 sm:px-8 sm:pb-6 sm:pt-7">
-                            <button type="button" class="absolute right-5 top-5 rounded-full p-2 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 sm:right-6 sm:top-6" aria-label="Tutup pengumuman" @click="closeAgmAnnouncement">
+                <div v-if="showAgmAnnouncement" class="fixed inset-0 z-[100] flex items-end justify-center overflow-y-auto bg-slate-950/65 px-0 pt-14 backdrop-blur-sm sm:items-center sm:px-4 sm:py-6" @click.self="closeAgmAnnouncement">
+                    <div class="relative max-h-[calc(100dvh-3.5rem)] w-full max-w-[43rem] overflow-y-auto overscroll-contain rounded-t-2xl border border-white/10 bg-white shadow-2xl shadow-slate-950/30 sm:max-h-[90dvh] sm:rounded-2xl">
+                        <div class="relative px-5 pb-3 pt-4 sm:px-8 sm:pb-6 sm:pt-7">
+                            <button type="button" class="sticky top-2 z-20 ml-auto -mb-9 mr-1 flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-md transition hover:bg-slate-100 hover:text-slate-900 sm:absolute sm:right-6 sm:top-6 sm:m-0" aria-label="Tutup pengumuman" @click="closeAgmAnnouncement">
                                 <XMarkIcon class="h-5 w-5" />
                             </button>
                             <div class="pr-10">
@@ -145,32 +145,32 @@ const pillars = [
                                     <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
                                     Pengumuman Korporat
                                 </div>
-                                <h2 class="mt-2.5 text-[1.35rem] font-bold leading-tight tracking-[-0.025em] text-slate-950 sm:text-[1.8rem]">Mesyuarat Agung Tahunan Ke-13</h2>
+                                <h2 class="mt-2 text-[1.15rem] font-bold leading-tight tracking-[-0.025em] text-slate-950 sm:mt-2.5 sm:text-[1.8rem]">Mesyuarat Agung Tahunan Ke-13</h2>
                                 <p class="mt-1 text-sm font-medium text-slate-500">AWQAF Holdings Berhad</p>
                             </div>
                         </div>
 
-                        <div class="mx-4 grid rounded-xl sm:mx-8 border border-slate-200 bg-slate-50/70 sm:grid-cols-[1.1fr_.7fr_1.45fr]">
-                            <div class="border-b border-slate-200 px-4 py-3.5 sm:border-b-0 sm:border-r">
+                        <div class="mx-4 grid grid-cols-2 rounded-xl border border-slate-200 bg-slate-50/70 sm:mx-8 sm:grid-cols-[1.1fr_.7fr_1.45fr]">
+                            <div class="border-b border-r border-slate-200 px-3 py-2.5 sm:border-b-0 sm:px-4 sm:py-3.5">
                                 <p class="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">Tarikh</p>
                                 <p class="mt-1 text-[13px] font-semibold text-slate-900">Rabu, 21 Oktober 2026</p>
                             </div>
-                            <div class="border-b border-slate-200 px-4 py-3.5 sm:border-b-0 sm:border-r">
+                            <div class="border-b border-slate-200 px-3 py-2.5 sm:border-b-0 sm:border-r sm:px-4 sm:py-3.5">
                                 <p class="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">Masa</p>
                                 <p class="mt-1 text-[13px] font-semibold text-slate-900">10.30 pagi</p>
                             </div>
-                            <div class="px-4 py-3.5">
+                            <div class="col-span-2 px-3 py-2.5 sm:col-span-1 sm:px-4 sm:py-3.5">
                                 <p class="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">Lokasi</p>
                                 <p class="mt-1 text-[13px] font-semibold leading-5 text-slate-900">Ibu Pejabat DPIM — M-02-05, Second Floor, Conezion Comercial, Persiaran IRC 3, Ioi Resort, 62502 Putrajaya</p>
                             </div>
                         </div>
 
-                        <div class="px-6 pb-6 pt-5 sm:px-8 sm:pb-7">
+                        <div class="px-4 pb-4 pt-3 sm:px-8 sm:pb-7 sm:pt-5">
                             <p class="text-[13px] leading-5 text-slate-500">
                                 Dokumen AGM Ke-13 dan Penyata Kewangan Diaudit 2025 tersedia untuk semakan.
                             </p>
 
-                            <a href="/agm/pengesahan-kehadiran" class="mt-4 flex min-h-12 w-full items-center justify-between rounded-xl bg-emerald-600 px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-500">
+                            <a href="/agm/pengesahan-kehadiran" class="mt-3 flex min-h-11 w-full items-center justify-between rounded-xl bg-emerald-600 px-4 text-[13px] font-semibold text-white shadow-sm transition hover:bg-emerald-500 sm:mt-4 sm:min-h-12 sm:px-5 sm:text-sm">
                                 <span>
                                     <span class="block">Pengesahan Kehadiran</span>
                                     <span class="mt-0.5 block text-[11px] font-medium text-emerald-50/80">Sahkan kehadiran AGM secara dalam talian</span>
@@ -247,7 +247,7 @@ const pillars = [
                 />
             </picture>
             <video
-                class="hero-video pointer-events-none absolute inset-0 -z-[9] hidden h-full w-full object-cover object-center motion-safe:md:block"
+                class="hero-video pointer-events-none absolute inset-0 -z-[9] h-full w-full object-cover object-[62%_center] motion-reduce:hidden md:object-center"
                 autoplay
                 muted
                 loop
