@@ -279,10 +279,10 @@ const pillars = [
                         {{ homepage.hero_description }}
                     </p>
                     <div class="mt-6 flex flex-col gap-2.5 sm:flex-row sm:items-center">
-                        <Link :href="route('waqaf.howto')" class="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-lg bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-xl shadow-slate-950/20 transition hover:-translate-y-0.5 hover:bg-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+                        <a :href="route('waqaf.howto')" class="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-lg bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-xl shadow-slate-950/20 transition hover:-translate-y-0.5 hover:bg-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
                             Berwakaf Sekarang <ArrowRightIcon class="h-4 w-4" />
                         </a>
-                        <Link :href="route('korporat.overview')" class="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-lg border border-white/40 bg-slate-950/20 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition hover:-translate-y-0.5 hover:border-white/80 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+                        <a :href="route('korporat.overview')" class="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-lg border border-white/40 bg-slate-950/20 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition hover:-translate-y-0.5 hover:border-white/80 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
                             Kenali AWQAF <ArrowRightIcon class="h-4 w-4" />
                         </a>
                     </div>
@@ -380,7 +380,7 @@ const pillars = [
                     </div>
                 </div>
                 <div class="mt-7">
-                    <Link :href="route('waqaf.corporate')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:underline">
+                    <a :href="route('waqaf.corporate')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:underline">
                         Fahami Waqaf Korporat <ArrowRightIcon class="h-4 w-4" />
                     </a>
                 </div>
@@ -408,7 +408,7 @@ const pillars = [
                         <p class="mt-1.5 text-sm leading-6 text-slate-400">{{ p.d }}</p>
                     </div>
                     <div v-reveal="'300ms'" class="flex items-end">
-                        <Link :href="route('korporat.overview')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-400 hover:underline">
+                        <a :href="route('korporat.overview')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-400 hover:underline">
                             Mengenai AWQAF <ArrowRightIcon class="h-4 w-4" />
                         </a>
                     </div>
@@ -432,7 +432,7 @@ const pillars = [
                         <p class="text-sm font-semibold text-slate-900">Aset yang dibina <span class="text-slate-400">— Portfolio Pelaburan</span></p>
                         <ul class="mt-4 grid gap-2">
                             <li v-for="p in portfolios" :key="p.slug">
-                                <Link :href="route('portfolio.show', p.slug)" class="group flex items-center justify-between gap-3 border-b border-slate-200 bg-white px-1 py-3 transition hover:border-emerald-300 hover:bg-slate-50/70">
+                                <a :href="route('portfolio.show', p.slug)" class="group flex items-center justify-between gap-3 border-b border-slate-200 bg-white px-1 py-3 transition hover:border-emerald-300 hover:bg-slate-50/70">
                                     <span class="flex min-w-0 items-center gap-3">
                                         <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-slate-50 text-emerald-700 ring-1 ring-slate-200 transition group-hover:bg-white group-hover:ring-emerald-200">
                                             <component :is="p.icon" class="h-4 w-4" aria-hidden="true" />
@@ -453,7 +453,7 @@ const pillars = [
                         <p class="text-sm font-semibold text-slate-900">Manfaat yang dikongsi <span class="text-slate-400">— Program &amp; Inisiatif</span></p>
                         <ul class="mt-4 grid gap-2">
                             <li v-for="p in programmes" :key="p.slug">
-                                <Link :href="route('program.show', p.slug)" class="group flex items-center justify-between gap-3 border-b border-slate-200 bg-white px-1 py-3 transition hover:border-emerald-300 hover:bg-slate-50/70">
+                                <a :href="route('program.show', p.slug)" class="group flex items-center justify-between gap-3 border-b border-slate-200 bg-white px-1 py-3 transition hover:border-emerald-300 hover:bg-slate-50/70">
                                     <span class="flex min-w-0 items-center gap-3">
                                         <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-slate-50 text-emerald-700 ring-1 ring-slate-200 transition group-hover:bg-white group-hover:ring-emerald-200">
                                             <component :is="p.icon" class="h-4 w-4" aria-hidden="true" />
@@ -533,7 +533,7 @@ const pillars = [
                             <a href="mailto:admin@awqaf.my?subject=Pertanyaan%20Pembelian%20Buku%20Biografi%20Tan%20Sri%20Muhammad%20Ali%20Hashim&body=Assalamualaikum%2C%20saya%20berminat%20untuk%20mendapatkan%20naskhah%20buku%20biografi%20Tan%20Sri%20Muhammad%20Ali%20Hashim.%20Mohon%20maklumat%20lanjut%20mengenai%20cara%20pembelian." class="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#100c08]">
                                 Dapatkan Buku <ArrowRightIcon class="h-4 w-4" />
                             </a>
-                            <Link :href="route('korporat.founder')" class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-400 transition hover:gap-3 hover:text-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#100c08]">
+                            <a :href="route('korporat.founder')" class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-400 transition hover:gap-3 hover:text-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#100c08]">
                                 Maklumat Buku <ArrowRightIcon class="h-4 w-4" />
                             </a>
                         </div>
@@ -574,7 +574,7 @@ const pillars = [
                         <p class="mt-3 text-sm leading-relaxed text-emerald-50">
                             Sertai sebagai pewakaf dan pilih kaedah berwakaf kepada AWQAF Holdings Berhad.
                         </p>
-                        <Link :href="route('waqaf.howto')" class="mt-5 inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-50">
+                        <a :href="route('waqaf.howto')" class="mt-5 inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-50">
                             Lihat Kaedah Berwakaf <ArrowRightIcon class="h-4 w-4" />
                         </a>
                     </div>
