@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Log;
 
 #[Fillable(['name', 'email', 'password', 'is_admin'])]
 #[Hidden(['password', 'remember_token'])]
@@ -26,7 +27,22 @@ class User extends Authenticatable implements FilamentUser
 
     public function sendPasswordResetNotification($token): void
     {
-        $this->notify(new ResetPassword($token));
+        try {
+            $this->notify(new ResetPassword($token));
+            Log::info('Admin password reset notification handed to mail transport.', [
+                'user_id' => $this->getKey(),
+                'mailer' => config('mail.default'),
+            ]);
+        } catch (\Throwable $exception) {
+            Log::error('Admin password reset notification failed.', [
+                'user_id' => $this->getKey(),
+                'mailer' => config('mail.default'),
+                'exception' => $exception::class,
+                'message' => $exception->getMessage(),
+            ]);
+
+            throw $exception;
+        }
     }
 
     public function routeNotificationForMail($notification = null): string
