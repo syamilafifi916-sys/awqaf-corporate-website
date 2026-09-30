@@ -43,6 +43,15 @@ Route::get('/', function () {
     ]);
 })->name('welcome');
 
+// AGM public documents.
+Route::get('/dokumen/agm/notis-2026', function () {
+    return response()->file(public_path('documents/agm/2026/Notis-AGM-Ke-13-dan-Borang-Proksi.pdf'));
+})->name('agm.notice');
+
+Route::get('/dokumen/laporan/2025', function () {
+    return response()->file(public_path('documents/reports/Penyata-Kewangan-Diaudit-2025.pdf'));
+})->name('reports.financial.2025');
+
 Route::get('/agm/pengesahan-kehadiran', function () {
     Seo::set([
         'title' => 'Pengesahan Kehadiran AGM Ke-13 — AWQAF Holdings Berhad',
