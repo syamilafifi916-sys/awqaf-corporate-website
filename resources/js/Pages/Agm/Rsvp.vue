@@ -63,7 +63,7 @@ const submit = () => {
 
                             <div>
                                 <label for="ic_number" class="text-sm font-semibold text-slate-800">No. Kad Pengenalan</label>
-                                <input id="ic_number" v-model="form.ic_number" type="text" inputmode="numeric" autocomplete="off" required maxlength="14" placeholder="Contoh: 900101101234" class="mt-2 block w-full rounded-lg border-slate-300 text-sm shadow-sm focus:border-emerald-500 focus:ring-emerald-500" />
+                                <input id="ic_number" v-model="form.ic_number" type="text" inputmode="numeric" autocomplete="off" required minlength="12" maxlength="12" pattern="[0-9]{12}" placeholder="Contoh: 900101101234" class="mt-2 block w-full rounded-lg border-slate-300 text-sm shadow-sm focus:border-emerald-500 focus:ring-emerald-500" />
                                 <p class="mt-1.5 text-xs leading-5 text-slate-400">Digunakan untuk tujuan pengesahan kehadiran AGM sahaja.</p>
                                 <p v-if="form.errors.ic_number" class="mt-1.5 text-xs font-medium text-red-600">{{ form.errors.ic_number }}</p>
                             </div>
