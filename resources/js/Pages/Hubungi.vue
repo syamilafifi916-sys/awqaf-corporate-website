@@ -49,20 +49,20 @@ const page = usePage();
                             </div>
                             <span class="flex-none rounded-full bg-slate-200 px-2.5 py-0.5 text-xs font-semibold text-slate-600">Akan Dibuka</span>
                         </div>
-                        <Link :href="route('korporat.reports')" class="flex items-center justify-between gap-4 rounded-2xl border border-slate-100 p-6 transition hover:border-emerald-200 hover:bg-emerald-50/40">
+                        <a :href="route('korporat.reports')" class="flex items-center justify-between gap-4 rounded-2xl border border-slate-100 p-6 transition hover:border-emerald-200 hover:bg-emerald-50/40">
                             <div class="flex items-start gap-4">
                                 <DocumentTextIcon class="h-6 w-6 flex-none text-emerald-700" />
                                 <div><h3 class="font-semibold text-slate-900">Laporan Korporat</h3><p class="mt-1 text-sm text-slate-500">Laporan Tahunan dan Penyata Kewangan Diaudit.</p></div>
                             </div>
                             <ArrowRightIcon class="h-5 w-5 flex-none text-emerald-700" />
-                        </Link>
-                        <Link :href="route('korporat.overview')" class="flex items-center justify-between gap-4 rounded-2xl border border-slate-100 p-6 transition hover:border-emerald-200 hover:bg-emerald-50/40">
+                        </a>
+                        <a :href="route('korporat.overview')" class="flex items-center justify-between gap-4 rounded-2xl border border-slate-100 p-6 transition hover:border-emerald-200 hover:bg-emerald-50/40">
                             <div class="flex items-start gap-4">
                                 <BuildingLibraryIcon class="h-6 w-6 flex-none text-emerald-700" />
                                 <div><h3 class="font-semibold text-slate-900">Mengenai AWQAF</h3><p class="mt-1 text-sm text-slate-500">Maklumat korporat, tadbir urus dan lembaga pengarah.</p></div>
                             </div>
                             <ArrowRightIcon class="h-5 w-5 flex-none text-emerald-700" />
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </div>
