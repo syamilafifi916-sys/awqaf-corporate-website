@@ -106,9 +106,9 @@ const committees = [
             </div>
 
             <div class="mt-6 text-center">
-                <Link :href="route('korporat.reports')" class="text-sm font-semibold text-emerald-700 hover:underline">
+                <a :href="route('korporat.reports')" class="text-sm font-semibold text-emerald-700 hover:underline">
                     Muat Turun Laporan Tahunan Penuh (2015–2024) →
-                </Link>
+                </a>
             </div>
         </section>
 
@@ -172,12 +172,12 @@ const committees = [
 
             <div class="mt-10 rounded-2xl bg-emerald-700 p-8 text-center">
                 <h3 class="text-xl font-semibold text-white">Ada soalan tentang tadbir urus atau laporan kami?</h3>
-                <Link
+                <a
                     :href="route('korporat.reports')"
                     class="mt-6 inline-block rounded-lg bg-white px-6 py-3 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50"
                 >
                     Muat Turun Laporan Tahunan
-                </Link>
+                </a>
             </div>
         </section>
     </PublicLayout>
