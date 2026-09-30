@@ -21,9 +21,9 @@ const sections = [
     <PublicLayout>
         <section class="bg-slate-950">
             <div class="mx-auto max-w-5xl px-6 py-14 lg:px-8 lg:py-16">
-                <Link :href="route('korporat.leadership.index')" class="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
+                <a :href="route('korporat.leadership.index')" class="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
                     <ArrowLeftIcon class="h-4 w-4" /> Lembaga Pengarah
-                </Link>
+                </a>
             </div>
         </section>
 
@@ -58,9 +58,9 @@ const sections = [
 
                     <!-- Related governance -->
                     <div class="mt-12 flex flex-wrap gap-4 border-t border-slate-100 pt-8">
-                        <Link :href="route('korporat.overview')" class="text-sm font-semibold text-emerald-700 hover:underline">Struktur Korporat</Link>
-                        <Link :href="route('ketelusan')" class="text-sm font-semibold text-emerald-700 hover:underline">Laporan &amp; Tadbir Urus</Link>
-                        <Link :href="route('korporat.leadership.index')" class="text-sm font-semibold text-emerald-700 hover:underline">Semua Ahli Lembaga</Link>
+                        <a :href="route('korporat.overview')" class="text-sm font-semibold text-emerald-700 hover:underline">Struktur Korporat</a>
+                        <a :href="route('ketelusan')" class="text-sm font-semibold text-emerald-700 hover:underline">Laporan &amp; Tadbir Urus</a>
+                        <a :href="route('korporat.leadership.index')" class="text-sm font-semibold text-emerald-700 hover:underline">Semua Ahli Lembaga</a>
                     </div>
                 </div>
             </div>
@@ -71,10 +71,10 @@ const sections = [
             <div class="mx-auto max-w-6xl px-6 lg:px-8">
                 <h2 class="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">Ahli Lembaga Lain</h2>
                 <div class="mt-6 flex flex-wrap gap-3">
-                    <Link v-for="o in others" :key="o.slug" :href="route('korporat.leadership.show', o.slug)"
+                    <a v-for="o in others" :key="o.slug" :href="route('korporat.leadership.show', o.slug)"
                         class="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-emerald-200 hover:text-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
                         {{ o.full_name }}
-                    </Link>
+                    </a>
                 </div>
             </div>
         </section>
