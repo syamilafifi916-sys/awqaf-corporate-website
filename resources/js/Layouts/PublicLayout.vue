@@ -153,9 +153,9 @@ onBeforeUnmount(() => {
     <div class="min-h-screen bg-white text-slate-800">
         <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/95 shadow-[0_1px_0_rgba(15,23,42,0.02)] backdrop-blur-xl">
             <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-6 lg:px-8">
-                <Link href="/" class="flex items-center" aria-label="AWQAF Holdings Berhad — Laman Utama">
+                <a href="/" class="flex items-center" aria-label="AWQAF Holdings Berhad — Laman Utama">
                     <img src="/images/brand/awqaf-symbol.png" alt="AWQAF Holdings Berhad" class="h-9 w-auto sm:h-10" />
-                </Link>
+                </a>
 
                 <nav class="hidden items-center gap-1 lg:flex" aria-label="Navigasi utama">
                     <div
@@ -167,7 +167,7 @@ onBeforeUnmount(() => {
                         @focusout="group.children && onGroupFocusout(group.label, $event)"
                         @keydown="group.children && onGroupKeydown(group.label, $event)"
                     >
-                        <Link
+                        <a
                             :href="group.href"
                             class="inline-flex min-h-10 items-center gap-1 whitespace-nowrap rounded-lg px-3 py-2 text-[13px] font-semibold text-slate-700 transition hover:bg-slate-50 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
                             :aria-haspopup="group.children ? 'true' : undefined"
@@ -176,7 +176,7 @@ onBeforeUnmount(() => {
                         >
                             <span :class="group.label === 'AGM 2026' ? 'rounded-md bg-amber-100 px-2 py-1 text-amber-800 ring-1 ring-amber-200' : ''">{{ group.label }}</span>
                             <ChevronDownIcon v-if="group.children" class="h-4 w-4 text-slate-400" aria-hidden="true" />
-                        </Link>
+                        </a>
 
                         <Transition
                             enter-active-class="transition duration-150 ease-out"
@@ -195,7 +195,7 @@ onBeforeUnmount(() => {
                                 <div class="overflow-hidden rounded-xl border border-slate-100 bg-white py-2 shadow-lg shadow-slate-900/5 ring-1 ring-slate-900/5">
                                     <template v-for="child in group.children" :key="child.label">
                                         <a v-if="child.document" :href="child.href" target="_blank" rel="noopener" class="block px-4 py-2 text-sm text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 focus-visible:bg-emerald-50 focus-visible:text-emerald-700 focus-visible:outline-none">{{ child.label }}</a>
-                                        <Link v-else :href="child.href" class="block px-4 py-2 text-sm text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 focus-visible:bg-emerald-50 focus-visible:text-emerald-700 focus-visible:outline-none">{{ child.label }}</Link>
+                                        <a v-else :href="child.href" class="block px-4 py-2 text-sm text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 focus-visible:bg-emerald-50 hover:text-emerald-700 focus-visible:outline-none">{{ child.label }}</a>
                                     </template>
                                 </div>
                             </div>
@@ -285,7 +285,7 @@ onBeforeUnmount(() => {
                             <div v-if="group.children" class="mt-0.5 space-y-0.5 border-l border-slate-100 pl-3">
                                 <template v-for="child in group.children" :key="child.label">
                                     <a v-if="child.document" :href="child.href" target="_blank" rel="noopener" class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">{{ child.label }}</a>
-                                    <Link v-else :href="child.href" class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">{{ child.label }}</Link>
+                                    <a v-else :href="child.href" class="block rounded-lg px-3 py-2 text-sm text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">{{ child.label }}</a>
                                 </template>
                             </div>
                         </div>
