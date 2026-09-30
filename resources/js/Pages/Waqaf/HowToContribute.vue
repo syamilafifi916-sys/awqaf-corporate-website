@@ -40,9 +40,9 @@ import { Head, Link } from '@inertiajs/vue3';
                         Sumbangan tetap setiap bulan, tanpa perlu ingat untuk berwakaf berulang kali — jumlah kecil
                         yang konsisten membawa impak besar dalam jangka panjang.
                     </p>
-                    <Link :href="route('waqaf.monthly')" class="mt-4 inline-block text-sm font-semibold text-emerald-700 hover:underline">
+                    <a :href="route('waqaf.monthly')" class="mt-4 inline-block text-sm font-semibold text-emerald-700 hover:underline">
                         Ketahui lebih lanjut →
-                    </Link>
+                    </a>
                 </div>
 
                 <div class="rounded-2xl border border-slate-100 p-8">
