@@ -321,11 +321,13 @@ onBeforeUnmount(() => {
             <slot />
         </main>
 
-        <footer class="border-t border-slate-800 bg-[#070b12] text-white">
-            <div class="mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-8 px-5 py-10 sm:grid-cols-4 sm:px-6 lg:px-8">
+        <footer class="border-t border-[#17332d] bg-gradient-to-br from-[#07110f] via-[#081512] to-[#070b12] text-white">
+            <div class="mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-7 px-5 py-8 sm:grid-cols-4 sm:px-6 sm:py-10 lg:px-8">
                 <div class="col-span-2 sm:col-span-1">
-                    <img src="/images/brand/awqaf-symbol.png" alt="AWQAF Holdings Berhad" class="h-11 w-auto" />
-                    <p class="mt-4 text-sm leading-6 text-slate-400">
+                    <div class="inline-flex rounded-xl border border-[#d8cfb9]/20 bg-[#f8f5ed] px-3.5 py-2.5 shadow-[0_8px_25px_rgba(0,0,0,0.16)]">
+                        <img src="/images/brand/awqaf-symbol.png" alt="AWQAF Holdings Berhad" class="h-10 w-auto object-contain sm:h-11" />
+                    </div>
+                    <p class="mt-4 max-w-xs text-sm leading-6 text-slate-400">
                         AWQAF Holdings Berhad — memacu pengurusan Waqaf Korporat untuk kelestarian ummah.
                     </p>
                 </div>
@@ -333,32 +335,32 @@ onBeforeUnmount(() => {
                 <div>
                     <h2 class="text-sm font-semibold text-white">Wakaf</h2>
                     <ul class="mt-4 space-y-2.5 text-sm text-slate-400">
-                        <li><a :href="route('waqaf.corporate')" class="hover:text-emerald-700">Waqaf Korporat</a></li>
-                        <li><a :href="route('waqaf.howto')" class="font-medium text-emerald-700 hover:text-emerald-800">Wakaf Sekarang</a></li>
-                        <li><a :href="route('waqaf.categories')" class="hover:text-emerald-700">Kategori Pewakaf</a></li>
+                        <li><a :href="route('waqaf.corporate')" class="transition hover:text-[#d5b96e]">Waqaf Korporat</a></li>
+                        <li><a :href="route('waqaf.howto')" class="font-medium text-[#d5b96e] transition hover:text-[#ead69e]">Wakaf Sekarang</a></li>
+                        <li><a :href="route('waqaf.categories')" class="transition hover:text-[#d5b96e]">Kategori Pewakaf</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h2 class="text-sm font-semibold text-white">Korporat</h2>
                     <ul class="mt-4 space-y-2.5 text-sm text-slate-400">
-                        <li><a :href="route('korporat.overview')" class="hover:text-emerald-700">Mengenai AWQAF</a></li>
-                        <li><a :href="route('korporat.leadership.index')" class="hover:text-emerald-700">Lembaga Pengarah</a></li>
-                        <li><a :href="route('hubungi')" class="hover:text-emerald-700">Hubungi Kami</a></li>
+                        <li><a :href="route('korporat.overview')" class="transition hover:text-[#d5b96e]">Mengenai AWQAF</a></li>
+                        <li><a :href="route('korporat.leadership.index')" class="transition hover:text-[#d5b96e]">Lembaga Pengarah</a></li>
+                        <li><a :href="route('hubungi')" class="transition hover:text-[#d5b96e]">Hubungi Kami</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h2 class="text-sm font-semibold text-white">Laporan</h2>
                     <ul class="mt-4 space-y-2.5 text-sm text-slate-400">
-                        <li><a :href="route('korporat.reports')" class="hover:text-emerald-700">Laporan Tahunan</a></li>
-                        <li><a :href="route('korporat.reports')" class="hover:text-emerald-700">Penyata Kewangan</a></li>
-                        <li><a :href="route('ketelusan')" class="hover:text-emerald-700">Laporan &amp; Tadbir Urus</a></li>
+                        <li><a :href="route('korporat.reports')" class="transition hover:text-[#d5b96e]">Laporan Tahunan</a></li>
+                        <li><a :href="route('korporat.reports')" class="transition hover:text-[#d5b96e]">Penyata Kewangan</a></li>
+                        <li><a :href="route('ketelusan')" class="transition hover:text-[#d5b96e]">Laporan &amp; Tadbir Urus</a></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="border-t border-white/10 px-5 py-5 text-center text-xs text-slate-500 lg:px-8">
+            <div class="border-t border-white/10 px-5 py-4 text-center text-xs text-slate-500 lg:px-8">
                 © {{ new Date().getFullYear() }} AWQAF Holdings Berhad. Hak cipta terpelihara.
             </div>
         </footer>
