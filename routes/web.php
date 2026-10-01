@@ -43,6 +43,15 @@ Route::get('/', function () {
     ]);
 })->name('welcome');
 
+Route::get('/agm', function () {
+    Seo::set([
+        'title' => 'AGM Ke-13 — AWQAF Holdings Berhad',
+        'description' => 'Pusat rasmi Mesyuarat Agung Tahunan Ke-13 AWQAF Holdings Berhad: RSVP, Notis AGM, Borang Proksi dan Penyata Kewangan Diaudit 2025.',
+    ]);
+
+    return Inertia::render('Agm/Index');
+})->name('agm.index');
+
 // AGM public documents.
 Route::get('/dokumen/agm/notis-2026', function () {
     return response()->file(public_path('documents/agm/2026/Notis-AGM-Ke-13-dan-Borang-Proksi.pdf'));
