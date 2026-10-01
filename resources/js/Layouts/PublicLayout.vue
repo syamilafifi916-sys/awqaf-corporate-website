@@ -61,7 +61,8 @@ const navGroups = computed(() => [
         href: '/agm/pengesahan-kehadiran',
         children: [
             { label: 'Pengesahan Kehadiran', href: '/agm/pengesahan-kehadiran' },
-            { label: 'Notis AGM & Borang Proksi', href: '/dokumen/agm/notis-2026', document: true },
+            { label: 'Notis AGM Ke-13', href: '/dokumen/agm/notis-2026', document: true },
+            { label: 'Borang Proksi · Akhir 19 Oktober', href: '/documents/agm/2026/Borang-Proksi-AGM-Ke-13.pdf', document: true },
             { label: 'Penyata Kewangan Diaudit 2025', href: '/dokumen/laporan/2025', document: true },
         ],
     },
