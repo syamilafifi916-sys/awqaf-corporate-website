@@ -105,7 +105,7 @@ const programmes = [
 const facts = [
     { value: '3,431', label: 'Ahli & Pewakaf (2024)' },
     { value: 'RM13.27 juta', label: 'Dana Wakaf Kumpulan & Ahli (Ogos 2024)' },
-    { value: '2015–2024', label: 'Penyata Kewangan Diaudit' },
+    { value: '2015–2025', label: 'Penyata Kewangan Diaudit' },
 ];
 
 // M3 — policy-neutral stewardship model (no allocation ratio on the homepage).
