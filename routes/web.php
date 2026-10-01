@@ -47,6 +47,8 @@ Route::get('/agm', function () {
     Seo::set([
         'title' => 'AGM Ke-13 — AWQAF Holdings Berhad',
         'description' => 'Pusat rasmi Mesyuarat Agung Tahunan Ke-13 AWQAF Holdings Berhad: RSVP, Notis AGM, Borang Proksi dan Penyata Kewangan Diaudit 2025.',
+        'image' => asset('images/brand/awqaf-symbol.png'),
+        'type' => 'website',
     ]);
 
     return Inertia::render('Agm/Index');
