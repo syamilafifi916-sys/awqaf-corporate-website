@@ -69,7 +69,7 @@ class RequestPasswordReset extends \Filament\Pages\Auth\PasswordReset\RequestPas
                 try {
                     $notification = new ResetPasswordNotification($token);
                     $notification->url = Filament::getResetPasswordUrl($token, $user);
-                    $user->notify($notification);
+                    $user->notifyNow($notification);
 
                     Log::warning('Filament admin password reset notification completed.', [
                         'user_id' => $user->getAuthIdentifier(),
