@@ -167,7 +167,7 @@ const pillars = [
 
                         <div class="px-4 pb-4 pt-3 sm:px-8 sm:pb-7 sm:pt-5">
                             <p class="text-[13px] leading-5 text-slate-500">
-                                Dokumen AGM Ke-13 dan Penyata Kewangan Diaudit 2025 tersedia untuk semakan.
+                                Dokumen AGM Ke-13, Borang Proksi dan Penyata Kewangan Diaudit 2025 tersedia untuk semakan.
                             </p>
 
                             <a href="/agm/pengesahan-kehadiran" class="mt-3 flex min-h-11 w-full items-center justify-between rounded-xl bg-emerald-600 px-4 text-[13px] font-semibold text-white shadow-sm transition hover:bg-emerald-500 sm:mt-4 sm:min-h-12 sm:px-5 sm:text-sm">
@@ -183,9 +183,17 @@ const pillars = [
                                     <EyeIcon class="h-4 w-4 text-slate-500" /> Baca Notis AGM
                                 </button>
                                 <a href="/documents/agm/2026/Notis-AGM-Ke-13-dan-Borang-Proksi.pdf" download class="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-[13px] font-semibold text-slate-800 transition hover:bg-slate-50">
-                                    <ArrowDownTrayIcon class="h-4 w-4 text-slate-500" /> Muat Turun Notis &amp; Proksi
+                                    <ArrowDownTrayIcon class="h-4 w-4 text-slate-500" /> Muat Turun Notis AGM
                                 </a>
                             </div>
+
+                            <a href="/documents/agm/2026/Borang-Proksi-AGM-Ke-13.pdf" target="_blank" rel="noopener" class="mt-3 flex w-full items-center justify-between rounded-xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-left transition hover:bg-amber-50">
+                                <span class="flex min-w-0 items-center gap-3">
+                                    <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-amber-700 ring-1 ring-amber-200"><DocumentTextIcon class="h-4 w-4" /></span>
+                                    <span><span class="block text-[13px] font-semibold text-slate-900">Borang Proksi AGM Ke-13</span><span class="mt-0.5 block text-[11px] font-semibold text-amber-700">Tarikh akhir: 19 Oktober 2026</span></span>
+                                </span>
+                                <ArrowDownTrayIcon class="h-4 w-4 shrink-0 text-amber-700" />
+                            </a>
 
                             <button type="button" class="mt-3 flex w-full items-center justify-between rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-3 text-left transition hover:border-emerald-200 hover:bg-emerald-50/50" @click="openReader('financial')">
                                 <span class="flex min-w-0 items-center gap-3">
