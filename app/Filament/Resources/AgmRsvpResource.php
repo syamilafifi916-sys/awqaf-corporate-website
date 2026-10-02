@@ -37,6 +37,11 @@ class AgmRsvpResource extends Resource
                         'tidak_hadir' => 'Tidak Hadir',
                         default => ucfirst(str_replace('_', ' ', $state)),
                     })
+                    ->color(fn (string $state): string => match ($state) {
+                        'hadir' => 'success',
+                        'tidak_hadir' => 'danger',
+                        default => 'gray',
+                    })
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')->label('Dihantar')->dateTime('d M Y, h:i A')->sortable(),
             ])
