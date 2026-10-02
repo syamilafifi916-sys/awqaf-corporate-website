@@ -8,6 +8,10 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
+    submittedDetails: {
+        type: Object,
+        default: null,
+    },
 });
 
 const form = useForm({
@@ -52,6 +56,22 @@ const submit = () => {
                             <CheckCircleIcon class="h-8 w-8 text-emerald-700" />
                             <h2 class="mt-3 text-lg font-bold text-slate-950">Pengesahan Kehadiran Berjaya Dihantar</h2>
                             <p class="mt-1 text-sm leading-6 text-slate-600">Terima kasih. Maklumat pengesahan kehadiran anda telah berjaya diterima dan direkodkan.</p>
+                            <div v-if="props.submittedDetails" class="mt-4 rounded-lg border border-emerald-200 bg-white p-4 text-sm">
+                                <dl class="grid gap-3 sm:grid-cols-2">
+                                    <div class="sm:col-span-2">
+                                        <dt class="text-xs font-semibold uppercase tracking-wide text-slate-400">Nama</dt>
+                                        <dd class="mt-1 font-semibold text-slate-900">{{ props.submittedDetails.name }}</dd>
+                                    </div>
+                                    <div>
+                                        <dt class="text-xs font-semibold uppercase tracking-wide text-slate-400">No. Kad Pengenalan</dt>
+                                        <dd class="mt-1 font-medium text-slate-800">{{ props.submittedDetails.ic_number_masked }}</dd>
+                                    </div>
+                                    <div>
+                                        <dt class="text-xs font-semibold uppercase tracking-wide text-slate-400">Kehadiran</dt>
+                                        <dd class="mt-1 font-bold" :class="props.submittedDetails.attendance === 'Hadir' ? 'text-emerald-700' : 'text-red-600'">{{ props.submittedDetails.attendance }}</dd>
+                                    </div>
+                                </dl>
+                            </div>
                         <div class="mt-4 grid gap-2 sm:grid-cols-2">
                                 <Link href="/agm" class="inline-flex min-h-10 items-center justify-center rounded-lg border border-[#bca15d] bg-white px-4 py-2 text-sm font-semibold text-[#173c33] transition hover:bg-[#faf7ee]">Kembali ke Halaman AGM</Link>
                                 <a href="/dokumen/agm/notis-2026" target="_blank" rel="noopener" class="inline-flex min-h-10 items-center justify-center rounded-lg bg-[#123d32] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#1b4b3f]">Baca Notis AGM</a>
