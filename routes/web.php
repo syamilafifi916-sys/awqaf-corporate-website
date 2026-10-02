@@ -71,6 +71,7 @@ Route::get('/agm/pengesahan-kehadiran', function () {
 
     return Inertia::render('Agm/Rsvp', [
         'submitted' => session('agm_rsvp_submitted', false),
+        'submittedDetails' => session('agm_rsvp_details'),
     ]);
 })->name('agm.rsvp');
 
@@ -86,7 +87,14 @@ Route::post('/agm/pengesahan-kehadiran', function (Request $request) {
 
     AgmRsvp::create($validated);
 
-    return redirect()->route('agm.rsvp')->with('agm_rsvp_submitted', true);
+    return redirect()->route('agm.rsvp')->with([
+        'agm_rsvp_submitted' => true,
+        'agm_rsvp_details' => [
+            'name' => $validated['name'],
+            'ic_number_masked' => '********'.substr($validated['ic_number'], -4),
+            'attendance' => $validated['attendance'] === 'hadir' ? 'Hadir' : 'Tidak Hadir',
+        ],
+    ]);
 })->middleware('throttle:10,1')->name('agm.rsvp.store');
 
 Route::get('/wakaf/wakaf-korporat', function () {
