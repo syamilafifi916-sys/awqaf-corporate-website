@@ -70,7 +70,7 @@ Route::get('/agm/pengesahan-kehadiran', function () {
     ]);
 
     return Inertia::render('Agm/Rsvp', [
-        'submitted' => session('agm_rsvp_submitted', false),
+        'submitted' => request()->boolean('submitted') || session('agm_rsvp_submitted', false),
         'submittedDetails' => session('agm_rsvp_details'),
     ]);
 })->name('agm.rsvp');
@@ -87,7 +87,7 @@ Route::post('/agm/pengesahan-kehadiran', function (Request $request) {
 
     AgmRsvp::create($validated);
 
-    return redirect()->route('agm.rsvp')->with([
+    return redirect()->route('agm.rsvp', ['submitted' => 1])->with([
         'agm_rsvp_submitted' => true,
         'agm_rsvp_details' => [
             'name' => $validated['name'],
