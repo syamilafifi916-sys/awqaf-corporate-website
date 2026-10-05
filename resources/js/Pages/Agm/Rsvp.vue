@@ -16,7 +16,7 @@ const props = defineProps({
 });
 
 const submissionConfirmed = ref(props.submitted);
-const localSubmittedDetails = ref(localSubmittedDetails);
+const localSubmittedDetails = ref(props.submittedDetails);
 
 const form = useForm({
     name: '',
@@ -38,7 +38,7 @@ const submit = () => {
             // a successful response (no validation errors), show an immediate and
             // deterministic acknowledgement to the member.
             submissionConfirmed.value = true;
-            localSubmittedDetails.value = localSubmittedDetails || submittedValues;
+            localSubmittedDetails.value = props.submittedDetails || submittedValues;
 
             nextTick(() => {
                 document.getElementById('rsvp-confirmation')?.scrollIntoView({
