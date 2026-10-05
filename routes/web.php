@@ -81,10 +81,22 @@ Route::get('/agm/pengesahan-kehadiran', function () {
     ]);
 
     return Inertia::render('Agm/Rsvp', [
-        'submitted' => request()->boolean('submitted') || session('agm_rsvp_submitted', false),
-        'submittedDetails' => session('agm_rsvp_details'),
+        'submitted' => false,
+        'submittedDetails' => null,
     ]);
 })->name('agm.rsvp');
+
+Route::get('/agm/pengesahan-kehadiran/berjaya', function () {
+    Seo::set([
+        'title' => 'Pengesahan Kehadiran Diterima — AGM Ke-13 AWQAF Holdings Berhad',
+        'description' => 'Pengesahan bahawa maklumat kehadiran AGM Ke-13 telah berjaya diterima.',
+    ]);
+
+    return Inertia::render('Agm/Rsvp', [
+        'submitted' => true,
+        'submittedDetails' => session('agm_rsvp_details'),
+    ]);
+})->name('agm.rsvp.success');
 
 Route::post('/agm/pengesahan-kehadiran', function (Request $request) {
     $validated = $request->validate([
@@ -98,14 +110,16 @@ Route::post('/agm/pengesahan-kehadiran', function (Request $request) {
 
     AgmRsvp::create($validated);
 
-    return redirect()->route('agm.rsvp', ['submitted' => 1])->with([
-        'agm_rsvp_submitted' => true,
-        'agm_rsvp_details' => [
-            'name' => $validated['name'],
-            'ic_number_masked' => '********'.substr($validated['ic_number'], -4),
-            'attendance' => $validated['attendance'] === 'hadir' ? 'Hadir' : 'Tidak Hadir',
-        ],
+    session()->flash('agm_rsvp_details', [
+        'name' => $validated['name'],
+        'ic_number_masked' => '********'.substr($validated['ic_number'], -4),
+        'attendance' => $validated['attendance'] === 'hadir' ? 'Hadir' : 'Tidak Hadir',
     ]);
+
+    // Force a full browser navigation to a dedicated success URL.
+    // This avoids any stale Inertia component state/cache making a successful
+    // submission appear to do nothing on the member's screen.
+    return Inertia::location(route('agm.rsvp.success'));
 })->middleware('throttle:10,1')->name('agm.rsvp.store');
 
 Route::get('/wakaf/wakaf-korporat', function () {
