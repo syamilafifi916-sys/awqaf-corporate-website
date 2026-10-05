@@ -2,11 +2,8 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [release/corporate-static-v1]
   pull_request:
-
-# NOTE: Committed ready-to-run but never executed — no remote exists yet
-# (MVP-001 input E-2). Replace ORG below and verify on first push.
 
 jobs:
   test:
@@ -50,7 +47,9 @@ jobs:
           coverage: none
 
       - name: Install composer dependencies
-        run: composer install --prefer-dist --no-progress --no-interaction
+        # composer.json currently includes Resend while composer.lock predates it.
+        # Match the production Docker build until the lock file is regenerated.
+        run: composer update resend/resend-php --with-dependencies --prefer-dist --no-progress --no-interaction
 
       - name: Prepare environment
         run: |
