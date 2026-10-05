@@ -2,6 +2,7 @@
 import PublicLayout from '@/Layouts/PublicLayout.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import { CheckCircleIcon } from '@heroicons/vue/24/outline';
+import { nextTick, ref } from 'vue';
 
 const props = defineProps({
     submitted: {
@@ -14,6 +15,9 @@ const props = defineProps({
     },
 });
 
+const submissionConfirmed = ref(props.submitted);
+const localSubmittedDetails = ref(localSubmittedDetails);
+
 const form = useForm({
     name: '',
     ic_number: '',
@@ -21,8 +25,28 @@ const form = useForm({
 });
 
 const submit = () => {
+    const submittedValues = {
+        name: form.name,
+        ic_number_masked: form.ic_number.length >= 4 ? '********' + form.ic_number.slice(-4) : '',
+        attendance: form.attendance === 'hadir' ? 'Hadir' : 'Tidak Hadir',
+    };
+
     form.post('/agm/pengesahan-kehadiran', {
         preserveScroll: true,
+        onSuccess: () => {
+            // Do not rely solely on the redirect/session props. Once Inertia confirms
+            // a successful response (no validation errors), show an immediate and
+            // deterministic acknowledgement to the member.
+            submissionConfirmed.value = true;
+            localSubmittedDetails.value = localSubmittedDetails || submittedValues;
+
+            nextTick(() => {
+                document.getElementById('rsvp-confirmation')?.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center',
+                });
+            });
+        },
     });
 };
 </script>
@@ -52,23 +76,23 @@ const submit = () => {
                     </aside>
 
                     <div class="p-5 sm:p-7">
-                        <div v-if="props.submitted" class="rounded-xl border border-emerald-200 bg-emerald-50 p-5">
+                        <div v-if="submissionConfirmed" id="rsvp-confirmation" role="status" aria-live="polite" class="rounded-xl border border-emerald-200 bg-emerald-50 p-5">
                             <CheckCircleIcon class="h-8 w-8 text-emerald-700" />
                             <h2 class="mt-3 text-lg font-bold text-slate-950">Pengesahan Kehadiran Berjaya Dihantar</h2>
                             <p class="mt-1 text-sm leading-6 text-slate-600">Terima kasih. Maklumat pengesahan kehadiran anda telah berjaya diterima dan direkodkan.</p>
-                            <div v-if="props.submittedDetails" class="mt-4 rounded-lg border border-emerald-200 bg-white p-4 text-sm">
+                            <div v-if="localSubmittedDetails" class="mt-4 rounded-lg border border-emerald-200 bg-white p-4 text-sm">
                                 <dl class="grid gap-3 sm:grid-cols-2">
                                     <div class="sm:col-span-2">
                                         <dt class="text-xs font-semibold uppercase tracking-wide text-slate-400">Nama</dt>
-                                        <dd class="mt-1 font-semibold text-slate-900">{{ props.submittedDetails.name }}</dd>
+                                        <dd class="mt-1 font-semibold text-slate-900">{{ localSubmittedDetails.name }}</dd>
                                     </div>
                                     <div>
                                         <dt class="text-xs font-semibold uppercase tracking-wide text-slate-400">No. Kad Pengenalan</dt>
-                                        <dd class="mt-1 font-medium text-slate-800">{{ props.submittedDetails.ic_number_masked }}</dd>
+                                        <dd class="mt-1 font-medium text-slate-800">{{ localSubmittedDetails.ic_number_masked }}</dd>
                                     </div>
                                     <div>
                                         <dt class="text-xs font-semibold uppercase tracking-wide text-slate-400">Kehadiran</dt>
-                                        <dd class="mt-1 font-bold" :class="props.submittedDetails.attendance === 'Hadir' ? 'text-emerald-700' : 'text-red-600'">{{ props.submittedDetails.attendance }}</dd>
+                                        <dd class="mt-1 font-bold" :class="localSubmittedDetails.attendance === 'Hadir' ? 'text-emerald-700' : 'text-red-600'">{{ localSubmittedDetails.attendance }}</dd>
                                     </div>
                                 </dl>
                             </div>
