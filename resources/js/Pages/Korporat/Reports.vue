@@ -6,6 +6,9 @@ defineProps({
     reportsByYear: Object,
 });
 
+const archiveYears = Array.from({ length: 11 }, (_, i) => 2025 - i);
+const reportsForYear = (reportsByYear, year) => reportsByYear?.[year] ?? [];
+const reportForType = (reports, type) => reports.find((report) => report.type === type);
 const typeLabel = (type) => (type === 'annual_report' ? 'Laporan Tahunan' : 'Penyata Kewangan Diaudit');
 
 const collections = [
@@ -116,37 +119,25 @@ const formatRm = (value) => 'RM ' + Number(value).toLocaleString('en-MY');
                 </div>
             </div>
 
-            <div class="mt-8 space-y-8">
-                <div v-if="!reportsByYear || Object.keys(reportsByYear).length === 0" class="rounded-2xl border border-amber-200 bg-amber-50 p-5" role="status">
-                    <h2 class="font-semibold text-slate-900">Arkib laporan sedang disemak</h2>
-                    <p class="mt-2 text-sm leading-relaxed text-slate-700">
-                        Dokumen yang belum disahkan tidak dipaparkan sebagai pautan muat turun.
-                        Untuk salinan laporan terdahulu, sila hubungi
-                        <a href="mailto:admin@awqaf.my" class="font-semibold underline underline-offset-2">admin@awqaf.my</a>.
-                    </p>
-                </div>
-                <div v-else class="rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 text-sm leading-relaxed text-slate-600" role="note">
-                    Paparan ini hanya menyenaraikan fail laporan yang tersedia dan telah disahkan.
-                    Untuk laporan tahun lain, sila hubungi
-                    <a href="mailto:admin@awqaf.my" class="font-semibold text-emerald-800 underline underline-offset-2">admin@awqaf.my</a>.
-                </div>
-                <div v-for="(reports, year) in reportsByYear" :key="year">
-                    <h2 class="text-lg font-semibold text-slate-900">{{ year }}</h2>
-                    <div class="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                        <a
-                            v-for="report in reports"
-                            :key="report.type"
-                            :href="report.url"
-                            target="_blank"
-                            rel="noopener"
-                            class="flex items-center justify-between rounded-xl border border-slate-100 p-4 transition hover:border-emerald-200 hover:bg-emerald-50"
-                        >
-                            <span class="text-sm font-medium text-slate-700">{{ typeLabel(report.type) }}</span>
-                            <span class="text-xs font-semibold text-emerald-700">Muat Turun ↓</span>
-                        </a>
+            <section class="mt-10" aria-labelledby="archive-heading">
+                <h2 id="archive-heading" class="text-2xl font-bold text-slate-900">Arkib Laporan 2015–2025</h2>
+                <p class="mt-2 text-sm leading-relaxed text-slate-600">Senarai tahun lengkap dipaparkan di bawah. Hanya PDF yang disahkan tersedia boleh dimuat turun; dokumen lain ditandakan belum tersedia.</p>
+                <div class="mt-6 space-y-4">
+                    <div v-for="year in archiveYears" :key="year" class="rounded-xl border border-slate-200 bg-white p-5">
+                        <h3 class="text-lg font-bold text-slate-900">{{ year }}</h3>
+                        <div class="mt-3 grid gap-3 sm:grid-cols-2">
+                            <div v-for="type in (year === 2025 ? ['financial_statement'] : ['annual_report', 'financial_statement'])" :key="type" class="flex min-h-16 items-center justify-between gap-3 rounded-lg bg-slate-50 px-4 py-3">
+                                <span class="text-sm font-medium text-slate-800">{{ typeLabel(type) }}</span>
+                                <a v-if="reportForType(reportsForYear(reportsByYear, year), type)"
+                                   :href="reportForType(reportsForYear(reportsByYear, year), type).url"
+                                   target="_blank" rel="noopener noreferrer"
+                                   class="shrink-0 rounded-lg bg-emerald-700 px-3 py-2 text-xs font-bold text-white hover:bg-emerald-800">Lihat PDF ↗</a>
+                                <span v-else class="shrink-0 text-xs font-medium text-amber-800">Belum tersedia</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </section>
     </PublicLayout>
 </template>
