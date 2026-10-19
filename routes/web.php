@@ -261,12 +261,35 @@ Route::get('/korporat/laporan-tahunan', function () {
         'description' => 'Muat turun Laporan Tahunan dan Penyata Kewangan Diaudit AWQAF Holdings Berhad bagi tahun 2015 hingga 2025.',
     ]);
 
-    $reports = Report::orderByDesc('year')->get()->groupBy('year')->map(function ($group) {
+    // Fail-safe: database rows alone do not prove a document is downloadable.
+    // Local reports must exist and have the PDF signature before being linked.
+    // External storage needs an explicit verified manifest created by the audit
+    // process; a configured base URL is not sufficient evidence of availability.
+    $manifestPath = storage_path('app/reports/verified-manifest.json');
+    $verifiedExternal = [];
+    if (is_file($manifestPath)) {
+        $manifest = json_decode(file_get_contents($manifestPath), true);
+        $verifiedExternal = is_array($manifest) ? ($manifest['verified_files'] ?? []) : [];
+    }
+
+    $reports = Report::orderByDesc('year')->get()->filter(function ($report) use ($verifiedExternal) {
+        if (str_starts_with($report->file_path, 'documents/')) {
+            $path = public_path($report->file_path);
+            return is_file($path) && file_get_contents($path, false, null, 0, 5) === '%PDF-';
+        }
+
+        if (filled(config('services.reports.base_url'))) {
+            return in_array(basename($report->file_path), $verifiedExternal, true);
+        }
+
+        $path = storage_path('app/public/'.$report->file_path);
+        return is_file($path) && file_get_contents($path, false, null, 0, 5) === '%PDF-';
+    })->groupBy('year')->map(function ($group) {
         return $group->map(fn ($report) => [
             'type' => $report->type,
             'title' => $report->title,
             'url' => $report->url,
-        ]);
+        ])->values();
     });
 
     return Inertia::render('Korporat/Reports', [

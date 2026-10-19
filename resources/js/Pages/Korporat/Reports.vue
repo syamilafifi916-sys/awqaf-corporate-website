@@ -117,6 +117,19 @@ const formatRm = (value) => 'RM ' + Number(value).toLocaleString('en-MY');
             </div>
 
             <div class="mt-8 space-y-8">
+                <div v-if="!reportsByYear || Object.keys(reportsByYear).length === 0" class="rounded-2xl border border-amber-200 bg-amber-50 p-5" role="status">
+                    <h2 class="font-semibold text-slate-900">Arkib laporan sedang disemak</h2>
+                    <p class="mt-2 text-sm leading-relaxed text-slate-700">
+                        Dokumen yang belum disahkan tidak dipaparkan sebagai pautan muat turun.
+                        Untuk salinan laporan terdahulu, sila hubungi
+                        <a href="mailto:admin@awqaf.my" class="font-semibold underline underline-offset-2">admin@awqaf.my</a>.
+                    </p>
+                </div>
+                <div v-else class="rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 text-sm leading-relaxed text-slate-600" role="note">
+                    Paparan ini hanya menyenaraikan fail laporan yang tersedia dan telah disahkan.
+                    Untuk laporan tahun lain, sila hubungi
+                    <a href="mailto:admin@awqaf.my" class="font-semibold text-emerald-800 underline underline-offset-2">admin@awqaf.my</a>.
+                </div>
                 <div v-for="(reports, year) in reportsByYear" :key="year">
                     <h2 class="text-lg font-semibold text-slate-900">{{ year }}</h2>
                     <div class="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
