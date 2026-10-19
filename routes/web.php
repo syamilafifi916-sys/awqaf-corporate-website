@@ -261,36 +261,33 @@ Route::get('/korporat/laporan-tahunan', function () {
         'description' => 'Muat turun Laporan Tahunan dan Penyata Kewangan Diaudit AWQAF Holdings Berhad bagi tahun 2015 hingga 2025.',
     ]);
 
-    // Fail-safe: database rows alone do not prove a document is downloadable.
-    // Local reports must exist and have the PDF signature before being linked.
-    // External storage needs an explicit verified manifest created by the audit
-    // process; a configured base URL is not sufficient evidence of availability.
-    $manifestPath = storage_path('app/reports/verified-manifest.json');
-    $verifiedExternal = [];
-    if (is_file($manifestPath)) {
-        $manifest = json_decode(file_get_contents($manifestPath), true);
-        $verifiedExternal = is_array($manifest) ? ($manifest['verified_files'] ?? []) : [];
-    }
-
-    $reports = Report::orderByDesc('year')->get()->filter(function ($report) use ($verifiedExternal) {
-        if (str_starts_with($report->file_path, 'documents/')) {
-            $path = public_path($report->file_path);
-            return is_file($path) && file_get_contents($path, false, null, 0, 5) === '%PDF-';
-        }
-
-        if (filled(config('services.reports.base_url'))) {
-            return in_array(basename($report->file_path), $verifiedExternal, true);
-        }
-
-        $path = storage_path('app/public/'.$report->file_path);
-        return is_file($path) && file_get_contents($path, false, null, 0, 5) === '%PDF-';
-    })->groupBy('year')->map(function ($group) {
-        return $group->map(fn ($report) => [
-            'type' => $report->type,
-            'title' => $report->title,
-            'url' => $report->url,
-        ])->values();
+    // Archive source: published GitHub Release reports-v1 (20 named assets).
+    // This is separate from DB seeding and avoids local-storage links on Render.
+    // If a release is replaced, verify its assets before changing this base.
+    $base = 'https://github.com/syamilafifi916-sys/awqaf-corporate-website/releases/download/reports-v1';
+    $reports = collect(range(2015, 2024))->reverse()->mapWithKeys(function ($year) use ($base) {
+        return [$year => collect([
+            [
+                'type' => 'annual_report',
+                'title' => "Laporan Tahunan {$year}",
+                'url' => "{$base}/Annual-Report-AWQAF-{$year}.pdf",
+            ],
+            [
+                'type' => 'financial_statement',
+                'title' => "Penyata Kewangan Diaudit {$year}",
+                'url' => "{$base}/Audited-financial-statement-{$year}.pdf",
+            ],
+        ])];
     });
+
+    $financial2025 = public_path('documents/reports/Penyata-Kewangan-Diaudit-2025.pdf');
+    if (is_file($financial2025) && file_get_contents($financial2025, false, null, 0, 5) === '%PDF-') {
+        $reports->prepend(collect([[
+            'type' => 'financial_statement',
+            'title' => 'Penyata Kewangan Diaudit 2025',
+            'url' => asset('documents/reports/Penyata-Kewangan-Diaudit-2025.pdf'),
+        ]]), 2025);
+    }
 
     return Inertia::render('Korporat/Reports', [
         'reportsByYear' => $reports,
