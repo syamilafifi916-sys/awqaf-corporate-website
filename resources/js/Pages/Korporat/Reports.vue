@@ -42,6 +42,39 @@ const formatRm = (value) => 'RM ' + Number(value).toLocaleString('en-MY');
                 Laporan Tahunan dan Penyata Kewangan Diaudit setiap tahun untuk semakan pewakaf dan orang awam.
             </p>
 
+            <!-- Featured report: links use the same verified backend data as the archive. -->
+            <section v-if="reportForType(reportsForYear(reportsByYear, 2025), 'annual_report')"
+                     class="mt-9 overflow-hidden rounded-2xl border border-emerald-900/15 bg-[#f7f7f2]"
+                     aria-labelledby="featured-report-heading">
+                <div class="grid items-center gap-0 sm:grid-cols-[210px_minmax(0,1fr)]">
+                    <div class="mx-auto w-48 px-4 py-6 sm:w-full sm:px-5 sm:py-7">
+                        <img src="/images/reports/annual-report-2025-cover.svg"
+                             alt="Visual tema Laporan Tahunan AWQAF 2025: Memulih Asas, Memperkukuh Amanah"
+                             class="aspect-[36/49] w-full rounded-md object-cover shadow-lg"
+                             loading="lazy" width="720" height="980" />
+                    </div>
+                    <div class="px-6 pb-7 sm:px-5 sm:py-7">
+                        <p class="text-xs font-bold uppercase tracking-[.16em] text-emerald-800">Laporan Terkini · 2025</p>
+                        <h2 id="featured-report-heading" class="mt-3 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Memulih Asas, Memperkukuh Amanah</h2>
+                        <p class="mt-3 max-w-xl text-sm leading-6 text-slate-600">Laporan Tahunan AWQAF Holdings Berhad 2025 merangkumi sorotan kewangan, penyata Pengerusi, tadbir urus, portfolio pelaburan, aktiviti serta penyata kewangan diaudit.</p>
+                        <p class="mt-3 text-xs text-slate-500">89 halaman · Format PDF</p>
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a :href="reportForType(reportsForYear(reportsByYear, 2025), 'annual_report').url"
+                               target="_blank" rel="noopener noreferrer"
+                               class="inline-flex min-h-11 items-center justify-center rounded-lg bg-emerald-800 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800">
+                                Buka Laporan 2025 ↗
+                            </a>
+                            <a v-if="reportForType(reportsForYear(reportsByYear, 2025), 'financial_statement')"
+                               :href="reportForType(reportsForYear(reportsByYear, 2025), 'financial_statement').url"
+                               target="_blank" rel="noopener noreferrer"
+                               class="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-emerald-700 hover:text-emerald-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800">
+                                Penyata Kewangan ↗
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- AGM Ke-13 -->
             <div class="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white">
                 <div class="border-b border-slate-100 px-5 py-4">
