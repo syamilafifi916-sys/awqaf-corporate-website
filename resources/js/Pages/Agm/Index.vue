@@ -66,7 +66,7 @@ onUnmounted(() => clearInterval(timer));
 
       <section class="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
         <div class="mb-3 flex items-center gap-3"><p class="shrink-0 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500">Maklumat & Dokumen AGM</p><span class="h-px flex-1 bg-[#ddd8ca]"></span></div>
-        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           <Link href="/agm/pengesahan-kehadiran" class="group relative flex min-h-[158px] flex-col overflow-hidden rounded-xl border border-[#315b50] bg-gradient-to-br from-[#16493c] to-[#0d352c] p-4 text-white shadow-[0_12px_28px_rgba(18,61,50,0.14)] transition hover:-translate-y-1 hover:shadow-lg">
             <span class="absolute -right-8 -top-8 h-24 w-24 rounded-full border border-white/10"></span>
             <div class="flex items-center justify-between"><span class="grid h-9 w-9 place-items-center rounded-full bg-[#e5ce8b] text-[#123d32]"><CheckCircleIcon class="h-4.5 w-4.5"/></span><span class="text-[9px] font-bold uppercase tracking-wider text-[#e8d596]">Tindakan Utama</span></div>
@@ -80,6 +80,13 @@ onUnmounted(() => clearInterval(timer));
 
           <a href="/documents/agm/2026/Borang-Proksi-AGM-Ke-13.pdf" target="_blank" rel="noopener" class="group flex min-h-[158px] flex-col rounded-xl border border-[#e2ded3] bg-white p-4 shadow-[0_5px_18px_rgba(30,50,40,0.035)] transition hover:-translate-y-1 hover:border-[#c3aa6d] hover:shadow-md">
             <div class="flex items-center justify-between"><span class="grid h-9 w-9 place-items-center rounded-full bg-[#f5efdf] text-[#8b7134]"><ArrowDownTrayIcon class="h-4.5 w-4.5"/></span><span class="rounded-md bg-red-50 px-2 py-1 text-[9px] font-bold text-red-700">AKHIR 19 OKT</span></div><h2 class="mt-3 text-base font-bold text-[#173c33]">Borang Proksi</h2><p class="mt-1 text-xs leading-5 text-slate-500">Untuk ahli yang melantik wakil menghadiri AGM.</p><span class="mt-auto pt-3 text-xs font-bold text-[#8b7134]">Buka borang ↗</span>
+          </a>
+
+          <a href="/documents/reports/Annual-Report-AWQAF-2025.pdf" target="_blank" rel="noopener noreferrer" class="group flex min-h-[158px] flex-col rounded-xl border border-[#cfb879] bg-[#fbf8ed] p-4 shadow-[0_5px_18px_rgba(30,50,40,0.035)] transition hover:-translate-y-1 hover:border-[#9b803b] hover:shadow-md">
+            <div class="flex items-center justify-between gap-2"><span class="grid h-9 w-9 place-items-center rounded-full bg-[#eae1c3] text-[#806628]"><DocumentTextIcon class="h-4.5 w-4.5"/></span><span class="text-[9px] font-bold uppercase tracking-wider text-[#806628]">Baharu</span></div>
+            <h2 class="mt-3 text-base font-bold text-[#173c33]">Laporan Tahunan 2025</h2>
+            <p class="mt-1 text-xs leading-5 text-slate-600">Memulih Asas, Memperkukuh Amanah · 89 halaman.</p>
+            <span class="mt-auto pt-3 text-xs font-bold text-[#806628]">Buka laporan ↗</span>
           </a>
 
           <Link href="/korporat/laporan-tahunan" class="group flex min-h-[158px] flex-col rounded-xl border border-[#e2ded3] bg-white p-4 shadow-[0_5px_18px_rgba(30,50,40,0.035)] transition hover:-translate-y-1 hover:border-[#c3aa6d] hover:shadow-md">
