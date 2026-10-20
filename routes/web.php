@@ -280,22 +280,30 @@ Route::get('/korporat/laporan-tahunan', function () {
         ])];
     });
 
+    // Keep both 2025 documents under the same year key.
+    // Calling prepend() twice with key 2025 would overwrite the first list.
+    $reports2025 = collect([]);
+
     $annual2025 = public_path('documents/reports/Annual-Report-AWQAF-2025.pdf');
     if (is_file($annual2025) && file_get_contents($annual2025, false, null, 0, 5) === '%PDF-') {
-        $reports->prepend(collect([[
+        $reports2025->push([
             'type' => 'annual_report',
             'title' => 'Laporan Tahunan 2025',
             'url' => asset('documents/reports/Annual-Report-AWQAF-2025.pdf'),
-        ]]), 2025);
+        ]);
     }
 
     $financial2025 = public_path('documents/reports/Penyata-Kewangan-Diaudit-2025.pdf');
     if (is_file($financial2025) && file_get_contents($financial2025, false, null, 0, 5) === '%PDF-') {
-        $reports->prepend(collect([[
+        $reports2025->push([
             'type' => 'financial_statement',
             'title' => 'Penyata Kewangan Diaudit 2025',
             'url' => asset('documents/reports/Penyata-Kewangan-Diaudit-2025.pdf'),
-        ]]), 2025);
+        ]);
+    }
+
+    if ($reports2025->isNotEmpty()) {
+        $reports->prepend($reports2025, 2025);
     }
 
     return Inertia::render('Korporat/Reports', [
