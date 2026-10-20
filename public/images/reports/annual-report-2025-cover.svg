@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="980" viewBox="0 0 720 980" role="img" aria-labelledby="title desc">
+<title id="title">Laporan Tahunan AWQAF 2025</title>
+<desc id="desc">Visual muka depan laporan tahunan 2025 dengan tema Memulih Asas, Memperkukuh Amanah</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#103d38"/><stop offset="1" stop-color="#092622"/></linearGradient><linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#b9a47d"/><stop offset="1" stop-color="#eadbb7"/></linearGradient></defs>
+<rect width="720" height="980" fill="url(#bg)"/>
+<path d="M355 -70L790 365M430 -90L870 350M505 -115L950 330" stroke="#ffffff" stroke-opacity=".075" stroke-width="24"/>
+<path d="M-160 840L540 140M-80 940L620 240M0 1040L700 340" stroke="#d0b789" stroke-opacity=".12" stroke-width="28"/>
+<rect x="48" y="48" width="624" height="884" rx="4" fill="none" stroke="#bca77f" stroke-opacity=".55" stroke-width="2"/>
+<text x="83" y="130" fill="#e5dcc8" font-family="Arial,sans-serif" font-size="29" letter-spacing="9">AWQAF</text>
+<text x="83" y="163" fill="#e5dcc8" font-family="Arial,sans-serif" font-size="13" letter-spacing="6">HOLDINGS BERHAD</text>
+<rect x="83" y="212" width="75" height="4" fill="url(#gold)"/>
+<text x="78" y="390" fill="#f4eedf" font-family="Arial,sans-serif" font-size="102" font-weight="700" letter-spacing="-3">2025</text>
+<text x="83" y="459" fill="#eadbb7" font-family="Arial,sans-serif" font-size="41" font-weight="700" letter-spacing="1">LAPORAN</text>
+<text x="83" y="511" fill="#eadbb7" font-family="Arial,sans-serif" font-size="41" font-weight="700" letter-spacing="1">TAHUNAN</text>
+<path d="M83 565H605" stroke="#cfb888" stroke-opacity=".7"/>
+<text x="83" y="636" fill="#fffaf0" font-family="Arial,sans-serif" font-size="29">Memulih Asas,</text>
+<text x="83" y="677" fill="#fffaf0" font-family="Arial,sans-serif" font-size="29">Memperkukuh Amanah</text>
+<text x="83" y="871" fill="#e5dcc8" font-family="Arial,sans-serif" font-size="14" letter-spacing="2">WAQAF KORPORAT® · SEJAK 2012</text>
+<text x="83" y="901" fill="#cbbd9e" font-family="Arial,sans-serif" font-size="13">201201031092 (1015578-X)</text>
+</svg>
