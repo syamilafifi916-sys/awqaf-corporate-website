@@ -126,7 +126,7 @@ const formatRm = (value) => 'RM ' + Number(value).toLocaleString('en-MY');
                     <div v-for="year in archiveYears" :key="year" class="rounded-xl border border-slate-200 bg-white p-5">
                         <h3 class="text-lg font-bold text-slate-900">{{ year }}</h3>
                         <div class="mt-3 grid gap-3 sm:grid-cols-2">
-                            <div v-for="type in (year === 2025 ? ['financial_statement'] : ['annual_report', 'financial_statement'])" :key="type" class="flex min-h-16 items-center justify-between gap-3 rounded-lg bg-slate-50 px-4 py-3">
+                            <div v-for="type in ['annual_report', 'financial_statement']" :key="type" class="flex min-h-16 items-center justify-between gap-3 rounded-lg bg-slate-50 px-4 py-3">
                                 <span class="text-sm font-medium text-slate-800">{{ typeLabel(type) }}</span>
                                 <a v-if="reportForType(reportsForYear(reportsByYear, year), type)"
                                    :href="reportForType(reportsForYear(reportsByYear, year), type).url"
