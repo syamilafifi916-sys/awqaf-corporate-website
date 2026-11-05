@@ -1,0 +1,55 @@
+name: AWQAF Dependency Remediation Candidate
+
+on:
+  push:
+    branches: [security/remediate-dependencies-20261105]
+    paths:
+      - .github/workflows/dependency-remediation-candidate.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  prepare-and-verify:
+    if: github.ref == 'refs/heads/security/remediate-dependencies-20261105'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: true
+          ref: security/remediate-dependencies-20261105
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.5'
+          extensions: mbstring, pdo_pgsql, intl, zip, gd
+          tools: composer:v2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+      - name: Update PHP dependency lock within declared constraints
+        run: composer update --no-interaction --prefer-dist --no-scripts --no-plugins --with-all-dependencies
+      - name: Apply non-breaking npm advisory fixes
+        run: npm audit fix --ignore-scripts --no-fund
+      - name: Verify Composer advisories
+        run: composer audit --locked --no-interaction
+      - name: Verify npm advisories
+        run: npm audit --audit-level=high
+      - name: Verify frontend build
+        run: npm run build
+      - name: Commit verified dependency lockfiles to isolated branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add composer.lock package-lock.json package.json
+          if git diff --cached --quiet; then
+            echo "No lockfile changes necessary."
+            exit 0
+          fi
+          git commit -m "fix(security): refresh verified AWQAF dependency lockfiles"
+          git push origin HEAD:security/remediate-dependencies-20261105
