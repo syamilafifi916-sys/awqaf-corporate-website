@@ -11,10 +11,12 @@ use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 
 Route::get('/', function () {
-    $homepage = HomepageSetting::query()
-        ->where('is_published', true)
-        ->latest('published_at')
-        ->first();
+    $homepage = env('AWQAF_RECOVERY_MODE', false)
+        ? null
+        : HomepageSetting::query()
+            ->where('is_published', true)
+            ->latest('published_at')
+            ->first();
 
     Seo::set([
         'title' => $homepage?->seo_title
@@ -74,6 +76,16 @@ Route::get('/dokumen/laporan/2025', function () {
     return response()->file(public_path('documents/reports/Penyata-Kewangan-Diaudit-2025.pdf'));
 })->name('reports.financial.2025');
 
+// Recovery mode must not accept RSVP submissions that cannot be persisted.
+$agmUnavailable = function () {
+    return response('<!doctype html><html lang="ms"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Perkhidmatan Sementara Tidak Tersedia — AWQAF</title></head><body style="font-family:system-ui,sans-serif;max-width:38rem;margin:12vh auto;padding:1.5rem;color:#172033"><h1>Pengesahan kehadiran tidak tersedia buat sementara waktu</h1><p>Sistem pengesahan kehadiran AGM sedang diselenggara. Tiada maklumat pengesahan baharu diterima melalui laman ini buat masa sekarang.</p><p><a href="/agm">Kembali ke halaman AGM</a></p></body></html>', 503, ['Content-Type' => 'text/html; charset=UTF-8', 'Retry-After' => '3600']);
+};
+
+if (env('AWQAF_RECOVERY_MODE', false)) {
+    Route::get('/agm/pengesahan-kehadiran', $agmUnavailable)->name('agm.rsvp');
+    Route::get('/agm/pengesahan-kehadiran/berjaya', $agmUnavailable)->name('agm.rsvp.success');
+    Route::post('/agm/pengesahan-kehadiran', $agmUnavailable)->name('agm.rsvp.store');
+} else {
 Route::get('/agm/pengesahan-kehadiran', function () {
     Seo::set([
         'title' => 'Pengesahan Kehadiran AGM Ke-13 — AWQAF Holdings Berhad',
@@ -121,6 +133,8 @@ Route::post('/agm/pengesahan-kehadiran', function (Request $request) {
     // submission appear to do nothing on the member's screen.
     return Inertia::location(route('agm.rsvp.success'));
 })->middleware('throttle:10,1')->name('agm.rsvp.store');
+}
+
 
 Route::get('/wakaf/wakaf-korporat', function () {
     Seo::set([
@@ -201,8 +215,8 @@ Route::get('/ketelusan', function () {
     ]);
 
     return Inertia::render('Ketelusan', [
-        'latestAnnualReport' => Report::where('type', 'annual_report')->orderByDesc('year')->first(),
-        'latestFinancialStatement' => Report::where('type', 'financial_statement')->orderByDesc('year')->first(),
+        'latestAnnualReport' => env('AWQAF_RECOVERY_MODE', false) ? null : Report::where('type', 'annual_report')->orderByDesc('year')->first(),
+        'latestFinancialStatement' => env('AWQAF_RECOVERY_MODE', false) ? null : Report::where('type', 'financial_statement')->orderByDesc('year')->first(),
     ]);
 })->name('ketelusan');
 
