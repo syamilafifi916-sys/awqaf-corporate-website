@@ -10,13 +10,8 @@ const showAgmAnnouncement = ref(false);
 const showAgmReader = ref(false);
 const showFinancialReader = ref(false);
 
-onMounted(() => {
-    if (!sessionStorage.getItem('awqaf-agm-2026-dismissed')) {
-        window.setTimeout(() => {
-            showAgmAnnouncement.value = true;
-        }, 550);
-    }
-});
+// AGM Ke-13 telah selesai. Popup pengumuman tidak lagi dibuka secara automatik.
+// Halaman /agm dan dokumen berkaitan kekal tersedia sebagai arkib.
 
 const closeAgmAnnouncement = () => {
     showAgmAnnouncement.value = false;
